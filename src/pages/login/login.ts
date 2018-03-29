@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the LoginPage page.
@@ -23,7 +24,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
-              // private logger: LoggerService
   ) {
 
     this.credentialsForm = this.formBuilder.group({
@@ -33,9 +33,10 @@ export class LoginPage {
   }
 
 
-
   onSignIn(){
-    console.log('Login efectuado');
+      if(true){
+        this.navCtrl.push(TabsPage, {user_id: 10});
+      }
   }
 
   onPasswordForget(){

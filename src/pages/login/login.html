@@ -10,13 +10,19 @@
 
     <form [formGroup]="credentialsForm">
 
-      <ion-item>
+      <div id="titulo" text-center="">
+        <img src="../../assets/imgs/user-icon.png">
+        <h3>Aplicacao de cadastramento</h3>
+      </div>
+
+
+      <ion-item color="blue">
         <ion-label floating>Username</ion-label>
         <ion-input [formControl]="credentialsForm.controls['username']" type="email"></ion-input>
       </ion-item>
 
 
-      <ion-item>
+      <ion-item color="blue">
         <ion-label floating="">Senha</ion-label>
         <ion-input [formControl]="credentialsForm.controls['senha']" type="password"></ion-input>
       </ion-item>

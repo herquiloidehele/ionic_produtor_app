@@ -1,16 +1,20 @@
-.butao-entrar{
-  padding-top: 40px;
-}
-
-ion-item{
-  margin-top: 40px;
-}
-
 
 #principal{
   height: 100%;
   background-color: #0d81ff;
 }
+
+
+#titulo img{
+  width: 100px;
+  height: 100px;
+}
+
+#titulo h3{
+  color: white;
+}
+
+
 
 form{
   padding: 30px;
@@ -18,10 +22,9 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.0);
 }
 
-form ion-input{
-  background-color: rgba(255, 255, 255, 0.0);
+.butao-entrar, ion-item{
+  padding-top: 40px;
 }
 
