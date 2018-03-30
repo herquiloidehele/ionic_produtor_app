@@ -35,6 +35,7 @@ export class LoginPage {
 
   onSignIn(){
       if(true){
+
         this.navCtrl.push(TabsPage, {user_id: 10});
       }
   }

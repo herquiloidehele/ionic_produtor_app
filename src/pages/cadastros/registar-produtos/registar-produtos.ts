@@ -15,6 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegistarProdutosPage {
 
+
+  opcao: any = '';
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

@@ -1,18 +1,88 @@
-<!--
-  Generated template for the RegistarProdutosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>RegistarProdutos</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Registar Produtos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+      <form>
+          <ion-item>
+            <ion-label floating>Produto</ion-label>
+            <ion-input type="text" clearInput clearOnEdit="false"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Categoria</ion-label>
+            <ion-select >
+              <ion-option value="cate1"> Categoria 1</ion-option>
+              <ion-option value="cate1"> Categoria 2</ion-option>
+              <ion-option value="cate1"> Categoria 3</ion-option>
+              <ion-option value="cate1"> Categoria 4</ion-option>
+              <ion-option value="cate1"> Categoria 5</ion-option>
+            </ion-select>
+          </ion-item>
+
+        <ion-item>
+          <ion-label floating>Unidade de Medida</ion-label>
+          <ion-select >
+            <ion-option value="cate1">KB </ion-option>
+            <ion-option value="cate1">Tonelada</ion-option>
+            <ion-option value="cate1">Saco</ion-option>
+            <ion-option value="cate1">Gramas</ion-option>
+            <ion-option value="cate1">...</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <p>Variedades</p>
+          <ion-list>
+            <ion-item>
+              <span>Variedade 1 </span> <ion-icon color="danger" ios="ios-close" md="md-close"></ion-icon>
+            </ion-item>
+          </ion-list>
+          <button ion-button clear block>Variedades<ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Época</ion-label>
+
+          <ion-select>
+            <ion-option value="01">January</ion-option>
+            <ion-option value="02">February</ion-option>
+            <ion-option value="03">March</ion-option>
+            <ion-option value="04">April</ion-option>
+            <ion-option value="05">May</ion-option>
+            <ion-option value="06">June</ion-option>
+            <ion-option value="07">July</ion-option>
+            <ion-option value="08">August</ion-option>
+            <ion-option value="09">September</ion-option>
+            <ion-option value="10">October</ion-option>
+            <ion-option value="11">November</ion-option>
+            <ion-option value="12" checked="true">December</ion-option>
+          </ion-select>
+
+          <ion-select>
+            <ion-option value="01">January</ion-option>
+            <ion-option value="02">February</ion-option>
+            <ion-option value="03">March</ion-option>
+            <ion-option value="04">April</ion-option>
+            <ion-option value="05">May</ion-option>
+            <ion-option value="06">June</ion-option>
+            <ion-option value="07">July</ion-option>
+            <ion-option value="08">August</ion-option>
+            <ion-option value="09">September</ion-option>
+            <ion-option value="10">October</ion-option>
+            <ion-option value="11">November</ion-option>
+            <ion-option value="12" checked="true">December</ion-option>
+          </ion-select>
+
+        </ion-item>
+
+      </form>
+
 
 </ion-content>
