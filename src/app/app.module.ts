@@ -14,6 +14,8 @@ import {ProdutosPage} from "../pages/produtos/produtos";
 import {CategoriaProdutosComponent} from "../components/categoria-produtos/categoria-produtos";
 import {MercadosComponent} from "../components/mercados/mercados";
 import {ProdutoresComponent} from "../components/produtores/produtores";
+import {RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import {ProdutoresComponent} from "../components/produtores/produtores";
     ProdutosPage,
     TabsPage,
     LoginPage,
+    RegistarMercadosPage,
+    RegistarProdutoresPage,
+    RegistarProdutosPage,
     CategoriaProdutosComponent,
     MercadosComponent,
     ProdutoresComponent
@@ -38,7 +43,10 @@ import {ProdutoresComponent} from "../components/produtores/produtores";
     MercadosPage,
     ProdutosPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegistarMercadosPage,
+    RegistarProdutoresPage,
+    RegistarProdutosPage,
   ],
   providers: [
     StatusBar,
