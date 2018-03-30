@@ -12,17 +12,17 @@
 
       <div id="titulo" text-center="">
         <img src="../../assets/imgs/user-icon.png">
-        <h3>Aplicacao de cadastramento</h3>
+        <h3>Aplicação de Cadastro</h3>
       </div>
 
 
-      <ion-item color="blue">
+      <ion-item color="secondary">
         <ion-label floating>Username</ion-label>
         <ion-input [formControl]="credentialsForm.controls['username']" type="email"></ion-input>
       </ion-item>
 
 
-      <ion-item color="blue">
+      <ion-item color="secondary">
         <ion-label floating="">Senha</ion-label>
         <ion-input [formControl]="credentialsForm.controls['senha']" type="password"></ion-input>
       </ion-item>
@@ -30,7 +30,7 @@
 
       <ion-row>
         <ion-col text-center class="butao-entrar">
-          <button ion-button block color="secondary" (click)="onSignIn()">Entrar</button>
+          <button ion-button block color="blue" (click)="onSignIn()">ENTRAR</button>
         </ion-col>
       </ion-row>
 

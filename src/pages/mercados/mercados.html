@@ -1,16 +1,15 @@
 
 <ion-header>
 
-  <div color="blue">
-    <ion-navbar >
+
+    <ion-navbar color="secondary">
       <ion-title>Mercados</ion-title>
     </ion-navbar>
-  </div>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
 
   <ion-fab right bottom>
@@ -21,6 +20,9 @@
       <button ion-fab><div class="label">Mercados</div></button>
     </ion-fab-list>
   </ion-fab>
+
+
+  <mercados *ngFor="let a of [1,2,4,35,1]"></mercados>
 
 
 </ion-content>
