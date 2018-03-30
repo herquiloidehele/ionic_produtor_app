@@ -14,7 +14,7 @@ import {ProdutosPage} from "../pages/produtos/produtos";
 import {CategoriaProdutosComponent} from "../components/categoria-produtos/categoria-produtos";
 import {MercadosComponent} from "../components/mercados/mercados";
 import {ProdutoresComponent} from "../components/produtores/produtores";
-import {RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
+import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
 
 
 @NgModule({
@@ -30,7 +30,9 @@ import {RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from
     RegistarProdutosPage,
     CategoriaProdutosComponent,
     MercadosComponent,
-    ProdutoresComponent
+    ProdutoresComponent,
+    RegistarCategoriasPage,
+    RegistarUnidadesMedidasPage
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,8 @@ import {RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from
     RegistarMercadosPage,
     RegistarProdutoresPage,
     RegistarProdutosPage,
+    RegistarCategoriasPage,
+    RegistarUnidadesMedidasPage
   ],
   providers: [
     StatusBar,

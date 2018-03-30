@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar id="navBar" color="secondary">
+
+    <ion-title >Categorias</ion-title>
+
+    <ion-buttons end>
+        <button ion-button icon-only (click)="onClickAdicionar()">
+          <ion-icon  name="add" color="white"></ion-icon>
+        </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-list>
+    <button ion-item *ngFor="let categoria of categorias"><span>{{categoria}}</span></button>
+  </ion-list>
+</ion-content>
+

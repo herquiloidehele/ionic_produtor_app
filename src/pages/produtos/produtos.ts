@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RegistarProdutosPage} from "../cadastros/registar-produtos/registar-produtos";
+// import {RegistarCategoriasPage} from "../cadastros/registar-categorias/registar-categorias";
+// import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
 
 /**
  * Generated class for the ProdutosPage page.
@@ -13,7 +15,7 @@ import {RegistarProdutosPage} from "../cadastros/registar-produtos/registar-prod
 @Component({
   selector: 'page-produtos',
   templateUrl: 'produtos.html',
-  entryComponents: [RegistarProdutosPage],
+  entryComponents: [RegistarProdutosPage, ],
 })
 export class ProdutosPage {
 
@@ -28,6 +30,14 @@ export class ProdutosPage {
   onClickRegistarProdutos(){
     this.navCtrl.push(RegistarProdutosPage);
   }
+  //
+  // onClickRegistarCategorias(){
+  //   this.navCtrl.push(RegistarCategoriasPage);
+  // }
+  //
+  // onClickRegistarUnidadeMedida(){
+  //   this.navCtrl.push(RegistarUnidadesMedidasPage);
+  // }
 
 
 }
