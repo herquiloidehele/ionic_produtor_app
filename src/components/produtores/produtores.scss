@@ -1,0 +1,22 @@
+produtores {
+
+  div#fotoAgricultor{
+    height: 70px;
+    width: 70px;
+    background-color: blue;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2#nome{
+    font-weight: 700;
+    font-size: medium;
+  }
+
+
+
+}

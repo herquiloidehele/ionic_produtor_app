@@ -1,14 +1,14 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>Produtores</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-fab right bottom>
     <button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
@@ -19,4 +19,8 @@
     </ion-fab-list>
   </ion-fab>
 
+
+<produtores *ngFor="let a of [1,2,3,4,5,6,7]"></produtores>
+
 </ion-content>
+

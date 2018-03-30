@@ -13,6 +13,7 @@ import {MercadosPage} from "../pages/mercados/mercados";
 import {ProdutosPage} from "../pages/produtos/produtos";
 import {CategoriaProdutosComponent} from "../components/categoria-produtos/categoria-produtos";
 import {MercadosComponent} from "../components/mercados/mercados";
+import {ProdutoresComponent} from "../components/produtores/produtores";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MercadosComponent} from "../components/mercados/mercados";
     TabsPage,
     LoginPage,
     CategoriaProdutosComponent,
-    MercadosComponent
+    MercadosComponent,
+    ProdutoresComponent
   ],
   imports: [
     BrowserModule,
