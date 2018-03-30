@@ -14,6 +14,7 @@ import {ProdutosPage} from "../pages/produtos/produtos";
 import {CategoriaProdutosComponent} from "../components/categoria-produtos/categoria-produtos";
 import {MercadosComponent} from "../components/mercados/mercados";
 import {ProdutoresComponent} from "../components/produtores/produtores";
+import {RevendedoresPage} from "../pages/revendedores/revendedores"
 import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
 
 
@@ -32,7 +33,8 @@ import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPag
     MercadosComponent,
     ProdutoresComponent,
     RegistarCategoriasPage,
-    RegistarUnidadesMedidasPage
+    RegistarUnidadesMedidasPage,
+    RevendedoresPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPag
     RegistarProdutoresPage,
     RegistarProdutosPage,
     RegistarCategoriasPage,
-    RegistarUnidadesMedidasPage
+    RegistarUnidadesMedidasPage,
+    RevendedoresPage
   ],
   providers: [
     StatusBar,
