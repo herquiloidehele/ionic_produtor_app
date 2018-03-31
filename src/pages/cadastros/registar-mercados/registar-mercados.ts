@@ -1,46 +1,64 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {NativeGeocoder, NativeGeocoderReverseResult} from "@ionic-native/native-geocoder";
+import {NativeGeocoder} from "@ionic-native/native-geocoder";
 
-/**
- * Generated class for the RegistarMercadosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+declare const  google: any;
 
 @IonicPage()
 @Component({
   selector: 'page-registar-mercados',
   templateUrl: 'registar-mercados.html',
 })
+
 export class RegistarMercadosPage {
 
   @ViewChild('map') mapElement: ElementRef;
   mapa: any;
+  mapOptions: any;
+  location : any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getCoder: NativeGeocoder, public alertController: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
+    //Setting Default location
+    this.location = new google.maps.LatLng(-25.958832, 32.577895);
   }
 
 
   ionViewDidLoad() {
-    this.viewMap();
+    this.verMapa();
   }
 
 
-  viewMap(){
-  //  Definindo uma localizacao com base nas coordenadas
-    let location = new google.maps.LatLng(-25.958832, 32.577895);
+  verMapa(){
 
-    const options = {
+    if(navigator.geolocation){
+      this.getLocatlizacaoActual();
+    }else{
+      //Browser nao suporta Geolocation
+      console.log('Browser nao suporta geoLocation');
+    }
+
+
+    this.mapOptions = {
       center: location,
       zoom: 10,
     };
 
-    this.mapa = new google.maps.Map(this.mapElement.nativeElement, options);
+    this.mapa = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
 
   }
+
+
+  getLocatlizacaoActual(){
+      navigator.geolocation.getCurrentPosition((positoin) =>{
+        this.location = new google.maps.LatLng(positoin.coords.latitude, positoin.coords.longitude);
+      })
+  }
+
+
+
+
 
 
 }
