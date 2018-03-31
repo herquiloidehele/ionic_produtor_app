@@ -17,7 +17,7 @@ import {NativeGeocoder, NativeGeocoderReverseResult} from "@ionic-native/native-
 export class RegistarMercadosPage {
 
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
+  mapa: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getCoder: NativeGeocoder, public alertController: AlertController) {
@@ -38,7 +38,7 @@ export class RegistarMercadosPage {
       zoom: 10,
     };
 
-    this.map = new google.maps.Map(this.mapElement.nativeElement, options);
+    this.mapa = new google.maps.Map(this.mapElement.nativeElement, options);
 
   }
 
