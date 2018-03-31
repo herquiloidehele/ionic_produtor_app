@@ -17,7 +17,7 @@ import {NativeGeocoder, NativeGeocoderReverseResult} from "@ionic-native/native-
 export class RegistarMercadosPage {
 
   @ViewChild('map') mapElement: ElementRef;
-  mapa: any;
+  map: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getCoder: NativeGeocoder, public alertController: AlertController) {
