@@ -1,0 +1,20 @@
+revendedores {
+
+  div#fotoAgricultor{
+    height: 70px;
+    width: 70px;
+    background-color: #0d81ff;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    font-size: large;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2#nome{
+    font-weight: 700;
+    font-size: medium;
+  }
+}

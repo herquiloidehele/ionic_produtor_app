@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-mercados";
 
 /**
  * Generated class for the MercadosPage page.
@@ -12,14 +13,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-mercados',
   templateUrl: 'mercados.html',
+  entryComponents: [RegistarMercadosPage]
 })
 export class MercadosPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MercadosPage');
+
+  onClickAdicionarMercado(){
+    this.navCtrl.push(RegistarMercadosPage);
   }
+
 
 }

@@ -8,12 +8,17 @@
 </ion-header>
 
 
+
 <ion-content padding>
 
 
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="onClickAdicionarRevendedor()"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top"></ion-fab-list>
+  </ion-fab>
 
 
-
+  <revendedores *ngFor="let a of [1,2,3,4,5,6,7]"></revendedores>
 
 
 </ion-content>

@@ -1,7 +1,6 @@
 
 <ion-header>
 
-
     <ion-navbar color="secondary">
       <ion-title>Mercados</ion-title>
     </ion-navbar>
@@ -13,12 +12,7 @@
 
 
   <ion-fab right bottom>
-    <button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab><div class="label">Mercados</div></button>
-      <button ion-fab><div class="label">Mercados</div></button>
-      <button ion-fab><div class="label">Mercados</div></button>
-    </ion-fab-list>
+    <button ion-fab color="blue" (click)="onClickAdicionarMercado()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 

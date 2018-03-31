@@ -10,7 +10,7 @@ import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medida
 @Component({
   selector: 'page-produtos',
   templateUrl: 'produtos.html',
-  entryComponents: [RegistarProdutosPage, ],
+  entryComponents: [RegistarProdutosPage, RegistarCategoriasPage, RegistarUnidadesMedidasPage],
 })
 export class ProdutosPage {
 

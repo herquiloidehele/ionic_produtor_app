@@ -4,9 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {LoginPage} from "../pages/login/login";
-import {RegistarProdutosPage} from "../pages/cadastros/registar-produtos/registar-produtos";
-import {RegistarCategoriasPage} from "../pages/cadastros/registar-categorias/registar-categorias";
-import {RegistarUnidadesMedidasPage} from "../pages/cadastros/registar-unidades-medidas/registar-unidades-medidas";
 
 @Component({
   templateUrl: 'app.html'

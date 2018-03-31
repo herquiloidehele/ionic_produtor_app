@@ -3,17 +3,20 @@ import { CategoriaProdutosComponent } from './categoria-produtos/categoria-produ
 import { ProdutosComponent } from './produtos/produtos';
 import { MercadosComponent } from './mercados/mercados';
 import { ProdutoresComponent } from './produtores/produtores';
+import { RevendedoresComponent } from './revendedores/revendedores';
 @NgModule({
 	declarations: [CategoriaProdutosComponent,
     ProdutosComponent,
     MercadosComponent,
     MercadosComponent,
-    ProdutoresComponent],
+    ProdutoresComponent,
+    RevendedoresComponent],
 	imports: [],
 	exports: [CategoriaProdutosComponent,
     ProdutosComponent,
     MercadosComponent,
     MercadosComponent,
-    ProdutoresComponent]
+    ProdutoresComponent,
+    RevendedoresComponent]
 })
 export class ComponentsModule {}

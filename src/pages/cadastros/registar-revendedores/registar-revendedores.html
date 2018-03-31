@@ -6,13 +6,61 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>RegistarRevendedores</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Revendedores</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
+  <form>
+    <ion-input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)"></ion-input>
+    <div class="profile-image-wrapper"><!-- (click)="getPicture()" -->
+      <div class="profile-image-placeholder"><ion-icon name="add"></ion-icon></div>
+      <div>Selecione uma Imagem</div>
+    </div>
+
+    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="false"></div>
+  </form>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Produto</ion-label>
+      <ion-input type="text" clearInput clearOnEdit="false"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Telefone</ion-label>
+      <ion-input type="number" clearInput clearOnEdit="false"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Mercado</ion-label>
+      <ion-select >
+        <ion-option value="cate1"> Categoria 1</ion-option>
+        <ion-option value="cate1"> Categoria 2</ion-option>
+        <ion-option value="cate1"> Categoria 3</ion-option>
+        <ion-option value="cate1"> Categoria 4</ion-option>
+        <ion-option value="cate1"> Categoria 5</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <p>Produtos que procura</p>
+      <ion-list>
+        <ion-item>
+          <span>Produto 1 </span> <ion-icon color="danger" ios="ios-close" md="md-close"></ion-icon>
+        </ion-item>
+      </ion-list>
+      <button ion-button clear block>Adicionar<ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+
 
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {RegistarRevendedoresPage} from "../cadastros/registar-revendedores/registar-revendedores";
 
 /**
  * Generated class for the RevendedoresPage page.
@@ -12,10 +13,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-revendedores',
   templateUrl: 'revendedores.html',
+  entryComponents: [RegistarRevendedoresPage]
 })
 export class RevendedoresPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+
+  onClickAdicionarRevendedor(){
+    this.navCtrl.push(RegistarRevendedoresPage);
   }
 
   ionViewDidLoad() {

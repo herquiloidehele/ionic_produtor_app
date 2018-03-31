@@ -15,7 +15,10 @@ import {CategoriaProdutosComponent} from "../components/categoria-produtos/categ
 import {MercadosComponent} from "../components/mercados/mercados";
 import {ProdutoresComponent} from "../components/produtores/produtores";
 import {RevendedoresPage} from "../pages/revendedores/revendedores"
-import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
+import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/cadastros/Cadastros";
+import {RevendedoresComponent} from "../components/revendedores/revendedores";
+import {Camera} from "@ionic-native/camera";
+import {NativeGeocoder} from "@ionic-native/native-geocoder";
 
 
 @NgModule({
@@ -32,8 +35,10 @@ import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPag
     CategoriaProdutosComponent,
     MercadosComponent,
     ProdutoresComponent,
+    RevendedoresComponent,
     RegistarCategoriasPage,
     RegistarUnidadesMedidasPage,
+    RegistarRevendedoresPage,
     RevendedoresPage
   ],
   imports: [
@@ -53,11 +58,14 @@ import {RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPag
     RegistarProdutosPage,
     RegistarCategoriasPage,
     RegistarUnidadesMedidasPage,
+    RegistarRevendedoresPage,
     RevendedoresPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
