@@ -4,7 +4,7 @@ import {RegistarProdutosPage} from "../cadastros/registar-produtos/registar-prod
 import {RegistarCategoriasPage} from "../cadastros/registar-categorias/registar-categorias";
 import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
 import {CategoriasProvider} from "../../providers/categorias/categorias";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 
 
 
@@ -16,7 +16,7 @@ import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 })
 export class ProdutosPage {
 
-  private categorias;
+  private categorias : any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
   }
 
@@ -26,9 +26,9 @@ export class ProdutosPage {
 
   public listarProdutos(){
     this.categoriaProvider.getAll().subscribe(
-        (resultado: HttpResponse) =>{
+        (resultado) =>{
           console.log(resultado);
-          this.categorias = resultado.categorias;
+          this.categorias = resultado['categorias'];
         },
         (erros: HttpErrorResponse) =>{
           console.log(erros);
