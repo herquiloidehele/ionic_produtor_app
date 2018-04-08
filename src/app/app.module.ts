@@ -19,6 +19,9 @@ import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoria
 import {RevendedoresComponent} from "../components/revendedores/revendedores";
 import {Camera} from "@ionic-native/camera";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
+import { AutenticacaoProvider } from '../providers/providers';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { CategoriasProvider } from '../providers/categorias/categorias';
 
 
 @NgModule({
@@ -43,6 +46,7 @@ import {NativeGeocoder} from "@ionic-native/native-geocoder";
   ],
   imports: [
     BrowserModule,
+      HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -66,7 +70,10 @@ import {NativeGeocoder} from "@ionic-native/native-geocoder";
     SplashScreen,
     Camera,
     NativeGeocoder,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AutenticacaoProvider,
+      HttpClient,
+    CategoriasProvider,
   ]
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /**
  * Generated class for the CategoriaProdutosComponent component.
@@ -12,10 +12,10 @@ import { Component } from '@angular/core';
 })
 export class CategoriaProdutosComponent {
 
-  categorias: any[];
+  @Input('categoria') categoria: any[];
 
   constructor() {
-    this.categorias = [1,2,4,24,52];
+
   }
 
 }

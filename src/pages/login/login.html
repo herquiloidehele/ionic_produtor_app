@@ -15,12 +15,11 @@
         <h3>Aplicação de Cadastro</h3>
       </div>
 
-
+    <ion-list>
       <ion-item color="secondary">
         <ion-label floating>Username</ion-label>
-        <ion-input [formControl]="credentialsForm.controls['username']" type="email"></ion-input>
+        <ion-input [formControl]="credentialsForm.controls['username']" type="text"></ion-input>
       </ion-item>
-
 
       <ion-item color="secondary">
         <ion-label floating="">Senha</ion-label>
@@ -39,6 +38,8 @@
           <button ion-button clear color="light" (click)="onPasswordForget()">Esqueci a Senha</button>
         </ion-col>
       </ion-row>
+    </ion-list>
+
 
     </form>
 

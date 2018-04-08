@@ -25,7 +25,7 @@ export class RegistarRevendedoresPage {
     let reader = new FileReader();
     reader.onload = (readerEvent) => {
 
-      let imageData = (readerEvent.target as any).result;
+      // let imageData = (readerEvent.target as any).result;
       // this.form.patchValue({ 'profilePic': imageData });
     };
 

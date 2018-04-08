@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RegistarProdutosPage} from "../cadastros/registar-produtos/registar-produtos";
 import {RegistarCategoriasPage} from "../cadastros/registar-categorias/registar-categorias";
 import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
+import {CategoriasProvider} from "../../providers/categorias/categorias";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 
 
@@ -14,13 +16,26 @@ import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medida
 })
 export class ProdutosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private categorias;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProdutosPage');
+    this.listarProdutos();
   }
 
+  public listarProdutos(){
+    this.categoriaProvider.getAll().subscribe(
+        (resultado: HttpResponse) =>{
+          console.log(resultado);
+          this.categorias = resultado.categorias;
+        },
+        (erros: HttpErrorResponse) =>{
+          console.log(erros);
+        },
+        () =>{console.log('Terminado')}
+    );
+  }
 
   onClickRegistarProdutos(){
     this.navCtrl.push(RegistarProdutosPage);

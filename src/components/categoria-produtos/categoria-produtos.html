@@ -1,11 +1,11 @@
 
 <ion-card>
   <ion-card-header color="secondary">
-    Categoria do produto
+    {{categoria.designacao}}
   </ion-card-header>
 
   <ion-list>
-    <button ion-item *ngFor="let a of [1, 2, 3,4, 5]">Produto {{a}}</button>
+    <button ion-item *ngFor="let produto of categoria.produtos">Produto {{produto.designacao}}</button>
   </ion-list>
   <div text-center>
     <button ion-button clear block>Mais</button>

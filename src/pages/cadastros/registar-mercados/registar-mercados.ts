@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {NativeGeocoder} from "@ionic-native/native-geocoder";
+// import {Native Geocoder} from "@ionic-native/native-geocoder";
 
 
 declare const  google: any;
