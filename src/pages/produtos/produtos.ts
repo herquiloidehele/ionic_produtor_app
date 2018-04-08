@@ -16,7 +16,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class ProdutosPage {
 
-  private categorias : any[] = [];
+  private categorias;
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
   }
 
