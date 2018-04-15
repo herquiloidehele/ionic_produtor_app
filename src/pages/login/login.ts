@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
-import {TabsPage} from "../tabs/tabs";
+import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 
 /**
  * Generated class for the LoginPage page.
@@ -19,33 +18,33 @@ import {TabsPage} from "../tabs/tabs";
 export class LoginPage {
 
 
-  credentialsForm: FormGroup;
 
+  private user: any = {
+    username: null,
+      password: null,
+  };
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private formBuilder: FormBuilder,
               public autenticacaoService: AutenticacaoProvider
   ) {
 
-    this.credentialsForm = this.formBuilder.group({
-      username: [''],
-      senha: [''],
-    });
   }
 
 
   onSignIn(){
 
-    const user = {username: 'leffler.emmie', password: '12345'};
+    const user = {username: this.user.username, password: this.user.password};
     this.autenticacaoService.login(user).subscribe(
         (resultado) => {
 
-          localStorage.setItem('token', resultado.token);
 
+          localStorage.setItem('token', resultado.token);
+          console.log(resultado.user);
           this.redirecionarUser(resultado.tipo_user, resultado.user);
         },
         (erro) => {
+          alert('Credenciais erradas');
           console.log(erro);
         },
         () => {
@@ -63,7 +62,7 @@ export class LoginPage {
 
   private redirecionarUser(tipoUser : String, user: any){
     if(tipoUser == 'Cadastrador'){
-        this.navCtrl.push(TabsPage, {user: user});
+        this.navCtrl.push(TabsPage, {tipoUser: tipoUser, user: user});
     }
 
     if(tipoUser == 'Produtor'){
@@ -76,7 +75,11 @@ export class LoginPage {
       console.log('Revendedor');
     }
 
+
+
   }
+
+
 
 
 

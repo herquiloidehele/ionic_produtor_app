@@ -7,15 +7,17 @@
       <ion-row>
         <ion-col col-3>
           <div id="fotoAgricultor" text-center>
-            HH
+            {{getLetrasIniciais(revendedor.user.nome)}}
           </div>
         </ion-col>
 
         <ion-col col-9 padding-left="10px">
           <div>
-            <h2 id="nome" ion-text>Herquiloide Hele</h2>
+            <h2 id="nome" ion-text>{{revendedor.user.nome}}e</h2>
             <h2>Mercado: Zimpeto</h2>
-            <h2>Telefone: +258 847005571</h2>
+            <h2 *ngFor="let telefone of revendedor.telefones; let indice = index">
+              <span *ngIf="indice<=1">Cell: {{telefone.designacao}}</span>
+            </h2>
             <!--<h2>Media de Producao: 100 ton</h2>-->
           </div>
         </ion-col>

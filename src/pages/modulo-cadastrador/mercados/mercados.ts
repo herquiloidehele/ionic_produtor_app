@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-mercados";
+import {MercadoProvider} from "../../../providers/mercado/mercado";
 
 /**
  * Generated class for the MercadosPage page.
@@ -17,13 +18,38 @@ import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-merc
 })
 export class MercadosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private mercados: any[] = [];
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mercadoProvider: MercadoProvider) {
   }
 
 
   onClickAdicionarMercado(){
     this.navCtrl.push(RegistarMercadosPage);
   }
+
+
+  ionViewDidLoad(){
+    this.getAll();
+  }
+
+  getAll(){
+    this.mercadoProvider.getAll().subscribe(
+        (resultado) => {
+          this.mercados = resultado['mercados'];
+          console.log(resultado);
+        },
+        (erros) => {
+          console.log(erros);
+        },
+        () =>{
+          console.log('Busca de Mercados Terminada');
+        }
+    )
+  }
+
+
 
 
 }

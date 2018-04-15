@@ -1,20 +1,22 @@
 
-<ion-card margin-top="20px">
+<ion-card margin-top="20px" *ngIf="produtor">
   <ion-card-content>
 
     <ion-grid>
       <ion-row>
         <ion-col col-3>
           <div id="fotoAgricultor" text-center>
-              HH
+              {{ getLetrasIniciais(produtor.user.nome)}}
           </div>
         </ion-col>
 
         <ion-col col-9 padding-left="10px">
           <div>
-            <h2 id="nome" ion-text>Herquiloide Hele</h2>
+            <h2 id="nome" ion-text>{{produtor.user.nome}}</h2>
             <h2>Origem: Namahancha</h2>
-            <h2>Telefone: +258 847005571</h2>
+            <h2 *ngFor="let telefone of produtor.telefones; let indice = index">
+              <span  *ngIf="indice<=1">Cell: {{telefone.designacao}}</span>
+            </h2>
             <!--<h2>Media de Producao: 100 ton</h2>-->
           </div>
         </ion-col>

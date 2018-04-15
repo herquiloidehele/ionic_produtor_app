@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RegistarRevendedoresPage} from "../cadastros/registar-revendedores/registar-revendedores";
+import {RevendedorProvider} from "../../../providers/revendedor/revendedor";
 
 /**
  * Generated class for the RevendedoresPage page.
@@ -17,7 +18,10 @@ import {RegistarRevendedoresPage} from "../cadastros/registar-revendedores/regis
 })
 export class RevendedoresPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private revendedores: any[] = [];
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private revendedorProvider: RevendedorProvider) {
   }
 
 
@@ -26,7 +30,22 @@ export class RevendedoresPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RevendedoresPage');
+    this.getAll();
+  }
+
+  public getAll(){
+    this.revendedorProvider.getAll().subscribe(
+        (dados) => {
+          this.revendedores = dados['revendedores'];
+        },
+
+        (erros) => {
+          console.log(erros);
+        },
+        () =>{
+          console.log('Busca de revendedores completa');
+        }
+    );
   }
 
 }

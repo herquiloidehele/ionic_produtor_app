@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /**
  * Generated class for the ProdutoresComponent component.
@@ -12,8 +12,20 @@ import { Component } from '@angular/core';
 })
 export class ProdutoresComponent {
 
+
+    @Input('produtor') produtor: any;
+
+
   constructor() {
 
   }
+
+    getLetrasIniciais(nome){
+      let nomes = nome.split(' ');
+      return nomes[0].charAt(0) + nomes[nomes.length-1].charAt(0);
+    }
+
+
+
 
 }

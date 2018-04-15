@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 
 @Component({
@@ -7,11 +7,19 @@ import { Component } from '@angular/core';
 })
 export class RevendedoresComponent {
 
-  text: string;
+  @Input('revendedor') revendedor: any;
 
   constructor() {
-    console.log('Hello RevendedoresComponent Component');
-    this.text = 'Hello World';
+
   }
+
+
+
+    getLetrasIniciais(nome){
+        let nomes = nome.split(' ');
+        return nomes[0].charAt(0) + nomes[nomes.length-1].charAt(0);
+    }
+
+
 
 }

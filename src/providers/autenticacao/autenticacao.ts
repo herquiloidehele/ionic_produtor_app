@@ -21,8 +21,18 @@ export class AutenticacaoProvider {
 
 
   public login(user: any) : Observable<any>{
-    return this.http.post(this.url+'login', user, {'headers': this.headers} );
+    return this.http.post(this.url+'login', user, {headers: this.headers} );
   }
+
+  public getUserFromToken(token: any): Observable<any>{
+    return this.http.post(this.url+ 'get-user-token/'+token, {token: token}, {headers: this.headers});
+  }
+
+  public logout(token: String): Observable<any>{
+    return this.http.post(this.url+ 'logout', {token: token}, {headers: this.headers});
+  }
+
+
 
 
 

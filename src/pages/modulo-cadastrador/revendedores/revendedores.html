@@ -9,7 +9,7 @@
 
 
 
-<ion-content padding>
+<ion-content>
 
 
   <ion-fab right bottom>
@@ -18,7 +18,7 @@
   </ion-fab>
 
 
-  <revendedores *ngFor="let a of [1,2,3,4,5,6,7]"></revendedores>
+  <revendedores *ngFor="let revendedor of revendedores" [revendedor]="revendedor"></revendedores>
 
 
 </ion-content>

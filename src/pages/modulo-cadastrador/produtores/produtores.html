@@ -17,6 +17,7 @@
 
 <ion-content>
 
+
   <ion-fab right bottom>
     <button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top">
@@ -27,7 +28,8 @@
   </ion-fab>
 
 
-<produtores *ngFor="let a of [1,2,3,4,5,6,7]"></produtores>
+
+<produtores *ngFor="let produtor of produtores" [produtor]="produtor"></produtores>
 
 </ion-content>
 

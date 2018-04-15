@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RegistarProdutosPage} from "../cadastros/registar-produtos/registar-produtos";
 import {RegistarCategoriasPage} from "../cadastros/registar-categorias/registar-categorias";
 import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
-import {CategoriasProvider} from "../../providers/categorias/categorias";
+import {CategoriasProvider} from "../../../providers/categorias/categorias";
 import {HttpErrorResponse} from "@angular/common/http";
 
 
