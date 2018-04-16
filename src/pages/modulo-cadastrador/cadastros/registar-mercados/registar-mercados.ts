@@ -1,7 +1,10 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {Geolocation} from "@ionic-native/geolocation"
-import {GoogleMap, GoogleMapOptions, GoogleMaps} from "@ionic-native/google-maps"
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+
+
+
+
+
 
 
 @IonicPage()
@@ -10,40 +13,91 @@ import {GoogleMap, GoogleMapOptions, GoogleMaps} from "@ionic-native/google-maps
   templateUrl: 'registar-mercados.html',
 })
 
+declare const google;
+
 export class RegistarMercadosPage {
 
   @ViewChild('map') mapElement: ElementRef;
-  mapa: GoogleMap;
+  mapa: any;
   mapOptions: any;
   location : any;
 
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public alertController: AlertController,
-              private googleMapsService: GoogleMaps,
-              private geolocationService: Geolocation)
+              public platform: Platform)
   {
-      // this.location = new google.maps.LatLng(parseFloat('-23.949181'), parseFloat('-32.598581'));
-      //android
-      // AIzaSyBzh6Mxk7XcOCCkEk5BTwa2fP3XV77VnzM
-  //    IOS
+
+      platform.ready().then(
+          () => {
+              console.log('O Mapa ja pode ser mostrado');
+            this.inicializarMapa();
+          }
+      );
 
   }
 
+    inicializarMapa(){
 
-  ngAfterViewInit(){
-      this.inicializarMapa();
-  }
+      this.mapOptions = {
+        camera: {
+          target : {
+            lat: -23.949181,
+            lng: -32.598581,
+          },
+          zoom: 18,
+          tilt: 30
+        }
+      };
+
+      this.mapa = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
+    }
 
 
 
-  inicializarMapa(){
+  // inicializarMapa() {
+  //
+  //     // GoogleMapOptions.
+  //
+  //     let mapOptions: GoogleMapOptions = {
+  //         camera: {
+  //             target: {
+  //                 lat: 43.0741904,
+  //                 lng: -89.3809802
+  //             },
+  //             zoom: 18,
+  //             tilt: 30
+  //         }
+  //     };
+  //
+  //     this.mapa = GoogleMaps.create('map', mapOptions);
+  //
+  //     // Wait the MAP_READY before using any methods.
+  //     this.mapa.one(GoogleMapsEvent.MAP_READY)
+  //         .then(() => {
+  //             console.log('Map is ready!');
+  //
+  //             // Now you can use all methods safely.
+  //             this.mapa.addMarker({
+  //                 title: 'Ionic',
+  //                 icon: 'blue',
+  //                 animation: 'DROP',
+  //                 position: {
+  //                     lat: 43.0741904,
+  //                     lng: -89.3809802
+  //                 }
+  //             })
+  //                 .then(marker => {
+  //                     marker.on(GoogleMapsEvent.MARKER_CLICK)
+  //                         .subscribe(() => {
+  //                             alert('clicked');
+  //                         });
+  //                 });
+  //
+  //         });
+  // }
 
-    // GoogleMapOptions.
 
-      this.mapa = GoogleMaps.create(this.mapElement.nativeElement);
-  }
 
 
   // verMapa(){
