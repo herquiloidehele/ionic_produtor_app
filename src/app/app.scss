@@ -48,3 +48,61 @@ ion-fab {
     }
   }
 }
+
+
+
+ion-header.side-header{
+  height: 30%;
+  background-color: #11db94;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-header.side-header div.foto-content-circle{
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon.profile-foto{
+    font-size: 95px;
+    color: #488aff;
+  }
+
+}
+
+div.profile-info{
+  margin-top:20px;
+}
+
+
+p{
+  margin: 0px;
+  color: #fff;
+  font-size: 12pt;
+}
+
+
+ion-content.side-content{
+  height: 100%;
+  background-color: white;
+
+
+  ion-list{
+    margin-top: 20px;
+    button{
+      margin-top:10px;
+    }
+  }
+
+
+}
+
+

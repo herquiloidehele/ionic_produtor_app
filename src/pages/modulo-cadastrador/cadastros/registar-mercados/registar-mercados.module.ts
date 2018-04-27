@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { RegistarMercadosPage } from './registar-mercados';
+import {RegistarMercadosPage} from "./registar-mercados";
 
 @NgModule({
   declarations: [

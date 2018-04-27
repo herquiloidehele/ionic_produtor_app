@@ -18,10 +18,11 @@ import {RevendedorProvider} from "../../../providers/revendedor/revendedor";
 })
 export class RevendedoresPage {
 
-  private revendedores: any[] = [];
+  private revendedores: any[];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private revendedorProvider: RevendedorProvider) {
+    this.revendedores = [];
   }
 
 

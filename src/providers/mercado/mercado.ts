@@ -23,5 +23,8 @@ export class MercadoProvider {
     return this.http.get(this.url + 'mercados', {headers: this.headers});
   }
 
+  salvar(mercado: any): Observable<any>{
+    return this.http.post(this.url + 'mercados',{mercado: mercado}, {headers: this.headers});
+  }
 
 }

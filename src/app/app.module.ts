@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler, NavController} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -28,6 +28,10 @@ import { RevendedorProvider } from '../providers/revendedor/revendedor';
 import { MercadoProvider } from '../providers/mercado/mercado';
 import {Geolocation} from "@ionic-native/geolocation";
 import {GoogleMaps} from "@ionic-native/google-maps";
+import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
+import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
+import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
+import {RootProdutorPage} from "../pages/modulo-produtor/root-produtor/root-produtor";
 
 
 @NgModule({
@@ -48,7 +52,11 @@ import {GoogleMaps} from "@ionic-native/google-maps";
     RegistarCategoriasPage,
     RegistarUnidadesMedidasPage,
     RegistarRevendedoresPage,
-    RevendedoresPage
+    RevendedoresPage,
+    DisponibilizarProdutosPage,
+    ProdutosrequsitadosPage,
+    ProdutosDisponibilizadosPage,
+      RootProdutorPage,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +77,14 @@ import {GoogleMaps} from "@ionic-native/google-maps";
     RegistarCategoriasPage,
     RegistarUnidadesMedidasPage,
     RegistarRevendedoresPage,
-    RevendedoresPage
+    RevendedoresPage,
+    DisponibilizarProdutosPage,
+    ProdutosrequsitadosPage,
+    ProdutosDisponibilizadosPage,
+      RootProdutorPage
   ],
   providers: [
+
       ProdutoresProvider,
       RevendedorProvider,
       MercadoProvider,

@@ -1,3 +1,73 @@
 
+<ion-menu [content]="content" *ngIf="tipoUser == 'Produtor'">
+
+
+    <ion-header class="bar-assertive side-header" text-center>
+
+        <div class="foto-content-circle">
+            <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
+        </div>
+
+        <div class="profile-info">
+            <p *ngIf="user">{{user['user']['nome']}}</p>
+            <p>{{tipoUser}}</p>
+        </div>
+
+    </ion-header>
+
+    <ion-content class="side-content">
+        <ion-list>
+            <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasProdutor">
+                <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
+                <span color="primary">{{pagina.pageName}}</span>
+            </button>
+
+            <button menuClose="left" ion-item (click)="logout()">
+                <ion-icon item-start name="power" color="danger"></ion-icon>
+                <span color="danger">Sair</span>
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+
+
+
+<ion-menu [content]="content" *ngIf="tipoUser=='Cadastrador'">
+
+
+  <ion-header class="bar-assertive side-header" text-center>
+
+    <div class="foto-content-circle">
+      <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
+    </div>
+
+    <div class="profile-info">
+      <p *ngIf="user">{{user['user']['nome']}}</p>
+      <p>{{tipoUser}}</p>
+    </div>
+
+  </ion-header>
+
+  <ion-content class="side-content">
+    <ion-list>
+      <button ion-item menuClose="left">
+        <ion-icon item-start name="home" color="primary"></ion-icon>
+        <span color="primary">Meu Perfil</span>
+      </button>
+
+      <button ion-item menuClose="left" (click)="logout()">
+        <ion-icon item-start name="power" color="danger"></ion-icon>
+        <span color="danger">Sair</span>
+      </button>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+
+
 <ion-nav [root]="rootPage" #content></ion-nav>
 

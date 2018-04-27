@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-mercados";
 import {MercadoProvider} from "../../../providers/mercado/mercado";
+import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-mercados";
 
 /**
  * Generated class for the MercadosPage page.
@@ -18,10 +18,11 @@ import {MercadoProvider} from "../../../providers/mercado/mercado";
 })
 export class MercadosPage {
 
-  private mercados: any[] = [];
+  private mercados: any[];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mercadoProvider: MercadoProvider) {
+    this.mercados = [];
   }
 
 

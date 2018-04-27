@@ -1,0 +1,82 @@
+page-produtosrequsitados {
+
+  ion-card{
+    padding: 0!important;
+  }
+
+
+  ion-card-content, ion-grid{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  ion-card-content .esquerda{
+    background-color: #0d81ff;
+
+    div.ion-icon-content{
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+      background-color: rgba(0,0,0, 0.06);
+      color: #fff;
+      font-size: 25pt;
+      margin-top: 5px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+      margin-left:auto;
+    }
+
+    p.nome-produto{
+      margin-top: 15px;
+      color: white;
+    }
+    p.data{
+      margin-top: 5px;
+      color: white;
+    }
+  }
+
+  ion-card-content .direita{
+
+    div.info{
+      margin-left: 10px;
+
+      div{
+        margin-top: 10px;
+      }
+
+      ion-icon{
+        font-size: 20px;
+      }
+
+      div.nome-produtor{
+        span{
+          font-size: 12pt;
+          font-weight: 700;
+          color: rgba(2, 12, 36, 0.72);
+        }
+      }
+
+      p.nome-mercado{
+        font-size: 11pt;
+      }
+
+      p.quantidade{
+        margin-top: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        //color: blue;
+        font-size: 18pt;
+      }
+
+    }
+  }
+
+
+
+
+
+}

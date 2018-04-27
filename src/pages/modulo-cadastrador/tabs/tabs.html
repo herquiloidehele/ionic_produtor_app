@@ -1,37 +1,5 @@
-<ion-menu [content]="content">
 
-
-    <ion-header id="side-header" class="bar-assertive" text-center>
-
-      <div class="foto-content-circle">
-        <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
-      </div>
-
-      <div class="profile-info">
-          <p *ngIf="user">{{user['user']['nome']}}</p>
-          <p>{{tipoUser}}</p>
-      </div>
-
-    </ion-header>
-
-    <ion-content id="side-content">
-      <ion-list>
-        <button ion-item>
-          <ion-icon item-start name="home" color="primary"></ion-icon>
-          <span color="primary">Inicio</span>
-        </button>
-
-        <button ion-item (click)="logout()">
-          <ion-icon item-start name="power" color="danger"></ion-icon>
-          <span color="danger">Sair</span>
-        </button>
-
-      </ion-list>
-    </ion-content>
-
-</ion-menu>
-
-<ion-tabs #content>
+<ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Produtos" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Mercados" tabIcon="basket"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Produtores" tabIcon="contacts"></ion-tab>

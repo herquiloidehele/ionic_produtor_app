@@ -16,9 +16,10 @@ import {ProdutoresProvider} from "../../../providers/produtores/produtores";
 })
 export class ProdutoresPage {
 
-  public produtores: any [] = [];
+  public produtores: any [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private produtoresProvider: ProdutoresProvider) {
+    this.produtores = [];
   }
 
   ionViewDidLoad() {
