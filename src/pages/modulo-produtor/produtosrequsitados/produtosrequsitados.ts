@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
-import {AutenticacaoProvider} from "../../../providers/autenticacao/autenticacao";
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {ProcurasProvider} from "../../../providers/procuras/procuras";
 
 
 /**
@@ -17,20 +17,37 @@ import {AutenticacaoProvider} from "../../../providers/autenticacao/autenticacao
 })
 export class ProdutosrequsitadosPage {
 
-    user: any;
-    tipoUser:any;
+    produtosRequisitados: any[];
 
   constructor(public navControl: NavController,
               public navParams: NavParams,
-              public autenticacaoService: AutenticacaoProvider,
-              public alertController: AlertController,
-              public viewCtrl: ViewController
+              public viewCtrl: ViewController,
+              public procuraProvider: ProcurasProvider
   ) {
+    this.getProdutosRequisitados();
   }
 
     ionViewWillEnter() {
         this.viewCtrl.showBackButton(false);
     }
+
+    ionViewDidLoad(){
+
+    }
+
+
+    getProdutosRequisitados(){
+      this.procuraProvider.getAll().subscribe(
+        (response) => {
+          console.log(response);
+          this.produtosRequisitados = response;
+        },
+        (erros) => {
+          console.log(erros);
+        }
+      );
+    }
+
 
 
 }

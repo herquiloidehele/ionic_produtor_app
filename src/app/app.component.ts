@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {AlertController, Platform} from 'ionic-angular';
+import {App} from 'ionic-angular/components/app/app'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -14,53 +15,59 @@ import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-di
   templateUrl: 'app.html'
 })
 export class MyApp {
+  // rootPage: typeof LoginPage;
 
-    tipoUser: any;
+  tipoUser: any;
     user: any;
 
     @ViewChild('content') ionNav;
 
 
-    private menuPaginasProdutor = [
-        {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
-        {icon: 'home', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
-        {icon: 'home', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage}
-        ];
-
-    private menuPaginasCadastrador = [
-        {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosDisponibilizadosPage},
-        {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosDisponibilizadosPage},
-    ];
+    private menuPaginasProdutor : any[];
 
 
-  public static rootPage: any;
+   rootPage: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public autenticacaoProvider: AutenticacaoProvider,
-              public alertController: AlertController
+              public alertController: AlertController,
+              app: App
               ){
     platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+      // statusBar.styleDefault();
+      // splashScreen.hide();
+
+      platform.registerBackButtonAction(() => {
+        app.navPop();
+      });
+
     });
+
+    this.menuPaginasProdutor = [
+      {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
+      {icon: 'home', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
+      {icon: 'home', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage}
+    ];
+
 
       this.getUserData();
       this.getPage();
   }
 
 
-  public static setRootPage(pagina){
-    this.rootPage = pagina;
-  }
+  // public static setRootPage(pagina){
+  //   this.rootPage = pagina;
+  // }
 
 
-  getPage(){
+   getPage(){
     let token = localStorage.getItem('token');
 
     if(token) {
         this.autenticacaoProvider.getUserFromToken(token).subscribe(
             (response) => {
 
+              console.log(response);
                 this.tipoUser = response.tipo_user;
                 this.user = response.user;
 
@@ -69,9 +76,10 @@ export class MyApp {
                 if (response.tipo_user == 'Produtor')
                     this.rootPage = ProdutosrequsitadosPage;
                 if (response.tipo_user == 'Revendedor')
-                  this.rootPage = TabsPage;
+                    this.rootPage = TabsPage;
             },
             (erros) => {
+              localStorage.removeItem('token');
                 this.rootPage = LoginPage;
             }
         );

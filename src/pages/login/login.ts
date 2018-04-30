@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {MyApp} from "../../app/app.component";
 
 /**
  * Generated class for the LoginPage page.
@@ -40,8 +39,9 @@ export class LoginPage {
     this.autenticacaoService.login(user).subscribe(
         (resultado) => {
 
-
+          localStorage.setItem('user', JSON.stringify(resultado.user));
           localStorage.setItem('token', resultado.token);
+
           console.log(resultado.user);
           this.redirecionarUser(resultado.tipo_user, resultado.user);
         },
@@ -65,13 +65,13 @@ export class LoginPage {
   private redirecionarUser(tipoUser : String, user: any){
     if(tipoUser == 'Cadastrador'){
       // MyApp.setRootPage(TabsPage);
-      MyApp.rootPage = TabsPage;
+      // MyApp.rootPage = TabsPage;
         this.navCtrl.setRoot(TabsPage, {tipoUser: tipoUser, user: user});
     }
 
     if(tipoUser == 'Produtor'){
       // MyApp.setRootPage(ProdutosrequsitadosPage);
-      MyApp.rootPage = ProdutosrequsitadosPage;
+      // MyApp.rootPage = ProdutosrequsitadosPage;
       this.navCtrl.setRoot(ProdutosrequsitadosPage, {tipoUser: tipoUser, user: user});
     }
 

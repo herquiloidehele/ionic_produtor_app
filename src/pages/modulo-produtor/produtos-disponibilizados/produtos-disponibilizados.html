@@ -1,16 +1,46 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>ProdutosDisponibilizados</ion-title>
+    <ion-title>Meus Produtos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="adicionarProdutos()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+
+  <ion-card *ngFor="let produto of meusProdutos">
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12 class="esquerda" text-center>
+            <div class="ion-icon-content">
+              <ion-icon name="leaf"></ion-icon>
+            </div>
+            <p color="white" class="nome-produto">{{produto.produto.designacao}}</p>
+            <p color="white" class="quantidade">{{produto.quantidade}} {{produto.unidade_medida.designacao}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+
+
+
 
 </ion-content>

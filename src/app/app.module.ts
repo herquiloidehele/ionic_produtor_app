@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {IonicApp, IonicModule, IonicErrorHandler, NavController} from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -32,6 +32,11 @@ import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibiliza
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {RootProdutorPage} from "../pages/modulo-produtor/root-produtor/root-produtor";
+import { ProcurasProvider } from '../providers/procuras/procuras';
+import { ProduzProvider } from '../providers/produz/produz';
+import { ProdutosProvider } from '../providers/produtos/produtos';
+import {RegistarMeusProdutosPage} from "../pages/registar-meus-produtos/registar-meus-produtos";
+import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medida';
 
 
 @NgModule({
@@ -56,6 +61,7 @@ import {RootProdutorPage} from "../pages/modulo-produtor/root-produtor/root-prod
     DisponibilizarProdutosPage,
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,
+    RegistarMeusProdutosPage,
       RootProdutorPage,
   ],
   imports: [
@@ -81,23 +87,33 @@ import {RootProdutorPage} from "../pages/modulo-produtor/root-produtor/root-prod
     DisponibilizarProdutosPage,
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,
+    RegistarMeusProdutosPage,
       RootProdutorPage
   ],
   providers: [
 
-      ProdutoresProvider,
-      RevendedorProvider,
-      MercadoProvider,
-      Geolocation,
-      GoogleMaps,
+    ProdutoresProvider,
+    RevendedorProvider,
+    MercadoProvider,
+    Geolocation,
+    GoogleMaps,
+    ProcurasProvider,
+    ProdutosProvider,
+    ProduzProvider,
+    UnidadeMedidaProvider,
     StatusBar,
     SplashScreen,
     Camera,
     NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AutenticacaoProvider,
-      HttpClient,
+    HttpClient,
     CategoriasProvider,
+    ProcurasProvider,
+    ProduzProvider,
+    ProdutosProvider,
+    ProdutosProvider,
+
   ]
 })
 export class AppModule {}

@@ -13,7 +13,7 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let cont of [1,2,4,5,6,7,3]">
+  <ion-card *ngFor="let requisicao of produtosRequisitados">
     <ion-card-content>
 
       <ion-grid>
@@ -22,23 +22,23 @@
               <div class="ion-icon-content">
                 <ion-icon name="leaf"></ion-icon>
               </div>
-                <p class="nome-produto">Produto</p>
-                <p class="data" color="white">26 Abril</p>
+                <p class="nome-produto">{{requisicao.procura.produto.designacao}}</p>
+                <p class="data" color="white">{{requisicao.procura.data_formatada}}</p>
           </ion-col>
 
           <ion-col col-7 class="direita">
             <div class="info">
               <div class="nome-produtor">
                 <ion-icon name="person" icon-start color="blue"></ion-icon>
-                <span>Joao Antonio</span>
+                <span>{{requisicao.revendedor.user.nome}}</span>
               </div>
 
               <div class="nome-mercado">
-                <ion-icon name="pin" color="blue" icon-start></ion-icon>
-                <span>Zimpeto</span>
+                <ion-icon name="basket" color="blue" icon-start></ion-icon>
+                <span>{{requisicao.revendedor.mercado.designacao}}</span>
               </div>
 
-                <p class="quantidade">20 Ton</p>
+                <p class="quantidade">{{requisicao.procura.quantidade}}  {{requisicao.procura.unidade_medida.designacao}}</p>
 
             </div>
           </ion-col>

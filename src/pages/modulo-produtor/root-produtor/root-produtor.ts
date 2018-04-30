@@ -1,10 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
-import {LoginPage} from "../../login/login";
-import {ProdutosDisponibilizadosPage} from "../produtos-disponibilizados/produtos-disponibilizados";
-import {DisponibilizarProdutosPage} from "../disponibilizar-produtos/disponibilizar-produtos";
-import {AutenticacaoProvider} from "../../../providers/autenticacao/autenticacao";
-import {ProdutosrequsitadosPage} from "../produtosrequsitados/produtosrequsitados";
+import {Component} from '@angular/core';
+import { IonicPage, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the RootProdutorPage page.
@@ -24,17 +19,12 @@ export class RootProdutorPage {
   user: any;
   tipoUser: any;
 
-    constructor(public navControl: NavController,
+    constructor(
                 public navParams: NavParams,
-                public autenticacaoService: AutenticacaoProvider,
-                public alertController: AlertController,
                 public viewCtrl: ViewController
     ) {
     }
 
-    ionViewWillEnter() {
-        this.viewCtrl.showBackButton(false);
-    }
 
 
 }
