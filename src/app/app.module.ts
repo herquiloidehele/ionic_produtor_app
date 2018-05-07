@@ -37,6 +37,10 @@ import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
 import {RegistarMeusProdutosPage} from "../pages/registar-meus-produtos/registar-meus-produtos";
 import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medida';
+import { OfertasProvider } from '../providers/ofertas/ofertas';
+import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
+import {RegistarProdutosDisponibilizadosPage} from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
+import { UrlapiProvider } from '../providers/urlapi/urlapi';
 
 
 @NgModule({
@@ -62,6 +66,7 @@ import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medid
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,
     RegistarMeusProdutosPage,
+    RegistarProdutosDisponibilizadosPage,
       RootProdutorPage,
   ],
   imports: [
@@ -88,6 +93,7 @@ import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medid
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,
     RegistarMeusProdutosPage,
+    RegistarProdutosDisponibilizadosPage,
       RootProdutorPage
   ],
   providers: [
@@ -100,6 +106,8 @@ import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medid
     ProcurasProvider,
     ProdutosProvider,
     ProduzProvider,
+    GerarCoresProvider,
+    OfertasProvider,
     UnidadeMedidaProvider,
     StatusBar,
     SplashScreen,
@@ -113,7 +121,10 @@ import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medid
     ProduzProvider,
     ProdutosProvider,
     ProdutosProvider,
-
+    OfertasProvider,
+    GerarCoresProvider,
+    UrlapiProvider,
   ]
+
 })
 export class AppModule {}

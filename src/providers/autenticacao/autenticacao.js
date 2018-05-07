@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlapiProvider } from "../urlapi/urlapi";
 /*
   Generated class for the AutenticacaoProvider provider.
 
@@ -16,9 +17,10 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 var AutenticacaoProvider = /** @class */ (function () {
-    function AutenticacaoProvider(http) {
+    function AutenticacaoProvider(http, urlProvider) {
         this.http = http;
-        this.url = 'http://127.0.0.1:8000/api/';
+        this.urlProvider = urlProvider;
+        this.url = this.urlProvider.getUrl();
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     AutenticacaoProvider.prototype.login = function (user) {
@@ -32,7 +34,7 @@ var AutenticacaoProvider = /** @class */ (function () {
     };
     AutenticacaoProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient])
+        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
     ], AutenticacaoProvider);
     return AutenticacaoProvider;
 }());

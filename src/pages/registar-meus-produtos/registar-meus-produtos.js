@@ -43,6 +43,7 @@ var RegistarMeusProdutosPage = /** @class */ (function () {
         });
     };
     RegistarMeusProdutosPage.prototype.salvarProduto = function () {
+        var _this = this;
         var produz = {
             produtores_id: JSON.parse(localStorage.getItem('user')).id,
             produtos_id: this.produto,
@@ -50,7 +51,12 @@ var RegistarMeusProdutosPage = /** @class */ (function () {
             quantidade_media: this.quantidade,
         };
         console.log(produz);
-        // this.produzProvider.salvarProduz()
+        this.produzProvider.salvarProduz(produz).subscribe(function (response) {
+            console.log(response);
+            _this.navCtrl.pop();
+        }, function (erros) {
+            console.log(erros);
+        });
     };
     RegistarMeusProdutosPage.prototype.habilitarSave = function () {
         return this.produto != 'undefined' && this.unidadeMedida != 'undefined' && this.quantidade != 'undefined';

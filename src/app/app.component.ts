@@ -18,12 +18,12 @@ export class MyApp {
   // rootPage: typeof LoginPage;
 
   tipoUser: any;
-    user: any;
+  user: any;
 
-    @ViewChild('content') ionNav;
+  @ViewChild('content') ionNav;
 
 
-    private menuPaginasProdutor : any[];
+  private menuPaginasProdutor : any[];
 
 
    rootPage: any;

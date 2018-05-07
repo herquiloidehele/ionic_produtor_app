@@ -7,32 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UrlapiProvider } from "../urlapi/urlapi";
 /*
-  Generated class for the ProcurasProvider provider.
+  Generated class for the UrlapiProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-var ProcurasProvider = /** @class */ (function () {
-    function ProcurasProvider(http, urlProvider) {
-        this.http = http;
-        this.urlProvider = urlProvider;
+var UrlapiProvider = /** @class */ (function () {
+    // private url = 'https://8db774ed.ngrok.io';
+    function UrlapiProvider() {
         this.url = 'http://127.0.0.1:8000/api/';
-        this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
-    ProcurasProvider.prototype.getAll = function () {
-        var token = localStorage.getItem('token');
-        return this.http.post(this.url + 'procuras/produtos-produtor', { token: token }, { headers: this.headers });
+    UrlapiProvider.prototype.getUrl = function () {
+        return this.url;
     };
-    ProcurasProvider = __decorate([
+    UrlapiProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
-    ], ProcurasProvider);
-    return ProcurasProvider;
+        __metadata("design:paramtypes", [])
+    ], UrlapiProvider);
+    return UrlapiProvider;
 }());
-export { ProcurasProvider };
-//# sourceMappingURL=procuras.js.map
+export { UrlapiProvider };
+//# sourceMappingURL=urlapi.js.map

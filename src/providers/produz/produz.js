@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlapiProvider } from "../urlapi/urlapi";
 /*
   Generated class for the ProduzProvider provider.
 
@@ -16,10 +17,11 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 var ProduzProvider = /** @class */ (function () {
-    function ProduzProvider(http) {
+    function ProduzProvider(http, urlProvider) {
         this.http = http;
-        this.url = 'http://127.0.0.1:8000/api/';
+        this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        this.url = urlProvider.getUrl();
     }
     ProduzProvider.prototype.getMeusProdutos = function (produtor_id) {
         return this.http.get(this.url + 'produz/produtor-producao/' + produtor_id, { headers: this.headers });
@@ -29,7 +31,7 @@ var ProduzProvider = /** @class */ (function () {
     };
     ProduzProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient])
+        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
     ], ProduzProvider);
     return ProduzProvider;
 }());

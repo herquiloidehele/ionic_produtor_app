@@ -4,13 +4,13 @@ import {Observable} from "rxjs/Observable";
 import {UrlapiProvider} from "../urlapi/urlapi";
 
 /*
-  Generated class for the ProduzProvider provider.
+  Generated class for the OfertasProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ProduzProvider {
+export class OfertasProvider {
 
   private url: String;
   private headers: HttpHeaders;
@@ -22,14 +22,11 @@ export class ProduzProvider {
   }
 
 
-  public getMeusProdutos (produtor_id): Observable<any> {
-    return this.http.get(this.url  + 'produz/produtor-producao/'+produtor_id, {headers: this.headers});
+
+  getMinhasOfertas(provedores_id: any): Observable<any>{
+    return this.http.get(this.url + 'ofertas/minhas-ofertas/'+provedores_id, {headers: this.headers});
   }
 
-
-  public salvarProduz(produz): Observable<any>{
-    return this.http.post(this.url + 'produz', {produz: produz}, {headers: this.headers});
-  }
 
 
 }

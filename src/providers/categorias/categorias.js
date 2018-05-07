@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlapiProvider } from "../urlapi/urlapi";
 /*
   Generated class for the CategoriasProvider provider.
 
@@ -16,17 +17,19 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 var CategoriasProvider = /** @class */ (function () {
-    function CategoriasProvider(http) {
+    function CategoriasProvider(http, urlProvider) {
         this.http = http;
+        this.urlProvider = urlProvider;
         this.url = 'http://127.0.0.1:8000/api/';
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
+        this.url = urlProvider.getUrl();
     }
     CategoriasProvider.prototype.getAll = function () {
         return this.http.get(this.url + 'categorias', { headers: this.header });
     };
     CategoriasProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient])
+        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
     ], CategoriasProvider);
     return CategoriasProvider;
 }());

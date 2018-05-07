@@ -40,6 +40,10 @@ import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
 import { RegistarMeusProdutosPage } from "../pages/registar-meus-produtos/registar-meus-produtos";
 import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medida';
+import { OfertasProvider } from '../providers/ofertas/ofertas';
+import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
+import { RegistarProdutosDisponibilizadosPage } from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
+import { UrlapiProvider } from '../providers/urlapi/urlapi';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -67,6 +71,7 @@ var AppModule = /** @class */ (function () {
                 ProdutosrequsitadosPage,
                 ProdutosDisponibilizadosPage,
                 RegistarMeusProdutosPage,
+                RegistarProdutosDisponibilizadosPage,
                 RootProdutorPage,
             ],
             imports: [
@@ -93,6 +98,7 @@ var AppModule = /** @class */ (function () {
                 ProdutosrequsitadosPage,
                 ProdutosDisponibilizadosPage,
                 RegistarMeusProdutosPage,
+                RegistarProdutosDisponibilizadosPage,
                 RootProdutorPage
             ],
             providers: [
@@ -104,6 +110,8 @@ var AppModule = /** @class */ (function () {
                 ProcurasProvider,
                 ProdutosProvider,
                 ProduzProvider,
+                GerarCoresProvider,
+                OfertasProvider,
                 UnidadeMedidaProvider,
                 StatusBar,
                 SplashScreen,
@@ -117,6 +125,9 @@ var AppModule = /** @class */ (function () {
                 ProduzProvider,
                 ProdutosProvider,
                 ProdutosProvider,
+                OfertasProvider,
+                GerarCoresProvider,
+                UrlapiProvider,
             ]
         })
     ], AppModule);

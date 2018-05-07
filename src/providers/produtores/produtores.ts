@@ -1,5 +1,6 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {UrlapiProvider} from "../urlapi/urlapi";
 
 /*
   Generated class for the ProdutoresProvider provider.
@@ -10,11 +11,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProdutoresProvider {
 
-    private url = 'http://127.0.0.1:8000/api/';
+    private url: String;
     private header: HttpHeaders;
 
-  constructor(public http: HttpClient) {
-      this.header = new HttpHeaders({'Content-Type': 'application/json'});
+  constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
+    this.header = new HttpHeaders({'Content-Type': 'application/json'});
+    this.url = urlProvider.getUrl();
   }
 
 

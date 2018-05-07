@@ -7,30 +7,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UrlapiProvider } from "../urlapi/urlapi";
+import { of } from "rxjs/observable/of";
 /*
-  Generated class for the ProdutosProvider provider.
+  Generated class for the GerarCoresProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-var ProdutosProvider = /** @class */ (function () {
-    function ProdutosProvider(http, urlProvider) {
-        this.http = http;
-        this.urlProvider = urlProvider;
-        this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
+var GerarCoresProvider = /** @class */ (function () {
+    function GerarCoresProvider() {
+        this.cores = ['#E874D8', '#00FF01', '#0013FE', '#00A3FF', '#01FFE5', '#FF6201', '#3CB371', '#1E90FF', '#FF1493', '#ad4330', '#590293', '#ED5A79'];
     }
-    ProdutosProvider.prototype.getAll = function () {
-        return this.http.get(this.url + 'produtos', { headers: this.header });
+    /**
+     * getra um  numero aleatorio e escolhe uma core no array
+     * @returns {String}
+     */
+    GerarCoresProvider.prototype.getColor = function () {
+        var minimo = Math.ceil(0);
+        var maximo = Math.floor(this.cores.length);
+        var aleatorio = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        return of(this.cores[aleatorio]);
     };
-    ProdutosProvider = __decorate([
+    GerarCoresProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
-    ], ProdutosProvider);
-    return ProdutosProvider;
+        __metadata("design:paramtypes", [])
+    ], GerarCoresProvider);
+    return GerarCoresProvider;
 }());
-export { ProdutosProvider };
-//# sourceMappingURL=produtos.js.map
+export { GerarCoresProvider };
+//# sourceMappingURL=gerar-cores.js.map

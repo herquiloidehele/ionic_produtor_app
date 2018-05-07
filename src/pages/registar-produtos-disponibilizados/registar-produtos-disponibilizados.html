@@ -1,0 +1,51 @@
+<!--
+  Generated template for the RegistarProdutosDisponibilizadosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondaru">
+    <ion-title>Adicionar Produtos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list class="lista">
+    <button ion-item  (click)="itemSelected('produto')" color="{{oferta.produto? '#11db94': '#ff0'}}">
+      <ion-icon icon-start name="checkmark" color="{{oferta.produto? '#11db94': '#ff0'}}"></ion-icon>
+      <span>{{oferta.produto ? 'Nome do Produto': 'Nome do produto 1'}}</span>
+    </button>
+
+    <button ion-item  (click)="itemSelected('unidadeMedida')">
+      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
+      <span>{{oferta.unidades_medidas ? 'Nome do Produto': 'Unidade de Medida'}}</span>
+    </button>
+
+    <button ion-item  (click)="itemSelected('quantidade')">
+      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#ff0'"></ion-icon>
+      <span>{{oferta.quantidade ? 'Nome do Produto': 'Quantidade'}}</span>
+    </button>
+
+    <button ion-item  (click)="itemSelected('preco')">
+      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
+      <span>{{oferta.preco ? 'Nome do Produto': 'Preco'}}</span>
+    </button>
+
+    <button ion-item  (click)="itemSelected('data_fim')">
+      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
+      <span>{{oferta.data_fim ? 'Nome do Produto': 'Data Termino'}}</span>
+    </button>
+
+
+  </ion-list>
+
+
+
+
+
+</ion-content>

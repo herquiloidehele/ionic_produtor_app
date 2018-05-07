@@ -11,28 +11,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrlapiProvider } from "../urlapi/urlapi";
 /*
-  Generated class for the ProcurasProvider provider.
+  Generated class for the OfertasProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-var ProcurasProvider = /** @class */ (function () {
-    function ProcurasProvider(http, urlProvider) {
+var OfertasProvider = /** @class */ (function () {
+    function OfertasProvider(http, urlProvider) {
         this.http = http;
         this.urlProvider = urlProvider;
         this.url = 'http://127.0.0.1:8000/api/';
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         this.url = urlProvider.getUrl();
     }
-    ProcurasProvider.prototype.getAll = function () {
-        var token = localStorage.getItem('token');
-        return this.http.post(this.url + 'procuras/produtos-produtor', { token: token }, { headers: this.headers });
+    OfertasProvider.prototype.getMinhasOfertas = function (provedores_id) {
+        return this.http.get(this.url + 'ofertas/minhas-ofertas/' + provedores_id, { headers: this.headers });
     };
-    ProcurasProvider = __decorate([
+    OfertasProvider = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
-    ], ProcurasProvider);
-    return ProcurasProvider;
+    ], OfertasProvider);
+    return OfertasProvider;
 }());
-export { ProcurasProvider };
-//# sourceMappingURL=procuras.js.map
+export { OfertasProvider };
+//# sourceMappingURL=ofertas.js.map

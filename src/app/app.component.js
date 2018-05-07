@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, ViewChild } from '@angular/core';
 import { AlertController, Platform } from 'ionic-angular';
+import { App } from 'ionic-angular/components/app/app';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from "../pages/login/login";
@@ -18,12 +19,15 @@ import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsi
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController) {
+    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, app) {
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
         platform.ready().then(function () {
-            statusBar.styleDefault();
-            splashScreen.hide();
+            // statusBar.styleDefault();
+            // splashScreen.hide();
+            platform.registerBackButtonAction(function () {
+                app.navPop();
+            });
         });
         this.menuPaginasProdutor = [
             { icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage },
@@ -126,7 +130,8 @@ var MyApp = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [Platform, StatusBar, SplashScreen,
             AutenticacaoProvider,
-            AlertController])
+            AlertController,
+            App])
     ], MyApp);
     return MyApp;
 }());

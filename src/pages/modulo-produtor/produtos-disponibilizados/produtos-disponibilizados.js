@@ -26,13 +26,16 @@ var ProdutosDisponibilizadosPage = /** @class */ (function () {
         this.produzProvider = produzProvider;
         this.produtosProvider = produtosProvider;
         this.navController = navController;
-        this.getAllProdutos();
     }
     ProdutosDisponibilizadosPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProdutosDisponibilizadosPage');
     };
     ProdutosDisponibilizadosPage.prototype.ionViewWillEnter = function () {
-        this.viewController.showBackButton(false);
+        // this.viewController.showBackButton(false);
+        this.getAllProdutos();
+    };
+    ProdutosDisponibilizadosPage.prototype.ionViewDidEnter = function () {
+        // this.getMeusProdutos();
     };
     ProdutosDisponibilizadosPage.prototype.getMeusProdutos = function () {
         var _this = this;
@@ -57,36 +60,6 @@ var ProdutosDisponibilizadosPage = /** @class */ (function () {
     };
     ProdutosDisponibilizadosPage.prototype.adicionarProdutos = function () {
         this.navController.push(RegistarMeusProdutosPage, { produtos: this.produtos });
-        // for(var produto of this.produtos){
-        //   inputs.push({
-        //     type: 'radio',
-        //     label: produto.designacao,
-        //     value: produto.id
-        //   });
-        // }
-        // inputs.push({
-        //   name: 'quantidade',
-        //   placeholder: 'Introduza a quantidade Media de producao'
-        // });
-        //
-        // this.alertController.create(
-        //   {
-        //     title: 'Produtos Disponibilizados',
-        //
-        //     inputs: inputs,
-        //
-        //     buttons: [
-        //       {text: 'CANCELAR'},
-        //
-        //       {
-        //         text: 'SALVAR',
-        //         handler: (dados)=>{
-        //           console.log(dados);
-        //         }
-        //       }
-        //     ]
-        //   }
-        // ).present();
     };
     ProdutosDisponibilizadosPage = __decorate([
         IonicPage(),

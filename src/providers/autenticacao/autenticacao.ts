@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
+import {UrlapiProvider} from "../urlapi/urlapi";
 
 /*
   Generated class for the AutenticacaoProvider provider.
@@ -11,10 +12,11 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class AutenticacaoProvider {
 
-  private url = 'http://127.0.0.1:8000/api/';
+  private url: String;
   private headers: HttpHeaders;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private urlProvider: UrlapiProvider) {
+    this.url = this.urlProvider.getUrl();
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
   }
 

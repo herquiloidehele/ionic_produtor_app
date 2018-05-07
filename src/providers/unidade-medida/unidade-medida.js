@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlapiProvider } from "../urlapi/urlapi";
 /*
   Generated class for the UnidadeMedidaProvider provider.
 
@@ -16,17 +17,18 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 var UnidadeMedidaProvider = /** @class */ (function () {
-    function UnidadeMedidaProvider(http) {
+    function UnidadeMedidaProvider(http, urlProvider) {
         this.http = http;
-        this.url = 'http://127.0.0.1:8000/api/';
+        this.urlProvider = urlProvider;
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
+        this.url = urlProvider.getUrl();
     }
     UnidadeMedidaProvider.prototype.getAll = function () {
         return this.http.get(this.url + 'unidades-medidas', { headers: this.header });
     };
     UnidadeMedidaProvider = __decorate([
         Injectable(),
-        __metadata("design:paramtypes", [HttpClient])
+        __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
     ], UnidadeMedidaProvider);
     return UnidadeMedidaProvider;
 }());

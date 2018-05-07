@@ -1,16 +1,73 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>DisponibilizarProdutos</ion-title>
+    <ion-title>Disponibilizar Produtos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="adicionarProdutos()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+  <ion-card *ngFor="let oferta of ofertas; let indice=index">
+    <ion-card-content>
+
+
+      <ion-grid>
+        <ion-row>
+          <ion-col  col-1 class="linha-esquerda" [style.backgroundColor]="corBarra[indice]">
+          </ion-col>
+
+          <ion-col col-11 class="conteudo-direito">
+
+            <div class="conteudo">
+              <div class="nome-produto">
+                <ion-icon icon-start name="leaf" [style.color]="corBarra[indice]"></ion-icon>
+                <span>{{oferta.produto.designacao}}</span>
+              </div>
+
+              <div class="data">
+                <ion-icon icon-start name="calendar" [style.color]="corBarra[indice]"></ion-icon>
+                <span>{{getData(oferta.created_at.date)}}</span>
+              </div>
+
+              <div class="quantidade">
+                <ion-icon name="pricetags" [style.color]="corBarra[indice]"></ion-icon>
+                <span>{{oferta.quantidade}} {{oferta.unidade_medida.designacao}}</span>
+              </div>
+
+              <div class="preco">
+                <ion-icon name="cash"></ion-icon>
+                <span>{{oferta.preco}} MZN</span>
+              </div>
+
+              <div>
+                <div class="botoes">
+
+                </div>
+              </div>
+            </div>
+
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
 
 </ion-content>

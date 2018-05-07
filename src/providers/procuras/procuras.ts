@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
+import {UrlapiProvider} from "../urlapi/urlapi";
 
 /*
   Generated class for the ProcurasProvider provider.
@@ -12,12 +13,13 @@ import {Observable} from "rxjs/Observable";
 export class ProcurasProvider {
 
 
-  private url: String = 'http://127.0.0.1:8000/api/';
+  private url: String;
   private headers: HttpHeaders;
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.url = urlProvider.getUrl();
   }
 
 
