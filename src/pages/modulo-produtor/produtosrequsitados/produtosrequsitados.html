@@ -13,6 +13,13 @@
 
 <ion-content>
 
+
+
+  <div *ngIf="produtosRequisitados.length == 0" class="message-empty" text-center>
+    <span>Ainda nao existem produtos requisitados</span>
+  </div>
+
+
   <ion-card *ngFor="let requisicao of produtosRequisitados">
     <ion-card-content>
 
@@ -46,6 +53,7 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
+
 
 
 

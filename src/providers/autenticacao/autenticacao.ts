@@ -21,7 +21,6 @@ export class AutenticacaoProvider {
   }
 
 
-
   public login(user: any) : Observable<any>{
     return this.http.post(this.url+'login', user, {headers: this.headers} );
   }

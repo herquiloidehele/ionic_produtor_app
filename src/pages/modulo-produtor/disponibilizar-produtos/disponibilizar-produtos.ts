@@ -18,7 +18,7 @@ import {RegistarProdutosDisponibilizadosPage} from "../../registar-produtos-disp
 export class DisponibilizarProdutosPage {
 
 
-  ofertas: any[];
+  ofertas: any[] = [];
   corBarra: any[] = [];
   private cores = ['#E874D8', '#00FF01', '#0013FE', '#00A3FF', '#01FFE5', '#FF6201', '#3CB371', '#1E90FF', '#FF1493', '#ad4330', '#590293', '#ED5A79'];
 

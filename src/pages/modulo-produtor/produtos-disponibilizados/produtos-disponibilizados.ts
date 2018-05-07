@@ -18,7 +18,7 @@ import {RegistarMeusProdutosPage} from "../../registar-meus-produtos/registar-me
 })
 export class ProdutosDisponibilizadosPage {
 
-  meusProdutos: any[];
+  meusProdutos: any[] = [];
   produtos: any[];
 
 
@@ -39,11 +39,6 @@ export class ProdutosDisponibilizadosPage {
     // this.viewController.showBackButton(false);
     this.getAllProdutos();
   }
-
-  ionViewDidEnter(){
-    // this.getMeusProdutos();
-  }
-
 
 
   getMeusProdutos(){

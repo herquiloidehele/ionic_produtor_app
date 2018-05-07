@@ -17,7 +17,7 @@ import {ProcurasProvider} from "../../../providers/procuras/procuras";
 })
 export class ProdutosrequsitadosPage {
 
-    produtosRequisitados: any[];
+    produtosRequisitados: any[] = [];
 
   constructor(public navControl: NavController,
               public navParams: NavParams,

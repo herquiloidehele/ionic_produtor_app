@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class UrlapiProvider {
 
   private url = 'http://127.0.0.1:8000/api/';
-  // private url = 'https://8db774ed.ngrok.io';
+  // private url = 'https://9af3cdf2.ngrok.io/api/';
 
   constructor() {
   }
