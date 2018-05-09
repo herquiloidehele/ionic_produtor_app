@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ProdutosProvider} from "../../providers/produtos/produtos";
 import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
+import {DisponibilizarProdutosProvider} from "../../providers/disponibilizar-produtos/disponibilizar-produtos";
+import {OfertasProvider} from "../../providers/ofertas/ofertas";
+import {DisponibilizarProdutosPage} from "../modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
@@ -20,8 +23,8 @@ export class RegistarProdutosDisponibilizadosPage {
 
   oferta: any = {
     produto: null,
-    preco: 0,
-    quantidade: 0,
+    preco: null,
+    quantidade: null,
     unidades_medidas: null,
     data_fim: null
   };
@@ -34,10 +37,12 @@ export class RegistarProdutosDisponibilizadosPage {
               public navParams: NavParams,
               public alertController: AlertController,
               public produtodProvider: ProdutosProvider,
-              public uniadesMedidasProvider: UnidadeMedidaProvider) {
+              public uniadesMedidasProvider: UnidadeMedidaProvider,
+              public ofertasProvider: OfertasProvider) {
     this.getProdutos();
     this.getUnidadesMedidas();
   }
+
 
 
   getProdutos() {
@@ -87,7 +92,7 @@ export class RegistarProdutosDisponibilizadosPage {
               if(!dados)
                 return false;
               else
-                console.log(dados);
+                this.oferta.produto = dados;
             }
           }
         );
@@ -111,7 +116,7 @@ export class RegistarProdutosDisponibilizadosPage {
               if(!dados)
                 return false;
               else
-                console.log(dados);
+                this.oferta.unidades_medidas = dados;
             }
           }
         );
@@ -133,7 +138,7 @@ export class RegistarProdutosDisponibilizadosPage {
               if(!dados)
                 return false;
               else
-                console.log(dados);
+                this.oferta.quantidade = dados.quantidade;
             }
           }
         );
@@ -152,10 +157,11 @@ export class RegistarProdutosDisponibilizadosPage {
         alert.addButton(
           {
             text: 'SALVAR',
-            handler: (dados) => {if(!dados)
+            handler: (dados) => {
+              if(!dados)
               return false;
             else
-              console.log(dados);console.log(dados);
+              this.oferta.preco = dados.preco;
             }
           }
         );
@@ -180,7 +186,7 @@ export class RegistarProdutosDisponibilizadosPage {
               if(!dados)
                 return false;
               else
-                console.log(dados);
+                this.oferta.data_fim = dados.data_fim;
             }
           }
         );
@@ -193,6 +199,28 @@ export class RegistarProdutosDisponibilizadosPage {
 
   }
 
+  canGoBack(){
+    return false;
+  }
+
+
+  salvar(){
+
+    let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
+    console.log(produtor_id);
+    this.ofertasProvider.salvarOferta(this.oferta, produtor_id).subscribe(
+      (response) => {
+        console.log(response);
+        this.navCtrl.pop();
+      },
+      (erros) => {
+        console.log(erros);
+      },
+      () => {
+        console.log('Requisicao Terminada');
+      }
+    );
+  }
 
 }
 

@@ -20,13 +20,6 @@
     </button>
   </ion-fab>
 
-
-  <div *ngIf="meusProdutos.length == 0" class="message-empty" text-center>
-    <span>Quais sao os Produtos que Produz?</span>
-    <button ion-button color="primary" style="margin-top: 15px" (click)="adicionarProdutos()"><span style="color: white">Adicionar Produtos</span></button>
-  </div>
-
-
   <ion-card *ngFor="let produto of meusProdutos">
     <ion-card-content>
 
@@ -44,6 +37,12 @@
 
     </ion-card-content>
   </ion-card>
+
+
+  <!--<div *ngIf="meusProdutos.length == 0" class="message-empty" text-center>-->
+    <!--<span>Quais sao os Produtos que Produz?</span>-->
+    <!--<button ion-button color="primary" style="margin-top: 15px" (click)="adicionarProdutos()"><span style="color: white">Adicionar Produtos</span></button>-->
+  <!--</div>-->
 
 
 

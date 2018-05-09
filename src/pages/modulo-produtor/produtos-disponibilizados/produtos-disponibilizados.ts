@@ -18,7 +18,7 @@ import {RegistarMeusProdutosPage} from "../../registar-meus-produtos/registar-me
 })
 export class ProdutosDisponibilizadosPage {
 
-  meusProdutos: any[] = [];
+  meusProdutos: any[];
   produtos: any[];
 
 

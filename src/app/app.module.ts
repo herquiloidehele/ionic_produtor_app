@@ -41,6 +41,7 @@ import { OfertasProvider } from '../providers/ofertas/ofertas';
 import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
 import {RegistarProdutosDisponibilizadosPage} from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
+import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-produtos/disponibilizar-produtos';
 
 
 @NgModule({
@@ -124,6 +125,7 @@ import { UrlapiProvider } from '../providers/urlapi/urlapi';
     OfertasProvider,
     GerarCoresProvider,
     UrlapiProvider,
+    DisponibilizarProdutosProvider,
   ]
 
 })

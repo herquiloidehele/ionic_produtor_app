@@ -28,5 +28,9 @@ export class OfertasProvider {
   }
 
 
+  salvarOferta(oferta: any, produtor){
+    return this.http.post(this.url+'ofertas', {oferta: oferta, produtor_id: produtor }, {headers: this.headers});
+  }
+
 
 }

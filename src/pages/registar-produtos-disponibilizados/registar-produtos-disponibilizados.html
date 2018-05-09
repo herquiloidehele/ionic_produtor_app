@@ -16,33 +16,42 @@
 <ion-content>
 
   <ion-list class="lista">
-    <button ion-item  (click)="itemSelected('produto')" color="{{oferta.produto? '#11db94': '#ff0'}}">
-      <ion-icon icon-start name="checkmark" color="{{oferta.produto? '#11db94': '#ff0'}}"></ion-icon>
-      <span>{{oferta.produto ? 'Nome do Produto': 'Nome do produto 1'}}</span>
+    <button ion-item  (click)="itemSelected('produto')">
+      <ion-icon icon-start name="checkmark" color="{{oferta.produto? 'secondary': '#000'}}"></ion-icon>
+      <span>{{oferta.produto ? oferta.produto.designacao: 'Nome do produto'}}</span>
     </button>
 
     <button ion-item  (click)="itemSelected('unidadeMedida')">
-      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
-      <span>{{oferta.unidades_medidas ? 'Nome do Produto': 'Unidade de Medida'}}</span>
+      <ion-icon icon-start name="checkmark" [color]="oferta.unidades_medidas? 'secondary': '#000'"></ion-icon>
+      <span>{{oferta.unidades_medidas ? oferta.unidades_medidas.designacao: 'Unidade de Medida'}}</span>
     </button>
 
     <button ion-item  (click)="itemSelected('quantidade')">
-      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#ff0'"></ion-icon>
-      <span>{{oferta.quantidade ? 'Nome do Produto': 'Quantidade'}}</span>
+      <ion-icon icon-start name="checkmark" [color]="oferta.quantidade? 'secondary': '#000'"></ion-icon>
+      <span>{{oferta.quantidade ? oferta.quantidade: 'Quantidade'}}</span>
     </button>
 
     <button ion-item  (click)="itemSelected('preco')">
-      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
-      <span>{{oferta.preco ? 'Nome do Produto': 'Preco'}}</span>
+      <ion-icon icon-start name="checkmark" [color]="oferta.preco? 'secondary': '#000'"></ion-icon>
+      <span>{{oferta.preco ? oferta.preco: 'Preco'}}</span>
     </button>
 
-    <button ion-item  (click)="itemSelected('data_fim')">
-      <ion-icon icon-start name="checkmark" [color]="oferta.produto? '#11db94': '#0000'"></ion-icon>
-      <span>{{oferta.data_fim ? 'Nome do Produto': 'Data Termino'}}</span>
-    </button>
 
+    <ion-item>
+      <ion-label>Data Termino</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="oferta.data_fim"></ion-datetime>
+    </ion-item>
 
   </ion-list>
+
+
+
+  <div text-center>
+    <button ion-button color="secondary" (click)="salvar()">
+      SALVAR
+    </button>
+  </div>
+
 
 
 

@@ -26,24 +26,24 @@
 
       <ion-grid>
         <ion-row>
-          <ion-col  col-1 class="linha-esquerda" [style.backgroundColor]="corBarra[indice]">
+          <ion-col  col-1 class="linha-esquerda" [style.backgroundColor]="corBarra[indice]? corBarra[indice] : '#11db94'">
           </ion-col>
 
           <ion-col col-11 class="conteudo-direito">
 
             <div class="conteudo">
               <div class="nome-produto">
-                <ion-icon icon-start name="leaf" [style.color]="corBarra[indice]"></ion-icon>
+                <ion-icon icon-start name="leaf"></ion-icon>
                 <span>{{oferta.produto.designacao}}</span>
               </div>
 
               <div class="data">
-                <ion-icon icon-start name="calendar" [style.color]="corBarra[indice]"></ion-icon>
+                <ion-icon icon-start name="calendar"></ion-icon>
                 <span>{{getData(oferta.created_at.date)}}</span>
               </div>
 
               <div class="quantidade">
-                <ion-icon name="pricetags" [style.color]="corBarra[indice]"></ion-icon>
+                <ion-icon name="pricetags" ></ion-icon>
                 <span>{{oferta.quantidade}} {{oferta.unidade_medida.designacao}}</span>
               </div>
 
