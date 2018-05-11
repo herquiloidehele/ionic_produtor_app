@@ -22,7 +22,7 @@ export class DisponibilizarProdutosProvider {
 
 
   salvar(){
-    this.http.post('');
+    // this.http.post('');
   }
 
 
