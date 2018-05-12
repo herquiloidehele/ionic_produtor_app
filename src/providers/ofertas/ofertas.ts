@@ -33,4 +33,10 @@ export class OfertasProvider {
   }
 
 
+  salvarDisponibilidade(disonibilidade: any): Observable<any>{
+    return this.http.post(this + 'disponibilidade-produto', {disponibilidade: disonibilidade}, {headers: this.headers});
+  }
+
+
+
 }

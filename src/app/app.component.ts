@@ -23,7 +23,7 @@ export class MyApp {
   @ViewChild('content') ionNav;
 
 
-  private menuPaginasProdutor : any[];
+  public menuPaginasProdutor : any[];
 
 
    rootPage: any;

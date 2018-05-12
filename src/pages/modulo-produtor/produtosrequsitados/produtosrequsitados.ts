@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {ProcurasProvider} from "../../../providers/procuras/procuras";
+import {DisponibilidadePage} from "../../disponibilidade/disponibilidade";
 
 
 /**
@@ -48,6 +49,9 @@ export class ProdutosrequsitadosPage {
       );
     }
 
+  disponibilizar(requisicao){
+      this.navControl.push(DisponibilidadePage, {requisicao: requisicao});
 
+  }
 
 }

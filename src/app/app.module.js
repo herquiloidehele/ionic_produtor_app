@@ -44,6 +44,7 @@ import { OfertasProvider } from '../providers/ofertas/ofertas';
 import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
 import { RegistarProdutosDisponibilizadosPage } from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
+import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-produtos/disponibilizar-produtos';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -128,6 +129,7 @@ var AppModule = /** @class */ (function () {
                 OfertasProvider,
                 GerarCoresProvider,
                 UrlapiProvider,
+                DisponibilizarProdutosProvider,
             ]
         })
     ], AppModule);

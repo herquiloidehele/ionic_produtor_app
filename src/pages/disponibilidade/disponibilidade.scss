@@ -1,0 +1,73 @@
+page-disponibilidade {
+
+
+  div.produto-view {
+    height: 35%;
+    background-color: #0d81ff;
+
+
+    div.ion-icon-content {
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0.06);
+      color: #fff;
+      font-size: 20pt;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    p.nome-produto {
+      margin-top: 15px;
+      color: white;
+    }
+    p.data {
+      margin-top: 5px;
+      color: white;
+    }
+  }
+
+  div#header {
+
+    ion-fab {
+      position: relative;
+    }
+
+    ion-fab[bottom][edge] {
+      bottom: -21vh;
+      top: 30vh;
+      left: 47vh;
+    }
+
+    .fab {
+      margin-right: 3vw;
+
+    }
+
+  }
+
+  div#fotoAgricultor{
+    height: 50px;
+    width: 50px;
+    background-color: #0d81ff;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    font-size: large;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2#nome{
+    font-weight: 700;
+    font-size: medium;
+  }
+
+
+
+}

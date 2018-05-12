@@ -41,7 +41,7 @@ import { OfertasProvider } from '../providers/ofertas/ofertas';
 import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
 import {RegistarProdutosDisponibilizadosPage} from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
-import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-produtos/disponibilizar-produtos';
+import {DisponibilidadePage} from "../pages/disponibilidade/disponibilidade";
 
 
 @NgModule({
@@ -69,6 +69,7 @@ import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-prod
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
       RootProdutorPage,
+    DisponibilidadePage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +96,8 @@ import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-prod
     ProdutosDisponibilizadosPage,
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
-      RootProdutorPage
+      RootProdutorPage,
+    DisponibilidadePage
   ],
   providers: [
 
@@ -125,7 +127,6 @@ import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-prod
     OfertasProvider,
     GerarCoresProvider,
     UrlapiProvider,
-    DisponibilizarProdutosProvider,
   ]
 
 })

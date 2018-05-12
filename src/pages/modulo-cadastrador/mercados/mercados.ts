@@ -18,7 +18,7 @@ import {RegistarMercadosPage} from "../cadastros/registar-mercados/registar-merc
 })
 export class MercadosPage {
 
-  private mercados: any[];
+  protected mercados: any[];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mercadoProvider: MercadoProvider) {

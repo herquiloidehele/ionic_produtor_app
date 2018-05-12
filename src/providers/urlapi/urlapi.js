@@ -15,7 +15,7 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 var UrlapiProvider = /** @class */ (function () {
-    // private url = 'https://8db774ed.ngrok.io';
+    // private url = 'https://9af3cdf2.ngrok.io/api/';
     function UrlapiProvider() {
         this.url = 'http://127.0.0.1:8000/api/';
     }

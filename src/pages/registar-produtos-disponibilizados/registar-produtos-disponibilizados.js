@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutosProvider } from "../../providers/produtos/produtos";
 import { UnidadeMedidaProvider } from "../../providers/unidade-medida/unidade-medida";
+import { OfertasProvider } from "../../providers/ofertas/ofertas";
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
  *
@@ -18,16 +19,17 @@ import { UnidadeMedidaProvider } from "../../providers/unidade-medida/unidade-me
  * Ionic pages and navigation.
  */
 var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
-    function RegistarProdutosDisponibilizadosPage(navCtrl, navParams, alertController, produtodProvider, uniadesMedidasProvider) {
+    function RegistarProdutosDisponibilizadosPage(navCtrl, navParams, alertController, produtodProvider, uniadesMedidasProvider, ofertasProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertController = alertController;
         this.produtodProvider = produtodProvider;
         this.uniadesMedidasProvider = uniadesMedidasProvider;
+        this.ofertasProvider = ofertasProvider;
         this.oferta = {
             produto: null,
-            preco: 0,
-            quantidade: 0,
+            preco: null,
+            quantidade: null,
             unidades_medidas: null,
             data_fim: null
         };
@@ -51,6 +53,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
         });
     };
     RegistarProdutosDisponibilizadosPage.prototype.itemSelected = function (atributo) {
+        var _this = this;
         var alert = this.alertController.create();
         switch (atributo) {
             case 'produto':
@@ -71,7 +74,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                             if (!dados)
                                 return false;
                             else
-                                console.log(dados);
+                                _this.oferta.produto = dados;
                         }
                     });
                 }
@@ -94,7 +97,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                             if (!dados)
                                 return false;
                             else
-                                console.log(dados);
+                                _this.oferta.unidades_medidas = dados;
                         }
                     });
                 }
@@ -113,7 +116,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                             if (!dados)
                                 return false;
                             else
-                                console.log(dados);
+                                _this.oferta.quantidade = dados.quantidade;
                         }
                     });
                 }
@@ -132,8 +135,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                             if (!dados)
                                 return false;
                             else
-                                console.log(dados);
-                            console.log(dados);
+                                _this.oferta.preco = dados.preco;
                         }
                     });
                 }
@@ -152,13 +154,29 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                             if (!dados)
                                 return false;
                             else
-                                console.log(dados);
+                                _this.oferta.data_fim = dados.data_fim;
                         }
                     });
                 }
                 break;
         }
         alert.present();
+    };
+    RegistarProdutosDisponibilizadosPage.prototype.canGoBack = function () {
+        return false;
+    };
+    RegistarProdutosDisponibilizadosPage.prototype.salvar = function () {
+        var _this = this;
+        var produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
+        console.log(produtor_id);
+        this.ofertasProvider.salvarOferta(this.oferta, produtor_id).subscribe(function (response) {
+            console.log(response);
+            _this.navCtrl.pop();
+        }, function (erros) {
+            console.log(erros);
+        }, function () {
+            console.log('Requisicao Terminada');
+        });
     };
     RegistarProdutosDisponibilizadosPage = __decorate([
         IonicPage(),
@@ -170,7 +188,8 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
             NavParams,
             AlertController,
             ProdutosProvider,
-            UnidadeMedidaProvider])
+            UnidadeMedidaProvider,
+            OfertasProvider])
     ], RegistarProdutosDisponibilizadosPage);
     return RegistarProdutosDisponibilizadosPage;
 }());

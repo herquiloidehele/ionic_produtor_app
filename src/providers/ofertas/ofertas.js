@@ -20,12 +20,14 @@ var OfertasProvider = /** @class */ (function () {
     function OfertasProvider(http, urlProvider) {
         this.http = http;
         this.urlProvider = urlProvider;
-        this.url = 'http://127.0.0.1:8000/api/';
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         this.url = urlProvider.getUrl();
     }
     OfertasProvider.prototype.getMinhasOfertas = function (provedores_id) {
         return this.http.get(this.url + 'ofertas/minhas-ofertas/' + provedores_id, { headers: this.headers });
+    };
+    OfertasProvider.prototype.salvarOferta = function (oferta, produtor) {
+        return this.http.post(this.url + 'ofertas', { oferta: oferta, produtor_id: produtor }, { headers: this.headers });
     };
     OfertasProvider = __decorate([
         Injectable(),

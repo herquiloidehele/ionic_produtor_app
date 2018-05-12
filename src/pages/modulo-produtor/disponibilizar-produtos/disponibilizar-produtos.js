@@ -23,10 +23,14 @@ var DisponibilizarProdutosPage = /** @class */ (function () {
         this.navParams = navParams;
         this.viewCtrl = viewCtrl;
         this.ofertasProvider = ofertasProvider;
+        this.ofertas = [];
         this.corBarra = [];
-        this.cores = ['#E874D8', '#00FF01', '#0013FE', '#00A3FF', '#01FFE5', '#FF6201', '#3CB371', '#1E90FF', '#FF1493', '#ad4330', '#590293', '#ED5A79'];
+        this.cores = ['#E874D8', '#00FF01', '#0013FE', '#00A3FF', '#FF6201', '#3CB371', '#1E90FF', '#FF1493', '#ad4330', '#590293', '#ED5A79'];
     }
     DisponibilizarProdutosPage.prototype.ionViewDidLoad = function () {
+        this.getMinhasOfertas();
+    };
+    DisponibilizarProdutosPage.prototype.ionViewDidEnter = function () {
         this.getMinhasOfertas();
     };
     DisponibilizarProdutosPage.prototype.ionViewWillEnter = function () {

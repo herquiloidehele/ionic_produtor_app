@@ -34,9 +34,6 @@ var ProdutosDisponibilizadosPage = /** @class */ (function () {
         // this.viewController.showBackButton(false);
         this.getAllProdutos();
     };
-    ProdutosDisponibilizadosPage.prototype.ionViewDidEnter = function () {
-        // this.getMeusProdutos();
-    };
     ProdutosDisponibilizadosPage.prototype.getMeusProdutos = function () {
         var _this = this;
         var user = JSON.parse(localStorage.getItem('user'));

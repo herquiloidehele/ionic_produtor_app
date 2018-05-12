@@ -28,6 +28,17 @@ export class ProcurasProvider {
     return this.http.post(this.url + 'procuras/produtos-produtor', {token: token},{headers: this.headers});
   }
 
+  public getProdutores(procura_id): Observable<any> {
+   return this.http.get(this.url+'disponibilidade-produto/produtores/'+procura_id);
+  }
 
+
+  public salvarDisponibilidade(disponibilidade): Observable<any>{
+    return this.http.post(this.url+ 'disponibilidade-produto',  disponibilidade, {headers:this.headers});
+  }
+
+  public actualizarDisponibilidade(disponibilidade, disponibilidade_id): Observable<any>{
+    return this.http.put(this.url+ 'disponibilidade-produto/'+disponibilidade_id, disponibilidade, {headers: this.headers});
+  }
 
 }

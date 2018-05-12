@@ -22,6 +22,7 @@ var ProdutosrequsitadosPage = /** @class */ (function () {
         this.navParams = navParams;
         this.viewCtrl = viewCtrl;
         this.procuraProvider = procuraProvider;
+        this.produtosRequisitados = [];
         this.getProdutosRequisitados();
     }
     ProdutosrequsitadosPage.prototype.ionViewWillEnter = function () {

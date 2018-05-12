@@ -20,7 +20,6 @@ var ProdutoresProvider = /** @class */ (function () {
     function ProdutoresProvider(http, urlProvider) {
         this.http = http;
         this.urlProvider = urlProvider;
-        this.url = 'http://127.0.0.1:8000/api/';
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
         this.url = urlProvider.getUrl();
     }

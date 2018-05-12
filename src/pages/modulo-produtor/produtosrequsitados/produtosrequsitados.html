@@ -20,8 +20,8 @@
   </div>
 
 
-  <ion-card *ngFor="let requisicao of produtosRequisitados">
-    <ion-card-content>
+  <ion-card *ngFor="let requisicao of produtosRequisitados" (click)="disponibilizar(requisicao)">
+    <ion-card-content >
 
       <ion-grid>
         <ion-row>
