@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
-import {RegistarProdutosDisponibilizadosPage} from "../../registar-produtos-disponibilizados/registar-produtos-disponibilizados";
+import {RegistarProdutosDisponibilizadosPage} from "../registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 
 /**
  * Generated class for the DisponibilizarProdutosPage page.

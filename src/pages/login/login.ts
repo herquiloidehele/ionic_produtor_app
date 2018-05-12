@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
+import {VariaveisGlobaisProvider} from "../../providers/variaveis-globais/variaveis-globais";
 
 /**
  * Generated class for the LoginPage page.
@@ -27,7 +28,8 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public autenticacaoService: AutenticacaoProvider
+              public autenticacaoService: AutenticacaoProvider,
+              public variaveisGlobais: VariaveisGlobaisProvider
   ) {
 
   }
@@ -42,7 +44,12 @@ export class LoginPage {
           localStorage.setItem('user', JSON.stringify(resultado.user));
           localStorage.setItem('token', resultado.token);
 
+          this.variaveisGlobais.setTipoUser(resultado.tipo_user);
+
           console.log(resultado.user);
+
+
+
           this.redirecionarUser(resultado.tipo_user, resultado.user);
         },
         (erro) => {

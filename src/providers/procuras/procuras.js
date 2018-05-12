@@ -27,6 +27,15 @@ var ProcurasProvider = /** @class */ (function () {
         var token = localStorage.getItem('token');
         return this.http.post(this.url + 'procuras/produtos-produtor', { token: token }, { headers: this.headers });
     };
+    ProcurasProvider.prototype.getProdutores = function (procura_id) {
+        return this.http.get(this.url + 'disponibilidade-produto/produtores/' + procura_id);
+    };
+    ProcurasProvider.prototype.salvarDisponibilidade = function (disponibilidade) {
+        return this.http.post(this.url + 'disponibilidade-produto', disponibilidade, { headers: this.headers });
+    };
+    ProcurasProvider.prototype.actualizarDisponibilidade = function (disponibilidade, disponibilidade_id) {
+        return this.http.put(this.url + 'disponibilidade-produto/' + disponibilidade_id, disponibilidade, { headers: this.headers });
+    };
     ProcurasProvider = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UrlapiProvider])

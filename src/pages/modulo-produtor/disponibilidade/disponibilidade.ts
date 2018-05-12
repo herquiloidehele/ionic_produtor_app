@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {ProcurasProvider} from "../../providers/procuras/procuras";
+import {ProcurasProvider} from "../../../providers/procuras/procuras";
 
 /**
  * Generated class for the DisponibilidadePage page.
@@ -65,7 +65,6 @@ export class DisponibilidadePage {
         title: 'Disponibilidade',
         inputs: [
           {
-            text: 'Quantidade',
             name: 'quantidade',
             placeholder: 'Quantidade',
             type: 'number'

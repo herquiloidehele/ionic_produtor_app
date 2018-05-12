@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {ProdutosProvider} from "../../providers/produtos/produtos";
-import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
-import {OfertasProvider} from "../../providers/ofertas/ofertas";
+import {ProdutosProvider} from "../../../providers/produtos/produtos";
+import {UnidadeMedidaProvider} from "../../../providers/unidade-medida/unidade-medida";
+import {OfertasProvider} from "../../../providers/ofertas/ofertas";
 
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.

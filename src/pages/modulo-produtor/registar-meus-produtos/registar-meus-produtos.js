@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { UnidadeMedidaProvider } from "../../providers/unidade-medida/unidade-medida";
-import { ProduzProvider } from "../../providers/produz/produz";
+import { UnidadeMedidaProvider } from "../../../providers/unidade-medida/unidade-medida";
+import { ProduzProvider } from "../../../providers/produz/produz";
 /**
  * Generated class for the RegistarMeusProdutosPage page.
  *

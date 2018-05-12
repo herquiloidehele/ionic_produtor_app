@@ -38,13 +38,13 @@ import { RootProdutorPage } from "../pages/modulo-produtor/root-produtor/root-pr
 import { ProcurasProvider } from '../providers/procuras/procuras';
 import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
-import { RegistarMeusProdutosPage } from "../pages/registar-meus-produtos/registar-meus-produtos";
+import { RegistarMeusProdutosPage } from "../pages/modulo-produtor/registar-meus-produtos/registar-meus-produtos";
 import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medida';
 import { OfertasProvider } from '../providers/ofertas/ofertas';
 import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
-import { RegistarProdutosDisponibilizadosPage } from "../pages/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
+import { RegistarProdutosDisponibilizadosPage } from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
-import { DisponibilizarProdutosProvider } from '../providers/disponibilizar-produtos/disponibilizar-produtos';
+import { DisponibilidadePage } from "../pages/modulo-produtor/disponibilidade/disponibilidade";
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -74,6 +74,7 @@ var AppModule = /** @class */ (function () {
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
                 RootProdutorPage,
+                DisponibilidadePage
             ],
             imports: [
                 BrowserModule,
@@ -100,7 +101,8 @@ var AppModule = /** @class */ (function () {
                 ProdutosDisponibilizadosPage,
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
-                RootProdutorPage
+                RootProdutorPage,
+                DisponibilidadePage
             ],
             providers: [
                 ProdutoresProvider,
@@ -129,7 +131,6 @@ var AppModule = /** @class */ (function () {
                 OfertasProvider,
                 GerarCoresProvider,
                 UrlapiProvider,
-                DisponibilizarProdutosProvider,
             ]
         })
     ], AppModule);

@@ -10,6 +10,7 @@ import {TabsPage} from "../pages/modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
+import {VariaveisGlobaisProvider} from "../providers/variaveis-globais/variaveis-globais";
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,7 @@ import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-di
 export class MyApp {
   // rootPage: typeof LoginPage;
 
-  tipoUser: any;
+  public tipoUser: any;
   user: any;
 
   @ViewChild('content') ionNav;
@@ -31,7 +32,8 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
-              app: App
+              app: App,
+              public variaveisGlobais: VariaveisGlobaisProvider
               ){
     platform.ready().then(() => {
       // statusBar.styleDefault();
@@ -68,7 +70,8 @@ export class MyApp {
             (response) => {
 
               console.log(response);
-                this.tipoUser = response.tipo_user;
+              this.variaveisGlobais.setTipoUser(response.tipo_user);
+                this.tipoUser = this.variaveisGlobais.getTipoUser();
                 this.user = response.user;
 
                 if (response.tipo_user == 'Cadastrador')

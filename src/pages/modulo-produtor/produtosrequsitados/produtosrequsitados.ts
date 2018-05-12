@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {ProcurasProvider} from "../../../providers/procuras/procuras";
-import {DisponibilidadePage} from "../../disponibilidade/disponibilidade";
+import {DisponibilidadePage} from "../disponibilidade/disponibilidade";
 
 
 /**

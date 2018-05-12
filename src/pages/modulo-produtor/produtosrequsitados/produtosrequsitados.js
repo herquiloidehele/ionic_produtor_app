@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ProcurasProvider } from "../../../providers/procuras/procuras";
+import { DisponibilidadePage } from "../disponibilidade/disponibilidade";
 /**
  * Generated class for the ProdutosrequsitadosPage page.
  *
@@ -38,6 +39,9 @@ var ProdutosrequsitadosPage = /** @class */ (function () {
         }, function (erros) {
             console.log(erros);
         });
+    };
+    ProdutosrequsitadosPage.prototype.disponibilizar = function (requisicao) {
+        this.navControl.push(DisponibilidadePage, { requisicao: requisicao });
     };
     ProdutosrequsitadosPage = __decorate([
         IonicPage(),
