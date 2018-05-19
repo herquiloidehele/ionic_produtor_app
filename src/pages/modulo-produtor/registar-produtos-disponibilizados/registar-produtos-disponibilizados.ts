@@ -20,7 +20,7 @@ import {MostrarParcementoPage} from "../../mostrar-parcemento/mostrar-parcemento
 export class RegistarProdutosDisponibilizadosPage {
 
 
-  oferta: any = {
+  protected oferta: any = {
     produto: null,
     preco: null,
     quantidade: null,
@@ -29,11 +29,13 @@ export class RegistarProdutosDisponibilizadosPage {
     is_parcelado: 'NAO'
   };
 
-  produtos: any[];
-  unidades_medidas: any[];
 
 
-  constructor(public navCtrl: NavController,
+  protected produtos: any[];
+  protected unidades_medidas: any[];
+
+
+  public constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertController: AlertController,
               public produtodProvider: ProdutosProvider,

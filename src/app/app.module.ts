@@ -44,6 +44,7 @@ import { UrlapiProvider } from '../providers/urlapi/urlapi';
 import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disponibilidade";
 import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
 import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parcemento";
+import { ConversorProvider } from '../providers/conversor/conversor';
 
 
 @NgModule({
@@ -105,7 +106,7 @@ import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parceme
 
   ],
   providers: [
-
+    ConversorProvider,
     ProdutoresProvider,
     RevendedorProvider,
     MercadoProvider,

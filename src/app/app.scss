@@ -106,3 +106,14 @@ ion-content.side-content{
 }
 
 
+.card:hover {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+}
+
+card {
+  transition: 0.3s;
+  height: 120px;
+  padding: 1.5em;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2) !important;
+}
