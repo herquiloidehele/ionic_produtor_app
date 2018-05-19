@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs/Observable";
 
 /*
   Generated class for the VariaveisGlobaisProvider provider.
@@ -11,7 +10,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class VariaveisGlobaisProvider {
 
-  private tipoUser;
+  private tipoUser: String;
 
 
   constructor(public http: HttpClient) {
@@ -19,12 +18,12 @@ export class VariaveisGlobaisProvider {
   }
 
 
-  public getTipoUser(): Observable<String>{
+  public getTipoUser(): String{
     return this.tipoUser;
   }
 
-  public setTipoUser(tipoUser: String): Observable<String>{
-     return this.tipoUser = tipoUser;
+  public setTipoUser(tipoUser: String){
+      this.tipoUser = tipoUser;
   }
 
 

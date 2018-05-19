@@ -12,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AutenticacaoProvider } from "../../providers/autenticacao/autenticacao";
 import { TabsPage } from "../modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
+import { VariaveisGlobaisProvider } from "../../providers/variaveis-globais/variaveis-globais";
 /**
  * Generated class for the LoginPage page.
  *
@@ -19,10 +20,11 @@ import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, autenticacaoService) {
+    function LoginPage(navCtrl, navParams, autenticacaoService, variaveisGlobais) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.autenticacaoService = autenticacaoService;
+        this.variaveisGlobais = variaveisGlobais;
         this.user = {
             username: null,
             password: null,
@@ -34,6 +36,7 @@ var LoginPage = /** @class */ (function () {
         this.autenticacaoService.login(user).subscribe(function (resultado) {
             localStorage.setItem('user', JSON.stringify(resultado.user));
             localStorage.setItem('token', resultado.token);
+            _this.variaveisGlobais.setTipoUser(resultado.tipo_user);
             console.log(resultado.user);
             _this.redirecionarUser(resultado.tipo_user, resultado.user);
         }, function (erro) {
@@ -70,7 +73,8 @@ var LoginPage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [NavController,
             NavParams,
-            AutenticacaoProvider])
+            AutenticacaoProvider,
+            VariaveisGlobaisProvider])
     ], LoginPage);
     return LoginPage;
 }());

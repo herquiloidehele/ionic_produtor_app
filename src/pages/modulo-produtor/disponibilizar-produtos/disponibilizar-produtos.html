@@ -39,7 +39,7 @@
 
               <div class="data">
                 <ion-icon icon-start name="calendar"></ion-icon>
-                <span>{{getData(oferta.created_at.date)}}</span>
+                <span>{{getData(oferta.created_at.date) | date: 'dd/MM/yyyy'}}</span>
               </div>
 
               <div class="quantidade">

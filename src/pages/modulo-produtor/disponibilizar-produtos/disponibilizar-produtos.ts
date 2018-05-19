@@ -79,8 +79,11 @@ export class DisponibilizarProdutosPage {
   }
 
   getData(data){
+    console.log(data);
     let novaData = new Date(data);
-    return new Intl.DateTimeFormat('us-GB').format(novaData);
+
+    return novaData;
+    // return new Intl.DateTimeFormat('us-GB').format(novaData);
   }
 
   adicionarProdutos(){

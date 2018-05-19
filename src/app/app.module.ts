@@ -43,6 +43,7 @@ import {RegistarProdutosDisponibilizadosPage} from "../pages/modulo-produtor/reg
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
 import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disponibilidade";
 import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
+import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parcemento";
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variave
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
       RootProdutorPage,
-    DisponibilidadePage
+    DisponibilidadePage,
+    MostrarParcementoPage,
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,9 @@ import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variave
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
       RootProdutorPage,
-    DisponibilidadePage
+    DisponibilidadePage,
+    MostrarParcementoPage,
+
   ],
   providers: [
 

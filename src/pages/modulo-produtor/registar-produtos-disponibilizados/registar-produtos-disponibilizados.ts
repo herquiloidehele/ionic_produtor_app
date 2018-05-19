@@ -3,6 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {ProdutosProvider} from "../../../providers/produtos/produtos";
 import {UnidadeMedidaProvider} from "../../../providers/unidade-medida/unidade-medida";
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
+import {MostrarParcementoPage} from "../../mostrar-parcemento/mostrar-parcemento";
 
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
@@ -24,7 +25,8 @@ export class RegistarProdutosDisponibilizadosPage {
     preco: null,
     quantidade: null,
     unidades_medidas: null,
-    data_fim: null
+    data_fim: null,
+    is_parcelado: 'NAO'
   };
 
   produtos: any[];
@@ -201,8 +203,7 @@ export class RegistarProdutosDisponibilizadosPage {
     return false;
   }
 
-
-  salvar(){
+  salvarOferta(){
 
     let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
     console.log(produtor_id);
@@ -219,6 +220,12 @@ export class RegistarProdutosDisponibilizadosPage {
       }
     );
   }
+
+
+  continuarOferta(){
+    this.navCtrl.push(MostrarParcementoPage, {oferta: this.oferta});
+  }
+
 
 }
 

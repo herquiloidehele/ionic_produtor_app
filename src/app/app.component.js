@@ -18,10 +18,12 @@ import { TabsPage } from "../pages/modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
+import { VariaveisGlobaisProvider } from "../providers/variaveis-globais/variaveis-globais";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, app) {
+    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, app, variaveisGlobais) {
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
+        this.variaveisGlobais = variaveisGlobais;
         platform.ready().then(function () {
             // statusBar.styleDefault();
             // splashScreen.hide();
@@ -46,7 +48,8 @@ var MyApp = /** @class */ (function () {
         if (token) {
             this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
                 console.log(response);
-                _this.tipoUser = response.tipo_user;
+                _this.variaveisGlobais.setTipoUser(response.tipo_user);
+                _this.tipoUser = _this.variaveisGlobais.getTipoUser();
                 _this.user = response.user;
                 if (response.tipo_user == 'Cadastrador')
                     _this.rootPage = TabsPage;
@@ -131,7 +134,8 @@ var MyApp = /** @class */ (function () {
         __metadata("design:paramtypes", [Platform, StatusBar, SplashScreen,
             AutenticacaoProvider,
             AlertController,
-            App])
+            App,
+            VariaveisGlobaisProvider])
     ], MyApp);
     return MyApp;
 }());
