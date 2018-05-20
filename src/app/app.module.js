@@ -46,6 +46,8 @@ import { RegistarProdutosDisponibilizadosPage } from "../pages/modulo-produtor/r
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
 import { DisponibilidadePage } from "../pages/modulo-produtor/disponibilidade/disponibilidade";
 import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
+import { MostrarParcementoPage } from "../pages/mostrar-parcemento/mostrar-parcemento";
+import { ConversorProvider } from '../providers/conversor/conversor';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -75,7 +77,8 @@ var AppModule = /** @class */ (function () {
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
                 RootProdutorPage,
-                DisponibilidadePage
+                DisponibilidadePage,
+                MostrarParcementoPage,
             ],
             imports: [
                 BrowserModule,
@@ -103,9 +106,11 @@ var AppModule = /** @class */ (function () {
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
                 RootProdutorPage,
-                DisponibilidadePage
+                DisponibilidadePage,
+                MostrarParcementoPage,
             ],
             providers: [
+                ConversorProvider,
                 ProdutoresProvider,
                 RevendedorProvider,
                 MercadoProvider,

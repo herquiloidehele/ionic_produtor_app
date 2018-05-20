@@ -12,6 +12,7 @@ import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angu
 import { ProdutosProvider } from "../../../providers/produtos/produtos";
 import { UnidadeMedidaProvider } from "../../../providers/unidade-medida/unidade-medida";
 import { OfertasProvider } from "../../../providers/ofertas/ofertas";
+import { MostrarParcementoPage } from "../../mostrar-parcemento/mostrar-parcemento";
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
  *
@@ -31,7 +32,8 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
             preco: null,
             quantidade: null,
             unidades_medidas: null,
-            data_fim: null
+            data_fim: null,
+            is_parcelado: 'NAO'
         };
         this.getProdutos();
         this.getUnidadesMedidas();
@@ -165,7 +167,7 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
     RegistarProdutosDisponibilizadosPage.prototype.canGoBack = function () {
         return false;
     };
-    RegistarProdutosDisponibilizadosPage.prototype.salvar = function () {
+    RegistarProdutosDisponibilizadosPage.prototype.salvarOferta = function () {
         var _this = this;
         var produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
         console.log(produtor_id);
@@ -177,6 +179,9 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
         }, function () {
             console.log('Requisicao Terminada');
         });
+    };
+    RegistarProdutosDisponibilizadosPage.prototype.continuarOferta = function () {
+        this.navCtrl.push(MostrarParcementoPage, { oferta: this.oferta });
     };
     RegistarProdutosDisponibilizadosPage = __decorate([
         IonicPage(),

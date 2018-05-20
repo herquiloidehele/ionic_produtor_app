@@ -19,6 +19,7 @@ import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsi
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import { VariaveisGlobaisProvider } from "../providers/variaveis-globais/variaveis-globais";
+import { RegistarProdutosDisponibilizadosPage } from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, app, variaveisGlobais) {
         this.autenticacaoProvider = autenticacaoProvider;
@@ -54,7 +55,7 @@ var MyApp = /** @class */ (function () {
                 if (response.tipo_user == 'Cadastrador')
                     _this.rootPage = TabsPage;
                 if (response.tipo_user == 'Produtor')
-                    _this.rootPage = ProdutosrequsitadosPage;
+                    _this.rootPage = RegistarProdutosDisponibilizadosPage;
                 if (response.tipo_user == 'Revendedor')
                     _this.rootPage = TabsPage;
             }, function (erros) {

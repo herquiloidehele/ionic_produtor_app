@@ -57,8 +57,7 @@ var DisponibilizarProdutosPage = /** @class */ (function () {
         return this.cores[aleatorio];
     };
     DisponibilizarProdutosPage.prototype.getData = function (data) {
-        var novaData = new Date(data);
-        return new Intl.DateTimeFormat('us-GB').format(novaData);
+        return new Date(data);
     };
     DisponibilizarProdutosPage.prototype.adicionarProdutos = function () {
         this.navCtrl.push(RegistarProdutosDisponibilizadosPage);
