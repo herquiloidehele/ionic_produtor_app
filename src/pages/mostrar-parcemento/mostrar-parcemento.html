@@ -1,0 +1,87 @@
+
+
+<ion-content>
+
+  <div id="header" color="primary" class="produto-view" text-center>
+
+    <div class="ion-icon-content">
+      <ion-icon name="leaf"></ion-icon>
+    </div>
+    <p class="nome-produto">{{oferta.produto.designacao}}</p>
+
+    <ion-grid class="sumarizacao">
+      <ion-row>
+
+        <div ion-col col-4>
+          <span>{{parcelas.length + "UNI."}} </span>
+          <p>PARCELAS</p>
+        </div>
+
+        <div ion-col col-4>
+          <span>{{oferta.quantidade + '  '}} {{oferta.unidades_medidas.abreviatura}}</span>
+          <p>QUANTIDADE</p>
+        </div>
+
+        <div ion-col col-4>
+          <span>{{oferta.preco + '  MZN'}} </span>
+          <p>TOTAL</p>
+        </div>
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-6 *ngFor="let parcela of parcelas">
+        <ion-card class="card-parcela">
+          <ion-card-content>
+
+            <ion-icon class="ion-produto-card" name="leaf"></ion-icon>
+
+            <div text-center>
+              <h5 class="text-center">{{pacela.quantidade}} {{' '+ parcela.unidades_medidas}}</h5>
+            </div>
+            <div text-center>
+              <h5 class="text-center pb-2">{{parcela.preco + ' MZN'}}</h5>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-6 *ngIf="parcelamento_diferente == true">
+        <ion-card class="card-parcela">
+          <ion-card-content text-center>
+            <ion-icon color="primary" name="add" class="icon-adicionar">
+            </ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+
+
+
+    <div text-center style="margin-top: 30%">
+      <h3 text-center style="color: #666666">De que forma deeja Parcelar o Produto?</h3>
+      <ion-grid>
+        <ion-row>
+          <button ion-col col-4 offset-1 ion-button color="secondary" (click)="alertPartesIguais1()">Partes Iguais</button>
+          <button ion-col col-5 offset-1 ion-button color="secondary" (click)="alertDisponibilidade('salvar')">Partes Diferentes</button>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+
+
+
+</ion-content>

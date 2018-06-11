@@ -5,7 +5,11 @@
   </ion-card-header>
 
   <ion-list>
-    <button ion-item *ngFor="let produto of categoria.produtos">Produto {{produto.designacao}}</button>
+    <div *ngFor="let produto of categoria.produtos; let indice = index">
+      <button ion-item *ngIf="indice < 4" >
+        {{produto.designacao}}</button>
+    </div>
+
   </ion-list>
   <div text-center>
     <button ion-button clear block>Mais</button>

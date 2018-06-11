@@ -1,0 +1,108 @@
+page-mostrar-parcemento {
+  div.produto-view {
+    padding-top: 40px;
+    height: 35%;
+    background-color: #11db94;
+
+
+    div.ion-icon-content {
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0.06);
+      color: #fff;
+      font-size: 20pt;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    p.nome-produto {
+      margin-top: 15px;
+      color: white;
+    }
+    p.data {
+      margin-top: 5px;
+      color: white;
+    }
+  }
+
+
+
+  //div#fotoAgricultor{
+  //  height: 50px;
+  //  width: 50px;
+  //  background-color: #0d81ff;
+  //  border-radius: 50%;
+  //  color: #fff;
+  //  font-weight: 700;
+  //  display: flex;
+  //  font-size: large;
+  //  flex-direction: column;
+  //  justify-content: center;
+  //}
+
+  h2#nome{
+    font-weight: 700;
+    font-size: medium;
+  }
+
+
+  .card-parcela{
+    height: 150px;
+
+
+    div{
+      margin-top: 10px;
+    }
+
+  }
+
+  .icon-adicionar{
+    font-size: 100pt;
+  }
+
+  .ion-produto-card{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    //background-color: rgba(0, 0, 0, 0.06);
+    background-color: #11db94;
+    color: #fff;
+    font-size: 20pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .pb-2{
+    padding-bottom: 1.5em;
+  }
+
+
+  ion-grid.sumarizacao{
+    margin-top: 10px;
+
+    span{
+      text-transform: capitalize;
+      font-size: 12pt;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    p{
+      color: rgba(0, 0, 0, 0.7);
+      text-transform: capitalize;
+      font-size: 10pt;
+    }
+
+  }
+
+
+}

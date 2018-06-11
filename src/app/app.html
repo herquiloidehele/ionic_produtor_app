@@ -16,7 +16,7 @@
     </ion-header>
 
     <ion-content class="side-content">
-        <ion-list>
+        <ion-list no-lines>
             <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasProdutor">
                 <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
                 <span color="primary">{{pagina.pageName}}</span>
@@ -51,7 +51,7 @@
   </ion-header>
 
   <ion-content class="side-content">
-    <ion-list>
+    <ion-list no-lines>
       <button ion-item menuClose="left">
         <ion-icon item-start name="home" color="primary"></ion-icon>
         <span color="primary">Meu Perfil</span>

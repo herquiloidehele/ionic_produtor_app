@@ -92,7 +92,15 @@ p{
 
 ion-content.side-content{
   height: 100%;
-  background-color: white;
+  background-color: #0d81ff;
+  ion-icon{
+    color: white;
+  }
+
+  button{
+    background-color: #0d81ff;
+    color: white;
+  }
 
 
   ion-list{

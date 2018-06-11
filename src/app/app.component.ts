@@ -11,8 +11,6 @@ import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsita
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {VariaveisGlobaisProvider} from "../providers/variaveis-globais/variaveis-globais";
-import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parcemento";
-import {RegistarProdutosDisponibilizadosPage} from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 
 @Component({
   templateUrl: 'app.html'
@@ -79,7 +77,7 @@ export class MyApp {
                 if (response.tipo_user == 'Cadastrador')
                     this.rootPage = TabsPage;
                 if (response.tipo_user == 'Produtor')
-                    this.rootPage = RegistarProdutosDisponibilizadosPage;
+                    this.rootPage = ProdutosrequsitadosPage;
                 if (response.tipo_user == 'Revendedor')
                     this.rootPage = TabsPage;
             },
