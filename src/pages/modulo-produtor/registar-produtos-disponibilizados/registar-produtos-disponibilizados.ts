@@ -149,10 +149,10 @@ export class RegistarProdutosDisponibilizadosPage {
 
       case 'preco': {
 
-        alert.setTitle('Introduza o Preco');
+        alert.setTitle('Introduza o Preço Total');
         alert.addInput({
           name: 'preco',
-          placeholder: 'Preco'
+          placeholder: 'Preço'
         });
 
         alert.addButton({text: 'CANCEL'});

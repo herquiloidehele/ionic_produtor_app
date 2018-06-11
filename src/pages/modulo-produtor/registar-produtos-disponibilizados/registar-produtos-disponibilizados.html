@@ -23,7 +23,7 @@
 
       <ion-card-content>
         <button ion-item  (click)="itemSelected('produto')">
-          <ion-icon icon-start name="checkmark" color="{{oferta.produto? 'secondary': '#000'}}"></ion-icon>
+          <ion-icon icon-left name="checkmark" color="{{oferta.produto? 'secondary': '#000'}}"></ion-icon>
           <span>{{oferta.produto ? oferta.produto.designacao: 'Nome do produto'}}</span>
         </button>
 
@@ -39,7 +39,7 @@
 
         <button ion-item  (click)="itemSelected('preco')">
           <ion-icon icon-start name="checkmark" [color]="oferta.preco? 'secondary': '#000'"></ion-icon>
-          <span>{{oferta.preco ? oferta.preco: 'Preco'}}</span>
+          <span>{{oferta.preco ? oferta.preco: 'Preco Total'}}</span>
         </button>
 
       </ion-card-content>
