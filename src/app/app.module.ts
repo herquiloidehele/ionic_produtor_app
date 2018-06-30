@@ -45,6 +45,8 @@ import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disp
 import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
 import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parcemento";
 import { ConversorProvider } from '../providers/conversor/conversor';
+import {PerfilPage} from "../pages/perfil/perfil";
+import { MenuProvider } from '../providers/menu/menu';
 
 
 @NgModule({
@@ -74,6 +76,7 @@ import { ConversorProvider } from '../providers/conversor/conversor';
       RootProdutorPage,
     DisponibilidadePage,
     MostrarParcementoPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,7 @@ import { ConversorProvider } from '../providers/conversor/conversor';
       RootProdutorPage,
     DisponibilidadePage,
     MostrarParcementoPage,
+    PerfilPage
 
   ],
   providers: [
@@ -134,6 +138,7 @@ import { ConversorProvider } from '../providers/conversor/conversor';
     GerarCoresProvider,
     UrlapiProvider,
     VariaveisGlobaisProvider,
+    MenuProvider,
   ]
 
 })

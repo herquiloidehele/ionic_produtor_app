@@ -19,11 +19,13 @@ import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsi
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import { VariaveisGlobaisProvider } from "../providers/variaveis-globais/variaveis-globais";
-import { RegistarProdutosDisponibilizadosPage } from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
+import { PerfilPage } from "../pages/perfil/perfil";
+import { MenuProvider } from "../providers/menu/menu";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, app, variaveisGlobais) {
+    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app, variaveisGlobais) {
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
+        this.menuProvider = menuProvider;
         this.variaveisGlobais = variaveisGlobais;
         platform.ready().then(function () {
             // statusBar.styleDefault();
@@ -34,8 +36,21 @@ var MyApp = /** @class */ (function () {
         });
         this.menuPaginasProdutor = [
             { icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage },
-            { icon: 'home', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage },
-            { icon: 'home', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage }
+            { icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage },
+            { icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage },
+            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
+        ];
+        this.menuPaginasCadastrador = [
+            { icon: 'leaf', pageName: 'Produtos', page: ProdutosrequsitadosPage },
+            { icon: 'person', pageName: 'Produtores', page: DisponibilizarProdutosPage },
+            { icon: 'person', pageName: 'Revendedores', page: ProdutosDisponibilizadosPage },
+            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
+        ];
+        this.menuPaginasRevendedor = [
+            { icon: 'home', pageName: 'Requiaitar Produtos', page: ProdutosrequsitadosPage },
+            { icon: 'send', pageName: 'Notifiacoes', page: DisponibilizarProdutosPage },
+            { icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage },
+            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
         ];
         this.getUserData();
         this.getPage();
@@ -55,7 +70,7 @@ var MyApp = /** @class */ (function () {
                 if (response.tipo_user == 'Cadastrador')
                     _this.rootPage = TabsPage;
                 if (response.tipo_user == 'Produtor')
-                    _this.rootPage = RegistarProdutosDisponibilizadosPage;
+                    _this.rootPage = ProdutosrequsitadosPage;
                 if (response.tipo_user == 'Revendedor')
                     _this.rootPage = TabsPage;
             }, function (erros) {
@@ -135,6 +150,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:paramtypes", [Platform, StatusBar, SplashScreen,
             AutenticacaoProvider,
             AlertController,
+            MenuProvider,
             App,
             VariaveisGlobaisProvider])
     ], MyApp);

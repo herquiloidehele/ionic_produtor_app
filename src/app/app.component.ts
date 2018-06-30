@@ -11,6 +11,8 @@ import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsita
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {VariaveisGlobaisProvider} from "../providers/variaveis-globais/variaveis-globais";
+import {PerfilPage} from "../pages/perfil/perfil";
+import {MenuProvider} from "../providers/menu/menu";
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +27,8 @@ export class MyApp {
 
 
   public menuPaginasProdutor : any[];
+  public menuPaginasCadastrador : any[];
+  public menuPaginasRevendedor : any[];
 
 
    rootPage: any;
@@ -32,6 +36,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
+              public menuProvider: MenuProvider,
               app: App,
               public variaveisGlobais: VariaveisGlobaisProvider
               ){
@@ -47,8 +52,23 @@ export class MyApp {
 
     this.menuPaginasProdutor = [
       {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
-      {icon: 'home', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
-      {icon: 'home', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage}
+      {icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
+      {icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage},
+      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPage}
+    ];
+
+    this.menuPaginasCadastrador = [
+      {icon: 'leaf', pageName: 'Produtos', page: ProdutosrequsitadosPage},
+      {icon: 'person', pageName: 'Produtores', page: DisponibilizarProdutosPage},
+      {icon: 'person', pageName: 'Revendedores', page: ProdutosDisponibilizadosPage},
+      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPage}
+    ];
+
+    this.menuPaginasRevendedor = [
+      {icon: 'home', pageName: 'Requiaitar Produtos', page: ProdutosrequsitadosPage},
+      {icon: 'send', pageName: 'Notifiacoes', page: DisponibilizarProdutosPage},
+      {icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage},
+      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPage}
     ];
 
 
@@ -107,7 +127,8 @@ export class MyApp {
                 (response) => {
                     this.user = response['user'];
                     this.tipoUser = response['tipo_user'];
-
+                    this.menuProvider.setTipoUser(response['tipo_user']);
+                    this.menuProvider.setShowMenu(true);
                 },
                 (erros) => {
                     console.log(erros);
@@ -158,6 +179,8 @@ export class MyApp {
                 if (resultado['logout'] == true) {
                     this.ionNav.setRoot(LoginPage);
                     localStorage.removeItem('token');
+                    this.menuProvider.setShowMenu(false);
+                    this.menuProvider.setTipoUser('');
                 }
                 else
                     alert('Ocorreu algum erro no logout');

@@ -13,6 +13,7 @@ import { AutenticacaoProvider } from "../../providers/autenticacao/autenticacao"
 import { TabsPage } from "../modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
 import { VariaveisGlobaisProvider } from "../../providers/variaveis-globais/variaveis-globais";
+import { MenuProvider } from "../../providers/menu/menu";
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,31 +21,42 @@ import { VariaveisGlobaisProvider } from "../../providers/variaveis-globais/vari
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, autenticacaoService, variaveisGlobais) {
+    function LoginPage(navCtrl, navParams, autenticacaoService, variaveisGlobais, menuProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.autenticacaoService = autenticacaoService;
         this.variaveisGlobais = variaveisGlobais;
+        this.menuProvider = menuProvider;
         this.user = {
             username: null,
             password: null,
         };
     }
     LoginPage.prototype.onSignIn = function () {
-        var _this = this;
-        var user = { username: this.user.username, password: this.user.password };
-        this.autenticacaoService.login(user).subscribe(function (resultado) {
-            localStorage.setItem('user', JSON.stringify(resultado.user));
-            localStorage.setItem('token', resultado.token);
-            _this.variaveisGlobais.setTipoUser(resultado.tipo_user);
-            console.log(resultado.user);
-            _this.redirecionarUser(resultado.tipo_user, resultado.user);
-        }, function (erro) {
-            alert('Credenciais erradas');
-            console.log(erro);
-        }, function () {
-            console.log('Completo');
-        });
+        alert(this.menuProvider.getTipoUser());
+        // const user = {username: this.user.username, password: this.user.password};
+        // this.autenticacaoService.login(user).subscribe(
+        //     (resultado) => {
+        //
+        //       localStorage.setItem('user', JSON.stringify(resultado.user));
+        //       localStorage.setItem('token', resultado.token);
+        //
+        //       this.variaveisGlobais.setTipoUser(resultado.tipo_user);
+        //
+        //       console.log(resultado.user);
+        //
+        //
+        //
+        //       this.redirecionarUser(resultado.tipo_user, resultado.user);
+        //     },
+        //     (erro) => {
+        //       alert('Credenciais erradas');
+        //       console.log(erro);
+        //     },
+        //     () => {
+        //       console.log('Completo');
+        //     },
+        // );
     };
     LoginPage.prototype.onPasswordForget = function () {
         console.log('Forget Password');
@@ -74,7 +86,8 @@ var LoginPage = /** @class */ (function () {
         __metadata("design:paramtypes", [NavController,
             NavParams,
             AutenticacaoProvider,
-            VariaveisGlobaisProvider])
+            VariaveisGlobaisProvider,
+            MenuProvider])
     ], LoginPage);
     return LoginPage;
 }());

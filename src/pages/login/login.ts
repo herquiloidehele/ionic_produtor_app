@@ -4,6 +4,7 @@ import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {VariaveisGlobaisProvider} from "../../providers/variaveis-globais/variaveis-globais";
+import {MenuProvider} from "../../providers/menu/menu";
 
 /**
  * Generated class for the LoginPage page.
@@ -29,13 +30,15 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public autenticacaoService: AutenticacaoProvider,
-              public variaveisGlobais: VariaveisGlobaisProvider
+              public variaveisGlobais: VariaveisGlobaisProvider,
+              public menuProvider: MenuProvider
   ) {
 
   }
 
 
   onSignIn(){
+
 
     const user = {username: this.user.username, password: this.user.password};
     this.autenticacaoService.login(user).subscribe(
@@ -44,8 +47,9 @@ export class LoginPage {
           localStorage.setItem('user', JSON.stringify(resultado.user));
           localStorage.setItem('token', resultado.token);
 
-          this.variaveisGlobais.setTipoUser(resultado.tipo_user);
 
+          this.menuProvider.setTipoUser(resultado.tipo_user);
+          this.menuProvider.setShowMenu(true);
           console.log(resultado.user);
 
 

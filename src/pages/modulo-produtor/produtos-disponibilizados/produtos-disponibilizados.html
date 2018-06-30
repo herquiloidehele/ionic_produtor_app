@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding-right padding-top>
 
 
   <ion-fab right bottom>
@@ -20,23 +20,28 @@
     </button>
   </ion-fab>
 
-  <ion-card *ngFor="let produto of meusProdutos">
-    <ion-card-content>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-12 class="esquerda" text-center>
-            <div class="ion-icon-content">
-              <ion-icon name="leaf"></ion-icon>
-            </div>
-            <p color="white" class="nome-produto">{{produto.produto.designacao}}</p>
-            <p color="white" class="quantidade">{{produto.quantidade}} {{produto.unidade_medida.designacao}}</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-card *ngFor="let produto of meusProdutos; let indice=index" ion-col col-5 offset-1 margin-top>
+        <ion-card-content>
 
-    </ion-card-content>
-  </ion-card>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-12 class="esquerda" text-center>
+                <div class="ion-icon-content">
+                  <ion-icon name="leaf"></ion-icon>
+                </div>
+                <p color="white" class="nome-produto">{{produto.produto.designacao}}</p>
+                <p color="white" class="quantidade">{{produto.quantidade}} {{produto.unidade_medida.designacao}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 
 
   <!--<div *ngIf="meusProdutos.length == 0" class="message-empty" text-center>-->

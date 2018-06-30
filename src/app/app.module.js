@@ -48,6 +48,8 @@ import { DisponibilidadePage } from "../pages/modulo-produtor/disponibilidade/di
 import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
 import { MostrarParcementoPage } from "../pages/mostrar-parcemento/mostrar-parcemento";
 import { ConversorProvider } from '../providers/conversor/conversor';
+import { PerfilPage } from "../pages/perfil/perfil";
+import { MenuProvider } from '../providers/menu/menu';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -79,6 +81,7 @@ var AppModule = /** @class */ (function () {
                 RootProdutorPage,
                 DisponibilidadePage,
                 MostrarParcementoPage,
+                PerfilPage
             ],
             imports: [
                 BrowserModule,
@@ -108,6 +111,7 @@ var AppModule = /** @class */ (function () {
                 RootProdutorPage,
                 DisponibilidadePage,
                 MostrarParcementoPage,
+                PerfilPage
             ],
             providers: [
                 ConversorProvider,
@@ -138,6 +142,7 @@ var AppModule = /** @class */ (function () {
                 GerarCoresProvider,
                 UrlapiProvider,
                 VariaveisGlobaisProvider,
+                MenuProvider,
             ]
         })
     ], AppModule);
