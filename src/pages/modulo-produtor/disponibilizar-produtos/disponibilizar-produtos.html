@@ -47,9 +47,9 @@
                 <span>{{oferta.quantidade}} {{oferta.unidade_medida.designacao}}</span>
               </div>
 
-              <div class="preco">
+              <div class="preco" >
                 <ion-icon name="cash"></ion-icon>
-                <span>{{oferta.preco}} MZN</span>
+                <span>{{oferta.tipo_preco == 'total' ? oferta.preco + ' MZN' : oferta.preco_unidade + ' MZN/'+ oferta.unidade_medida.abreviatura  }}</span>
               </div>
 
               <div>

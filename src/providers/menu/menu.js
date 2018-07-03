@@ -17,8 +17,7 @@ import { Injectable } from '@angular/core';
 var MenuProvider = /** @class */ (function () {
     function MenuProvider() {
         this.showMenu = false;
-        this.tipoUser = '';
-        alert('Show Menu');
+        this.tipoUser = "";
     }
     MenuProvider.prototype.setTipoUser = function (tipoUser) {
         this.tipoUser = tipoUser;

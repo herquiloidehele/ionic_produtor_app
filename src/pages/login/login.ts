@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {VariaveisGlobaisProvider} from "../../providers/variaveis-globais/variaveis-globais";
 import {MenuProvider} from "../../providers/menu/menu";
 
 /**
@@ -30,7 +29,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public autenticacaoService: AutenticacaoProvider,
-              public variaveisGlobais: VariaveisGlobaisProvider,
               public menuProvider: MenuProvider
   ) {
 
@@ -75,14 +73,10 @@ export class LoginPage {
 
   private redirecionarUser(tipoUser : String, user: any){
     if(tipoUser == 'Cadastrador'){
-      // MyApp.setRootPage(TabsPage);
-      // MyApp.rootPage = TabsPage;
         this.navCtrl.setRoot(TabsPage, {tipoUser: tipoUser, user: user});
     }
 
     if(tipoUser == 'Produtor'){
-      // MyApp.setRootPage(ProdutosrequsitadosPage);
-      // MyApp.rootPage = ProdutosrequsitadosPage;
       this.navCtrl.setRoot(ProdutosrequsitadosPage, {tipoUser: tipoUser, user: user});
     }
 

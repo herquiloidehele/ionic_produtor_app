@@ -13,91 +13,108 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="cards-bg">
 
   <ion-list class="lista">
     <ion-card>
       <ion-card-header>
-        <ion-card-title style="font-weight: bold; font-size: 12pt" >Informações do Produto</ion-card-title>
+        <ion-card-title style="font-weight: bold; font-size: 12pt" color="secondary">Informações do Produto</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
         <button ion-item  (click)="itemSelected('produto')">
           <ion-icon icon-left name="checkmark" color="{{oferta.produto? 'secondary': '#000'}}"></ion-icon>
-          <span>{{oferta.produto ? oferta.produto.designacao: 'Nome do produto'}}</span>
+          <span [ngStyle]="{'color': getColorGreen(oferta.produto)}">{{oferta.produto ? oferta.produto.designacao: 'Nome do produto'}}</span>
         </button>
 
         <button ion-item  (click)="itemSelected('unidadeMedida')">
           <ion-icon icon-start name="checkmark" [color]="oferta.unidades_medidas? 'secondary': '#000'"></ion-icon>
-          <span>{{oferta.unidades_medidas ? oferta.unidades_medidas.designacao: 'Unidade de Medida'}}</span>
+          <span [ngStyle]="{'color': getColorGreen(oferta.unidades_medidas)}">{{oferta.unidades_medidas ? oferta.unidades_medidas.designacao: 'Unidade de Medida'}}</span>
         </button>
 
         <button ion-item  (click)="itemSelected('quantidade')">
           <ion-icon icon-start name="checkmark" [color]="oferta.quantidade? 'secondary': '#000'"></ion-icon>
-          <span>{{oferta.quantidade ? oferta.quantidade: 'Quantidade'}}</span>
+          <span [ngStyle]="{'color': getColorGreen(oferta.quantidade)}">{{oferta.quantidade ? oferta.quantidade + ' '+ (oferta.unidades_medidas ? oferta.unidades_medidas.abreviatura: '') : 'Quantidade'}}</span>
         </button>
 
-        <button ion-item  (click)="itemSelected('preco')">
+
+          <ion-segment [(ngModel)]="escolher_preco">
+            <ion-segment-button value="total" (click)="onPrecoChoice('total')">
+              Preço Total
+            </ion-segment-button>
+
+            <ion-segment-button value="unidade" (click)="onPrecoChoice('unidade')">
+              Preço Unidades
+            </ion-segment-button>
+          </ion-segment>
+
+        <div [ngSwitch]="escolher_preco">
+          <button ion-item  (click)="itemSelected('preco_unidade')" *ngSwitchCase="'unidade'">
+            <ion-icon icon-start name="checkmark" [color]="oferta.preco_unidade? 'secondary': '#000'"></ion-icon>
+            <span [ngStyle]="{'color': getColorGreen(oferta.preco_unidade)}">{{oferta.preco_unidade ? oferta.preco_unidade + ' MZN / '+ (oferta.unidades_medidas ? oferta.unidades_medidas.abreviatura: ''): 'Preco Unidade'}}</span>
+          </button>
+
+          <button ion-item  (click)="itemSelected('preco')" *ngSwitchCase="'total'">
           <ion-icon icon-start name="checkmark" [color]="oferta.preco? 'secondary': '#000'"></ion-icon>
-          <span>{{oferta.preco ? oferta.preco: 'Preco Total'}}</span>
-        </button>
+          <span [ngStyle]="{'color': getColorGreen(oferta.preco)}">{{oferta.preco ? oferta.preco + ' MZN': 'Preco Total'}}</span>
+          </button>
+        </div>
+
 
       </ion-card-content>
     </ion-card>
 
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title style="font-weight: bold; font-size: 12pt">Data e Parcelamento</ion-card-title>
-    </ion-card-header>
 
-    <ion-card-content>
-      <ion-item>
-        <ion-label>Data Termino</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="oferta.data_fim"></ion-datetime>
-      </ion-item>
 
-        <h3 style="font-weight: bold" >Parcelar Produto (Oferta)?</h3>
-        <ion-grid>
-          <ion-row radio-group [(ngModel)]="oferta.is_parcelado">
 
-            <ion-col col-6>
-              <ion-label>NÃO</ion-label>
-              <ion-radio value="NAO" checked></ion-radio>
-            </ion-col>
+    <div [ngSwitch]="escolher_preco">
+      <ion-card *ngSwitchCase="'total'">
+        <ion-card-header>
+          <ion-card-title style="font-weight: bold; font-size: 12pt" color="secondary">Parcelar Produto (Oferta)?</ion-card-title>
+        </ion-card-header>
 
-            <ion-col ion-col col-6>
-              <ion-label>SIM</ion-label>
-              <ion-radio value="SIM"></ion-radio>
-            </ion-col>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row radio-group>
 
-          </ion-row>
+              <ion-segment [(ngModel)]="oferta.is_parcelado">
+                <ion-segment-button value="nao">
+                  NÃO
+                </ion-segment-button>
 
-        </ion-grid>
-    </ion-card-content>
+                <ion-segment-button value="sim">
+                  SIM
+                </ion-segment-button>
+              </ion-segment>
 
-  </ion-card>
+            </ion-row>
+
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+
+
 
   </ion-list>
 
 
-  <div *ngIf="oferta.is_parcelado == 'NAO'; then salvar else continuar"></div>
+  <div [ngSwitch]="oferta.is_parcelado">
 
-  <ng-template #salvar text-center>
-    <div text-center>
+    <div text-center *ngSwitchCase="'nao'">
       <button ion-button color="secondary" (click)="salvarOferta()">
         SALVAR
       </button>
     </div>
-  </ng-template>
 
-  <ng-template #continuar text-center>
-   <div text-center>
+   <div text-center *ngSwitchCase="'sim'">
      <button ion-button color="secondary" (click)="continuarOferta()">
        CONTINUAR
      </button>
    </div>
-  </ng-template>
 
+  </div>
 
 </ion-content>

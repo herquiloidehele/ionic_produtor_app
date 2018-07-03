@@ -18,15 +18,13 @@ import { TabsPage } from "../pages/modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import { VariaveisGlobaisProvider } from "../providers/variaveis-globais/variaveis-globais";
 import { PerfilPage } from "../pages/perfil/perfil";
 import { MenuProvider } from "../providers/menu/menu";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app, variaveisGlobais) {
+    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app) {
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
         this.menuProvider = menuProvider;
-        this.variaveisGlobais = variaveisGlobais;
         platform.ready().then(function () {
             // statusBar.styleDefault();
             // splashScreen.hide();
@@ -64,8 +62,6 @@ var MyApp = /** @class */ (function () {
         if (token) {
             this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
                 console.log(response);
-                _this.variaveisGlobais.setTipoUser(response.tipo_user);
-                _this.tipoUser = _this.variaveisGlobais.getTipoUser();
                 _this.user = response.user;
                 if (response.tipo_user == 'Cadastrador')
                     _this.rootPage = TabsPage;
@@ -93,6 +89,8 @@ var MyApp = /** @class */ (function () {
             this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
                 _this.user = response['user'];
                 _this.tipoUser = response['tipo_user'];
+                _this.menuProvider.setTipoUser(response['tipo_user']);
+                _this.menuProvider.setShowMenu(true);
             }, function (erros) {
                 console.log(erros);
             }, function () {
@@ -132,6 +130,8 @@ var MyApp = /** @class */ (function () {
             if (resultado['logout'] == true) {
                 _this.ionNav.setRoot(LoginPage);
                 localStorage.removeItem('token');
+                _this.menuProvider.setShowMenu(false);
+                _this.menuProvider.setTipoUser('');
             }
             else
                 alert('Ocorreu algum erro no logout');
@@ -151,8 +151,7 @@ var MyApp = /** @class */ (function () {
             AutenticacaoProvider,
             AlertController,
             MenuProvider,
-            App,
-            VariaveisGlobaisProvider])
+            App])
     ], MyApp);
     return MyApp;
 }());

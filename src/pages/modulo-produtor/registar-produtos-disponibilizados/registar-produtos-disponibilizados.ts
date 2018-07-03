@@ -23,12 +23,15 @@ export class RegistarProdutosDisponibilizadosPage {
   protected oferta: any = {
     produto: null,
     preco: null,
+    preco_unidade: null,
     quantidade: null,
     unidades_medidas: null,
     data_fim: null,
-    is_parcelado: 'NAO'
+    is_parcelado: 'nao',
+    tipo_preco: 'total'
   };
 
+  protected escolher_preco;
 
 
   protected produtos: any[];
@@ -41,6 +44,8 @@ export class RegistarProdutosDisponibilizadosPage {
               public produtodProvider: ProdutosProvider,
               public uniadesMedidasProvider: UnidadeMedidaProvider,
               public ofertasProvider: OfertasProvider) {
+
+    this.escolher_preco = 'total';
     this.getProdutos();
     this.getUnidadesMedidas();
   }
@@ -170,6 +175,28 @@ export class RegistarProdutosDisponibilizadosPage {
       }break;
 
 
+      case 'preco_unidade': {
+
+        alert.setTitle('Introduza o Preço por Unidade Medida');
+        alert.addInput({
+          name: 'preco',
+          placeholder: 'Preço por unidade'
+        });
+
+        alert.addButton({text: 'CANCEL'});
+        alert.addButton(
+          {
+            text: 'SALVAR',
+            handler: (dados) => {
+              if(!dados)
+                return false;
+              else
+                this.oferta.preco_unidade = dados.preco;
+            }
+          }
+        );
+      }break;
+
 
 
       case 'data_fim': {
@@ -228,6 +255,19 @@ export class RegistarProdutosDisponibilizadosPage {
     this.navCtrl.push(MostrarParcementoPage, {oferta: this.oferta});
   }
 
+  onPrecoChoice(escolha: string){
+    if(escolha == 'total'){
+      this.oferta.preco_unidade = null;
+      this.oferta.tipo_preco = 'total';
+    }else{
+      this.oferta.preco = null;
+      this.oferta.tipo_preco = 'unidade;'
+    }
+  }
+
+  getColorGreen(oferta){
+    return oferta? '#11db94': '#000'
+  }
 
 }
 

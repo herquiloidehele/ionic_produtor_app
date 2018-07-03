@@ -42,7 +42,6 @@ import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
 import {RegistarProdutosDisponibilizadosPage} from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
 import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disponibilidade";
-import { VariaveisGlobaisProvider } from '../providers/variaveis-globais/variaveis-globais';
 import {MostrarParcementoPage} from "../pages/mostrar-parcemento/mostrar-parcemento";
 import { ConversorProvider } from '../providers/conversor/conversor';
 import {PerfilPage} from "../pages/perfil/perfil";
@@ -137,7 +136,6 @@ import { MenuProvider } from '../providers/menu/menu';
     OfertasProvider,
     GerarCoresProvider,
     UrlapiProvider,
-    VariaveisGlobaisProvider,
     MenuProvider,
   ]
 

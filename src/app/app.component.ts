@@ -10,7 +10,6 @@ import {TabsPage} from "../pages/modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import {VariaveisGlobaisProvider} from "../providers/variaveis-globais/variaveis-globais";
 import {PerfilPage} from "../pages/perfil/perfil";
 import {MenuProvider} from "../providers/menu/menu";
 
@@ -18,9 +17,7 @@ import {MenuProvider} from "../providers/menu/menu";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage: typeof LoginPage;
 
-  public tipoUser: any;
   user: any;
 
   @ViewChild('content') ionNav;
@@ -37,12 +34,8 @@ export class MyApp {
               public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
               public menuProvider: MenuProvider,
-              app: App,
-              public variaveisGlobais: VariaveisGlobaisProvider
-              ){
+              app: App){
     platform.ready().then(() => {
-      // statusBar.styleDefault();
-      // splashScreen.hide();
 
       platform.registerBackButtonAction(() => {
         app.navPop();
@@ -77,11 +70,6 @@ export class MyApp {
   }
 
 
-  // public static setRootPage(pagina){
-  //   this.rootPage = pagina;
-  // }
-
-
    getPage(){
     let token = localStorage.getItem('token');
 
@@ -90,8 +78,7 @@ export class MyApp {
             (response) => {
 
               console.log(response);
-              this.variaveisGlobais.setTipoUser(response.tipo_user);
-                this.tipoUser = this.variaveisGlobais.getTipoUser();
+
                 this.user = response.user;
 
                 if (response.tipo_user == 'Cadastrador')
@@ -126,7 +113,6 @@ export class MyApp {
             this.autenticacaoProvider.getUserFromToken(token).subscribe(
                 (response) => {
                     this.user = response['user'];
-                    this.tipoUser = response['tipo_user'];
                     this.menuProvider.setTipoUser(response['tipo_user']);
                     this.menuProvider.setShowMenu(true);
                 },

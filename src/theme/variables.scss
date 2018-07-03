@@ -34,7 +34,9 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $text-input-placeholder-color: #fff;
-
+$segment-button-ios-text-color: #fff;
+$segment-button-ios-background-color: #fff;
+$segment-button-ios-background-color-activated: #000;
 
 $colors: (
   primary:    #488aff,

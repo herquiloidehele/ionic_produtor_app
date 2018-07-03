@@ -33,30 +33,21 @@ var LoginPage = /** @class */ (function () {
         };
     }
     LoginPage.prototype.onSignIn = function () {
-        alert(this.menuProvider.getTipoUser());
-        // const user = {username: this.user.username, password: this.user.password};
-        // this.autenticacaoService.login(user).subscribe(
-        //     (resultado) => {
-        //
-        //       localStorage.setItem('user', JSON.stringify(resultado.user));
-        //       localStorage.setItem('token', resultado.token);
-        //
-        //       this.variaveisGlobais.setTipoUser(resultado.tipo_user);
-        //
-        //       console.log(resultado.user);
-        //
-        //
-        //
-        //       this.redirecionarUser(resultado.tipo_user, resultado.user);
-        //     },
-        //     (erro) => {
-        //       alert('Credenciais erradas');
-        //       console.log(erro);
-        //     },
-        //     () => {
-        //       console.log('Completo');
-        //     },
-        // );
+        var _this = this;
+        var user = { username: this.user.username, password: this.user.password };
+        this.autenticacaoService.login(user).subscribe(function (resultado) {
+            localStorage.setItem('user', JSON.stringify(resultado.user));
+            localStorage.setItem('token', resultado.token);
+            _this.menuProvider.setTipoUser(resultado.tipo_user);
+            _this.menuProvider.setShowMenu(true);
+            console.log(resultado.user);
+            _this.redirecionarUser(resultado.tipo_user, resultado.user);
+        }, function (erro) {
+            alert('Credenciais erradas');
+            console.log(erro);
+        }, function () {
+            console.log('Completo');
+        });
     };
     LoginPage.prototype.onPasswordForget = function () {
         console.log('Forget Password');
