@@ -33,8 +33,8 @@ export class ConversorProvider {
     this.razaoDeConversao = [
       {from: 'TONELADA', to: 'QUILOGRAMA', razao: 1000},
       {from: 'TONELADA', to: 'TONELADA', razao: 1},
-      {from: 'TONELADA', to: 'GRAMA', razao: 1000},
-      {from: 'QUILOGRAMA', to: 'GRAMA', razao: 1000000},
+      {from: 'TONELADA', to: 'GRAMA', razao: 1000000},
+      {from: 'QUILOGRAMA', to: 'GRAMA', razao: 1000},
       {from: 'QUILOGRAMA', to: 'QUILOGRAMA', razao: 1},
     ];
   }
@@ -110,13 +110,13 @@ export class ConversorProvider {
           }
         }
 
-        return 0;
+        return 1;
   }
 
 
   public converter(unitFrom: String, unitTo: String, quantidade){
     if(this.verificarConversao(unitFrom, unitTo)){
-      return quantidade * this.getRazaoConversao(unitFrom, unitTo);
+      return this.getRazaoConversao(unitFrom, unitTo) * quantidade;
     }
     return quantidade;
   }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {OfertasProvider} from "../../providers/ofertas/ofertas";
-import {ConversorProvider} from "../../providers/conversor/conversor";
+import {OfertasProvider} from "../../../providers/ofertas/ofertas";
+import {ConversorProvider} from "../../../providers/conversor/conversor";
 
 /**
  * Generated class for the MostrarParcementoPage page.
@@ -72,37 +72,36 @@ export class MostrarParcementoPage {
   }
 
 
-  alertPartesIguais2(unidadeMedida){
-    let alertPercelamento  = this.alertController.create();
-    alertPercelamento.setTitle('Parcelar em Partes Iguas');
-    alertPercelamento.setMessage('Quantidade e preço para cada parcela');
+  alertPartesIguais2(unidade_medida){
+    this.alertController.create({
+      title: 'Parcelar em Partes Iguas',
+      message: 'Quantidade e preço para cada parcela',
+      inputs: [
+        {name: 'quantidade', placeholder: 'Quantidade'},
+        {name: 'preco', placeholder: 'Preço'}],
+      buttons: [{text: 'cancelar'},
+        {
+          text: 'SALVAR', handler: (dados) => {
+          console.log(dados);
+
+          let parcelamento = {
+            from: this.oferta.unidades_medidas.designacao,
+            to: unidade_medida.designacao,
+            quantidade: dados.quantidade,
+            preco: dados.preco
+          };
+
+          let totalConvertido = this.conversorProvider.converter(parcelamento.from, parcelamento.to, this.oferta.quantidade);
+          let numeroParcelas = totalConvertido / parcelamento.quantidade;
 
 
 
-    alertPercelamento.addInput({name: 'quantidade', placeholder: 'Quantidade'});
-    alertPercelamento.addInput({name: 'preco', placeholder: 'Preço'});
-    alertPercelamento.addButton({text: 'cancelar'});
-    alertPercelamento.addButton({text: 'SALVAR', handler: function (dados) {
-
-      let parcelamento = {
-        to: unidadeMedida.designacao,
-        quantidade: dados.quantidade,
-        preco: dados.preco
-      };
-
-      // let razaoConversao = this.conversorProvider.getRazaoConversao(this.oferta.unidades_medidas.designacao, parcelamento.unidades_medida.designacao);
-      // console.log(razaoConversao);
-
-    }
-    });
-    alertPercelamento.present();
-
-  }
+        }
+        }
+      ]
+    }).present();
 
 
-
-  parcealr(parcelamento){
-    alert('parcelamento');
   }
 
 

@@ -3,7 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {ProdutosProvider} from "../../../providers/produtos/produtos";
 import {UnidadeMedidaProvider} from "../../../providers/unidade-medida/unidade-medida";
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
-import {MostrarParcementoPage} from "../../mostrar-parcemento/mostrar-parcemento";
+import {MostrarParcementoPage} from "../mostrar-parcemento/mostrar-parcemento";
 
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
