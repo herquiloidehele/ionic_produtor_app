@@ -20,11 +20,22 @@ import {MostrarParcementoPage} from "../mostrar-parcemento/mostrar-parcemento";
 export class RegistarProdutosDisponibilizadosPage {
 
 
+  // protected oferta: any = {
+  //   produto: null,
+  //   preco: null,
+  //   preco_unidade: null,
+  //   quantidade: null,
+  //   unidades_medidas: null,
+  //   data_fim: null,
+  //   is_parcelado: 'nao',
+  //   tipo_preco: 'total'
+  // };
+
   protected oferta: any = {
     produto: null,
-    preco: null,
+    preco: 2000,
     preco_unidade: null,
-    quantidade: null,
+    quantidade: 100,
     unidades_medidas: null,
     data_fim: null,
     is_parcelado: 'nao',
@@ -235,7 +246,6 @@ export class RegistarProdutosDisponibilizadosPage {
   salvarOferta(){
 
     let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
-    console.log(produtor_id);
     this.ofertasProvider.salvarOferta(this.oferta, produtor_id).subscribe(
       (response) => {
         console.log(response);

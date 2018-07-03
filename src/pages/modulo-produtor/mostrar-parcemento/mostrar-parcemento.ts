@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
 import {ConversorProvider} from "../../../providers/conversor/conversor";
+import {DisponibilizarProdutosPage} from "../disponibilizar-produtos/disponibilizar-produtos";
 
 /**
  * Generated class for the MostrarParcementoPage page.
@@ -23,14 +24,12 @@ export class MostrarParcementoPage {
   protected resto = null;
 
 
-
-
   constructor(
             public navCtrl: NavController,
             public navParams: NavParams,
             public ofertaProvider: OfertasProvider,
             public alertController: AlertController,
-            public conversorProvider: ConversorProvider
+            public conversorProvider: ConversorProvider,
   ) {
 
   }
@@ -132,6 +131,43 @@ export class MostrarParcementoPage {
   }
 
 
+  limparParcelas(){
+    this.resto = null;
+    this.parcelas = [];
+  }
+
+  voltar(){
+    this.navCtrl.pop();
+  }
+
+
+  salvarOferta(){
+
+    let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
+    console.log(this.oferta);
+    this.ofertaProvider.salvarOferta(this.oferta, produtor_id).subscribe(
+      (response) => {
+        console.log(response);
+        this.salvarOfertaParcelada(response['oferta']['id']);
+      },
+      (error) => {
+        console.log(error);
+      },
+
+    );
+  }
+
+  salvarOfertaParcelada(oferta_id){
+    this.ofertaProvider.salvarOfertaParcelada(oferta_id, this.parcelas).subscribe(
+      (response) => {
+        console.log(response);
+        this.navCtrl.push(DisponibilizarProdutosPage);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
 
 }

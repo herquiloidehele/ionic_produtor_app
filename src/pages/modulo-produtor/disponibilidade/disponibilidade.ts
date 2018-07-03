@@ -161,6 +161,10 @@ export class DisponibilidadePage {
   }
 
 
+  protected voltar(){
+    this.navCtrl.pop();
+  }
+
 
 
 }

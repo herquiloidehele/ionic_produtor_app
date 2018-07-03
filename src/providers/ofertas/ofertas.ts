@@ -38,5 +38,8 @@ export class OfertasProvider {
   }
 
 
+  salvarOfertaParcelada(oferta_id, parcelas){
+    return this.http.post(this.url + 'oferta-parcelada', {oferta_id: oferta_id, parcelas: parcelas}, {headers: this.headers});
+  }
 
 }

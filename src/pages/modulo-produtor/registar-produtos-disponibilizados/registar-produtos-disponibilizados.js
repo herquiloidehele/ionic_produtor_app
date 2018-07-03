@@ -27,11 +27,21 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
         this.produtodProvider = produtodProvider;
         this.uniadesMedidasProvider = uniadesMedidasProvider;
         this.ofertasProvider = ofertasProvider;
+        // protected oferta: any = {
+        //   produto: null,
+        //   preco: null,
+        //   preco_unidade: null,
+        //   quantidade: null,
+        //   unidades_medidas: null,
+        //   data_fim: null,
+        //   is_parcelado: 'nao',
+        //   tipo_preco: 'total'
+        // };
         this.oferta = {
             produto: null,
-            preco: null,
+            preco: 2000,
             preco_unidade: null,
-            quantidade: null,
+            quantidade: 100,
             unidades_medidas: null,
             data_fim: null,
             is_parcelado: 'nao',
@@ -192,7 +202,6 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
     RegistarProdutosDisponibilizadosPage.prototype.salvarOferta = function () {
         var _this = this;
         var produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
-        console.log(produtor_id);
         this.ofertasProvider.salvarOferta(this.oferta, produtor_id).subscribe(function (response) {
             console.log(response);
             _this.navCtrl.pop();

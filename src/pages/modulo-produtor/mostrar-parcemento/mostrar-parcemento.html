@@ -32,8 +32,18 @@
 
   </div>
 
+  <div text-center style="margin-top: 30%" *ngIf="parcelas.length == 0">
+    <h3 text-center style="color: #666666">De que forma deeja Parcelar o Produto?</h3>
+    <ion-grid>
+      <ion-row>
+        <button ion-col col-4 offset-1 ion-button color="secondary" (click)="alertPartesIguais1()">Partes Iguais</button>
+        <button ion-col col-5 offset-1 ion-button color="secondary" (click)="alertDisponibilidade('salvar')">Partes Diferentes</button>
+      </ion-row>
+    </ion-grid>
+  </div>
 
-  <ion-grid>
+
+  <ion-grid style="margin-bottom: 20px">
     <ion-row>
 
       <ion-col col-6 *ngFor="let parcela of parcelas">
@@ -71,24 +81,30 @@
 
     </ion-row>
 
+      <button ion-button color="danger" outline *ngIf="parcelas.length > 0" style="margin-bottom: 20px" (click)="limparParcelas()">Limpar</button>
+
   </ion-grid>
 
 
 
+  <ion-footer  style="position: fixed">
+    <ion-toolbar style="background-color: #F4F4F4">
+
+      <ion-buttons>
+        <button ion-button color="danger" (click)="voltar()">
+          Voltar
+        </button>
+      </ion-buttons>
 
 
+      <ion-buttons end>
+        <button ion-button color="secondary" (click)="salvarOferta()">
+          SALVAR
+        </button>
+      </ion-buttons>
 
-
-    <div text-center style="margin-top: 30%">
-      <h3 text-center style="color: #666666">De que forma deeja Parcelar o Produto?</h3>
-      <ion-grid>
-        <ion-row>
-          <button ion-col col-4 offset-1 ion-button color="secondary" (click)="alertPartesIguais1()">Partes Iguais</button>
-          <button ion-col col-5 offset-1 ion-button color="secondary" (click)="alertDisponibilidade('salvar')">Partes Diferentes</button>
-        </ion-row>
-      </ion-grid>
-    </div>
-
+    </ion-toolbar>
+  </ion-footer>
 
 
 

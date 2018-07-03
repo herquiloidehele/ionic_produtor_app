@@ -26,6 +26,7 @@ var MostrarParcementoPage = /** @class */ (function () {
         this.conversorProvider = conversorProvider;
         this.parcelas = [];
         this.parcelamento_diferente = false;
+        this.resto = null;
     }
     MostrarParcementoPage.prototype.ionViewWillLoad = function () {
         this.oferta = this.navParams.get('oferta');
@@ -79,16 +80,60 @@ var MostrarParcementoPage = /** @class */ (function () {
                         };
                         var totalConvertido = _this.conversorProvider.converter(parcelamento.from, parcelamento.to, _this.oferta.quantidade);
                         var numeroParcelas = (totalConvertido / parcelamento.quantidade) | 0;
+                        var restoParcelamento = totalConvertido % parcelamento.quantidade;
+                        _this.parcelas = [];
+                        _this.resto = null;
+                        for (var parcela = 1; parcela <= numeroParcelas; parcela++) {
+                            _this.parcelas.push({ quantidade: dados.quantidade, unidade_medida: unidade_medida, preco: dados.preco });
+                        }
+                        if (restoParcelamento > 0) {
+                            _this.resto = { quantidade: restoParcelamento, unidade_medida: unidade_medida, preco: null };
+                        }
                     }
                 }
             ]
         }).present();
     };
-    MostrarParcementoPage.prototype.criarParcelamento = function (parcelamento) {
-        // let razaoConversao = this.conversorProvider.getRazaoConversao(this.oferta.unidades_medidas.designacao, parcelamento.unidades_medida.designacao);
-        // console.log(razaoConversao);
-        // let quantidade = this.conversorProvider.converter(dados.);
-        // let parcelas =
+    /**
+     * metdo que adiciona um preco para o resto
+     * @param resto
+     */
+    MostrarParcementoPage.prototype.adicionarResto = function (resto) {
+        var _this = this;
+        this.alertController.create({
+            title: 'Resto',
+            message: 'Preço do Resto',
+            inputs: [{ name: 'preco', placeholder: 'Preço' }],
+            buttons: [{ text: 'Cancelar' }, { text: 'SALVAR', handler: function (dados) {
+                        _this.parcelas.push({ quantidade: resto.quantidade, unidade_medida: resto.unidade_medida, preco: dados.preco });
+                        _this.resto = null;
+                    } }]
+        }).present();
+    };
+    MostrarParcementoPage.prototype.limparParcelas = function () {
+        this.resto = null;
+        this.parcelas = [];
+    };
+    MostrarParcementoPage.prototype.voltar = function () {
+        this.navCtrl.pop();
+    };
+    MostrarParcementoPage.prototype.salvarOferta = function () {
+        var _this = this;
+        var produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
+        console.log(this.oferta);
+        this.ofertaProvider.salvarOferta(this.oferta, produtor_id).subscribe(function (response) {
+            console.log(response);
+            _this.salvarOfertaParcelada(response['oferta']);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    MostrarParcementoPage.prototype.salvarOfertaParcelada = function (oferta) {
+        this.ofertaProvider.salvarOfertaParcelada(oferta, this.parcelas).subscribe(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
     };
     MostrarParcementoPage = __decorate([
         IonicPage(),
