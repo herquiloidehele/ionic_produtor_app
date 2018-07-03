@@ -12,7 +12,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AutenticacaoProvider } from "../../providers/autenticacao/autenticacao";
 import { TabsPage } from "../modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
-import { VariaveisGlobaisProvider } from "../../providers/variaveis-globais/variaveis-globais";
 import { MenuProvider } from "../../providers/menu/menu";
 /**
  * Generated class for the LoginPage page.
@@ -21,11 +20,10 @@ import { MenuProvider } from "../../providers/menu/menu";
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, autenticacaoService, variaveisGlobais, menuProvider) {
+    function LoginPage(navCtrl, navParams, autenticacaoService, menuProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.autenticacaoService = autenticacaoService;
-        this.variaveisGlobais = variaveisGlobais;
         this.menuProvider = menuProvider;
         this.user = {
             username: null,
@@ -54,13 +52,9 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.redirecionarUser = function (tipoUser, user) {
         if (tipoUser == 'Cadastrador') {
-            // MyApp.setRootPage(TabsPage);
-            // MyApp.rootPage = TabsPage;
             this.navCtrl.setRoot(TabsPage, { tipoUser: tipoUser, user: user });
         }
         if (tipoUser == 'Produtor') {
-            // MyApp.setRootPage(ProdutosrequsitadosPage);
-            // MyApp.rootPage = ProdutosrequsitadosPage;
             this.navCtrl.setRoot(ProdutosrequsitadosPage, { tipoUser: tipoUser, user: user });
         }
         if (tipoUser == 'Revendedor') {
@@ -77,7 +71,6 @@ var LoginPage = /** @class */ (function () {
         __metadata("design:paramtypes", [NavController,
             NavParams,
             AutenticacaoProvider,
-            VariaveisGlobaisProvider,
             MenuProvider])
     ], LoginPage);
     return LoginPage;

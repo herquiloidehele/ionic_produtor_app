@@ -20,6 +20,7 @@ export class MostrarParcementoPage {
   protected oferta: any;
   protected parcelas: any[] = [];
   protected parcelamento_diferente = false;
+  protected resto = null;
 
 
 
@@ -72,7 +73,7 @@ export class MostrarParcementoPage {
   }
 
 
-  alertPartesIguais2(unidade_medida){
+  alertPartesIguais2(unidade_medida) {
     this.alertController.create({
       title: 'Parcelar em Partes Iguas',
       message: 'Quantidade e preço para cada parcela',
@@ -92,28 +93,43 @@ export class MostrarParcementoPage {
           };
 
           let totalConvertido = this.conversorProvider.converter(parcelamento.from, parcelamento.to, this.oferta.quantidade);
-          let numeroParcelas = totalConvertido / parcelamento.quantidade;
+          let numeroParcelas = (totalConvertido / parcelamento.quantidade) | 0;
+          let restoParcelamento = totalConvertido % parcelamento.quantidade;
+          this.parcelas = [];
+          this.resto = null;
 
 
+          for (let parcela = 1; parcela <= numeroParcelas; parcela++) {
+            this.parcelas.push({quantidade: dados.quantidade, unidade_medida: unidade_medida, preco: dados.preco});
+          }
+
+          if(restoParcelamento>0){
+            this.resto = {quantidade: restoParcelamento, unidade_medida: unidade_medida, preco: null};
+          }
 
         }
         }
       ]
     }).present();
 
-
   }
 
 
-   criarParcelamento(parcelamento){
-    // let razaoConversao = this.conversorProvider.getRazaoConversao(this.oferta.unidades_medidas.designacao, parcelamento.unidades_medida.designacao);
-    // console.log(razaoConversao);
-
-    // let quantidade = this.conversorProvider.converter(dados.);
-    // let parcelas =
-
+  /**
+   * metdo que adiciona um preco para o resto
+   * @param resto
+   */
+  adicionarResto(resto){
+    this.alertController.create({
+      title: 'Resto',
+      message: 'Preço do Resto',
+      inputs: [{name: 'preco', placeholder: 'Preço'}],
+      buttons: [{text: 'Cancelar'}, {text: 'SALVAR', handler: (dados) => {
+        this.parcelas.push({quantidade: resto.quantidade, unidade_medida: resto.unidade_medida, preco: dados.preco});
+        this.resto = null;
+      }}]
+    }).present();
   }
-
 
 
 

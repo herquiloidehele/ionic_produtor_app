@@ -30,11 +30,14 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
         this.oferta = {
             produto: null,
             preco: null,
+            preco_unidade: null,
             quantidade: null,
             unidades_medidas: null,
             data_fim: null,
-            is_parcelado: 'NAO'
+            is_parcelado: 'nao',
+            tipo_preco: 'total'
         };
+        this.escolher_preco = 'total';
         this.getProdutos();
         this.getUnidadesMedidas();
     }
@@ -142,6 +145,25 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
                     });
                 }
                 break;
+            case 'preco_unidade':
+                {
+                    alert.setTitle('Introduza o Preço por Unidade Medida');
+                    alert.addInput({
+                        name: 'preco',
+                        placeholder: 'Preço por unidade'
+                    });
+                    alert.addButton({ text: 'CANCEL' });
+                    alert.addButton({
+                        text: 'SALVAR',
+                        handler: function (dados) {
+                            if (!dados)
+                                return false;
+                            else
+                                _this.oferta.preco_unidade = dados.preco;
+                        }
+                    });
+                }
+                break;
             case 'data_fim':
                 {
                     alert.setTitle('Introduza o data Limite');
@@ -182,6 +204,19 @@ var RegistarProdutosDisponibilizadosPage = /** @class */ (function () {
     };
     RegistarProdutosDisponibilizadosPage.prototype.continuarOferta = function () {
         this.navCtrl.push(MostrarParcementoPage, { oferta: this.oferta });
+    };
+    RegistarProdutosDisponibilizadosPage.prototype.onPrecoChoice = function (escolha) {
+        if (escolha == 'total') {
+            this.oferta.preco_unidade = null;
+            this.oferta.tipo_preco = 'total';
+        }
+        else {
+            this.oferta.preco = null;
+            this.oferta.tipo_preco = 'unidade;';
+        }
+    };
+    RegistarProdutosDisponibilizadosPage.prototype.getColorGreen = function (oferta) {
+        return oferta ? '#11db94' : '#000';
     };
     RegistarProdutosDisponibilizadosPage = __decorate([
         IonicPage(),

@@ -26,8 +26,6 @@ var MyApp = /** @class */ (function () {
         this.alertController = alertController;
         this.menuProvider = menuProvider;
         platform.ready().then(function () {
-            // statusBar.styleDefault();
-            // splashScreen.hide();
             platform.registerBackButtonAction(function () {
                 app.navPop();
             });
@@ -53,9 +51,6 @@ var MyApp = /** @class */ (function () {
         this.getUserData();
         this.getPage();
     }
-    // public static setRootPage(pagina){
-    //   this.rootPage = pagina;
-    // }
     MyApp.prototype.getPage = function () {
         var _this = this;
         var token = localStorage.getItem('token');
@@ -88,7 +83,6 @@ var MyApp = /** @class */ (function () {
         if (token) {
             this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
                 _this.user = response['user'];
-                _this.tipoUser = response['tipo_user'];
                 _this.menuProvider.setTipoUser(response['tipo_user']);
                 _this.menuProvider.setShowMenu(true);
             }, function (erros) {

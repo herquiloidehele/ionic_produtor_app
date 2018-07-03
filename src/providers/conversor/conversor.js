@@ -33,8 +33,8 @@ var ConversorProvider = /** @class */ (function () {
         this.razaoDeConversao = [
             { from: 'TONELADA', to: 'QUILOGRAMA', razao: 1000 },
             { from: 'TONELADA', to: 'TONELADA', razao: 1 },
-            { from: 'TONELADA', to: 'GRAMA', razao: 1000 },
-            { from: 'QUILOGRAMA', to: 'GRAMA', razao: 1000000 },
+            { from: 'TONELADA', to: 'GRAMA', razao: 1000000 },
+            { from: 'QUILOGRAMA', to: 'GRAMA', razao: 1000 },
             { from: 'QUILOGRAMA', to: 'QUILOGRAMA', razao: 1 },
         ];
     }
@@ -101,11 +101,11 @@ var ConversorProvider = /** @class */ (function () {
                 return razaoConv.razao;
             }
         }
-        return 0;
+        return 1;
     };
     ConversorProvider.prototype.converter = function (unitFrom, unitTo, quantidade) {
         if (this.verificarConversao(unitFrom, unitTo)) {
-            return quantidade * this.getRazaoConversao(unitFrom, unitTo);
+            return this.getRazaoConversao(unitFrom, unitTo) * quantidade;
         }
         return quantidade;
     };

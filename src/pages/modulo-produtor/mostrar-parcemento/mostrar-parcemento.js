@@ -58,27 +58,31 @@ var MostrarParcementoPage = /** @class */ (function () {
         else
             this.alertPartesIguais2(this.oferta.unidades_medidas);
     };
-    MostrarParcementoPage.prototype.alertPartesIguais2 = function (unidadeMedida) {
-        var alertPercelamento = this.alertController.create();
-        alertPercelamento.setTitle('Parcelar em Partes Iguas');
-        alertPercelamento.setMessage('Quantidade e preço para cada parcela');
-        alertPercelamento.addInput({ name: 'quantidade', placeholder: 'Quantidade' });
-        alertPercelamento.addInput({ name: 'preco', placeholder: 'Preço' });
-        alertPercelamento.addButton({ text: 'cancelar' });
-        alertPercelamento.addButton({ text: 'SALVAR', handler: function (dados) {
-                var parcelamento = {
-                    to: unidadeMedida.designacao,
-                    quantidade: dados.quantidade,
-                    preco: dados.preco
-                };
-                // let razaoConversao = this.conversorProvider.getRazaoConversao(this.oferta.unidades_medidas.designacao, parcelamento.unidades_medida.designacao);
-                // console.log(razaoConversao);
-            }
-        });
-        alertPercelamento.present();
-    };
-    MostrarParcementoPage.prototype.parcealr = function (parcelamento) {
-        alert('parcelamento');
+    MostrarParcementoPage.prototype.alertPartesIguais2 = function (unidade_medida) {
+        var _this = this;
+        this.alertController.create({
+            title: 'Parcelar em Partes Iguas',
+            message: 'Quantidade e preço para cada parcela',
+            inputs: [
+                { name: 'quantidade', placeholder: 'Quantidade' },
+                { name: 'preco', placeholder: 'Preço' }
+            ],
+            buttons: [{ text: 'cancelar' },
+                {
+                    text: 'SALVAR', handler: function (dados) {
+                        console.log(dados);
+                        var parcelamento = {
+                            from: _this.oferta.unidades_medidas.designacao,
+                            to: unidade_medida.designacao,
+                            quantidade: dados.quantidade,
+                            preco: dados.preco
+                        };
+                        var totalConvertido = _this.conversorProvider.converter(parcelamento.from, parcelamento.to, _this.oferta.quantidade);
+                        var numeroParcelas = (totalConvertido / parcelamento.quantidade) | 0;
+                    }
+                }
+            ]
+        }).present();
     };
     MostrarParcementoPage.prototype.criarParcelamento = function (parcelamento) {
         // let razaoConversao = this.conversorProvider.getRazaoConversao(this.oferta.unidades_medidas.designacao, parcelamento.unidades_medida.designacao);
