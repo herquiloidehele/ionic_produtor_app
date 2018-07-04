@@ -1,0 +1,56 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-buttons start>
+    </ion-buttons>
+    <ion-title>Adicionar Meus Produtos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Produto</ion-label>
+      <ion-select [(ngModel)]="produto">
+        <ion-option *ngFor="let produto1 of produtos" value="{{produto1.id}}">{{produto1.designacao}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Quantidade Média por Epoca</ion-label>
+      <ion-input [(ngModel)]="quantidade" type="number" placeholder="A quntidade media de producao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Unidade de Medida</ion-label>
+      <ion-select [(ngModel)]="unidadeMedida" multiple="false">
+        <ion-option *ngFor="let unidade of unidadeMedidas" value="{{unidade.id}}">{{unidade.designacao}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<ion-footer  style="position: fixed">
+  <ion-toolbar style="background-color: #F4F4F4">
+
+    <ion-buttons>
+      <button ion-button color="danger" (click)="voltar()">
+        Voltar
+      </button>
+    </ion-buttons>
+
+
+    <ion-buttons end>
+      <button ion-button color="secondary" (click)="salvarProduto()">
+        SALVAR
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>

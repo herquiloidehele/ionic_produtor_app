@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {ProdutosProvider} from "../../../providers/produtos/produtos";
+import {RegistarInteressesPage} from "../registar-interesses/registar-interesses";
+import {InteresseProvider} from "../../../providers/interesse/interesse";
 
 /**
  * Generated class for the MeusProdutosPage page.
@@ -15,11 +18,64 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MeusProdutosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  meusProdutos: any[];
+  produtos: any[];
+
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewController: ViewController,
+    public interesseProvider: InteresseProvider,
+    public produtosProvider: ProdutosProvider,
+    public navController: NavController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MeusProdutosPage');
+    console.log('ionViewDidLoad ProdutosDisponibilizadosPage');
   }
+
+  ionViewWillEnter(){
+    // this.viewController.showBackButton(false);
+    this.getAllProdutos();
+  }
+
+
+  getMeusProdutos(){
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.interesseProvider.getMeusProdutos(user.id).subscribe(
+      (response) => {
+        console.log(response);
+        this.meusProdutos = response['interesse'];
+      },
+      (erros) => {
+        console.log(erros);
+      }
+    );
+  }
+
+
+  getAllProdutos(){
+    this.produtosProvider.getAll().subscribe(
+      (response) => {
+        console.log(response['produtos']);
+        this.produtos =  response['produtos'];
+      },
+      (erros) => {
+        console.log(erros);
+      },
+      () => {
+        this.getMeusProdutos();
+      }
+
+    );
+  }
+
+
+  adicionarProdutos(){
+    this.navController.push(RegistarInteressesPage, {produtos: this.produtos});
+  }
+
 
 }

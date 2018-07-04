@@ -16,6 +16,10 @@ import {InicioPage} from "../pages/modulo-revendedor/inicio/inicio";
 import {RequisitarProdutosPage} from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
 import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
 import {PerfilRevendedorPage} from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
+import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores";
+import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
+import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores";
+import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 
 @Component({
   templateUrl: 'app.html'
@@ -55,9 +59,10 @@ export class MyApp {
     ];
 
     this.menuPaginasCadastrador = [
-      {icon: 'leaf', pageName: 'Produtos', page: ProdutosrequsitadosPage},
-      {icon: 'person', pageName: 'Produtores', page: DisponibilizarProdutosPage},
-      {icon: 'person', pageName: 'Revendedores', page: ProdutosDisponibilizadosPage},
+      {icon: 'leaf', pageName: 'Produtos', page: ProdutosPage},
+      {icon: 'ios-people', pageName: 'Produtores', page: ProdutoresPage},
+      {icon: 'person', pageName: 'Revendedores', page: RevendedoresPage},
+      {icon: 'ios-basket', pageName: 'Mercados', page: MercadosPage},
       {icon: 'person', pageName: 'Meu Perfil', page: PerfilPage}
     ];
 
@@ -71,6 +76,8 @@ export class MyApp {
 
       this.getUserData();
       this.getPage();
+
+
   }
 
 
@@ -97,11 +104,10 @@ export class MyApp {
                 this.rootPage = LoginPage;
             }
         );
-    }else{
-        console.log('Nao existe Token Ainda');
-        this.rootPage = LoginPage;
+    }else {
+      console.log('Nao existe Token Ainda');
+      this.rootPage = LoginPage;
     }
-
 
   }
 

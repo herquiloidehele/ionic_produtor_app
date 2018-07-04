@@ -1,0 +1,81 @@
+
+
+<ion-content>
+
+  <div id="header" color="primary" class="produto-view" text-center>
+
+    <div class="ion-icon-content">
+      <ion-icon name="leaf"></ion-icon>
+    </div>
+    <p class="nome-produto">{{oferta.produtor.user.nome}}</p>
+    <p class="nome-produto">{{oferta.produto.designacao}}</p>
+
+    <ion-grid class="sumarizacao">
+      <ion-row>
+
+        <div ion-col col-4>
+          <span>{{parcelas.length + " Parc."}} </span>
+          <p>PARCELAS</p>
+        </div>
+
+        <div ion-col col-4>
+          <span>{{oferta.quantidade + '  '}} {{oferta.unidade_medida.abreviatura}}</span>
+          <p>QUANTIDADE</p>
+        </div>
+
+        <div ion-col col-4>
+          <span>{{oferta.preco + '  MZN'}} </span>
+          <p>TOTAL</p>
+        </div>
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div text-center style="margin-top: 30%" *ngIf="parcelas.length == 0">
+    <h3 text-center style="color: #666666">Seja o Primeir a disponibilizar produtos</h3>
+        <button  ion-button outline color="secondary">Ofertar Produtos</button>
+  </div>
+
+
+  <ion-grid style="margin-bottom: 20px">
+    <ion-row>
+
+      <ion-col col-6 *ngFor="let parcela of parcelas">
+        <ion-card class="card-parcela">
+          <ion-card-content>
+
+            <ion-icon class="ion-produto-card" name="leaf"></ion-icon>
+
+            <div text-center>
+              <h5 class="text-center">{{parcela.quantidade}} {{'  '+ oferta.unidade_medida.abreviatura}}</h5>
+            </div>
+            <div text-center>
+              <h5 class="text-center pb-2">{{parcela.preco + ' MZN'}}</h5>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
+  <ion-footer  style="position: fixed">
+    <ion-toolbar style="background-color: #F4F4F4">
+
+      <ion-buttons>
+        <button ion-button color="danger" (click)="voltar()">
+          Voltar
+        </button>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-footer>
+
+
+
+</ion-content>

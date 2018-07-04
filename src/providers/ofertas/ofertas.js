@@ -32,8 +32,11 @@ var OfertasProvider = /** @class */ (function () {
     OfertasProvider.prototype.salvarDisponibilidade = function (disonibilidade) {
         return this.http.post(this + 'disponibilidade-produto', { disponibilidade: disonibilidade }, { headers: this.headers });
     };
-    OfertasProvider.prototype.salvarOfertaParcelada = function (oferta, parcelas) {
-        return this.http.post(this.url + 'oferta-parcelada', { oferta: oferta, parcelas: parcelas }, { headers: this.headers });
+    OfertasProvider.prototype.salvarOfertaParcelada = function (oferta_id, parcelas) {
+        return this.http.post(this.url + 'oferta-parcelada', { oferta_id: oferta_id, parcelas: parcelas }, { headers: this.headers });
+    };
+    OfertasProvider.prototype.getOfertasToRevendedor = function (revendedor_id) {
+        return this.http.get(this.url + 'ofertas/revendedor/' + revendedor_id, { headers: this.headers });
     };
     OfertasProvider = __decorate([
         Injectable(),

@@ -125,6 +125,9 @@ var DisponibilidadePage = /** @class */ (function () {
         }
         return 0;
     };
+    DisponibilidadePage.prototype.voltar = function () {
+        this.navCtrl.pop();
+    };
     DisponibilidadePage = __decorate([
         IonicPage(),
         Component({

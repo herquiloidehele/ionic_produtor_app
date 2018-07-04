@@ -34,7 +34,6 @@ import { GoogleMaps } from "@ionic-native/google-maps";
 import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import { RootProdutorPage } from "../pages/modulo-produtor/root-produtor/root-produtor";
 import { ProcurasProvider } from '../providers/procuras/procuras';
 import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
@@ -49,6 +48,13 @@ import { MostrarParcementoPage } from "../pages/modulo-produtor/mostrar-parcemen
 import { ConversorProvider } from '../providers/conversor/conversor';
 import { PerfilPage } from "../pages/perfil/perfil";
 import { MenuProvider } from '../providers/menu/menu';
+import { InicioPage } from "../pages/modulo-revendedor/inicio/inicio";
+import { PerfilRevendedorPage } from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
+import { RequisitarProdutosPage } from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
+import { MeusProdutosPage } from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
+import { DetalhesOfertasPage } from "../pages/modulo-revendedor/detalhes-ofertas/detalhes-ofertas";
+import { RegistarInteressesPage } from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
+import { InteresseProvider } from '../providers/interesse/interesse';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -77,10 +83,15 @@ var AppModule = /** @class */ (function () {
                 ProdutosDisponibilizadosPage,
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
-                RootProdutorPage,
                 DisponibilidadePage,
                 MostrarParcementoPage,
-                PerfilPage
+                PerfilPage,
+                InicioPage,
+                PerfilRevendedorPage,
+                RequisitarProdutosPage,
+                MeusProdutosPage,
+                DetalhesOfertasPage,
+                RegistarInteressesPage
             ],
             imports: [
                 BrowserModule,
@@ -107,10 +118,15 @@ var AppModule = /** @class */ (function () {
                 ProdutosDisponibilizadosPage,
                 RegistarMeusProdutosPage,
                 RegistarProdutosDisponibilizadosPage,
-                RootProdutorPage,
                 DisponibilidadePage,
                 MostrarParcementoPage,
-                PerfilPage
+                PerfilPage,
+                InicioPage,
+                PerfilRevendedorPage,
+                RequisitarProdutosPage,
+                MeusProdutosPage,
+                DetalhesOfertasPage,
+                RegistarInteressesPage
             ],
             providers: [
                 ConversorProvider,
@@ -141,6 +157,7 @@ var AppModule = /** @class */ (function () {
                 GerarCoresProvider,
                 UrlapiProvider,
                 MenuProvider,
+                InteresseProvider,
             ]
         })
     ], AppModule);

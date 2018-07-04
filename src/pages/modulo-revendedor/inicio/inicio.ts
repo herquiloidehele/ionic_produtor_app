@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
 import {MeusProdutosPage} from "../meus-produtos/meus-produtos";
+import {DetalhesOfertasPage} from "../detalhes-ofertas/detalhes-ofertas";
 
 /**
  * Generated class for the InicioPage page.
@@ -55,6 +56,10 @@ export class InicioPage {
 
   getData(data){
     return new Date(data);
+  }
+
+  goToDetalhesOferta(oferta){
+    this.navCtrl.push(DetalhesOfertasPage, {oferta: oferta});
   }
 
 

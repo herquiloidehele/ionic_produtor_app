@@ -30,6 +30,9 @@ export class MercadosPage {
     this.navCtrl.push(RegistarMercadosPage);
   }
 
+  ionViewWillEnter(){
+    this.getAll();
+  }
 
   ionViewDidLoad(){
     this.getAll();

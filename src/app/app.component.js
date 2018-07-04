@@ -20,6 +20,10 @@ import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibili
 import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import { PerfilPage } from "../pages/perfil/perfil";
 import { MenuProvider } from "../providers/menu/menu";
+import { InicioPage } from "../pages/modulo-revendedor/inicio/inicio";
+import { RequisitarProdutosPage } from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
+import { MeusProdutosPage } from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
+import { PerfilRevendedorPage } from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app) {
         this.autenticacaoProvider = autenticacaoProvider;
@@ -43,10 +47,10 @@ var MyApp = /** @class */ (function () {
             { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
         ];
         this.menuPaginasRevendedor = [
-            { icon: 'home', pageName: 'Requiaitar Produtos', page: ProdutosrequsitadosPage },
-            { icon: 'send', pageName: 'Notifiacoes', page: DisponibilizarProdutosPage },
-            { icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage },
-            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
+            { icon: 'home', pageName: 'Inicio', page: InicioPage },
+            { icon: 'send', pageName: 'Requisitar Produtos', page: RequisitarProdutosPage },
+            { icon: 'leaf', pageName: 'Meus Produtos', page: MeusProdutosPage },
+            { icon: 'person', pageName: 'Meu Perfil', page: PerfilRevendedorPage }
         ];
         this.getUserData();
         this.getPage();
@@ -63,7 +67,7 @@ var MyApp = /** @class */ (function () {
                 if (response.tipo_user == 'Produtor')
                     _this.rootPage = ProdutosrequsitadosPage;
                 if (response.tipo_user == 'Revendedor')
-                    _this.rootPage = TabsPage;
+                    _this.rootPage = InicioPage;
             }, function (erros) {
                 localStorage.removeItem('token');
                 _this.rootPage = LoginPage;

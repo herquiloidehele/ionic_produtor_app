@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OfertasProvider } from "../../../providers/ofertas/ofertas";
 import { ConversorProvider } from "../../../providers/conversor/conversor";
+import { DisponibilizarProdutosPage } from "../disponibilizar-produtos/disponibilizar-produtos";
 /**
  * Generated class for the MostrarParcementoPage page.
  *
@@ -123,14 +124,16 @@ var MostrarParcementoPage = /** @class */ (function () {
         console.log(this.oferta);
         this.ofertaProvider.salvarOferta(this.oferta, produtor_id).subscribe(function (response) {
             console.log(response);
-            _this.salvarOfertaParcelada(response['oferta']);
+            _this.salvarOfertaParcelada(response['oferta']['id']);
         }, function (error) {
             console.log(error);
         });
     };
-    MostrarParcementoPage.prototype.salvarOfertaParcelada = function (oferta) {
-        this.ofertaProvider.salvarOfertaParcelada(oferta, this.parcelas).subscribe(function (response) {
+    MostrarParcementoPage.prototype.salvarOfertaParcelada = function (oferta_id) {
+        var _this = this;
+        this.ofertaProvider.salvarOfertaParcelada(oferta_id, this.parcelas).subscribe(function (response) {
             console.log(response);
+            _this.navCtrl.push(DisponibilizarProdutosPage);
         }, function (error) {
             console.log(error);
         });

@@ -49,6 +49,9 @@ import {InicioPage} from "../pages/modulo-revendedor/inicio/inicio";
 import {PerfilRevendedorPage} from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
 import {RequisitarProdutosPage} from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
 import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
+import {DetalhesOfertasPage} from "../pages/modulo-revendedor/detalhes-ofertas/detalhes-ofertas";
+import {RegistarInteressesPage} from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
+import { InteresseProvider } from '../providers/interesse/interesse';
 
 
 @NgModule({
@@ -81,7 +84,9 @@ import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-pr
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,
-    MeusProdutosPage
+    MeusProdutosPage,
+    DetalhesOfertasPage,
+    RegistarInteressesPage
   ],
   imports: [
     BrowserModule,
@@ -114,7 +119,9 @@ import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-pr
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,
-    MeusProdutosPage
+    MeusProdutosPage,
+    DetalhesOfertasPage,
+    RegistarInteressesPage
 
   ],
   providers: [
@@ -146,6 +153,7 @@ import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-pr
     GerarCoresProvider,
     UrlapiProvider,
     MenuProvider,
+    InteresseProvider,
   ]
 
 })

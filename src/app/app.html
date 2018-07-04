@@ -37,7 +37,7 @@
 
 
             <div *ngSwitchCase="'Revendedor'">
-              <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasProdutor">
+              <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasRevendedor">
                 <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
                 <span color="primary">{{pagina.pageName}}</span>
               </button>
