@@ -31,7 +31,6 @@ import {GoogleMaps} from "@ionic-native/google-maps";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import {RootProdutorPage} from "../pages/modulo-produtor/root-produtor/root-produtor";
 import { ProcurasProvider } from '../providers/procuras/procuras';
 import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
@@ -46,6 +45,10 @@ import {MostrarParcementoPage} from "../pages/modulo-produtor/mostrar-parcemento
 import { ConversorProvider } from '../providers/conversor/conversor';
 import {PerfilPage} from "../pages/perfil/perfil";
 import { MenuProvider } from '../providers/menu/menu';
+import {InicioPage} from "../pages/modulo-revendedor/inicio/inicio";
+import {PerfilRevendedorPage} from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
+import {RequisitarProdutosPage} from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
+import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
 
 
 @NgModule({
@@ -72,10 +75,13 @@ import { MenuProvider } from '../providers/menu/menu';
     ProdutosDisponibilizadosPage,
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
-      RootProdutorPage,
     DisponibilidadePage,
     MostrarParcementoPage,
-    PerfilPage
+    PerfilPage,
+    InicioPage,
+    PerfilRevendedorPage,
+    RequisitarProdutosPage,
+    MeusProdutosPage
   ],
   imports: [
     BrowserModule,
@@ -102,10 +108,13 @@ import { MenuProvider } from '../providers/menu/menu';
     ProdutosDisponibilizadosPage,
     RegistarMeusProdutosPage,
     RegistarProdutosDisponibilizadosPage,
-      RootProdutorPage,
     DisponibilidadePage,
     MostrarParcementoPage,
-    PerfilPage
+    PerfilPage,
+    InicioPage,
+    PerfilRevendedorPage,
+    RequisitarProdutosPage,
+    MeusProdutosPage
 
   ],
   providers: [

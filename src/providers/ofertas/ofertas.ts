@@ -42,4 +42,10 @@ export class OfertasProvider {
     return this.http.post(this.url + 'oferta-parcelada', {oferta_id: oferta_id, parcelas: parcelas}, {headers: this.headers});
   }
 
+
+
+  getOfertasToRevendedor(revendedor_id){
+    return this.http.get(this.url+ 'ofertas/revendedor/'+revendedor_id, {headers: this.headers});
+  }
+
 }

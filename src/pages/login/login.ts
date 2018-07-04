@@ -4,6 +4,7 @@ import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {MenuProvider} from "../../providers/menu/menu";
+import {InicioPage} from "../modulo-revendedor/inicio/inicio";
 
 /**
  * Generated class for the LoginPage page.
@@ -81,8 +82,7 @@ export class LoginPage {
     }
 
     if(tipoUser == 'Revendedor'){
-      alert('Paginao do Revendedor ainda nao esta Pronta.');
-      console.log('Revendedor');
+      this.navCtrl.setRoot(InicioPage, {tipoUser: tipoUser, user: user});
     }
 
 
