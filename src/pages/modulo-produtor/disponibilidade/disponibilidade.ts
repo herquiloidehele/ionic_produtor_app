@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ProcurasProvider} from "../../../providers/procuras/procuras";
+import {PerfilRevendedorPage} from "../../modulo-revendedor/perfil-revendedor/perfil-revendedor";
 
 /**
  * Generated class for the DisponibilidadePage page.
@@ -163,6 +164,12 @@ export class DisponibilidadePage {
 
   protected voltar(){
     this.navCtrl.pop();
+  }
+
+
+
+  getToProfile(revendedor){
+    this.navCtrl.push(PerfilRevendedorPage, {revendedor: revendedor})
   }
 
 

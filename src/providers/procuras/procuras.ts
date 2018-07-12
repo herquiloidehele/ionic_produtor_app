@@ -32,7 +32,6 @@ export class ProcurasProvider {
    return this.http.get(this.url+'disponibilidade-produto/produtores/'+procura_id);
   }
 
-
   public salvarDisponibilidade(disponibilidade): Observable<any>{
     return this.http.post(this.url+ 'disponibilidade-produto',  disponibilidade, {headers:this.headers});
   }

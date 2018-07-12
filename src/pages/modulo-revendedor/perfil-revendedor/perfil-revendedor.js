@@ -19,9 +19,13 @@ var PerfilRevendedorPage = /** @class */ (function () {
     function PerfilRevendedorPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.revendedor = null;
     }
     PerfilRevendedorPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PerfilRevendedorPage');
+        this.revendedor = this.navParams.get('revendedor');
+    };
+    PerfilRevendedorPage.prototype.voltar = function () {
+        this.navCtrl.pop();
     };
     PerfilRevendedorPage = __decorate([
         IonicPage(),

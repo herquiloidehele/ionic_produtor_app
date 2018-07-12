@@ -9,15 +9,37 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UrlapiProvider {
 
-  private url = 'http://127.0.0.1:8000/api/';
-  // private url = 'https://9af3cdf2.ngrok.io/api/';
 
+  private urls = ['http://127.0.0.1:8000/api/', 'http://34.217.126.220/api/'];
+  private selectedURL;
   constructor() {
+    this.selectedURL = this.urls[0];
   }
 
 
+  // public getUrl(){
+  //
+  //   let resultado =  await this.httpClient.get(this.urls[0] + 'api-test').toPromise()
+  //       .then((sucesso) => {
+  //         return sucesso;
+  //       })
+  //       .catch((erro) =>{
+  //       return erro;
+  //     });
+  //
+  //
+  //     if(resultado.response){
+  //       this.selectedURL = this.urls[0];
+  //       return this.selectedURL;
+  //     } else{
+  //       this.selectedURL = this.urls[1];
+  //       return this.selectedURL;
+  //     }
+  //
+  // }
+
   public getUrl(){
-    return this.url;
+    return this.selectedURL;
   }
 
 }

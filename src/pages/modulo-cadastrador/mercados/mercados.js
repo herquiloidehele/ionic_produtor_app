@@ -27,6 +27,9 @@ var MercadosPage = /** @class */ (function () {
     MercadosPage.prototype.onClickAdicionarMercado = function () {
         this.navCtrl.push(RegistarMercadosPage);
     };
+    MercadosPage.prototype.ionViewWillEnter = function () {
+        this.getAll();
+    };
     MercadosPage.prototype.ionViewDidLoad = function () {
         this.getAll();
     };

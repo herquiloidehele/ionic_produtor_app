@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProcurasProvider } from "../../../providers/procuras/procuras";
+import { PerfilRevendedorPage } from "../../modulo-revendedor/perfil-revendedor/perfil-revendedor";
 /**
  * Generated class for the DisponibilidadePage page.
  *
@@ -127,6 +128,9 @@ var DisponibilidadePage = /** @class */ (function () {
     };
     DisponibilidadePage.prototype.voltar = function () {
         this.navCtrl.pop();
+    };
+    DisponibilidadePage.prototype.getToProfile = function (revendedor) {
+        this.navCtrl.push(PerfilRevendedorPage, { revendedor: revendedor });
     };
     DisponibilidadePage = __decorate([
         IonicPage(),

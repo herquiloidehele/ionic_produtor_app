@@ -35,7 +35,6 @@ export class MyApp {
   public menuPaginasCadastrador : any[];
   public menuPaginasRevendedor : any[];
 
-
    rootPage: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,

@@ -26,6 +26,9 @@ var InteresseProvider = /** @class */ (function () {
     InteresseProvider.prototype.getMeusProdutos = function (revendedor_id) {
         return this.http.get(this.url + 'interesse/revendedor_id/' + revendedor_id, { headers: this.headers });
     };
+    InteresseProvider.prototype.salvarInteresse = function (interesse) {
+        return this.http.post(this.url + 'interesses-produtos', { intresse: interesse }, { headers: this.headers });
+    };
     InteresseProvider = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UrlapiProvider])

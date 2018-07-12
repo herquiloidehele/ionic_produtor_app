@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
@@ -30,7 +30,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public autenticacaoService: AutenticacaoProvider,
-              public menuProvider: MenuProvider
+              public menuProvider: MenuProvider,
+              public alertController: AlertController
   ) {
 
   }
@@ -51,12 +52,15 @@ export class LoginPage {
           this.menuProvider.setShowMenu(true);
           console.log(resultado.user);
 
-
-
           this.redirecionarUser(resultado.tipo_user, resultado.user);
         },
         (erro) => {
-          alert('Credenciais erradas');
+          switch (erro.status){
+            case 0: this.mostrarAlert('Servidor Indisponivel', 'Ligue o servidor para ter acesso a aplicação'); break;
+            case 401: this.mostrarAlert('Credenciais Erradas'); break;
+            case 422: this.mostrarAlert('Dados Invalidos', 'Verifique os dados Inseridos'); break;
+            default: this.mostrarAlert('Ocorreu um erro Inesperado', 'Volte a tentar mais tarde');
+          }
           console.log(erro);
         },
         () => {
@@ -84,10 +88,21 @@ export class LoginPage {
     if(tipoUser == 'Revendedor'){
       this.navCtrl.setRoot(InicioPage, {tipoUser: tipoUser, user: user});
     }
-
-
-
   }
+
+
+  private mostrarAlert(titulo, messagem = null){
+    this.alertController.create(
+      {
+        title: titulo,
+        message: messagem,
+        buttons: [{
+          text: 'OK',
+        }]
+      }
+    ).present();
+  }
+
 
 
 

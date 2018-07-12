@@ -24,6 +24,10 @@ import { InicioPage } from "../pages/modulo-revendedor/inicio/inicio";
 import { RequisitarProdutosPage } from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
 import { MeusProdutosPage } from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
 import { PerfilRevendedorPage } from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
+import { ProdutoresPage } from "../pages/modulo-cadastrador/produtores/produtores";
+import { ProdutosPage } from "../pages/modulo-cadastrador/produtos/produtos";
+import { RevendedoresPage } from "../pages/modulo-cadastrador/revendedores/revendedores";
+import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app) {
         this.autenticacaoProvider = autenticacaoProvider;
@@ -41,9 +45,10 @@ var MyApp = /** @class */ (function () {
             { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
         ];
         this.menuPaginasCadastrador = [
-            { icon: 'leaf', pageName: 'Produtos', page: ProdutosrequsitadosPage },
-            { icon: 'person', pageName: 'Produtores', page: DisponibilizarProdutosPage },
-            { icon: 'person', pageName: 'Revendedores', page: ProdutosDisponibilizadosPage },
+            { icon: 'leaf', pageName: 'Produtos', page: ProdutosPage },
+            { icon: 'ios-people', pageName: 'Produtores', page: ProdutoresPage },
+            { icon: 'person', pageName: 'Revendedores', page: RevendedoresPage },
+            { icon: 'ios-basket', pageName: 'Mercados', page: MercadosPage },
             { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
         ];
         this.menuPaginasRevendedor = [

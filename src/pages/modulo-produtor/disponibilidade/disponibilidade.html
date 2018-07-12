@@ -47,7 +47,7 @@
       <ion-icon name="leaf"></ion-icon>
     </div>
     <p class="nome-produto">{{requisicao.procura.produto.designacao}}</p>
-    <div class="nome-produtor" style="margin-top: 10px; margin-bottom: 10px">
+    <div class="nome-produtor" style="margin-top: 10px; margin-bottom: 10px" (click)="getToProfile(requisicao.revendedor)">
       <ion-icon name="person" icon-start color="white"></ion-icon>
       <span style="color: white; font-size: 12pt">{{requisicao.revendedor.user.nome}}</span>
     </div>

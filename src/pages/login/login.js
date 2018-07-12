@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AutenticacaoProvider } from "../../providers/autenticacao/autenticacao";
 import { TabsPage } from "../modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
@@ -21,11 +21,12 @@ import { InicioPage } from "../modulo-revendedor/inicio/inicio";
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, autenticacaoService, menuProvider) {
+    function LoginPage(navCtrl, navParams, autenticacaoService, menuProvider, alertController) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.autenticacaoService = autenticacaoService;
         this.menuProvider = menuProvider;
+        this.alertController = alertController;
         this.user = {
             username: null,
             password: null,
@@ -42,7 +43,7 @@ var LoginPage = /** @class */ (function () {
             console.log(resultado.user);
             _this.redirecionarUser(resultado.tipo_user, resultado.user);
         }, function (erro) {
-            alert('Credenciais erradas');
+            _this.mostrarAlert(erro.error.message);
             console.log(erro);
         }, function () {
             console.log('Completo');
@@ -62,6 +63,14 @@ var LoginPage = /** @class */ (function () {
             this.navCtrl.setRoot(InicioPage, { tipoUser: tipoUser, user: user });
         }
     };
+    LoginPage.prototype.mostrarAlert = function (messagem) {
+        this.alertController.create({
+            title: messagem,
+            buttons: [{
+                    text: 'OK',
+                }]
+        }).present();
+    };
     LoginPage = __decorate([
         IonicPage(),
         Component({
@@ -71,7 +80,8 @@ var LoginPage = /** @class */ (function () {
         __metadata("design:paramtypes", [NavController,
             NavParams,
             AutenticacaoProvider,
-            MenuProvider])
+            MenuProvider,
+            AlertController])
     ], LoginPage);
     return LoginPage;
 }());

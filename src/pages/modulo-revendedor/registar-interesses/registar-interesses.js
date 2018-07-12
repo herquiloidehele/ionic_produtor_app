@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { UnidadeMedidaProvider } from "../../../providers/unidade-medida/unidade-medida";
-import { ProduzProvider } from "../../../providers/produz/produz";
+import { InteresseProvider } from "../../../providers/interesse/interesse";
 /**
  * Generated class for the RegistarInteressesPage page.
  *
@@ -18,12 +18,12 @@ import { ProduzProvider } from "../../../providers/produz/produz";
  * Ionic pages and navigation.
  */
 var RegistarInteressesPage = /** @class */ (function () {
-    function RegistarInteressesPage(navCtrl, navParams, viewController, unidadeMedidaProvider, produzProvider) {
+    function RegistarInteressesPage(navCtrl, navParams, viewController, unidadeMedidaProvider, interesseProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.viewController = viewController;
         this.unidadeMedidaProvider = unidadeMedidaProvider;
-        this.produzProvider = produzProvider;
+        this.interesseProvider = interesseProvider;
         this.produtos = this.navParams.get('produtos');
         console.log(this.produtos);
         this.getAllUnidadeMedida();
@@ -44,22 +44,25 @@ var RegistarInteressesPage = /** @class */ (function () {
     };
     RegistarInteressesPage.prototype.salvarProduto = function () {
         var _this = this;
-        var produz = {
-            produtores_id: JSON.parse(localStorage.getItem('user')).id,
+        var interesse = {
+            revendedores_id: JSON.parse(localStorage.getItem('user')).id,
             produtos_id: this.produto,
             unidades_medidas_id: this.unidadeMedida,
             quantidade_media: this.quantidade,
         };
-        console.log(produz);
-        this.produzProvider.salvarProduz(produz).subscribe(function (response) {
+        console.log(interesse);
+        this.interesseProvider.salvarInteresse(interesse).subscribe(function (response) {
             console.log(response);
             _this.navCtrl.pop();
         }, function (erros) {
             console.log(erros);
         });
     };
-    RegistarInteressesPage.prototype.habilitarSave = function () {
-        return this.produto != 'undefined' && this.unidadeMedida != 'undefined' && this.quantidade != 'undefined';
+    // habilitarSave(): boolean{
+    //   return this.produto != 'undefined' && this.unidadeMedida != 'undefined' && this.quantidade != 'undefined';
+    // }
+    RegistarInteressesPage.prototype.voltar = function () {
+        this.navCtrl.pop();
     };
     RegistarInteressesPage = __decorate([
         IonicPage(),
@@ -71,7 +74,7 @@ var RegistarInteressesPage = /** @class */ (function () {
             NavParams,
             ViewController,
             UnidadeMedidaProvider,
-            ProduzProvider])
+            InteresseProvider])
     ], RegistarInteressesPage);
     return RegistarInteressesPage;
 }());

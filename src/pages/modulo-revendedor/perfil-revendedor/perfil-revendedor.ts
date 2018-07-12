@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilRevendedorPage {
 
+
+  protected revendedor: any = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilRevendedorPage');
+   this.revendedor =  this.navParams.get('revendedor');
   }
+
+
+
+  voltar(){
+    this.navCtrl.pop();
+  }
+
+
+
 
 }

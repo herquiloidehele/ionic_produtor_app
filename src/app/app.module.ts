@@ -52,6 +52,7 @@ import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-pr
 import {DetalhesOfertasPage} from "../pages/modulo-revendedor/detalhes-ofertas/detalhes-ofertas";
 import {RegistarInteressesPage} from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
 import { InteresseProvider } from '../providers/interesse/interesse';
+import { UrlProvider } from '../providers/url/url';
 
 
 @NgModule({
@@ -154,6 +155,7 @@ import { InteresseProvider } from '../providers/interesse/interesse';
     UrlapiProvider,
     MenuProvider,
     InteresseProvider,
+    UrlProvider,
   ]
 
 })
