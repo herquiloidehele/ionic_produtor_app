@@ -58,7 +58,7 @@ import {Pro} from "@ionic/pro";
 
 
 Pro.init('F2C642A4', {
-  appVersion: '1.0'
+  appVersion: '0.0.1'
 })
 
 @Injectable()
