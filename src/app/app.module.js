@@ -56,6 +56,7 @@ import { DetalhesOfertasPage } from "../pages/modulo-revendedor/detalhes-ofertas
 import { RegistarInteressesPage } from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
 import { InteresseProvider } from '../providers/interesse/interesse';
 import { UrlProvider } from '../providers/url/url';
+import { NetworkProvider } from '../providers/network/network';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -160,6 +161,7 @@ var AppModule = /** @class */ (function () {
                 MenuProvider,
                 InteresseProvider,
                 UrlProvider,
+                NetworkProvider,
             ]
         })
     ], AppModule);

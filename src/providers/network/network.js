@@ -10,21 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 /*
-  Generated class for the UrlProvider provider.
+  Generated class for the NetworkProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-var UrlProvider = /** @class */ (function () {
-    function UrlProvider(http) {
+var NetworkProvider = /** @class */ (function () {
+    function NetworkProvider(http) {
         this.http = http;
-        console.log('Hello UrlProvider Provider');
+        console.log('Hello NetworkProvider Provider');
     }
-    UrlProvider = __decorate([
+    NetworkProvider = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])
-    ], UrlProvider);
-    return UrlProvider;
+    ], NetworkProvider);
+    return NetworkProvider;
 }());
-export { UrlProvider };
-//# sourceMappingURL=url.js.map
+export { NetworkProvider };
+//# sourceMappingURL=network.js.map

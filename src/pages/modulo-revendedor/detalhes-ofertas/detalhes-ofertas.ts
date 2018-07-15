@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {OfertasProvider} from "../../../providers/ofertas/ofertas";
-import {ConversorProvider} from "../../../providers/conversor/conversor";
 
 /**
  * Generated class for the DetalhesOfertasPage page.

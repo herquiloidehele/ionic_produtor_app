@@ -52,7 +52,8 @@ import {MeusProdutosPage} from "../pages/modulo-revendedor/meus-produtos/meus-pr
 import {DetalhesOfertasPage} from "../pages/modulo-revendedor/detalhes-ofertas/detalhes-ofertas";
 import {RegistarInteressesPage} from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
 import { InteresseProvider } from '../providers/interesse/interesse';
-import { UrlProvider } from '../providers/url/url';
+import { NetworkProvider } from '../providers/network/network';
+import {Network} from "@ionic-native/network";
 
 
 @NgModule({
@@ -143,6 +144,8 @@ import { UrlProvider } from '../providers/url/url';
     Camera,
     NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NetworkProvider,
+    Network,
     AutenticacaoProvider,
     HttpClient,
     CategoriasProvider,
@@ -155,7 +158,6 @@ import { UrlProvider } from '../providers/url/url';
     UrlapiProvider,
     MenuProvider,
     InteresseProvider,
-    UrlProvider,
   ]
 
 })

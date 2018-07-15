@@ -28,11 +28,13 @@ import { ProdutoresPage } from "../pages/modulo-cadastrador/produtores/produtore
 import { ProdutosPage } from "../pages/modulo-cadastrador/produtos/produtos";
 import { RevendedoresPage } from "../pages/modulo-cadastrador/revendedores/revendedores";
 import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
+import { Network } from "@ionic-native/network";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app) {
+    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app, network) {
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
         this.menuProvider = menuProvider;
+        this.network = network;
         platform.ready().then(function () {
             platform.registerBackButtonAction(function () {
                 app.navPop();
@@ -154,7 +156,8 @@ var MyApp = /** @class */ (function () {
             AutenticacaoProvider,
             AlertController,
             MenuProvider,
-            App])
+            App,
+            Network])
     ], MyApp);
     return MyApp;
 }());

@@ -43,7 +43,18 @@ var LoginPage = /** @class */ (function () {
             console.log(resultado.user);
             _this.redirecionarUser(resultado.tipo_user, resultado.user);
         }, function (erro) {
-            _this.mostrarAlert(erro.error.message);
+            switch (erro.status) {
+                case 0:
+                    _this.mostrarAlert('Servidor Indisponivel', 'Ligue o servidor para ter acesso a aplicação');
+                    break;
+                case 401:
+                    _this.mostrarAlert('Credenciais Erradas');
+                    break;
+                case 422:
+                    _this.mostrarAlert('Dados Invalidos', 'Verifique os dados Inseridos');
+                    break;
+                default: _this.mostrarAlert('Ocorreu um erro Inesperado', 'Volte a tentar mais tarde');
+            }
             console.log(erro);
         }, function () {
             console.log('Completo');
@@ -63,9 +74,11 @@ var LoginPage = /** @class */ (function () {
             this.navCtrl.setRoot(InicioPage, { tipoUser: tipoUser, user: user });
         }
     };
-    LoginPage.prototype.mostrarAlert = function (messagem) {
+    LoginPage.prototype.mostrarAlert = function (titulo, messagem) {
+        if (messagem === void 0) { messagem = null; }
         this.alertController.create({
-            title: messagem,
+            title: titulo,
+            message: messagem,
             buttons: [{
                     text: 'OK',
                 }]

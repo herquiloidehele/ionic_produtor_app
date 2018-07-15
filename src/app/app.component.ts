@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {AlertController, Platform} from 'ionic-angular';
+import {AlertController, Events, Platform} from 'ionic-angular';
 import {App} from 'ionic-angular/components/app/app'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,6 +20,8 @@ import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores"
 import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
 import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores";
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
+import {Network} from "@ionic-native/network";
+import {NetworkProvider} from "../providers/network/network";
 
 @Component({
   templateUrl: 'app.html'
@@ -41,12 +43,29 @@ export class MyApp {
               public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
               public menuProvider: MenuProvider,
-              app: App){
+              public network: Network,
+              public networkProvider: NetworkProvider,
+              public eventsProvider: Events,
+              app: App,
+              ){
     platform.ready().then(() => {
+
+      this.networkProvider.initializeNetworkEvents();
+
+      //  Offline event
+      this.eventsProvider.subscribe('network:offiline', () => {
+        alert('offline');
+      });
+
+      //  Online event
+      this.eventsProvider.subscribe('network:online', ()=> {
+        alert('online');
+      });
 
       platform.registerBackButtonAction(() => {
         app.navPop();
       });
+
 
     });
 

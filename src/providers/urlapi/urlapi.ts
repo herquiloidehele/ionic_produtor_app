@@ -13,7 +13,7 @@ export class UrlapiProvider {
   private urls = ['http://127.0.0.1:8000/api/', 'http://34.217.126.220/api/'];
   private selectedURL;
   constructor() {
-    this.selectedURL = this.urls[0];
+    this.selectedURL = this.urls[1];
   }
 
 
