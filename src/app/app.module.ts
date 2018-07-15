@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import {NgModule, ErrorHandler, Injector, Injectable} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -54,6 +54,37 @@ import {RegistarInteressesPage} from "../pages/modulo-revendedor/registar-intere
 import { InteresseProvider } from '../providers/interesse/interesse';
 import { NetworkProvider } from '../providers/network/network';
 import {Network} from "@ionic-native/network";
+import {Pro} from "@ionic/pro";
+
+
+Pro.init('F2C642A4', {
+  appVersion: '1.0'
+})
+
+@Injectable()
+export class MyErrorHandler implements ErrorHandler {
+  ionicErrorHandler: IonicErrorHandler;
+
+  constructor(injector: Injector) {
+    try {
+      this.ionicErrorHandler = injector.get(IonicErrorHandler);
+    } catch(e) {
+      // Unable to get the IonicErrorHandler provider, ensure
+      // IonicErrorHandler has been added to the providers list below
+    }
+  }
+
+  handleError(err: any): void {
+    Pro.monitoring.handleNewError(err);
+    // Remove this if you want to disable Ionic's auto exception handling
+    // in development mode.
+    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+  }
+}
+
+
+
+
 
 
 @NgModule({
@@ -143,7 +174,8 @@ import {Network} from "@ionic-native/network";
     SplashScreen,
     Camera,
     NativeGeocoder,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    IonicErrorHandler,
+    {provide: ErrorHandler, useClass: MyErrorHandler},
     NetworkProvider,
     Network,
     AutenticacaoProvider,
