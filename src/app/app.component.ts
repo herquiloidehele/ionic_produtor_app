@@ -54,6 +54,9 @@ export class MyApp {
 
     platform.ready().then(() => {
 
+      Pro.init('F2C642A4', {
+        appVersion: '0.0.1'
+      });
       // this.networkProvider.initializeNetworkEvents();
       //
       // //  Offline event

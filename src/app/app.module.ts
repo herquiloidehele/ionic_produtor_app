@@ -57,9 +57,8 @@ import {Network} from "@ionic-native/network";
 import {Pro} from "@ionic/pro";
 
 
-Pro.init('F2C642A4', {
-  appVersion: '0.0.1'
-})
+
+
 
 @Injectable()
 export class MyErrorHandler implements ErrorHandler {
