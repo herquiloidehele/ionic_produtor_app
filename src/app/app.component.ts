@@ -1,8 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {AlertController, Events, Platform} from 'ionic-angular';
 import {App} from 'ionic-angular/components/app/app'
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 import {LoginPage} from "../pages/login/login";
 import {AutenticacaoProvider} from "../providers/autenticacao/autenticacao";
@@ -22,6 +21,7 @@ import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revende
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 import {Network} from "@ionic-native/network";
 import {UrlapiProvider} from "../providers/urlapi/urlapi";
+import {Pro} from "@ionic/pro";
 
 @Component({
   templateUrl: 'app.html'

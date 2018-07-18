@@ -27,7 +27,6 @@ var UrlapiProvider = /** @class */ (function () {
     };
     UrlapiProvider.prototype.selectUrl = function (url) {
         localStorage.setItem('server', url);
-        this.selectedURL = url;
     };
     UrlapiProvider.prototype.getUrl = function () {
         var server = localStorage.getItem('server');

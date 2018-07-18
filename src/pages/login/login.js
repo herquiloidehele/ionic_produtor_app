@@ -115,6 +115,10 @@ var PopoverPage = /** @class */ (function () {
         this.servers = [];
         this.servers = navparams.data.servers;
     }
+    PopoverPage.prototype.isUrlActive = function (urlItem) {
+        var url = localStorage.getItem('server');
+        return url == urlItem;
+    };
     PopoverPage.prototype.close = function (url) {
         console.log(url);
         this.urlApiProvider.selectUrl(url);
@@ -122,7 +126,7 @@ var PopoverPage = /** @class */ (function () {
     };
     PopoverPage = __decorate([
         Component({
-            template: "\n    <ion-list no-lines>\n      <ion-list-header>Servidores</ion-list-header>\n      <div *ngFor=\"let server of servers\">\n        <button ion-item (click)=\"close(server.url)\" *ngIf=\"server.status == true\">{{server.nome}}</button>\n      </div>\n    </ion-list>\n  "
+            template: "\n    <ion-list no-lines >\n      <ion-list-header>Servidores</ion-list-header>\n      <div *ngFor=\"let server of servers\">\n        <ion-item *ngIf=\"server.status\">\n\n          <ion-label>{{server.nome}}</ion-label>\n          <ion-radio  (click)=\"close(server.url)\" checked=\"{{isUrlActive(server.url)}}\" value=\"{{server.url}}\"></ion-radio>\n          \n        </ion-item>\n      </div>\n      \n    </ion-list>\n  "
         }),
         __metadata("design:paramtypes", [ViewController, NavParams, UrlapiProvider])
     ], PopoverPage);

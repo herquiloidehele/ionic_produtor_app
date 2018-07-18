@@ -21,9 +21,8 @@ export class UrlapiProvider {
     return this.urls;
   }
 
-  public selectUrl(url: String){
+  public selectUrl(url: string){
     localStorage.setItem('server', url);
-    this.selectedURL = url;
   }
 
   public getUrl(){

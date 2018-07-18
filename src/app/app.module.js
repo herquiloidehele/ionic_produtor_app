@@ -70,6 +70,7 @@ var MyErrorHandler = /** @class */ (function () {
             this.ionicErrorHandler = injector.get(IonicErrorHandler);
         }
         catch (e) {
+            console.log(e);
             // Unable to get the IonicErrorHandler provider, ensure
             // IonicErrorHandler has been added to the providers list below
         }
