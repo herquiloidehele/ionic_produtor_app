@@ -116,11 +116,17 @@ export class LoginPage {
 
 @Component({
   template: `
-    <ion-list no-lines>
+    <ion-list no-lines >
       <ion-list-header>Servidores</ion-list-header>
       <div *ngFor="let server of servers">
-        <button ion-item (click)="close(server.url)" *ngIf="server.status == true">{{server.nome}}</button>
+        <ion-item *ngIf="server.status">
+
+          <ion-label>{{server.nome}}</ion-label>
+          <ion-radio  (click)="close(server.url)" checked="{{isUrlActive(server.url)}}" value="{{server.url}}"></ion-radio>
+          
+        </ion-item>
       </div>
+      
     </ion-list>
   `
 })
@@ -134,6 +140,11 @@ export class PopoverPage {
     this.servers = navparams.data.servers;
   }
 
+
+  public isUrlActive(urlItem){
+    let url = localStorage.getItem('server');
+    return url == urlItem;
+  }
 
 
   close(url) {
