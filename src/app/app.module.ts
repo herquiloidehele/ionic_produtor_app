@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/modulo-cadastrador/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LoginPage} from "../pages/login/login";
+import {LoginPage, PopoverPage} from "../pages/login/login";
 import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores";
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
@@ -118,6 +118,7 @@ export class MyErrorHandler implements ErrorHandler {
     PerfilRevendedorPage,
     RequisitarProdutosPage,
     MeusProdutosPage,
+    PopoverPage,
     DetalhesOfertasPage,
     RegistarInteressesPage
   ],
@@ -132,6 +133,7 @@ export class MyErrorHandler implements ErrorHandler {
     ProdutoresPage,
     MercadosPage,
     ProdutosPage,
+    PopoverPage,
     TabsPage,
     LoginPage,
     RegistarMercadosPage,

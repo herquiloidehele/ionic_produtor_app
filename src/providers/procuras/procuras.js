@@ -21,20 +21,19 @@ var ProcurasProvider = /** @class */ (function () {
         this.http = http;
         this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
     ProcurasProvider.prototype.getAll = function () {
         var token = localStorage.getItem('token');
-        return this.http.post(this.url + 'procuras/produtos-produtor', { token: token }, { headers: this.headers });
+        return this.http.post(this.this.urlProvider.getUrl() + 'procuras/produtos-produtor', { token: token }, { headers: this.headers });
     };
     ProcurasProvider.prototype.getProdutores = function (procura_id) {
-        return this.http.get(this.url + 'disponibilidade-produto/produtores/' + procura_id);
+        return this.http.get(this.this.urlProvider.getUrl() + 'disponibilidade-produto/produtores/' + procura_id);
     };
     ProcurasProvider.prototype.salvarDisponibilidade = function (disponibilidade) {
-        return this.http.post(this.url + 'disponibilidade-produto', disponibilidade, { headers: this.headers });
+        return this.http.post(this.this.urlProvider.getUrl() + 'disponibilidade-produto', disponibilidade, { headers: this.headers });
     };
     ProcurasProvider.prototype.actualizarDisponibilidade = function (disponibilidade, disponibilidade_id) {
-        return this.http.put(this.url + 'disponibilidade-produto/' + disponibilidade_id, disponibilidade, { headers: this.headers });
+        return this.http.put(this.this.urlProvider.getUrl() + 'disponibilidade-produto/' + disponibilidade_id, disponibilidade, { headers: this.headers });
     };
     ProcurasProvider = __decorate([
         Injectable(),

@@ -21,13 +21,12 @@ var MercadoProvider = /** @class */ (function () {
         this.http = http;
         this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
     MercadoProvider.prototype.getAll = function () {
-        return this.http.get(this.url + 'mercados', { headers: this.headers });
+        return this.http.get(this.urlProvider.getUrl() + 'mercados', { headers: this.headers });
     };
     MercadoProvider.prototype.salvar = function (mercado) {
-        return this.http.post(this.url + 'mercados', { mercado: mercado }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getUrl() + 'mercados', { mercado: mercado }, { headers: this.headers });
     };
     MercadoProvider = __decorate([
         Injectable(),

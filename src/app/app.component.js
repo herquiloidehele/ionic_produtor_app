@@ -8,10 +8,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, Platform } from 'ionic-angular';
+import { AlertController, Events, Platform } from 'ionic-angular';
 import { App } from 'ionic-angular/components/app/app';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from "../pages/login/login";
 import { AutenticacaoProvider } from "../providers/autenticacao/autenticacao";
 import { TabsPage } from "../pages/modulo-cadastrador/tabs/tabs";
@@ -29,13 +27,30 @@ import { ProdutosPage } from "../pages/modulo-cadastrador/produtos/produtos";
 import { RevendedoresPage } from "../pages/modulo-cadastrador/revendedores/revendedores";
 import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
 import { Network } from "@ionic-native/network";
+import { UrlapiProvider } from "../providers/urlapi/urlapi";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen, autenticacaoProvider, alertController, menuProvider, app, network) {
+    function MyApp(platform, autenticacaoProvider, alertController, menuProvider, network, eventsProvider, urlprovider, app) {
+        this.platform = platform;
         this.autenticacaoProvider = autenticacaoProvider;
         this.alertController = alertController;
         this.menuProvider = menuProvider;
         this.network = network;
+        this.eventsProvider = eventsProvider;
+        this.urlprovider = urlprovider;
+        if (!localStorage.getItem('server'))
+            this.urlprovider.selectUrl('http://54.218.58.191/api/');
         platform.ready().then(function () {
+            // this.networkProvider.initializeNetworkEvents();
+            //
+            // //  Offline event
+            // this.eventsProvider.subscribe('network:offiline', () => {
+            //   alert('offline');
+            // });
+            //
+            // //  Online event
+            // this.eventsProvider.subscribe('network:online', ()=> {
+            //   alert('online');
+            // });
             platform.registerBackButtonAction(function () {
                 app.navPop();
             });
@@ -152,12 +167,14 @@ var MyApp = /** @class */ (function () {
         Component({
             templateUrl: 'app.html'
         }),
-        __metadata("design:paramtypes", [Platform, StatusBar, SplashScreen,
+        __metadata("design:paramtypes", [Platform,
             AutenticacaoProvider,
             AlertController,
             MenuProvider,
-            App,
-            Network])
+            Network,
+            Events,
+            UrlapiProvider,
+            App])
     ], MyApp);
     return MyApp;
 }());

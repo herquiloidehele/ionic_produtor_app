@@ -21,10 +21,9 @@ var ProdutosProvider = /** @class */ (function () {
         this.http = http;
         this.urlProvider = urlProvider;
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
     ProdutosProvider.prototype.getAll = function () {
-        return this.http.get(this.url + 'produtos', { headers: this.header });
+        return this.http.get(this.urlProvider.getUrl() + 'produtos', { headers: this.header });
     };
     ProdutosProvider = __decorate([
         Injectable(),

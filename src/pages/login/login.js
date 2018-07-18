@@ -8,12 +8,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams, PopoverController, ViewController } from 'ionic-angular';
 import { AutenticacaoProvider } from "../../providers/autenticacao/autenticacao";
 import { TabsPage } from "../modulo-cadastrador/tabs/tabs";
 import { ProdutosrequsitadosPage } from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
 import { MenuProvider } from "../../providers/menu/menu";
 import { InicioPage } from "../modulo-revendedor/inicio/inicio";
+import { UrlapiProvider } from "../../providers/urlapi/urlapi";
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,17 +22,22 @@ import { InicioPage } from "../modulo-revendedor/inicio/inicio";
  * Ionic pages and navigation.
  */
 var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, autenticacaoService, menuProvider, alertController) {
+    function LoginPage(navCtrl, navParams, autenticacaoService, menuProvider, alertController, popOverController, urlprovider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.autenticacaoService = autenticacaoService;
         this.menuProvider = menuProvider;
         this.alertController = alertController;
+        this.popOverController = popOverController;
+        this.urlprovider = urlprovider;
         this.user = {
             username: null,
             password: null,
         };
     }
+    LoginPage.prototype.presentPopover = function (event) {
+        this.popOverController.create(PopoverPage, { servers: this.urlprovider.getURLs() }).present({ ev: event });
+    };
     LoginPage.prototype.onSignIn = function () {
         var _this = this;
         var user = { username: this.user.username, password: this.user.password };
@@ -94,9 +100,33 @@ var LoginPage = /** @class */ (function () {
             NavParams,
             AutenticacaoProvider,
             MenuProvider,
-            AlertController])
+            AlertController,
+            PopoverController,
+            UrlapiProvider])
     ], LoginPage);
     return LoginPage;
 }());
 export { LoginPage };
+var PopoverPage = /** @class */ (function () {
+    function PopoverPage(viewCtrl, navparams, urlApiProvider) {
+        this.viewCtrl = viewCtrl;
+        this.navparams = navparams;
+        this.urlApiProvider = urlApiProvider;
+        this.servers = [];
+        this.servers = navparams.data.servers;
+    }
+    PopoverPage.prototype.close = function (url) {
+        console.log(url);
+        this.urlApiProvider.selectUrl(url);
+        this.viewCtrl.dismiss();
+    };
+    PopoverPage = __decorate([
+        Component({
+            template: "\n    <ion-list no-lines>\n      <ion-list-header>Servidores</ion-list-header>\n      <div *ngFor=\"let server of servers\">\n        <button ion-item (click)=\"close(server.url)\" *ngIf=\"server.status == true\">{{server.nome}}</button>\n      </div>\n    </ion-list>\n  "
+        }),
+        __metadata("design:paramtypes", [ViewController, NavParams, UrlapiProvider])
+    ], PopoverPage);
+    return PopoverPage;
+}());
+export { PopoverPage };
 //# sourceMappingURL=login.js.map

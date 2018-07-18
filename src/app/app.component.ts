@@ -21,7 +21,7 @@ import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
 import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores";
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 import {Network} from "@ionic-native/network";
-import {NetworkProvider} from "../providers/network/network";
+import {UrlapiProvider} from "../providers/urlapi/urlapi";
 
 @Component({
   templateUrl: 'app.html'
@@ -39,28 +39,32 @@ export class MyApp {
 
    rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+  constructor(public platform: Platform,
               public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
               public menuProvider: MenuProvider,
               public network: Network,
-              public networkProvider: NetworkProvider,
               public eventsProvider: Events,
+              public urlprovider: UrlapiProvider,
               app: App,
               ){
+
+    if(!localStorage.getItem('server'))
+      this.urlprovider.selectUrl('http://54.218.58.191/api/');
+
     platform.ready().then(() => {
 
-      this.networkProvider.initializeNetworkEvents();
-
-      //  Offline event
-      this.eventsProvider.subscribe('network:offiline', () => {
-        alert('offline');
-      });
-
-      //  Online event
-      this.eventsProvider.subscribe('network:online', ()=> {
-        alert('online');
-      });
+      // this.networkProvider.initializeNetworkEvents();
+      //
+      // //  Offline event
+      // this.eventsProvider.subscribe('network:offiline', () => {
+      //   alert('offline');
+      // });
+      //
+      // //  Online event
+      // this.eventsProvider.subscribe('network:online', ()=> {
+      //   alert('online');
+      // });
 
       platform.registerBackButtonAction(() => {
         app.navPop();

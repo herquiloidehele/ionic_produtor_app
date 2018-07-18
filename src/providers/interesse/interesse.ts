@@ -12,22 +12,20 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class InteresseProvider {
 
-  private url: String;
   private headers: HttpHeaders;
 
 
   constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
-    this.url = urlProvider.getUrl();
   }
 
   public getMeusProdutos (revendedor_id): Observable<any> {
-    return this.http.get(this.url  + 'interesse/revendedor_id/'+revendedor_id, {headers: this.headers});
+    return this.http.get(this.urlProvider.getUrl()  + 'interesse/revendedor_id/'+revendedor_id, {headers: this.headers});
   }
 
 
   public salvarInteresse(interesse): Observable<any>{
-    return this.http.post(this.url + 'interesses-produtos', {intresse: interesse}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getUrl() + 'interesses-produtos', {intresse: interesse}, {headers: this.headers});
   }
 
 

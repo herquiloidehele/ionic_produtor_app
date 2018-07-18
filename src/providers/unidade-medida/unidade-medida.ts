@@ -12,17 +12,15 @@ import {UrlapiProvider} from "../urlapi/urlapi";
 @Injectable()
 export class UnidadeMedidaProvider {
 
-  private url;
   private header: HttpHeaders;
 
   constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.header = new HttpHeaders({'Content-Type': 'application/json'});
-    this.url = urlProvider.getUrl();
   }
 
 
   getAll(): Observable<any>{
-    return this.http.get(this.url + 'unidades-medidas', {headers: this.header});
+    return this.http.get(this.urlProvider.getUrl() + 'unidades-medidas', {headers: this.header});
   }
 
 

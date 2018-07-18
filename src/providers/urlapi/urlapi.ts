@@ -10,36 +10,25 @@ import { Injectable } from '@angular/core';
 export class UrlapiProvider {
 
 
-  private urls = ['http://127.0.0.1:8000/api/', 'http://34.217.126.220/api/'];
-  private selectedURL;
+  private urls = [
+                  {nome: 'Local', url: 'http://127.0.0.1:8000/api/', status: true},
+                  {nome: 'Centos Server', url: 'http://34.217.126.220/api/', status: false},
+                  {nome: 'Ubuntu Server', url: 'http://54.218.58.191/api/', status: true}];
   constructor() {
-    this.selectedURL = this.urls[1];
   }
 
+  public getURLs(){
+    return this.urls;
+  }
 
-  // public getUrl(){
-  //
-  //   let resultado =  await this.httpClient.get(this.urls[0] + 'api-test').toPromise()
-  //       .then((sucesso) => {
-  //         return sucesso;
-  //       })
-  //       .catch((erro) =>{
-  //       return erro;
-  //     });
-  //
-  //
-  //     if(resultado.response){
-  //       this.selectedURL = this.urls[0];
-  //       return this.selectedURL;
-  //     } else{
-  //       this.selectedURL = this.urls[1];
-  //       return this.selectedURL;
-  //     }
-  //
-  // }
+  public selectUrl(url: String){
+    localStorage.setItem('server', url);
+    this.selectedURL = url;
+  }
 
   public getUrl(){
-    return this.selectedURL;
+    let server = localStorage.getItem('server');
+    return server;
   }
 
 }

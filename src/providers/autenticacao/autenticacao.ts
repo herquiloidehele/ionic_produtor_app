@@ -12,25 +12,23 @@ import {UrlapiProvider} from "../urlapi/urlapi";
 @Injectable()
 export class AutenticacaoProvider {
 
-  private url: String;
   private headers: HttpHeaders;
 
   constructor(public http: HttpClient, private urlProvider: UrlapiProvider) {
-    this.url = this.urlProvider.getUrl();
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
   }
 
 
   public login(user: any) : Observable<any>{
-    return this.http.post(this.url+'login', user, {headers: this.headers} );
+    return this.http.post(this.urlProvider.getUrl()+'login', user, {headers: this.headers} );
   }
 
   public getUserFromToken(token: any): Observable<any>{
-    return this.http.post(this.url+ 'get-user-token/'+token, {token: token}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getUrl()+ 'get-user-token/'+token, {token: token}, {headers: this.headers});
   }
 
   public logout(token: String): Observable<any>{
-    return this.http.post(this.url+ 'logout', {token: token}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getUrl()+ 'logout', {token: token}, {headers: this.headers});
   }
 
 

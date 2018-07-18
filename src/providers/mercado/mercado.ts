@@ -12,21 +12,19 @@ import {UrlapiProvider} from "../urlapi/urlapi";
 @Injectable()
 export class MercadoProvider {
 
-  private url: String;
   private headers: HttpHeaders;
 
   constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
-    this.url = urlProvider.getUrl();
   }
 
 
   getAll(): Observable<any>{
-    return this.http.get(this.url + 'mercados', {headers: this.headers});
+    return this.http.get(this.urlProvider.getUrl() + 'mercados', {headers: this.headers});
   }
 
   salvar(mercado: any): Observable<any>{
-    return this.http.post(this.url + 'mercados',{mercado: mercado}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getUrl() + 'mercados',{mercado: mercado}, {headers: this.headers});
   }
 
 }

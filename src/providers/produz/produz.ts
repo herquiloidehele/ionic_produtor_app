@@ -12,23 +12,21 @@ import {UrlapiProvider} from "../urlapi/urlapi";
 @Injectable()
 export class ProduzProvider {
 
-  private url: String;
   private headers: HttpHeaders;
 
 
   constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
-    this.url = urlProvider.getUrl();
   }
 
 
   public getMeusProdutos (produtor_id): Observable<any> {
-    return this.http.get(this.url  + 'produz/produtor-producao/'+produtor_id, {headers: this.headers});
+    return this.http.get(this.urlProvider.getUrl()  + 'produz/produtor-producao/'+produtor_id, {headers: this.headers});
   }
 
 
   public salvarProduz(produz): Observable<any>{
-    return this.http.post(this.url + 'produz', {produz: produz}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getUrl() + 'produz', {produz: produz}, {headers: this.headers});
   }
 
 

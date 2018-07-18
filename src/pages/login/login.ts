@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, PopoverController, ViewController} from 'ionic-angular';
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {MenuProvider} from "../../providers/menu/menu";
 import {InicioPage} from "../modulo-revendedor/inicio/inicio";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 /**
  * Generated class for the LoginPage page.
@@ -31,10 +32,17 @@ export class LoginPage {
               public navParams: NavParams,
               public autenticacaoService: AutenticacaoProvider,
               public menuProvider: MenuProvider,
-              public alertController: AlertController
+              public alertController: AlertController,
+              public popOverController: PopoverController,
+              public urlprovider: UrlapiProvider
   ) {
-
   }
+
+
+  public presentPopover(event){
+    this.popOverController.create(PopoverPage, {servers: this.urlprovider.getURLs()}).present({ev: event});
+  }
+
 
 
   onSignIn(){
@@ -103,12 +111,34 @@ export class LoginPage {
     ).present();
   }
 
+}
+
+
+@Component({
+  template: `
+    <ion-list no-lines>
+      <ion-list-header>Servidores</ion-list-header>
+      <div *ngFor="let server of servers">
+        <button ion-item (click)="close(server.url)" *ngIf="server.status == true">{{server.nome}}</button>
+      </div>
+    </ion-list>
+  `
+})
+
+export class PopoverPage {
+
+  public servers = [];
+
+
+  constructor(public viewCtrl: ViewController, public navparams: NavParams, public urlApiProvider: UrlapiProvider) {
+    this.servers = navparams.data.servers;
+  }
 
 
 
-
-
-
-
-
+  close(url) {
+    console.log(url);
+    this.urlApiProvider.selectUrl(url);
+    this.viewCtrl.dismiss();
+  }
 }

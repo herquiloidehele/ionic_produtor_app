@@ -4,14 +4,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { NgModule, ErrorHandler } from '@angular/core';
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+import { NgModule, ErrorHandler, Injector, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/modulo-cadastrador/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginPage } from "../pages/login/login";
+import { LoginPage, PopoverPage } from "../pages/login/login";
 import { ProdutoresPage } from "../pages/modulo-cadastrador/produtores/produtores";
 import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
 import { ProdutosPage } from "../pages/modulo-cadastrador/produtos/produtos";
@@ -55,8 +58,35 @@ import { MeusProdutosPage } from "../pages/modulo-revendedor/meus-produtos/meus-
 import { DetalhesOfertasPage } from "../pages/modulo-revendedor/detalhes-ofertas/detalhes-ofertas";
 import { RegistarInteressesPage } from "../pages/modulo-revendedor/registar-interesses/registar-interesses";
 import { InteresseProvider } from '../providers/interesse/interesse';
-import { UrlProvider } from '../providers/url/url';
 import { NetworkProvider } from '../providers/network/network';
+import { Network } from "@ionic-native/network";
+import { Pro } from "@ionic/pro";
+Pro.init('F2C642A4', {
+    appVersion: '0.0.1'
+});
+var MyErrorHandler = /** @class */ (function () {
+    function MyErrorHandler(injector) {
+        try {
+            this.ionicErrorHandler = injector.get(IonicErrorHandler);
+        }
+        catch (e) {
+            // Unable to get the IonicErrorHandler provider, ensure
+            // IonicErrorHandler has been added to the providers list below
+        }
+    }
+    MyErrorHandler.prototype.handleError = function (err) {
+        Pro.monitoring.handleNewError(err);
+        // Remove this if you want to disable Ionic's auto exception handling
+        // in development mode.
+        this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+    };
+    MyErrorHandler = __decorate([
+        Injectable(),
+        __metadata("design:paramtypes", [Injector])
+    ], MyErrorHandler);
+    return MyErrorHandler;
+}());
+export { MyErrorHandler };
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -92,6 +122,7 @@ var AppModule = /** @class */ (function () {
                 PerfilRevendedorPage,
                 RequisitarProdutosPage,
                 MeusProdutosPage,
+                PopoverPage,
                 DetalhesOfertasPage,
                 RegistarInteressesPage
             ],
@@ -106,6 +137,7 @@ var AppModule = /** @class */ (function () {
                 ProdutoresPage,
                 MercadosPage,
                 ProdutosPage,
+                PopoverPage,
                 TabsPage,
                 LoginPage,
                 RegistarMercadosPage,
@@ -147,7 +179,10 @@ var AppModule = /** @class */ (function () {
                 SplashScreen,
                 Camera,
                 NativeGeocoder,
-                { provide: ErrorHandler, useClass: IonicErrorHandler },
+                IonicErrorHandler,
+                { provide: ErrorHandler, useClass: MyErrorHandler },
+                NetworkProvider,
+                Network,
                 AutenticacaoProvider,
                 HttpClient,
                 CategoriasProvider,
@@ -160,8 +195,6 @@ var AppModule = /** @class */ (function () {
                 UrlapiProvider,
                 MenuProvider,
                 InteresseProvider,
-                UrlProvider,
-                NetworkProvider,
             ]
         })
     ], AppModule);

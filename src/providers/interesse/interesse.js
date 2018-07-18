@@ -21,13 +21,12 @@ var InteresseProvider = /** @class */ (function () {
         this.http = http;
         this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
     InteresseProvider.prototype.getMeusProdutos = function (revendedor_id) {
-        return this.http.get(this.url + 'interesse/revendedor_id/' + revendedor_id, { headers: this.headers });
+        return this.http.get(this.urlProvider.getUrl() + 'interesse/revendedor_id/' + revendedor_id, { headers: this.headers });
     };
     InteresseProvider.prototype.salvarInteresse = function (interesse) {
-        return this.http.post(this.url + 'interesses-produtos', { intresse: interesse }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getUrl() + 'interesses-produtos', { intresse: interesse }, { headers: this.headers });
     };
     InteresseProvider = __decorate([
         Injectable(),

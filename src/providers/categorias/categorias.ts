@@ -11,17 +11,15 @@ import {UrlapiProvider} from "../urlapi/urlapi";
 @Injectable()
 export class CategoriasProvider {
 
-  private url: String;
   private header: HttpHeaders;
 
   constructor(public http: HttpClient, public urlProvider: UrlapiProvider) {
     this.header = new HttpHeaders({'Content-Type': 'application/json'});
-    this.url = urlProvider.getUrl();
   }
 
 
   public getAll(){
-    return this.http.get(this.url+'categorias', {headers: this.header});
+    return this.http.get(this.urlProvider.getUrl()+'categorias', {headers: this.header});
   }
 
 

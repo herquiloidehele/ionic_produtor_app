@@ -21,22 +21,21 @@ var OfertasProvider = /** @class */ (function () {
         this.http = http;
         this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        this.url = urlProvider.getUrl();
     }
     OfertasProvider.prototype.getMinhasOfertas = function (provedores_id) {
-        return this.http.get(this.url + 'ofertas/minhas-ofertas/' + provedores_id, { headers: this.headers });
+        return this.http.get(this.urlProvider.getUrl() + 'ofertas/minhas-ofertas/' + provedores_id, { headers: this.headers });
     };
     OfertasProvider.prototype.salvarOferta = function (oferta, produtor) {
-        return this.http.post(this.url + 'ofertas', { oferta: oferta, produtor_id: produtor }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getUrl() + 'ofertas', { oferta: oferta, produtor_id: produtor }, { headers: this.headers });
     };
     OfertasProvider.prototype.salvarDisponibilidade = function (disonibilidade) {
-        return this.http.post(this + 'disponibilidade-produto', { disponibilidade: disonibilidade }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getUrl() + 'disponibilidade-produto', { disponibilidade: disonibilidade }, { headers: this.headers });
     };
     OfertasProvider.prototype.salvarOfertaParcelada = function (oferta_id, parcelas) {
-        return this.http.post(this.url + 'oferta-parcelada', { oferta_id: oferta_id, parcelas: parcelas }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getUrl() + 'oferta-parcelada', { oferta_id: oferta_id, parcelas: parcelas }, { headers: this.headers });
     };
     OfertasProvider.prototype.getOfertasToRevendedor = function (revendedor_id) {
-        return this.http.get(this.url + 'ofertas/revendedor/' + revendedor_id, { headers: this.headers });
+        return this.http.get(this.urlProvider.getUrl() + 'ofertas/revendedor/' + revendedor_id, { headers: this.headers });
     };
     OfertasProvider = __decorate([
         Injectable(),
