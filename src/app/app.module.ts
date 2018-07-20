@@ -1,4 +1,4 @@
-import {NgModule, ErrorHandler, Injector, Injectable} from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -54,33 +54,33 @@ import {RegistarInteressesPage} from "../pages/modulo-revendedor/registar-intere
 import { InteresseProvider } from '../providers/interesse/interesse';
 import { NetworkProvider } from '../providers/network/network';
 import {Network} from "@ionic-native/network";
-import {Pro} from "@ionic/pro";
+import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-categoria";
 
 
 
 
 
-@Injectable()
-export class MyErrorHandler implements ErrorHandler {
-  ionicErrorHandler: IonicErrorHandler;
-
-  constructor(injector: Injector) {
-    try {
-      this.ionicErrorHandler = injector.get(IonicErrorHandler);
-    } catch(e) {
-      console.log(e);
-      // Unable to get the IonicErrorHandler provider, ensure
-      // IonicErrorHandler has been added to the providers list below
-    }
-  }
-
-  handleError(err: any): void {
-    Pro.monitoring.handleNewError(err);
-    // Remove this if you want to disable Ionic's auto exception handling
-    // in development mode.
-    this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
-  }
-}
+// @Injectable()
+// export class MyErrorHandler implements ErrorHandler {
+//   ionicErrorHandler: IonicErrorHandler;
+//
+//   constructor(injector: Injector) {
+//     try {
+//       this.ionicErrorHandler = injector.get(IonicErrorHandler);
+//     } catch(e) {
+//       console.log(e);
+//       // Unable to get the IonicErrorHandler provider, ensure
+//       // IonicErrorHandler has been added to the providers list below
+//     }
+//   }
+//
+//   handleError(err: any): void {
+//     Pro.monitoring.handleNewError(err);
+//     // Remove this if you want to disable Ionic's auto exception handling
+//     // in development mode.
+//     this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+//   }
+// }
 
 
 
@@ -120,7 +120,8 @@ export class MyErrorHandler implements ErrorHandler {
     MeusProdutosPage,
     PopoverPage,
     DetalhesOfertasPage,
-    RegistarInteressesPage
+    RegistarInteressesPage,
+    EscolherCategoriaPage
   ],
   imports: [
     BrowserModule,
@@ -156,7 +157,8 @@ export class MyErrorHandler implements ErrorHandler {
     RequisitarProdutosPage,
     MeusProdutosPage,
     DetalhesOfertasPage,
-    RegistarInteressesPage
+    RegistarInteressesPage,
+    EscolherCategoriaPage
 
   ],
   providers: [
@@ -176,8 +178,7 @@ export class MyErrorHandler implements ErrorHandler {
     SplashScreen,
     Camera,
     NativeGeocoder,
-    IonicErrorHandler,
-    {provide: ErrorHandler, useClass: MyErrorHandler},
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
     NetworkProvider,
     Network,
     AutenticacaoProvider,

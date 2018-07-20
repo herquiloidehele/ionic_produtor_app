@@ -22,4 +22,8 @@ export class ProdutosProvider {
     return this.http.get(this.urlProvider.getUrl() +'produtos', {headers: this.header})
   }
 
+  salvar(produto){
+    return this.http.post(this.urlProvider.getUrl()+ 'produtos', {headers: this.header});
+  }
+
 }

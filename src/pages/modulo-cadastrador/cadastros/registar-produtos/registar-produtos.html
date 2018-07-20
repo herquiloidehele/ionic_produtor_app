@@ -9,85 +9,42 @@
 
 <ion-content>
 
-      <form>
-          <ion-item>
-            <ion-label floating>Produto</ion-label>
-            <ion-input type="text" clearInput clearOnEdit="false"></ion-input>
-          </ion-item>
+  <form [formGroup]="myFormGroup" (submit)="salvarProduto()">
 
-          <ion-item>
-            <ion-label floating>Categoria</ion-label>
-            <ion-select >
-              <ion-option value="cate1"> Categoria 1</ion-option>
-              <ion-option value="cate1"> Categoria 2</ion-option>
-              <ion-option value="cate1"> Categoria 3</ion-option>
-              <ion-option value="cate1"> Categoria 4</ion-option>
-              <ion-option value="cate1"> Categoria 5</ion-option>
-            </ion-select>
-          </ion-item>
-
-        <ion-item>
-          <ion-label floating>Unidade de Medida</ion-label>
-          <ion-select >
-            <ion-option value="cate1">KB </ion-option>
-            <ion-option value="cate1">Tonelada</ion-option>
-            <ion-option value="cate1">Saco</ion-option>
-            <ion-option value="cate1">Gramas</ion-option>
-            <ion-option value="cate1">...</ion-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item>
-          <p>Variedades</p>
           <ion-list>
             <ion-item>
-              <span>Variedade 1 </span> <ion-icon color="danger" ios="ios-close" md="md-close"></ion-icon>
+              <ion-icon name="leaf" item-start></ion-icon>
+              <ion-label stacked>Nome do Produto:</ion-label>
+              <ion-input formControlName="produto" [(ngModel)]="produto.designacao" type="text" placeholder="Produto" clearOnEdit="false"></ion-input>
             </ion-item>
+
+            <ion-item (click)="openCategorias()">
+              <ion-icon name="archive" item-start></ion-icon>
+              <ion-label stacked>Categoria:</ion-label>
+              <ion-input formControlName="categoria" type="text" [(ngModel)]="produto.categoria.designacao" plceholder="Categoria"></ion-input>
+            </ion-item>
+
+              <ion-card>
+                <ion-item>
+                  <ion-icon name="albums" item-start></ion-icon>
+                  <ion-label stacked>Varidades do :{{produto.designacao}}</ion-label>
+                  <ion-input type="text" formControlName="lastVariedade" [(ngModel)]="produto.lastVariedade"></ion-input>
+                  <button ion-button item-end color="secondary" [disabled]="produto.lastVariedade == ''" (click)="addVariedade()">
+                    <ion-icon name="add" color="light"></ion-icon>
+                  </button>
+                </ion-item>
+
+                <ion-card-content>
+                  <ion-list>
+                    <button ion-item *ngFor="let variedade of produto.variedades">{{variedade}}</button>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+
+            <div margin-top="150px" padding-left="20px" padding-right="20px">
+              <button ion-button block color="secondary" type="submit" [disabled]="!myFormGroup">SALVAR</button>
+            </div>
           </ion-list>
-          <button ion-button clear block>Variedades<ion-icon ios="ios-add" md="md-add"></ion-icon></button>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Época</ion-label>
-
-          <ion-select>
-            <ion-option value="01">January</ion-option>
-            <ion-option value="02">February</ion-option>
-            <ion-option value="03">March</ion-option>
-            <ion-option value="04">April</ion-option>
-            <ion-option value="05">May</ion-option>
-            <ion-option value="06">June</ion-option>
-            <ion-option value="07">July</ion-option>
-            <ion-option value="08">August</ion-option>
-            <ion-option value="09">September</ion-option>
-            <ion-option value="10">October</ion-option>
-            <ion-option value="11">November</ion-option>
-            <ion-option value="12" checked="true">December</ion-option>
-          </ion-select>
-
-          <ion-select>
-            <ion-option value="01">January</ion-option>
-            <ion-option value="02">February</ion-option>
-            <ion-option value="03">March</ion-option>
-            <ion-option value="04">April</ion-option>
-            <ion-option value="05">May</ion-option>
-            <ion-option value="06">June</ion-option>
-            <ion-option value="07">July</ion-option>
-            <ion-option value="08">August</ion-option>
-            <ion-option value="09">September</ion-option>
-            <ion-option value="10">October</ion-option>
-            <ion-option value="11">November</ion-option>
-            <ion-option value="12" checked="true">December</ion-option>
-          </ion-select>
-
-        </ion-item>
-
-        <div margin-top="150px" padding-left="20px" padding-right="20px">
-          <button ion-button block color="secondary">SALVAR</button>
-        </div>
-
-
-      </form>
-
+  </form>
 
 </ion-content>
