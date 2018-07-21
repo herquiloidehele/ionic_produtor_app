@@ -55,6 +55,7 @@ import { InteresseProvider } from '../providers/interesse/interesse';
 import { NetworkProvider } from '../providers/network/network';
 import {Network} from "@ionic-native/network";
 import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-categoria";
+import {CategoriaPage} from "../pages/categoria/categoria";
 
 
 
@@ -121,7 +122,8 @@ import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-catego
     PopoverPage,
     DetalhesOfertasPage,
     RegistarInteressesPage,
-    EscolherCategoriaPage
+    EscolherCategoriaPage,
+    CategoriaPage
   ],
   imports: [
     BrowserModule,
@@ -158,7 +160,8 @@ import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-catego
     MeusProdutosPage,
     DetalhesOfertasPage,
     RegistarInteressesPage,
-    EscolherCategoriaPage
+    EscolherCategoriaPage,
+    CategoriaPage
 
   ],
   providers: [

@@ -23,5 +23,5 @@
   </ion-fab>
 
 
-  <categoria-produtos *ngFor="let categoria of categorias" [categoria]="categoria"></categoria-produtos>
+  <categoria-produtos (click)="onClickCardCategoria(categoria)" *ngFor="let categoria of categorias" [categoria]="categoria"></categoria-produtos>
 </ion-content>

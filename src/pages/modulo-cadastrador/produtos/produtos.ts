@@ -5,6 +5,7 @@ import {RegistarCategoriasPage} from "../cadastros/registar-categorias/registar-
 import {RegistarUnidadesMedidasPage} from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
 import {CategoriasProvider} from "../../../providers/categorias/categorias";
 import {HttpErrorResponse} from "@angular/common/http";
+import {CategoriaPage} from "../../categoria/categoria";
 
 
 
@@ -21,9 +22,12 @@ export class ProdutosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
   }
 
-  ionViewDidLoad() {
+
+
+  ionViewWillEnter(){
     this.listarProdutos();
   }
+
 
   public listarProdutos(){
     this.categoriaProvider.getAll().subscribe(
@@ -48,6 +52,10 @@ export class ProdutosPage {
 
   onClickRegistarUnidadeMedida(){
     this.navCtrl.push(RegistarUnidadesMedidasPage);
+  }
+
+  onClickCardCategoria(categoria){
+    this.navCtrl.push(CategoriaPage, {categoria: categoria});
   }
 
 
