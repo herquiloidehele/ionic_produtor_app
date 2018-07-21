@@ -35,7 +35,7 @@ export class EscolherCategoriaPage {
   }
 
   public dismiss(){
-    this.viewCintroller.dismiss();
+    this.viewCintroller.dismiss({categoria: {designacao: '', id: ''}});
   }
 
 
