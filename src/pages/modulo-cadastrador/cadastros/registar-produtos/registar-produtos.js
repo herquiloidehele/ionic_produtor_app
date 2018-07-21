@@ -8,7 +8,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
+import { EscolherCategoriaPage } from "../../../escolher-categoria/escolher-categoria";
+import { FormBuilder, Validators } from "@angular/forms";
+import { ProdutosProvider } from "../../../../providers/produtos/produtos";
+import { CategoriasProvider } from "../../../../providers/categorias/categorias";
 /**
  * Generated class for the RegistarProdutosPage page.
  *
@@ -16,13 +20,66 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 var RegistarProdutosPage = /** @class */ (function () {
-    function RegistarProdutosPage(navCtrl, navParams) {
+    function RegistarProdutosPage(navCtrl, navParams, modalController, formBuilder, produtoProvider, categoriaProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.opcao = '';
+        this.modalController = modalController;
+        this.formBuilder = formBuilder;
+        this.produtoProvider = produtoProvider;
+        this.categoriaProvider = categoriaProvider;
+        this.categorias = [];
+        this.produto = {
+            designacao: '',
+            categoria: {
+                designacao: '',
+                id: ''
+            },
+            variedades: [],
+            lastVariedade: ''
+        };
+        this.myFormGroup = this.createMyForm();
     }
     RegistarProdutosPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegistarProdutosPage');
+        this.buscarCategorias();
+    };
+    RegistarProdutosPage.prototype.openCategorias = function () {
+        var _this = this;
+        var modal = this.modalController.create(EscolherCategoriaPage, { categorias: this.categorias });
+        modal.onDidDismiss(function (categoria) {
+            _this.produto.categoria = categoria.categoria;
+        });
+        modal.present();
+    };
+    RegistarProdutosPage.prototype.createMyForm = function () {
+        return this.formBuilder.group({
+            produto: ['', Validators.required],
+            categoria: ['', Validators.required],
+            lastVariedade: ['', Validators.required]
+        });
+    };
+    RegistarProdutosPage.prototype.addVariedade = function () {
+        this.produto.variedades.push(this.produto.lastVariedade);
+        this.produto.lastVariedade = '';
+    };
+    RegistarProdutosPage.prototype.salvarProduto = function () {
+        var _this = this;
+        this.produtoProvider.salvar(this.produto).subscribe(function (response) {
+            console.log(response);
+            _this.navCtrl.pop();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    RegistarProdutosPage.prototype.buscarCategorias = function () {
+        var _this = this;
+        this.categoriaProvider.getAll().subscribe(function (response) {
+            console.log(response);
+            _this.categorias = response['categorias'];
+        }, function (error) {
+            console.log(error);
+        }, function () {
+            console.log('busca de categorias');
+        });
     };
     RegistarProdutosPage = __decorate([
         IonicPage(),
@@ -30,7 +87,12 @@ var RegistarProdutosPage = /** @class */ (function () {
             selector: 'page-registar-produtos',
             templateUrl: 'registar-produtos.html',
         }),
-        __metadata("design:paramtypes", [NavController, NavParams])
+        __metadata("design:paramtypes", [NavController,
+            NavParams,
+            ModalController,
+            FormBuilder,
+            ProdutosProvider,
+            CategoriasProvider])
     ], RegistarProdutosPage);
     return RegistarProdutosPage;
 }());

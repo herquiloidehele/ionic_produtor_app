@@ -28,6 +28,7 @@ import { RevendedoresPage } from "../pages/modulo-cadastrador/revendedores/reven
 import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
 import { Network } from "@ionic-native/network";
 import { UrlapiProvider } from "../providers/urlapi/urlapi";
+import { Pro } from "@ionic/pro";
 var MyApp = /** @class */ (function () {
     function MyApp(platform, autenticacaoProvider, alertController, menuProvider, network, eventsProvider, urlprovider, app) {
         this.platform = platform;
@@ -40,6 +41,9 @@ var MyApp = /** @class */ (function () {
         if (!localStorage.getItem('server'))
             this.urlprovider.selectUrl('http://54.218.58.191/api/');
         platform.ready().then(function () {
+            Pro.init('F2C642A4', {
+                appVersion: '0.0.1'
+            });
             // this.networkProvider.initializeNetworkEvents();
             //
             // //  Offline event

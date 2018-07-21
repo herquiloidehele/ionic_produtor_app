@@ -30,7 +30,7 @@ export class CategoriaPage {
 
     if(val && val.trim() != ''){
       this.produtos = this.produtos.filter((produto) => {
-        return (produto.designacao.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (produto.designacao.toLowerCase().indexOf(val.trim().toLowerCase()) > -1);
       })
     }
   }

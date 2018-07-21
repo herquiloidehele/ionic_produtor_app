@@ -22,7 +22,7 @@
 
 <ion-content>
   <ion-searchbar *ngIf="showSearch"
-                 [showCancelButton]="true" (ionCancel)="hideSearchBar()">
+                 [showCancelButton]="true" (ionCancel)="hideSearchBar()" (ionInput)="getItems($event)">
   </ion-searchbar>
 
   <ion-fab right bottom>

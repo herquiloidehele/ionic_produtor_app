@@ -13,13 +13,17 @@ import { RegistarProdutosPage } from "../cadastros/registar-produtos/registar-pr
 import { RegistarCategoriasPage } from "../cadastros/registar-categorias/registar-categorias";
 import { RegistarUnidadesMedidasPage } from "../cadastros/registar-unidades-medidas/registar-unidades-medidas";
 import { CategoriasProvider } from "../../../providers/categorias/categorias";
+import { CategoriaPage } from "../../categoria/categoria";
 var ProdutosPage = /** @class */ (function () {
     function ProdutosPage(navCtrl, navParams, categoriaProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.categoriaProvider = categoriaProvider;
+        this.categorias = [];
+        this.copyCategorias = [];
+        this.showSearch = false;
     }
-    ProdutosPage.prototype.ionViewDidLoad = function () {
+    ProdutosPage.prototype.ionViewWillEnter = function () {
         this.listarProdutos();
     };
     ProdutosPage.prototype.listarProdutos = function () {
@@ -27,6 +31,7 @@ var ProdutosPage = /** @class */ (function () {
         this.categoriaProvider.getAll().subscribe(function (resultado) {
             console.log(resultado);
             _this.categorias = resultado['categorias'];
+            _this.copyCategorias = _this.categorias;
         }, function (erros) {
             console.log(erros);
         }, function () { console.log('Terminado'); });
@@ -39,6 +44,27 @@ var ProdutosPage = /** @class */ (function () {
     };
     ProdutosPage.prototype.onClickRegistarUnidadeMedida = function () {
         this.navCtrl.push(RegistarUnidadesMedidasPage);
+    };
+    ProdutosPage.prototype.onClickCardCategoria = function (categoria) {
+        this.navCtrl.push(CategoriaPage, { categoria: categoria });
+    };
+    ProdutosPage.prototype.showSeachBar = function () {
+        if (this.showSearch == true)
+            this.showSearch = false;
+        else
+            this.showSearch = true;
+    };
+    ProdutosPage.prototype.hideSearchBar = function () {
+        this.showSearch = false;
+    };
+    ProdutosPage.prototype.getItems = function (evento) {
+        this.categorias = this.copyCategorias;
+        var pesquisa = evento.target.value;
+        if (pesquisa && pesquisa.trim() != '') {
+            this.categorias = this.categorias.filter(function (categoria) {
+                return (categoria.designacao.toLowerCase().indexOf(pesquisa.toLowerCase()) > -1);
+            });
+        }
     };
     ProdutosPage = __decorate([
         IonicPage(),

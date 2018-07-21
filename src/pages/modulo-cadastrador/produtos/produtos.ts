@@ -17,7 +17,8 @@ import {CategoriaPage} from "../../categoria/categoria";
 })
 export class ProdutosPage {
 
-  protected categorias;
+  protected categorias = [];
+  protected copyCategorias = [];
   protected showSearch: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
@@ -35,6 +36,7 @@ export class ProdutosPage {
         (resultado) =>{
           console.log(resultado);
           this.categorias = resultado['categorias'];
+          this.copyCategorias = this.categorias;
         },
         (erros: HttpErrorResponse) =>{
           console.log(erros);
@@ -70,5 +72,19 @@ export class ProdutosPage {
   hideSearchBar(){
     this.showSearch = false;
   }
+
+  getItems(evento){
+    this.categorias = this.copyCategorias;
+
+    let pesquisa = evento.target.value;
+
+    if(pesquisa && pesquisa.trim() != '') {
+      this.categorias = this.categorias.filter((categoria) => {
+        return (categoria.designacao.toLowerCase().indexOf(pesquisa.trim().toLowerCase()) > -1);
+      });
+    }
+  }
+
+
 
 }

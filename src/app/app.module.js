@@ -4,10 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { NgModule, ErrorHandler, Injector, Injectable } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -60,34 +57,29 @@ import { RegistarInteressesPage } from "../pages/modulo-revendedor/registar-inte
 import { InteresseProvider } from '../providers/interesse/interesse';
 import { NetworkProvider } from '../providers/network/network';
 import { Network } from "@ionic-native/network";
-import { Pro } from "@ionic/pro";
-Pro.init('F2C642A4', {
-    appVersion: '0.0.1'
-});
-var MyErrorHandler = /** @class */ (function () {
-    function MyErrorHandler(injector) {
-        try {
-            this.ionicErrorHandler = injector.get(IonicErrorHandler);
-        }
-        catch (e) {
-            console.log(e);
-            // Unable to get the IonicErrorHandler provider, ensure
-            // IonicErrorHandler has been added to the providers list below
-        }
-    }
-    MyErrorHandler.prototype.handleError = function (err) {
-        Pro.monitoring.handleNewError(err);
-        // Remove this if you want to disable Ionic's auto exception handling
-        // in development mode.
-        this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
-    };
-    MyErrorHandler = __decorate([
-        Injectable(),
-        __metadata("design:paramtypes", [Injector])
-    ], MyErrorHandler);
-    return MyErrorHandler;
-}());
-export { MyErrorHandler };
+import { EscolherCategoriaPage } from "../pages/escolher-categoria/escolher-categoria";
+import { CategoriaPage } from "../pages/categoria/categoria";
+// @Injectable()
+// export class MyErrorHandler implements ErrorHandler {
+//   ionicErrorHandler: IonicErrorHandler;
+//
+//   constructor(injector: Injector) {
+//     try {
+//       this.ionicErrorHandler = injector.get(IonicErrorHandler);
+//     } catch(e) {
+//       console.log(e);
+//       // Unable to get the IonicErrorHandler provider, ensure
+//       // IonicErrorHandler has been added to the providers list below
+//     }
+//   }
+//
+//   handleError(err: any): void {
+//     Pro.monitoring.handleNewError(err);
+//     // Remove this if you want to disable Ionic's auto exception handling
+//     // in development mode.
+//     this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
+//   }
+// }
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -125,7 +117,9 @@ var AppModule = /** @class */ (function () {
                 MeusProdutosPage,
                 PopoverPage,
                 DetalhesOfertasPage,
-                RegistarInteressesPage
+                RegistarInteressesPage,
+                EscolherCategoriaPage,
+                CategoriaPage
             ],
             imports: [
                 BrowserModule,
@@ -161,7 +155,9 @@ var AppModule = /** @class */ (function () {
                 RequisitarProdutosPage,
                 MeusProdutosPage,
                 DetalhesOfertasPage,
-                RegistarInteressesPage
+                RegistarInteressesPage,
+                EscolherCategoriaPage,
+                CategoriaPage
             ],
             providers: [
                 ConversorProvider,
@@ -180,8 +176,7 @@ var AppModule = /** @class */ (function () {
                 SplashScreen,
                 Camera,
                 NativeGeocoder,
-                IonicErrorHandler,
-                { provide: ErrorHandler, useClass: MyErrorHandler },
+                { provide: ErrorHandler, useClass: IonicErrorHandler },
                 NetworkProvider,
                 Network,
                 AutenticacaoProvider,

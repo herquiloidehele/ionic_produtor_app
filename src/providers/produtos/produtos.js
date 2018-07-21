@@ -25,6 +25,9 @@ var ProdutosProvider = /** @class */ (function () {
     ProdutosProvider.prototype.getAll = function () {
         return this.http.get(this.urlProvider.getUrl() + 'produtos', { headers: this.header });
     };
+    ProdutosProvider.prototype.salvar = function (produto) {
+        return this.http.post(this.urlProvider.getUrl() + 'produtos', produto, { headers: this.header });
+    };
     ProdutosProvider = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UrlapiProvider])
