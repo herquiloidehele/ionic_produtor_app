@@ -1,17 +1,29 @@
 
 <ion-header>
 
-  <ion-navbar color="secondary">
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Produtos</ion-title>
-  </ion-navbar>
 
+    <ion-toolbar color="secondary">
+        <ion-buttons start>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+
+        <ion-title>Produtos</ion-title>
+
+        <ion-buttons end>
+          <button ion-button icon-only item-end color="secondary" (click)="showSeachBar()">
+            <ion-icon item-end name="search" color="light"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
+  <ion-searchbar *ngIf="showSearch"
+                 [showCancelButton]="true" (ionCancel)="hideSearchBar()">
+  </ion-searchbar>
 
   <ion-fab right bottom>
     <button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>

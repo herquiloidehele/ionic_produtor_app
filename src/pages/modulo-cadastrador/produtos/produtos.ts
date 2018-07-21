@@ -18,6 +18,7 @@ import {CategoriaPage} from "../../categoria/categoria";
 export class ProdutosPage {
 
   protected categorias;
+  protected showSearch: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaProvider: CategoriasProvider) {
   }
@@ -58,5 +59,16 @@ export class ProdutosPage {
     this.navCtrl.push(CategoriaPage, {categoria: categoria});
   }
 
+
+  showSeachBar(){
+    if(this.showSearch == true)
+      this.showSearch = false;
+    else
+      this.showSearch = true;
+  }
+
+  hideSearchBar(){
+    this.showSearch = false;
+  }
 
 }
