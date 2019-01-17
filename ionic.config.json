@@ -1,8 +1,8 @@
 {
   "name": "opcao-project",
-  "app_id": "f2c642a4",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "id": "f2c642a4"
 }
