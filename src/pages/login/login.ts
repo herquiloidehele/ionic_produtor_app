@@ -3,7 +3,6 @@ import {AlertController, IonicPage, NavController, NavParams, PopoverController,
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
 import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
 import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {MenuProvider} from "../../providers/menu/menu";
 import {InicioPage} from "../modulo-revendedor/inicio/inicio";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
@@ -31,7 +30,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public autenticacaoService: AutenticacaoProvider,
-              public menuProvider: MenuProvider,
               public alertController: AlertController,
               public popOverController: PopoverController,
               public urlprovider: UrlapiProvider
@@ -55,9 +53,6 @@ export class LoginPage {
           localStorage.setItem('user', JSON.stringify(resultado.user));
           localStorage.setItem('token', resultado.token);
 
-
-          this.menuProvider.setTipoUser(resultado.tipo_user);
-          this.menuProvider.setShowMenu(true);
           console.log(resultado.user);
 
           this.redirecionarUser(resultado.tipo_user, resultado.user);

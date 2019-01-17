@@ -1,59 +1,35 @@
 
-<ion-menu [content]="content" *ngIf="menuProvider.getShowMenu()">
+<ion-menu [content]="content">
 
+  <ion-header class="bar-assertive side-header" text-center>
 
-    <ion-header class="bar-assertive side-header" text-center>
+    <div class="foto-content-circle">
+      <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
+    </div>
 
-        <div class="foto-content-circle">
-            <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
-        </div>
+    <div class="profile-info">
+      <p>Herquiloide Raimundo Hele</p>
+      <p>Produtor</p>
+    </div>
 
-        <div class="profile-info">
-            <p *ngIf="user">{{user['user']['nome']}}</p>
-            <p>{{menuProvider.getTipoUser()}}</p>
-        </div>
+  </ion-header>
 
-    </ion-header>
+  <ion-content class="side-content">
+    <ion-list no-lines>
 
-    <ion-content class="side-content">
-        <ion-list no-lines>
+      <div>
+        <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menu">
+          <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
+          <span color="primary">{{pagina.pageName}}</span>
+        </button>
+      </div>
 
-          <div [ngSwitch]="menuProvider.getTipoUser()">
-
-            <div *ngSwitchCase="'Produtor'">
-              <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasProdutor">
-                <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
-                <span color="primary">{{pagina.pageName}}</span>
-              </button>
-            </div>
-
-
-            <div *ngSwitchCase="'Cadastrador'">
-              <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasCadastrador">
-                <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
-                <span color="primary">{{pagina.pageName}}</span>
-              </button>
-            </div>
-
-
-            <div *ngSwitchCase="'Revendedor'">
-              <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menuPaginasRevendedor">
-                <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
-                <span color="primary">{{pagina.pageName}}</span>
-              </button>
-            </div>
-
-
-
-          </div>
-
-
-            <button menuClose="left" ion-item (click)="logout()" style="color:red;">
-                <ion-icon item-start name="power" style="color: red"></ion-icon>
-                <span >Sair</span>
-            </button>
-        </ion-list>
-    </ion-content>
+      <button menuClose="left" ion-item (click)="logout()" style="color:red;">
+        <ion-icon item-start name="power" style="color: red"></ion-icon>
+        <span >Sair</span>
+      </button>
+    </ion-list>
+  </ion-content>
 
 </ion-menu>
 

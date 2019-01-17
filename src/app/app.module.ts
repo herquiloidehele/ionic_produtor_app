@@ -44,7 +44,6 @@ import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disp
 import {MostrarParcementoPage} from "../pages/modulo-produtor/mostrar-parcemento/mostrar-parcemento";
 import { ConversorProvider } from '../providers/conversor/conversor';
 import {PerfilPage} from "../pages/perfil/perfil";
-import { MenuProvider } from '../providers/menu/menu';
 import {InicioPage} from "../pages/modulo-revendedor/inicio/inicio";
 import {PerfilRevendedorPage} from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
 import {RequisitarProdutosPage} from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
@@ -194,7 +193,6 @@ import {CategoriaPage} from "../pages/categoria/categoria";
     OfertasProvider,
     GerarCoresProvider,
     UrlapiProvider,
-    MenuProvider,
     InteresseProvider,
   ]
 
