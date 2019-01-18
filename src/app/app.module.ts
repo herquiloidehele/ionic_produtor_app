@@ -8,7 +8,7 @@ import { TabsPage } from '../pages/modulo-cadastrador/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LoginPage, PopoverPage} from "../pages/login/login";
+import {LoginPage} from "../pages/login/login";
 import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores";
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
@@ -55,34 +55,7 @@ import { NetworkProvider } from '../providers/network/network';
 import {Network} from "@ionic-native/network";
 import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-categoria";
 import {CategoriaPage} from "../pages/categoria/categoria";
-
-
-
-
-
-// @Injectable()
-// export class MyErrorHandler implements ErrorHandler {
-//   ionicErrorHandler: IonicErrorHandler;
-//
-//   constructor(injector: Injector) {
-//     try {
-//       this.ionicErrorHandler = injector.get(IonicErrorHandler);
-//     } catch(e) {
-//       console.log(e);
-//       // Unable to get the IonicErrorHandler provider, ensure
-//       // IonicErrorHandler has been added to the providers list below
-//     }
-//   }
-//
-//   handleError(err: any): void {
-//     Pro.monitoring.handleNewError(err);
-//     // Remove this if you want to disable Ionic's auto exception handling
-//     // in development mode.
-//     this.ionicErrorHandler && this.ionicErrorHandler.handleError(err);
-//   }
-// }
-
-
+import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 
 
 
@@ -91,6 +64,7 @@ import {CategoriaPage} from "../pages/categoria/categoria";
   declarations: [
     MyApp,
     ProdutoresPage,
+    LocalizacaoPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -118,7 +92,6 @@ import {CategoriaPage} from "../pages/categoria/categoria";
     PerfilRevendedorPage,
     RequisitarProdutosPage,
     MeusProdutosPage,
-    PopoverPage,
     DetalhesOfertasPage,
     RegistarInteressesPage,
     EscolherCategoriaPage,
@@ -133,9 +106,9 @@ import {CategoriaPage} from "../pages/categoria/categoria";
   entryComponents: [
     MyApp,
     ProdutoresPage,
+    LocalizacaoPage,
     MercadosPage,
     ProdutosPage,
-    PopoverPage,
     TabsPage,
     LoginPage,
     RegistarMercadosPage,

@@ -56,9 +56,10 @@ export class MyApp {
   }
 
 
-   getPage(){
+   getPage() {
+      this.rootPage = LoginPage;
+   }
 
-  }
 
 
     showPageProdutor(page){

@@ -2,46 +2,33 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content style="background: #61d295">
 
   <div id="principal">
 
-
-    <ion-buttons end>
-      <button color="secondary" ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
+    <div id="titulo" text-center="">
+      <img src="../../assets/imgs/user-icon.png">
+      <h3>SDPA - App</h3>
+    </div>
 
 
     <form>
 
-      <div id="titulo" text-center="">
-        <img src="../../assets/imgs/user-icon.png">
-        <h3>SDPA - App</h3>
-      </div>
-
     <ion-list>
       <ion-item color="secondary">
-        <ion-label floating>Username</ion-label>
-        <ion-input [(ngModel)]="user.username" name="username"  type="text"></ion-input>
+        <ion-label floating>No. Telefone</ion-label>
+        <ion-input [(ngModel)]="user.telefone" name="username" (click)="onKeyUp()"  type="number"></ion-input>
       </ion-item>
 
-      <ion-item color="secondary">
-        <ion-label floating="">Senha</ion-label>
-        <ion-input [(ngModel)]="user.password" name="password" type="password"></ion-input>
+      <ion-item *ngIf="start > 0" color="secondary">
+        <ion-label floating="">Nome</ion-label>
+        <ion-input [(ngModel)]="user.nome" name="password" type="text"></ion-input>
       </ion-item>
 
 
       <ion-row>
         <ion-col text-center class="butao-entrar">
-          <button ion-button block color="blue" (click)="onSignIn()">ENTRAR</button>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col text-center>
-          <button ion-button clear color="light" (click)="onPasswordForget()">Esqueci a Senha</button>
+          <button ion-button block color="blue" (click)="onNext()">Seguinte</button>
         </ion-col>
       </ion-row>
     </ion-list>
