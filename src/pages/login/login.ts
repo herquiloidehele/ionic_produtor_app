@@ -21,34 +21,8 @@ import {LocalizacaoPage} from "../localizacao/localizacao";
 })
 export class LoginPage {
 
-
-  protected start: number;
-
-  protected user = {
-    telefone: '',
-    nome: ''
-  };
-
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public alertController: AlertController,
-              public urlprovider: UrlapiProvider
-  ) {
-    this.start = 0;
-  }
+  constructor() {}
 
 
-  onNext(){
-
-    if(this.start > 0)
-      this.navCtrl.push(LocalizacaoPage);
-
-    this.start += 1;
-    console.log(this.start);
-  }
-
-  onKeyUp(){
-    this.start = 0;
-  }
 
 }

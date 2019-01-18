@@ -9,6 +9,7 @@ import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-di
 import {PerfilPage} from "../pages/perfil/perfil";
 import {Network} from "@ionic-native/network";
 import {UrlapiProvider} from "../providers/urlapi/urlapi";
+import {UserInfoPage} from "../pages/user-info/user-info";
 
 @Component({
   templateUrl: 'app.html'
@@ -57,7 +58,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = LoginPage;
+      this.rootPage = UserInfoPage;
    }
 
 

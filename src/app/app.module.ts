@@ -56,6 +56,7 @@ import {Network} from "@ionic-native/network";
 import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-categoria";
 import {CategoriaPage} from "../pages/categoria/categoria";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
+import {UserInfoPage} from "../pages/user-info/user-info";
 
 
 
@@ -64,6 +65,7 @@ import {LocalizacaoPage} from "../pages/localizacao/localizacao";
   declarations: [
     MyApp,
     ProdutoresPage,
+    UserInfoPage,
     LocalizacaoPage,
     MercadosPage,
     ProdutosPage,
@@ -106,6 +108,7 @@ import {LocalizacaoPage} from "../pages/localizacao/localizacao";
   entryComponents: [
     MyApp,
     ProdutoresPage,
+    UserInfoPage,
     LocalizacaoPage,
     MercadosPage,
     ProdutosPage,
