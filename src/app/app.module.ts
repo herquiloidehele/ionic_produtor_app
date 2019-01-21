@@ -58,7 +58,7 @@ import {CategoriaPage} from "../pages/categoria/categoria";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import { JsonProvider } from '../providers/json/json';
-import {CategoriasPage} from "../pages/categorias/categorias";
+import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 
 
 
@@ -69,7 +69,7 @@ import {CategoriasPage} from "../pages/categorias/categorias";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    CategoriasPage,
+    EscolherProdutoPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -113,7 +113,7 @@ import {CategoriasPage} from "../pages/categorias/categorias";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    CategoriasPage,
+    EscolherProdutoPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,

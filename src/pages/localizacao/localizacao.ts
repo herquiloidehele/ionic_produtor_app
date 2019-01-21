@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
-import {CategoriasPage} from "../categorias/categorias";
+import {EscolherProdutoPage} from "../escolher-produto/escolher-produto";
 
 /**
  * Generated class for the LocalizacaoPage page.
@@ -83,6 +83,7 @@ export class LocalizacaoPage {
       },
       () => {
         console.log('Complete Distritos');
+        this.start += 1;
       }
     )
   }
@@ -100,7 +101,7 @@ export class LocalizacaoPage {
 
   onNext(){
     if(this.start > 0){
-      this.navCtrl.push(CategoriasPage, {localizacao: this.localizacao});
+      this.navCtrl.push(EscolherProdutoPage, {localizacao: this.localizacao});
     }
 
     this.start += 1;
