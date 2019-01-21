@@ -57,6 +57,8 @@ import {EscolherCategoriaPage} from "../pages/escolher-categoria/escolher-catego
 import {CategoriaPage} from "../pages/categoria/categoria";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {UserInfoPage} from "../pages/user-info/user-info";
+import { JsonProvider } from '../providers/json/json';
+import {CategoriasPage} from "../pages/categorias/categorias";
 
 
 
@@ -67,6 +69,7 @@ import {UserInfoPage} from "../pages/user-info/user-info";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
+    CategoriasPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -110,6 +113,7 @@ import {UserInfoPage} from "../pages/user-info/user-info";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
+    CategoriasPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -142,6 +146,7 @@ import {UserInfoPage} from "../pages/user-info/user-info";
   providers: [
     ConversorProvider,
     ProdutoresProvider,
+    JsonProvider,
     RevendedorProvider,
     MercadoProvider,
     Geolocation,
@@ -170,6 +175,7 @@ import {UserInfoPage} from "../pages/user-info/user-info";
     GerarCoresProvider,
     UrlapiProvider,
     InteresseProvider,
+    JsonProvider,
   ]
 
 })

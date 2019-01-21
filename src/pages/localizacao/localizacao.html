@@ -1,18 +1,41 @@
-<!--
-  Generated template for the LocalizacaoPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Localizacao</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<ion-content  text-center style="background: #61d295;">
 
 
-<ion-content padding>
+  <div id="principal" center>
+
+    <div id="titulo">
+      <img  alt="localizacao" src="../../assets/imgs/map.svg">
+      <h3 style="color: white">Qual é a sua Localizaçao?</h3>
+    </div>
+
+
+    <form>
+      <ion-list>
+        <ion-item color="secondary">
+          <ion-label floating>Provincia</ion-label>
+          <ion-select name="provincia" (click)="onClickProvincia()" >
+            <ion-option *ngFor="let provincia of provincias"  (ionSelect)="onSelectProvincias(provincia)">{{provincia['name']}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item color="secondary" *ngIf="start > 0">
+          <ion-label floating>Distrito</ion-label>
+          <ion-select name="distrito">
+            <ion-option *ngFor="let distrito of distritos" (ionSelect)="onSelectDistritos(distrito)">{{distrito['name']}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-row margin-top>
+          <ion-col text-center class="butao-entrar">
+            <button ion-button  color="blue" (click)="onNext()">Proximo</button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </form>
+
+  </div>
+
+
 
 </ion-content>

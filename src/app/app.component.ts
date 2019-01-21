@@ -10,6 +10,7 @@ import {PerfilPage} from "../pages/perfil/perfil";
 import {Network} from "@ionic-native/network";
 import {UrlapiProvider} from "../providers/urlapi/urlapi";
 import {UserInfoPage} from "../pages/user-info/user-info";
+import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 
 @Component({
   templateUrl: 'app.html'
@@ -27,9 +28,7 @@ export class MyApp {
   rootPage: any;
 
   constructor(public platform: Platform,
-              public autenticacaoProvider: AutenticacaoProvider,
               public alertController: AlertController,
-              public urlprovider: UrlapiProvider,
               app: App,
               ){
 
@@ -58,7 +57,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = UserInfoPage;
+      this.rootPage = LocalizacaoPage;
    }
 
 
@@ -70,53 +69,9 @@ export class MyApp {
     getUserData(){
         let token = localStorage.getItem('token');
 
-        if(token) {
-            this.autenticacaoProvider.getUserFromToken(token).subscribe(
-                (response) => {
-                    this.user = response['user'];
-                    console.log(this.user);
-                },
-                (erros) => {
-                    console.log(erros);
-                },
-                () => {
-                    console.log('getUserData completed');
-                }
-            );
-        }else{
-            console.log('Nao existe Token Ainda');
-        }
-    }
-
-
-
-    public logout() {
-        let token = localStorage.getItem('token');
-
-        let prompt = this.alertController.create({
-            title: 'Sair',
-            message: 'Deseja Sair da Aplicacao?',
-            buttons: [
-                {
-                    text: 'NÃO',
-                    handler: (dados) => {
-                        console.log('Canecelado');
-                    }
-                },
-                {
-                    text: 'SIM',
-                    handler: (dados) => {
-                        this.sair(token);
-                    }
-                }
-
-            ],
-        });
-
-        prompt.present();
-
 
     }
+
 
 
     private sair(token){

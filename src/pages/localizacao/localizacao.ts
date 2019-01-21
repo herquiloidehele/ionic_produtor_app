@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {JsonProvider} from "../../providers/json/json";
+import {CategoriasPage} from "../categorias/categorias";
 
 /**
  * Generated class for the LocalizacaoPage page.
@@ -15,11 +17,95 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LocalizacaoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  protected start: number;
+
+  protected localizacao = {
+    provincia: {},
+    distrito: {}
+  };
+
+  protected  provincias = [];
+  protected  distritos = [];
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public jsonProvider: JsonProvider) {
+    this.getProvincias();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LocalizacaoPage');
+
+
+  protected getProvincias(){
+    this.jsonProvider.getProvincias().subscribe(
+      (response) => {
+        this.provincias = response['places'];
+        console.log(this.provincias);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('Complete Provinces');
+      }
+    );
   }
+
+  protected getDistritos(){
+    this.jsonProvider.getProvincias().subscribe(
+      (response) => {
+        this.provincias = response['places'];
+        console.log(this.provincias);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('Complete Provinces');
+      }
+    );
+  }
+
+
+
+  onSelectProvincias(provincia){
+    this.localizacao.provincia = provincia;
+
+    this.jsonProvider.getDistritos().subscribe(
+      (response) => {
+        let distritos = response['places'];
+
+        this.distritos = distritos.filter((distrito) => {
+          return distrito['in_place']['id'] === this.localizacao.provincia['id'];
+        });
+
+        },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('Complete Distritos');
+      }
+    )
+  }
+
+  onSelectDistritos(distrito){
+    this.localizacao.distrito = distrito;
+    console.log(this.localizacao);
+  }
+
+
+
+  onClickProvincia(){
+    this.start = 0;
+  }
+
+  onNext(){
+    if(this.start > 0){
+      this.navCtrl.push(CategoriasPage, {localizacao: this.localizacao});
+    }
+
+    this.start += 1;
+  }
+
+
 
 }
