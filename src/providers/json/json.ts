@@ -24,6 +24,10 @@ export class JsonProvider {
     return this.http.get('../../assets/data/districts.json');
   }
 
+  public getProdutos(){
+    return this.http.get('../../assets/data/produtos.json')
+  }
+
 
 
 

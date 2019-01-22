@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {JsonProvider} from "../../providers/json/json";
 
 @IonicPage()
 @Component({
@@ -9,9 +10,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EscolherProdutoPage {
 
 
-  protected selectedCards = [];
+  protected produtos = [];
+  protected chekboxIds = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public jsonProvider: JsonProvider) {
+    this.getProdutos();
+  }
+
+
+
+  public getProdutos(){
+    this.jsonProvider.getProdutos().subscribe(
+      (response) => {
+        this.produtos = response['produtos'];
+        console.log(this.produtos);
+      },
+      (error) => {console.log(error)},
+      () => {console.log('Complete Produtos')}
+    );
+  }
+
+  public getIMG(categoria){
+    switch (categoria) {
+      case 'Frutas' : return '../../assets/icon/categorias/fruits3.svg';
+      case 'Legumes' : return '../../assets/icon/categorias/legumes2.svg';
+      case 'Verduras' : return '../../assets/icon/categorias/vegetables3.svg';
+      case 'Grãos e Cereais' : return '../../assets/icon/categorias/cereals2.svg';
+      default: return '';
+    }
+
   }
 
   onClickProximo(){
@@ -19,8 +48,16 @@ export class EscolherProdutoPage {
   }
 
 
-  selectCard(idCard){
-    console.log(idCard);
+  check(idCheck){
+    if(this.isChecked(idCheck))
+      this.chekboxIds.splice(this.chekboxIds.indexOf(idCheck),1);
+    else
+      this.chekboxIds.push(idCheck);
+    console.log(this.chekboxIds);
+  }
+
+  isChecked(idCheck){
+    return this.chekboxIds.indexOf(idCheck) != -1 ? true : false;
   }
 
 

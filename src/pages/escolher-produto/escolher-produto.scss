@@ -1,35 +1,35 @@
 page-escolher-produto {
 
-
-  div#titulo{
-    background: #61d295;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h3{
-      align-items: center;
-      color: white;
-      font-size: 27pt;
-    }
-  }
-
-
     ion-card{
       height: 100px;
+      text-align: center;
+      position: relative;
 
-
-      .selected{
-        background-color: #1e7e34;
+      img{
+        width: 35px;
+        height: 35px;
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: auto;
       }
 
+      h3.produto{
+        font-size: 12pt;
+        color: #61d295;
+        text-transform: uppercase;
+      }
+
+      h5.categoria{
+        color: #888;
+        font-size: 8pt;
+      }
+
+      ion-checkbox.marcador{
+        position: absolute;
+        left: 120px;
+        top: 5px;
+      }
+
+
     }
-
-
-
-
-
-
-
 }

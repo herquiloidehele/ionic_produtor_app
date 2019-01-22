@@ -1,70 +1,23 @@
 
-<ion-content>
-
-  <div id="titulo" text-center style="margin-top: -20px">
-    <h3>Seleccione os Produtos que Produz</h3>
-  </div>
+<ion-content style="background: #eee;">
 
 
   <ion-grid>
     <ion-row>
-      <ion-col>
-
-        <ion-card (click)="selectCard($event)" >
-          teste
+      <ion-col col-6 *ngFor="let produto of produtos">
+        <ion-card text-center (click)="check('ck_'+produto['id'])">
+          <ion-checkbox *ngIf="isChecked('ck_'+produto['id'])" (click)="check('ck_'+produto['id'])" id="ck_{{produto['id']}}" [checked]="isChecked('ck_'+produto['id'])" class="marcador"></ion-checkbox>
+          <div>
+            <img alt="imagem-{{produto['designacao']}}" src="{{getIMG(produto['categoria']['designacao'])}}"/>
+            <h3 class="produto">{{produto['designacao']}}</h3>
+            <h5 class="categoria">{{produto['categoria']['designacao']}}</h5>
+          </div>
         </ion-card>
 
       </ion-col>
 
-      <ion-col>
-
-        <ion-card>
-          teste
-        </ion-card>
-
-      </ion-col>
 
     </ion-row>
-
-    <ion-row>
-      <ion-col>
-
-        <ion-card>
-          teste
-        </ion-card>
-
-      </ion-col>
-
-      <ion-col>
-
-        <ion-card>
-          teste
-        </ion-card>
-
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-
-        <ion-card>
-          teste
-        </ion-card>
-
-      </ion-col>
-
-      <ion-col>
-
-        <ion-card>
-          teste
-        </ion-card>
-
-      </ion-col>
-
-    </ion-row>
-
-
 
   </ion-grid>
 
