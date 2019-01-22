@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
+import {PerfilPage} from "../perfil/perfil";
 
 @IonicPage()
 @Component({
@@ -44,9 +45,8 @@ export class EscolherProdutoPage {
   }
 
   onClickProximo(){
-    console.log('vamos a proximo');
+    this.navCtrl.setRoot(PerfilPage);
   }
-
 
   check(idCheck){
     if(this.isChecked(idCheck))
@@ -57,7 +57,7 @@ export class EscolherProdutoPage {
   }
 
   isChecked(idCheck){
-    return this.chekboxIds.indexOf(idCheck) != -1 ? true : false;
+    return this.chekboxIds.indexOf(idCheck) != -1;
   }
 
 

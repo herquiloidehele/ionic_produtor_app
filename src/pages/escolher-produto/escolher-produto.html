@@ -21,12 +21,9 @@
 
   </ion-grid>
 
-
-
-
 </ion-content>
 
 
 <ion-footer style="background: white">
-  <button ion-button block color="secondary">Finalizar</button>
+  <button [disabled]="chekboxIds.length == 0" ion-button block color="secondary" (click)="onClickProximo()">Finalizar <span *ngIf="chekboxIds.length > 0">({{chekboxIds.length}})</span></button>
 </ion-footer>

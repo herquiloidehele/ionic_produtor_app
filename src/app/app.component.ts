@@ -58,7 +58,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = EscolherProdutoPage;
+      this.rootPage = UserInfoPage;
    }
 
 
