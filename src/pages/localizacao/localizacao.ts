@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
-import {EscolherProdutoPage} from "../escolher-produto/escolher-produto";
+import {ShowEscolherProdutosPage} from "../show-escolher-produtos/show-escolher-produtos";
 
 /**
  * Generated class for the LocalizacaoPage page.
@@ -93,17 +93,14 @@ export class LocalizacaoPage {
     console.log(this.localizacao);
   }
 
-
-
   onClickProvincia(){
     this.start = 0;
   }
 
   onNext(){
     if(this.start > 0){
-      this.navCtrl.push(EscolherProdutoPage, {localizacao: this.localizacao});
+      this.navCtrl.push(ShowEscolherProdutosPage, {localizacao: this.localizacao});
     }
-
     this.start += 1;
   }
 
