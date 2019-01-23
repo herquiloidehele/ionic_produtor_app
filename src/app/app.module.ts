@@ -59,6 +59,7 @@ import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import { JsonProvider } from '../providers/json/json';
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
+import {StartPage} from "../pages/start/start";
 
 
 
@@ -66,6 +67,7 @@ import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 @NgModule({
   declarations: [
     MyApp,
+    StartPage,
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
@@ -110,6 +112,7 @@ import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    StartPage,
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,

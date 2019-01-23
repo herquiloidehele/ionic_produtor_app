@@ -20,15 +20,15 @@ export class AutenticacaoProvider {
 
 
   public login(user: any) : Observable<any>{
-    return this.http.post(this.urlProvider.getUrl()+'login', user, {headers: this.headers} );
+    return this.http.post(this.urlProvider.getURL()+'login', user, {headers: this.headers} );
   }
 
   public getUserFromToken(token: any): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl()+ 'get-user-token/'+token, {token: token}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL()+ 'get-user-token/'+token, {token: token}, {headers: this.headers});
   }
 
   public logout(token: String): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl()+ 'logout', {token: token}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL()+ 'logout', {token: token}, {headers: this.headers});
   }
 
 

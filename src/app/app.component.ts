@@ -12,6 +12,7 @@ import {UrlapiProvider} from "../providers/urlapi/urlapi";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
+import {StartPage} from "../pages/start/start";
 
 @Component({
   templateUrl: 'app.html'
@@ -58,7 +59,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = UserInfoPage;
+      this.rootPage = StartPage;
    }
 
 
