@@ -19,7 +19,7 @@ export class CategoriasProvider {
 
 
   public getAll(){
-    return this.http.get(this.urlProvider.getUrl()+'categorias', {headers: this.header});
+    return this.http.get(this.urlProvider.getURL()+'categorias', {headers: this.header});
   }
 
 
