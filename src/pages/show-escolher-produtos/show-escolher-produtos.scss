@@ -1,3 +1,53 @@
 page-show-escolher-produtos {
 
+
+  div#content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #0a0a0a;
+
+
+    div#cima{
+      flex-grow: 1;
+      background-image: url("../../assets/imgs/start/start4.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      div#texto{
+        background-color: rgba(0, 0, 0, 0.35);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p.titulo{
+          font-size: 23pt;
+          text-transform: uppercase;
+          color: white;
+          font-weight: bold;
+        }
+
+      }
+
+    }
+
+    div#baixo{
+      flex-grow: 1;
+      background-color: #1b0fb8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      button{
+        width: 110px;
+      }
+    }
+
+  }
+
 }

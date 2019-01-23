@@ -13,6 +13,7 @@ import {UserInfoPage} from "../pages/user-info/user-info";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 import {StartPage} from "../pages/start/start";
+import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-escolher-produtos";
 
 @Component({
   templateUrl: 'app.html'
@@ -59,7 +60,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = StartPage;
+      this.rootPage = ShowEscolherProdutosPage;
    }
 
 

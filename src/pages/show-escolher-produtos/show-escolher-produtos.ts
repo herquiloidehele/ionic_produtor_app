@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {EscolherProdutoPage} from "../escolher-produto/escolher-produto";
 
 /**
  * Generated class for the ShowEscolherProdutosPage page.
@@ -18,8 +19,8 @@ export class ShowEscolherProdutosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowEscolherProdutosPage');
+  onNext() {
+    this.navCtrl.push(EscolherProdutoPage);
   }
 
 }
