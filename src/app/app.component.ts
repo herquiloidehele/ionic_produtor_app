@@ -8,6 +8,7 @@ import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-di
 import {PerfilPage} from "../pages/perfil/perfil";
 import {StartPage} from "../pages/start/start";
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
+import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 
 @Component({
   templateUrl: 'app.html'
@@ -54,7 +55,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = EscolherProdutoPage;
+      this.rootPage = PerfilPrivadoPage;
    }
 
 

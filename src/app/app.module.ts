@@ -61,6 +61,8 @@ import { JsonProvider } from '../providers/json/json';
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 import {StartPage} from "../pages/start/start";
 import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-escolher-produtos";
+import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
+import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
 
 
 
@@ -96,7 +98,8 @@ import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-esc
     RegistarProdutosDisponibilizadosPage,
     DisponibilidadePage,
     MostrarParcementoPage,
-    PerfilPage,
+    PerfilPrivadoPage,
+    PerfilPublicoPage,
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,
@@ -138,7 +141,8 @@ import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-esc
     RegistarProdutosDisponibilizadosPage,
     DisponibilidadePage,
     MostrarParcementoPage,
-    PerfilPage,
+    PerfilPrivadoPage,
+    PerfilPublicoPage,
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,

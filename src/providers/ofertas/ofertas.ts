@@ -22,28 +22,28 @@ export class OfertasProvider {
 
 
   getMinhasOfertas(provedores_id: any): Observable<any>{
-    return this.http.get(this.urlProvider.getUrl() + 'ofertas/minhas-ofertas/'+provedores_id, {headers: this.headers});
+    return this.http.get(this.urlProvider.getURL() + 'ofertas/minhas-ofertas/'+provedores_id, {headers: this.headers});
   }
 
 
   salvarOferta(oferta: any, produtor){
-    return this.http.post(this.urlProvider.getUrl() +'ofertas', {oferta: oferta, produtor_id: produtor }, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() +'ofertas', {oferta: oferta, produtor_id: produtor }, {headers: this.headers});
   }
 
 
   salvarDisponibilidade(disonibilidade: any): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl() + 'disponibilidade-produto', {disponibilidade: disonibilidade}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'disponibilidade-produto', {disponibilidade: disonibilidade}, {headers: this.headers});
   }
 
 
   salvarOfertaParcelada(oferta_id, parcelas){
-    return this.http.post(this.urlProvider.getUrl() + 'oferta-parcelada', {oferta_id: oferta_id, parcelas: parcelas}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'oferta-parcelada', {oferta_id: oferta_id, parcelas: parcelas}, {headers: this.headers});
   }
 
 
 
   getOfertasToRevendedor(revendedor_id){
-    return this.http.get(this.urlProvider.getUrl() + 'ofertas/revendedor/'+revendedor_id, {headers: this.headers});
+    return this.http.get(this.urlProvider.getURL() + 'ofertas/revendedor/'+revendedor_id, {headers: this.headers});
   }
 
 }

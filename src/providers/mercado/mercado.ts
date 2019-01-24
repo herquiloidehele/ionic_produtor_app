@@ -20,11 +20,11 @@ export class MercadoProvider {
 
 
   getAll(): Observable<any>{
-    return this.http.get(this.urlProvider.getUrl() + 'mercados', {headers: this.headers});
+    return this.http.get(this.urlProvider.getURL() + 'mercados', {headers: this.headers});
   }
 
   salvar(mercado: any): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl() + 'mercados',{mercado: mercado}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'mercados',{mercado: mercado}, {headers: this.headers});
   }
 
 }
