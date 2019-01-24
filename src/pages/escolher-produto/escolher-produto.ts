@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
-import {PerfilPage} from "../perfil/perfil";
+import {PerfilPrivadoPage} from "../perfil-privado/perfil-privado";
 
 @IonicPage()
 @Component({
@@ -45,7 +45,7 @@ export class EscolherProdutoPage {
   }
 
   onClickProximo(){
-    this.navCtrl.setRoot(PerfilPage);
+    this.navCtrl.setRoot(PerfilPrivadoPage);
   }
 
   check(idCheck){

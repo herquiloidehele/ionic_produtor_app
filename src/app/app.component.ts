@@ -5,9 +5,6 @@ import {LoginPage} from "../pages/login/login";
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import {PerfilPage} from "../pages/perfil/perfil";
-import {StartPage} from "../pages/start/start";
-import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 
 @Component({
@@ -43,7 +40,7 @@ export class MyApp {
       {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
       {icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
       {icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage},
-      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPage}
+      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
     ];
 
 

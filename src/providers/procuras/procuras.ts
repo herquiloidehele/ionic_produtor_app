@@ -23,19 +23,19 @@ export class ProcurasProvider {
 
   public getAll() : Observable<any> {
     let token = localStorage.getItem('token');
-    return this.http.post(this.urlProvider.getUrl() + 'procuras/produtos-produtor', {token: token},{headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'procuras/produtos-produtor', {token: token},{headers: this.headers});
   }
 
   public getProdutores(procura_id): Observable<any> {
-   return this.http.get(this.urlProvider.getUrl() +'disponibilidade-produto/produtores/'+procura_id);
+   return this.http.get(this.urlProvider.getURL() +'disponibilidade-produto/produtores/'+procura_id);
   }
 
   public salvarDisponibilidade(disponibilidade): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl() + 'disponibilidade-produto',  disponibilidade, {headers:this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'disponibilidade-produto',  disponibilidade, {headers:this.headers});
   }
 
   public actualizarDisponibilidade(disponibilidade, disponibilidade_id): Observable<any>{
-    return this.http.put(this.urlProvider.getUrl() + 'disponibilidade-produto/'+disponibilidade_id, disponibilidade, {headers: this.headers});
+    return this.http.put(this.urlProvider.getURL() + 'disponibilidade-produto/'+disponibilidade_id, disponibilidade, {headers: this.headers});
   }
 
 }
