@@ -21,7 +21,7 @@ export class RevendedorProvider {
 
 
   public getAll() : Observable<any> {
-    return this.http.get(this.urlProvider.getUrl() + 'revendedores', {headers: this.headers});
+    return this.http.get(this.urlProvider.getURL() + 'revendedores', {headers: this.headers});
   }
 
 

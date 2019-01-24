@@ -6,6 +6,8 @@ import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsita
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
+import {StartPage} from "../pages/start/start";
+import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 
 @Component({
   templateUrl: 'app.html'
@@ -52,7 +54,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = PerfilPrivadoPage;
+      this.rootPage = PaginaPrincipalPage;
    }
 
 

@@ -20,7 +20,7 @@ export class UnidadeMedidaProvider {
 
 
   getAll(): Observable<any>{
-    return this.http.get(this.urlProvider.getUrl() + 'unidades-medidas', {headers: this.header});
+    return this.http.get(this.urlProvider.getURL() + 'unidades-medidas', {headers: this.header});
   }
 
 

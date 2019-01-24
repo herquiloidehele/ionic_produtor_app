@@ -62,6 +62,7 @@ import {StartPage} from "../pages/start/start";
 import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-escolher-produtos";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
+import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 
 
 
@@ -75,6 +76,7 @@ import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
     LocalizacaoPage,
     ShowEscolherProdutosPage,
     EscolherProdutoPage,
+    PaginaPrincipalPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -122,6 +124,7 @@ import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
     LocalizacaoPage,
     ShowEscolherProdutosPage,
     EscolherProdutoPage,
+    PaginaPrincipalPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,

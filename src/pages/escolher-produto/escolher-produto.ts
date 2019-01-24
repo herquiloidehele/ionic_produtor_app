@@ -45,7 +45,7 @@ export class EscolherProdutoPage {
   }
 
   onClickProximo(){
-    this.navCtrl.setRoot(PerfilPrivadoPage);
+    this.navCtrl.push(PerfilPrivadoPage);
   }
 
   check(idCheck){
