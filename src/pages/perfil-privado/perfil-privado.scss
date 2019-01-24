@@ -1,8 +1,5 @@
 page-perfil-privado {
-  .edit-icon{
-    //position: relative;
-    //top:50%;
-  }
+
   .avatar{
     margin: auto;
     border-radius: 50%;
@@ -14,8 +11,10 @@ page-perfil-privado {
 
     .profile-details{
       height: 50%;
-      background-color: color($colors, secondary);
-      //background-color: #2a2a2a;
+      background-image: url('../../assets/imgs/start/start3.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
 
