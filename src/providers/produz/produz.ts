@@ -21,12 +21,12 @@ export class ProduzProvider {
 
 
   public getMeusProdutos (produtor_id): Observable<any> {
-    return this.http.get(this.urlProvider.getUrl()  + 'produz/produtor-producao/'+produtor_id, {headers: this.headers});
+    return this.http.get(this.urlProvider.getURL()  + 'produz/produtor-producao/'+produtor_id, {headers: this.headers});
   }
 
 
   public salvarProduz(produz): Observable<any>{
-    return this.http.post(this.urlProvider.getUrl() + 'produz', {produz: produz}, {headers: this.headers});
+    return this.http.post(this.urlProvider.getURL() + 'produz', {produz: produz}, {headers: this.headers});
   }
 
 

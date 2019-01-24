@@ -19,11 +19,11 @@ export class ProdutosProvider {
 
 
   getAll(){
-    return this.http.get(this.urlProvider.getUrl() +'produtos', {headers: this.header})
+    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header})
   }
 
   salvar(produto){
-    return this.http.post(this.urlProvider.getUrl()+ 'produtos',produto, {headers: this.header});
+    return this.http.post(this.urlProvider.getURL()+ 'produtos',produto, {headers: this.header});
   }
 
 }

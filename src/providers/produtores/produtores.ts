@@ -19,7 +19,7 @@ export class ProdutoresProvider {
 
 
   getAll(){
-    return this.http.get(this.urlProvider.getUrl() + 'produtores', {headers: this.header});
+    return this.http.get(this.urlProvider.getURL() + 'produtores', {headers: this.header});
   }
 
 }

@@ -1,3 +1,23 @@
 page-perfil-privado {
+  .edit-icon{
+    //position: relative;
+    //top:50%;
+  }
+  .avatar{
+    margin: auto;
+    border-radius: 50%;
 
+  }
+
+  ion-grid {
+
+
+    .profile-details{
+      height: 50%;
+      background-color: color($colors, secondary);
+      //background-color: #2a2a2a;
+    }
+
+
+  }
 }
