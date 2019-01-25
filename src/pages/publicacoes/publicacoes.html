@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Publicacoes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-fab bottom right>
+    <button color="secondary" ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <div class="publicacoes">
+    <ion-card class="publicacao" *ngFor="let publicacao of publicacoes"  [ngStyle]="{'height': publicacao + 'px', 'max-height': '200px'}">
+      <h1>{{publicacao}}</h1>
+    </ion-card>
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,17 @@
+page-publicacoes {
+
+
+  .publicacoes{
+    column-count: 2;
+  }
+
+  .publicacao{
+    display: inline-block;
+  }
+
+  ion-card{
+    height: 200px;
+    margin: 0;
+  }
+
+}
