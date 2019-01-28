@@ -2,6 +2,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {UrlapiProvider} from "../urlapi/urlapi";
+import 'rxjs/add/operator/retry'
+import 'rxjs/add/operator/delay'
+import 'rxjs/add/operator/retryWhen'
+import 'rxjs/add/operator/scan'
 
 /*
   Generated class for the OfertasProvider provider.
@@ -20,6 +24,21 @@ export class OfertasProvider {
   }
 
 
+
+  getAll(): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'ofertas', {headers: this.headers})
+      .retryWhen(errors => {
+        return errors.delay(3000).scan((tentativas) => {
+            tentativas++;
+
+            if(tentativas < 10){
+              console.log({tentativa: tentativas});
+              return tentativas;
+            }else
+              throw errors;
+        }, 0);
+      });
+  }
 
   getMinhasOfertas(provedores_id: any): Observable<any>{
     return this.http.get(this.urlProvider.getURL() + 'ofertas/minhas-ofertas/'+provedores_id, {headers: this.headers});

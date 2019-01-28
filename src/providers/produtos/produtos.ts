@@ -1,6 +1,8 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {UrlapiProvider} from "../urlapi/urlapi";
+import 'rxjs/add/operator/retry'
+
 
 /*
   Generated class for the ProdutosProvider provider.
@@ -19,7 +21,7 @@ export class ProdutosProvider {
 
 
   getAll(){
-    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header})
+    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header}).retry();
   }
 
   salvar(produto){

@@ -36,6 +36,10 @@ i[class^="fa-"], ion-icon[class^="fa-"] {
   color: #61d295 !important;
 }
 
+.tabs-md .tab-button[aria-selected=true] .tab-button-text {
+  color: #61d295 !important;
+}
+
 .tabs-ios .tab-button[aria-selected=true] .tab-button-text {
   color: #61d295 !important;
 }
