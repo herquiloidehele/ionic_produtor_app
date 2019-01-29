@@ -24,6 +24,50 @@ page-publicacoes {
     display: inline-block;
     margin-right: 0 !important;
     margin-top: 0 !important;
+
+    .imagem{
+      position: relative;
+      background-color: red;
+
+      img{
+        max-height: 150px;
+      }
+
+      .local{
+        bottom: 5px;
+        left: 3px;
+        padding:  10px;
+        line-height: 10%;
+        height: 20px;
+        border-radius: 5px;
+        font-size: 12pt;
+        background-color: rgba(10, 10, 10, 0.61);
+        color: white;
+        position: absolute;
+      }
+    }
+
+
+    .titulo-preco{
+      //height: 50%;
+
+      margin: 4px;
+
+      p{
+
+      }
+
+      h1{
+        color: #5cc88e;
+        font-size: 13pt;
+      }
+    }
+
+
+
+
+
+
   }
 
   ion-card{

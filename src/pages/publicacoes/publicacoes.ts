@@ -25,6 +25,15 @@ export class PublicacoesPage {
     );
   }
 
+
+  cutNomeProvincia(proviniva){
+    if(proviniva.length > 8)
+      return proviniva.substr(0, 5) + '...';
+    else
+      return proviniva;
+  }
+
+
   onInput(event){
     return this.publicacoes;
   }

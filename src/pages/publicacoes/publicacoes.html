@@ -27,8 +27,16 @@
 
   <div class="publicacoes" *ngIf="publicacoes.length != 0">
     <ion-card class="publicacao" *ngFor="let publicacao of publicacoes">
-      <img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>
-      <h1>{{'MZN' + publicacao['preco']}}</h1>
+      <div class="imagem">
+        <!--<img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>-->
+        <img src="{{publicacao['imagens'][0]['caminho']}}"/>
+        <p class="local">{{cutNomeProvincia(publicacao['distrito']['provincia']['designacao'])}} - {{'ontem'}}</p>
+      </div>
+
+      <div class="titulo-preco">
+        <p>{{publicacao['designacao']}}</p>
+        <h1>{{publicacao['preco'] +' '}} MZN</h1>
+      </div>
     </ion-card>
   </div>
 
