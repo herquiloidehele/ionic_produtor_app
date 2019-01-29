@@ -65,6 +65,7 @@ import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
 import {HideHeaderDirective} from "../directives/hide-header/hide-header";
+import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 
 
 
@@ -80,6 +81,7 @@ import {HideHeaderDirective} from "../directives/hide-header/hide-header";
     EscolherProdutoPage,
     PaginaPrincipalPage,
     PublicacoesPage,
+    RegistarOpertasPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -130,6 +132,7 @@ import {HideHeaderDirective} from "../directives/hide-header/hide-header";
     EscolherProdutoPage,
     PaginaPrincipalPage,
     PublicacoesPage,
+    RegistarOpertasPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,

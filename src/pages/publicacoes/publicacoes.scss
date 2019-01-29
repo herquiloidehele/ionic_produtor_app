@@ -30,7 +30,7 @@ page-publicacoes {
       background-color: red;
 
       img{
-        max-height: 150px;
+        max-height: 190px;
       }
 
       .local{
@@ -71,9 +71,10 @@ page-publicacoes {
   }
 
   ion-card{
-    max-height: 250px;
+    max-height: 290px;
     //margin-left: 0 !important;
     width: 100%;
+    transition: 2s;
   }
 
   .ion-card, .card-ios, .card-md {

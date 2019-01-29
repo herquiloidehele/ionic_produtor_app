@@ -15,8 +15,8 @@
 <ion-content no-margin no-padding padding-top style="background-color: #eee" hide-header [header]="headerElement">
 
 
-  <ion-fab bottom right>
-    <button color="secondary" ion-fab><ion-icon name="add"></ion-icon></button>
+  <ion-fab bottom right color="secondary">
+    <button (click)="goToRegistarOfertas()"  ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
   <div *ngIf="publicacoes.length == 0" class="loader">
@@ -26,7 +26,7 @@
 
 
   <div class="publicacoes" *ngIf="publicacoes.length != 0">
-    <ion-card class="publicacao" *ngFor="let publicacao of publicacoes">
+    <ion-card class="publicacao animated fadeIn" *ngFor="let publicacao of publicacoes" >
       <div class="imagem">
         <!--<img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>-->
         <img src="{{publicacao['imagens'][0]['caminho']}}"/>
