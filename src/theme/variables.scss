@@ -33,16 +33,6 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$text-input-placeholder-color: #fff;
-$segment-button-ios-text-color: #fff;
-$segment-button-md-text-color: #fff;
-$segment-button-ios-background-color: #fff;
-$segment-button-ios-background-color-activated: #000;
-$tabs-border-color: #61d295 !default
-$spinner-ios-ios-color: #61d295;
-$spinner-ios-ios-color: #61d295;
-$spinner-md-ios-color: #61d295;
-$spinner-md-circles-color: #61d295;
 
 
 
@@ -56,18 +46,25 @@ $colors: (
   white: #fff,
 );
 
+$text-input-placeholder-color: #fff;
+$segment-button-md-text-color: #fff;
+$tabs-border-color: #61d295 !default
+
+
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
-
+$segment-button-ios-text-color: #fff;
+$spinner-ios-ios-color: #61d295;
+$segment-button-ios-background-color: #fff;
+$segment-button-ios-background-color-activated: #000;
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$spinner-md-ios-color: #61d295;
+$spinner-md-circles-color: #61d295;
 
 
 

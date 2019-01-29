@@ -1,20 +1,18 @@
 
-<ion-header>
+<ion-header #headerElement>
 
   <ion-navbar>
-    <ion-buttons end>
-      <!--<button ion-button icon-only clear>-->
-        <!--<ion-icon name="refresh-circle"></ion-icon>-->
-      <!--</button>-->
-    </ion-buttons>
-
-    <ion-title>Publicacoes</ion-title>
+      <ion-searchbar
+        [showCancelButton]="true"
+        (ionInput)="onInput($event)"
+        (ionCancel)="onCancel($event)">
+      </ion-searchbar>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content no-margin no-padding padding-top style="background-color: #eee">
+<ion-content no-margin no-padding padding-top style="background-color: #eee" hide-header [header]="headerElement">
 
 
   <ion-fab bottom right>

@@ -12,6 +12,7 @@ export class PublicacoesPage {
  protected publicacoes = [];
 
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public ofertasProvider: OfertasProvider) {
 
   }
@@ -24,6 +25,13 @@ export class PublicacoesPage {
     );
   }
 
+  onInput(event){
+    return this.publicacoes;
+  }
+
+  onCancel(){
+    console.log('cancelado');
+  }
 
 
 
