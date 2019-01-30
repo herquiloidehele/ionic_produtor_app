@@ -21,7 +21,7 @@ export class ProdutosProvider {
 
 
   getAll(){
-    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header}).retry();
+    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header});
   }
 
   salvar(produto){

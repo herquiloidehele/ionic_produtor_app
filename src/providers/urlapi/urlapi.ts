@@ -10,14 +10,20 @@ import { Injectable } from '@angular/core';
 export class UrlapiProvider {
 
 
-  private url: any;
+  private url: String;
+  private urlSimple: String;
 
   constructor() {
     this.url = 'http://127.0.0.1:8000/api/';
+    this.urlSimple = 'http://127.0.0.1:8000/';
   }
 
-  public getURL(){
+  public getURL(): String{
     return this.url;
+  }
+
+  public getSimpleURL(): String{
+    return this.urlSimple;
   }
 
 

@@ -9,6 +9,7 @@ import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {StartPage} from "../pages/start/start";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
+import {TestePage} from "../pages/teste/teste";
 
 @Component({
   templateUrl: 'app.html'
@@ -55,7 +56,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = RegistarOpertasPage;
+      this.rootPage = TestePage;
    }
 
 

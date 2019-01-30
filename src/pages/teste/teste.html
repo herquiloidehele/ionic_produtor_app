@@ -1,0 +1,20 @@
+<!--
+  Generated template for the TestePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>TestePage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <produtos-list [produtos]="produtos" (eventEmiter)="getProdutoSelecionado($event)"></produtos-list>
+
+</ion-content>
