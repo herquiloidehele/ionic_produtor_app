@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="secondary" >
+    <ion-title>Selecione um produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines padding>
+    <ion-grid>
+      <ion-row *ngFor="let produto of produtos" (click)="selecionarProduto(produto)">
+        <ion-item col-4>
+          <img alt="img_produto" src="{{urlProvider.getSimpleURL()+produto['default_photo']}}"/>
+        </ion-item>
+
+        <div col-8>
+          <p>{{produto['designacao']}}</p>
+        </div>
+
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

@@ -5,7 +5,6 @@ import { MercadosComponent } from './mercados/mercados';
 import { ProdutoresComponent } from './produtores/produtores';
 import { RevendedoresComponent } from './revendedores/revendedores';
 import { DialogPrecoComponent } from './dialog-preco/dialog-preco';
-import { ProdutosListComponent } from './produtos-list/produtos-list';
 @NgModule({
 	declarations: [CategoriaProdutosComponent,
     ProdutosComponent,
@@ -14,7 +13,7 @@ import { ProdutosListComponent } from './produtos-list/produtos-list';
     ProdutoresComponent,
     RevendedoresComponent,
     DialogPrecoComponent,
-    ProdutosListComponent],
+    ],
 	imports: [],
 	exports: [CategoriaProdutosComponent,
     ProdutosComponent,
@@ -23,6 +22,6 @@ import { ProdutosListComponent } from './produtos-list/produtos-list';
     ProdutoresComponent,
     RevendedoresComponent,
     DialogPrecoComponent,
-    ProdutosListComponent]
+    ]
 })
 export class ComponentsModule {}

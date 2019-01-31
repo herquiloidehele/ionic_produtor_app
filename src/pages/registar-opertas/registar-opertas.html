@@ -25,7 +25,7 @@
 
       <ion-item col-11>
         <ion-label floating="">Titulo da Publicação</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="publicacao.designacao" name="designacao" type="text"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -36,7 +36,7 @@
 
       <ion-item col-11>
         <ion-label floating="">Produto</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" name="produtos_id" (click)="openProdutosSelect()"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -45,20 +45,16 @@
         <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
-      <ion-item col-11>
-        <ion-label floating="">Preço</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
-      </ion-col>
-
-      <ion-item col-11>
+      <ion-item col-6>
         <ion-label floating="">Quantidade</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.quantidade" name="quantidade"></ion-input>
+      </ion-item>
+
+      <ion-item col-5>
+        <ion-label floating="">Unidade</ion-label>
+        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" name="unidades_medidas_id">
+          <ion-option *ngFor="let unidade of unidadesMedida">{{unidade['designacao']}}</ion-option>
+        </ion-select>
       </ion-item>
     </ion-row>
 
@@ -68,14 +64,38 @@
       </ion-col>
 
       <ion-item col-11>
-        <ion-label floating="">Descrição</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-label floating>Preço</ion-label>
+        <ion-input type="number" [(ngModel)]="publicacao.preco" name="preco"></ion-input>
       </ion-item>
     </ion-row>
+
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+      </ion-col>
+
+      <ion-item col-11>
+        <ion-label floating>Descrição</ion-label>
+        <ion-textarea [(ngModel)]="publicacao.descricao" name="descricao"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <!--<ion-row>-->
+      <!--<ion-col col-1>-->
+        <!--<ion-icon name="more"></ion-icon>-->
+      <!--</ion-col>-->
+      <!--<ion-list no-lines col-11>-->
+        <!--<ion-list-header>-->
+          <!--Mais Opções-->
+        <!--</ion-list-header>-->
+
+        <!---->
+      <!--</ion-list>-->
+    <!--</ion-row>-->
 
     <ion-row>
       <button ion-button clear color="primary" full fill="outline">Pré-Visualizar</button>
-      <button ion-button color="secondary" full>Publicar</button>
+      <button ion-button color="secondary" full (click)="publicar()">Publicar</button>
     </ion-row>
 
 

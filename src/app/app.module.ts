@@ -67,8 +67,7 @@ import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
 import {HideHeaderDirective} from "../directives/hide-header/hide-header";
 import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 import {TestePage} from "../pages/teste/teste";
-import {DialogPrecoComponent} from "../components/dialog-preco/dialog-preco";
-import {ProdutosListComponent} from "../components/produtos-list/produtos-list";
+import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 
 
 
@@ -86,8 +85,7 @@ import {ProdutosListComponent} from "../components/produtos-list/produtos-list";
     PublicacoesPage,
     RegistarOpertasPage,
     TestePage,
-    DialogPrecoComponent,
-    ProdutosListComponent,
+    ProdutosListPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -139,6 +137,7 @@ import {ProdutosListComponent} from "../components/produtos-list/produtos-list";
     PaginaPrincipalPage,
     PublicacoesPage,
     RegistarOpertasPage,
+    ProdutosListPage,
     TestePage,
     MercadosPage,
     ProdutosPage,

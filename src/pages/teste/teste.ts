@@ -33,7 +33,7 @@ export class TestePage {
   }
 
   getProdutoSelecionado(produto){
-    // this.produtoSelecionado = produto;
+    this.produtoSelecionado = produto;
     console.log(produto);
   }
 

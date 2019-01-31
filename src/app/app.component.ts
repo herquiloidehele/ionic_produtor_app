@@ -56,7 +56,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = TestePage;
+      this.rootPage = RegistarOpertasPage;
    }
 
 
