@@ -69,6 +69,7 @@ import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 import {TestePage} from "../pages/teste/teste";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publicacao";
+import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
 
 
 
@@ -85,6 +86,7 @@ import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publica
     PublicacoesPage,
     RegistarOpertasPage,
     PreviewPublicacaoPage,
+    ViewPublicacaoPage,
     TestePage,
     ProdutosListPage,
     MercadosPage,
@@ -140,6 +142,7 @@ import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publica
     RegistarOpertasPage,
     ProdutosListPage,
     PreviewPublicacaoPage,
+    ViewPublicacaoPage,
     TestePage,
     MercadosPage,
     ProdutosPage,

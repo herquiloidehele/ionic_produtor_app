@@ -6,6 +6,7 @@ import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibiliza
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
+import {StartPage} from "../pages/start/start";
 
 @Component({
   templateUrl: 'app.html'
@@ -50,7 +51,7 @@ export class MyApp {
 
 
    getPage() {
-      this.rootPage = PublicacoesPage;
+      this.rootPage = StartPage;
    }
 
 

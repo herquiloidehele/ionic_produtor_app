@@ -59,23 +59,18 @@ page-publicacoes {
       }
 
       .local{
-        //text-decoration: underline;
-        color: blue;
+        color: rgba(0, 0, 0, 0.56);
+      }
 
+      .local:hover{
+        text-decoration: underline;
       }
 
     }
 
-
-
-
-
-
   }
 
   ion-card{
-    //max-height: 290px;
-    //margin-left: 0 !important;
     width: 100%;
     transition: 2s;
   }
@@ -84,7 +79,7 @@ page-publicacoes {
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
   }
 
-  .publicacao:hover .titulo{
+  .publicacao:hover .titulo, .local{
     color: #00b89c;
   }
 

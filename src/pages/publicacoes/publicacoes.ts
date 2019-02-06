@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
+import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
 
 @IonicPage()
 @Component({
@@ -48,6 +49,10 @@ export class PublicacoesPage {
 
   goToRegistarOfertas(){
     this.navCtrl.push(RegistarOpertasPage);
+  }
+
+  viewPublicacao(publicacao){
+    this.navCtrl.push(ViewPublicacaoPage, {publicacao: publicacao});
   }
 
 }

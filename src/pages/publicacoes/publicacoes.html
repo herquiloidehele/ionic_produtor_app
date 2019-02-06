@@ -26,7 +26,7 @@
 
 
   <div class="publicacoes" *ngIf="publicacoes.length != 0">
-    <ion-card class="publicacao animated fadeIn" *ngFor="let publicacao of publicacoes" >
+    <ion-card class="publicacao animated fadeIn" *ngFor="let publicacao of publicacoes" (click)="viewPublicacao(publicacao)">
       <div class="imagem">
         <img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>
         <!--<img src="{{publicacao['produto']['default_photo']}}"/>-->
@@ -35,7 +35,7 @@
 
       <div class="adicional-info">
         <p class="titulo">{{publicacao['designacao']}}</p>
-        <p class="local">{{(publicacao['distrito']['provincia']['designacao'])}} - {{'ontem'}}</p>
+        <p class="local">{{(publicacao['distrito']['provincia']['designacao'])}} - {{publicacao['created_at']}}</p>
       </div>
     </ion-card>
   </div>
