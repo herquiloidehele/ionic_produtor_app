@@ -26,6 +26,8 @@ export class PublicacoesPage {
     );
   }
 
+  onImageLoad(){
+  }
 
   cutNomeProvincia(proviniva){
     if(proviniva.length > 8)

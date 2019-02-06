@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams, PopoverController} from 'ionic-angular';
-import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
-import {TabsPage} from "../modulo-cadastrador/tabs/tabs";
-import {ProdutosrequsitadosPage} from "../modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {InicioPage} from "../modulo-revendedor/inicio/inicio";
-import {UrlapiProvider} from "../../providers/urlapi/urlapi";
-import {LocalizacaoPage} from "../localizacao/localizacao";
+import {IonicPage} from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.

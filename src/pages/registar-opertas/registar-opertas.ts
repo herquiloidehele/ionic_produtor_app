@@ -3,6 +3,8 @@ import {ModalController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {ProdutosProvider} from "../../providers/produtos/produtos";
 import {ProdutosListPage} from "../produtos-list/produtos-list";
 import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
+import {PublicacoesPage} from "../publicacoes/publicacoes";
+import {PreviewPublicacaoPage} from "../preview-publicacao/preview-publicacao";
 
 @IonicPage()
 @Component({
@@ -72,6 +74,13 @@ export class RegistarOpertasPage {
 
   publicar(){
     console.log(this.publicacao);
+    this.navCtrl.setRoot(PublicacoesPage);
+
+  }
+
+  preview(){
+    console.log(this.publicacao);
+    this.navCtrl.push(PreviewPublicacaoPage, {publicacao: this.publicacao});
   }
 
 }

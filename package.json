@@ -27,6 +27,8 @@
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/camera": "^4.7.0",
     "@ionic-native/core": "^4.7.0",
+    "@ionic-native/file": "^5.0.0",
+    "@ionic-native/file-transfer": "^5.0.0",
     "@ionic-native/geolocation": "^4.7.0",
     "@ionic-native/google-maps": "^4.7.0",
     "@ionic-native/native-geocoder": "^4.7.0",
@@ -40,12 +42,14 @@
     "cordova-ios": "^4.5.5",
     "cordova-plugin-add-swift-support": "^1.7.2",
     "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-file": "6.0.1",
+    "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps",
     "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git#2.6.0",
     "cordova-plugin-ionic": "^4.1.7",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
-    "cordova-plugin-ionic-webview": "^1.2.0",
+    "cordova-plugin-ionic-webview": "^3.1.2",
     "cordova-plugin-nativegeocoder": "^3.1.1",
     "cordova-plugin-network-information": "^2.0.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -84,7 +88,9 @@
         "MAX_STORE": "2",
         "WARN_DEBUG": "true",
         "UPDATE_API": "https://api.ionicjs.com"
-      }
+      },
+      "cordova-plugin-file": {},
+      "cordova-plugin-file-transfer": {}
     },
     "platforms": [
       "browser",

@@ -68,7 +68,7 @@ import {HideHeaderDirective} from "../directives/hide-header/hide-header";
 import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 import {TestePage} from "../pages/teste/teste";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
-
+import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publicacao";
 
 
 
@@ -84,6 +84,7 @@ import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
     PaginaPrincipalPage,
     PublicacoesPage,
     RegistarOpertasPage,
+    PreviewPublicacaoPage,
     TestePage,
     ProdutosListPage,
     MercadosPage,
@@ -123,7 +124,7 @@ import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
   imports: [
     BrowserModule,
       HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -138,6 +139,7 @@ import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
     PublicacoesPage,
     RegistarOpertasPage,
     ProdutosListPage,
+    PreviewPublicacaoPage,
     TestePage,
     MercadosPage,
     ProdutosPage,

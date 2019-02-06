@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {UrlapiProvider} from "../../providers/urlapi/urlapi";
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LocalizacaoPage} from "../localizacao/localizacao";
 
 /**

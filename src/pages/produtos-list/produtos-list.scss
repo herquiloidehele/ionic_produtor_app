@@ -4,8 +4,20 @@ page-produtos-list {
     color: #0a0a0a;
   }
 
+  ion-item{
+    padding-bottom: 0;
+    padding-top: 0;
+
+  }
+
+  ion-row:hover{
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+    border: solid 1px color($colors, 'dark');
+  }
+
   ion-row{
-    margin-bottom: 5px;
-    border: solid 1px color($colors, 'secondary');
+
+    margin-bottom: 2px;
+
   }
 }

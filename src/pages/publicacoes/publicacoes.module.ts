@@ -7,7 +7,7 @@ import { PublicacoesPage } from './publicacoes';
     PublicacoesPage,
   ],
   imports: [
-    IonicPageModule.forChild(PublicacoesPage),
+    IonicPageModule.forChild(PublicacoesPage)
   ],
 })
 export class PublicacoesPageModule {}
