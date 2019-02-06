@@ -28,14 +28,14 @@
   <div class="publicacoes" *ngIf="publicacoes.length != 0">
     <ion-card class="publicacao animated fadeIn" *ngFor="let publicacao of publicacoes" >
       <div class="imagem">
-        <!--<img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>-->
-        <img height="100" src="{{publicacao['imagens'][0]['caminho']}}"/>
-        <p class="local">{{cutNomeProvincia(publicacao['distrito']['provincia']['designacao'])}} - {{'ontem'}}</p>
+        <img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>
+        <!--<img src="{{publicacao['produto']['default_photo']}}"/>-->
+        <h1 class="preco">{{publicacao['preco'] +' '}} MZN</h1>
       </div>
 
-      <div class="titulo-preco">
-        <p>{{publicacao['designacao']}}</p>
-        <h1>{{publicacao['preco'] +' '}} MZN</h1>
+      <div class="adicional-info">
+        <p class="titulo">{{publicacao['designacao']}}</p>
+        <p class="local">{{(publicacao['distrito']['provincia']['designacao'])}} - {{'ontem'}}</p>
       </div>
     </ion-card>
   </div>
