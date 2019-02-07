@@ -19,6 +19,11 @@ export class AutenticacaoProvider {
   }
 
 
+  public verifyNumber(numero){
+    return this.http.get(this.urlProvider.getURL() + 'user/verify-numbem/'+numero);
+  }
+
+
   public login(user: any) : Observable<any>{
     return this.http.post(this.urlProvider.getURL()+'login', user, {headers: this.headers} );
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
 import {PerfilPrivadoPage} from "../perfil-privado/perfil-privado";
+import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 
 @IonicPage()
 @Component({
@@ -45,7 +46,7 @@ export class EscolherProdutoPage {
   }
 
   onClickProximo(){
-    this.navCtrl.push(PerfilPrivadoPage);
+    this.navCtrl.push(PaginaPrincipalPage);
   }
 
   check(idCheck){

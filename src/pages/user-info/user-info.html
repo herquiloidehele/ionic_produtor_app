@@ -15,26 +15,26 @@
     </div>
 
 
-    <form>
+    <form [formGroup]="formGroup">
 
       <ion-list>
 
         <ion-item color="secondary">
           <ion-label floating="">Nome Completo</ion-label>
-          <ion-input [(ngModel)]="user.nome" name="password" (click)="onKeyUp()" type="text"></ion-input>
+          <ion-input [(ngModel)]="user.nome" formControlName="nome" (click)="onKeyUp()" type="text"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="start > 0"  color="secondary">
           <ion-label floating>No. Telefone</ion-label>
-          <ion-input [(ngModel)]="user.telefone" name="username"  type="number"></ion-input>
+          <ion-input [(ngModel)]="user.username" formControlName="username"   type="tel"></ion-input>
         </ion-item>
-
 
         <ion-row>
           <ion-col text-center class="butao-entrar">
-            <button ion-button color="blue" (click)="onNext()">Proximo</button>
+            <button ion-button color="blue" (click)="onNext()" [disabled]="!validarForm(formGroup)">Próximo</button>
           </ion-col>
         </ion-row>
+
       </ion-list>
 
 
