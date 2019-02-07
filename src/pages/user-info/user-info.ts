@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {LocalizacaoPage} from "../localizacao/localizacao";
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
-import {FormBuilder, FormGroup, Validators, AbstractControl, FormControl} from "@angular/forms";
+import {FormGroup, Validators, FormControl} from "@angular/forms";
 
 @IonicPage()
 @Component({
@@ -14,8 +14,6 @@ export class UserInfoPage {
 
   protected start: number;
   protected formGroup: FormGroup;
-  // protected telefone;
-  // protected username;
 
 
   protected user = {
@@ -29,7 +27,6 @@ export class UserInfoPage {
               public loadingController: LoadingController,
               public authProvider: AutenticacaoProvider,
               public alertController: AlertController,
-              public formBuilder: FormBuilder
   ) {
     this.start = 0;
     this.vadacaoForm();

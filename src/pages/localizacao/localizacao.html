@@ -10,25 +10,25 @@
     </div>
 
 
-    <form>
+    <form [formGroup]="formGroup">
       <ion-list>
         <ion-item color="secondary">
           <ion-label floating>Provincia</ion-label>
-          <ion-select name="provincia" (click)="onClickProvincia()" >
+          <ion-select name="provincia" (click)="onClickProvincia()" formControlName="provincia">
             <ion-option *ngFor="let provincia of provincias"  (ionSelect)="onSelectProvincias(provincia)">{{provincia['name']}}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item color="secondary" *ngIf="start > 0">
           <ion-label floating>Distrito</ion-label>
-          <ion-select name="distrito">
+          <ion-select name="distrito" formControlName="distrito">
             <ion-option *ngFor="let distrito of distritos" (ionSelect)="onSelectDistritos(distrito)">{{distrito['name']}}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-row margin-top>
           <ion-col text-center class="butao-entrar">
-            <button ion-button  color="blue" (click)="onNext()">Proximo</button>
+            <button ion-button  color="blue" (click)="onNext()" [disabled]="!validarForm()">Proximo</button>
           </ion-col>
         </ion-row>
       </ion-list>

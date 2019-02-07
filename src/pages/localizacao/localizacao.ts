@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
 import {ShowEscolherProdutosPage} from "../show-escolher-produtos/show-escolher-produtos";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Generated class for the LocalizacaoPage page.
@@ -18,6 +19,7 @@ import {ShowEscolherProdutosPage} from "../show-escolher-produtos/show-escolher-
 export class LocalizacaoPage {
 
   protected start: number;
+  protected formGroup: FormGroup;
 
   protected localizacao = {
     provincia: {},
@@ -30,6 +32,7 @@ export class LocalizacaoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public jsonProvider: JsonProvider) {
     this.getProvincias();
+    this.initializeValidators();
   }
 
 
@@ -102,6 +105,22 @@ export class LocalizacaoPage {
       this.navCtrl.push(ShowEscolherProdutosPage, {localizacao: this.localizacao});
     }
     this.start += 1;
+  }
+
+
+
+  initializeValidators(){
+    this.formGroup = new FormGroup({
+      provincia: new FormControl('', Validators.required),
+      distrito: new FormControl('', Validators.required)
+    });
+  }
+
+  validarForm(){
+    if(this.start == 0)
+      return this.formGroup.controls.provincia.valid;
+    else
+      return this.formGroup.controls.distrito.valid;
   }
 
 
