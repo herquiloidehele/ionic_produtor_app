@@ -19,15 +19,12 @@ import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revende
 import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/modulo-cadastrador/cadastros/Cadastros";
 import {RevendedoresComponent} from "../components/revendedores/revendedores";
 import {Camera} from "@ionic-native/camera/ngx";
-import {NativeGeocoder} from "@ionic-native/native-geocoder";
 import { AutenticacaoProvider } from '../providers/providers';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { CategoriasProvider } from '../providers/categorias/categorias';
 import {ProdutoresProvider} from "../providers/produtores/produtores";
 import { RevendedorProvider } from '../providers/revendedor/revendedor';
 import { MercadoProvider } from '../providers/mercado/mercado';
-import {Geolocation} from "@ionic-native/geolocation";
-import {GoogleMaps} from "@ionic-native/google-maps";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
@@ -187,8 +184,6 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
     JsonProvider,
     RevendedorProvider,
     MercadoProvider,
-    Geolocation,
-    GoogleMaps,
     ProcurasProvider,
     ProdutosProvider,
     ProduzProvider,
@@ -200,7 +195,6 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
     Camera,
     File,
     WebView,
-    NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NetworkProvider,
     Network,

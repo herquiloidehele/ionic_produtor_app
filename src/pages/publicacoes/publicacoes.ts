@@ -50,7 +50,6 @@ export class PublicacoesPage {
 
   protected async getMinhasPublicacoes(){
     let produtor = await this.storageController.get('user');
-    alert(produtor['id']);
     this.ofertasProvider.getOfertas(produtor['id']).subscribe((response)=> {
       console.log(response);
       this.publicacoes = response['ofertas'];

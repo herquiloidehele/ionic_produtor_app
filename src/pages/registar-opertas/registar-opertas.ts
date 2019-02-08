@@ -86,11 +86,6 @@ export class RegistarOpertasPage{
     }
   }
 
-  // getProdutoSelecionado(produto){
-  //   this.produtoSelecionado = produto;
-  //   console.log(produto);
-  // }
-
   protected openProdutosSelect(){
     let modalControler = this.modalCtr.create(ProdutosListPage, {produtos: this.produtos});
     modalControler.present();
@@ -171,8 +166,11 @@ export class RegistarOpertasPage{
       let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
       this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
 
-
-    }).catch((error) => {console.log({tirarFoto :error})});
+        loading.dismiss();
+    }).catch((error) => {
+      console.log({tirarFoto :error});
+      loading.dismiss();
+    });
 
 
   }
@@ -188,7 +186,6 @@ export class RegistarOpertasPage{
       }
     );
   }
-
 
   public updateStorageImags(imagem){
     this.storageCntroller.get(IMAGE_STORAGE_KEY).then(async (imagePath) => {
@@ -269,7 +266,6 @@ export class RegistarOpertasPage{
 
     alert.present();
   }
-
 
   private createNameFile(): String{
     var d = new Date(),  n = d.getTime(), newFileName = n + '.jpg';
