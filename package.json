@@ -9,7 +9,11 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "ionic:serve:before": "node ./src/app/config/script.js",
+    "ionic:build:before": "node ./src/app/config/script.js",
+    "run-android": "rm -rf platforms/* && cross-env ENV=prod ionic cordova run android",
+    "build-android": "rm -rf platforms/* && cross-env ENV=prod ionic cordova build android"
   },
   "config": {
     "ionic_copy": "./config/copy.config.js",
