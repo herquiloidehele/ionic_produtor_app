@@ -8,6 +8,7 @@ import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {Storage} from "@ionic/storage";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {StartPage} from "../pages/start/start";
+import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 
 @Component({
   templateUrl: 'app.html'
@@ -56,7 +57,7 @@ export class MyApp {
 
         if(response){
           this.user = response;
-          this.rootPage = PaginaPrincipalPage;
+          this.rootPage = RegistarOpertasPage;
         }else{
           this.rootPage = StartPage;
         }

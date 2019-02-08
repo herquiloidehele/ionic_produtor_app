@@ -5,6 +5,7 @@ import {ProdutosListPage} from "../produtos-list/produtos-list";
 import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
 import {PublicacoesPage} from "../publicacoes/publicacoes";
 import {PreviewPublicacaoPage} from "../preview-publicacao/preview-publicacao";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ export class RegistarOpertasPage {
 
   protected produtos = [];
   protected unidadesMedida = [];
+  protected formGroup: FormGroup;
 
   protected publicacao = {
     designacao: null,
@@ -37,9 +39,10 @@ export class RegistarOpertasPage {
   ) {
     this.getAllProdutos();
     this.getUnidadesMedidas();
+    this.initializeValidator();
   }
 
-  getAllProdutos(){
+  protected getAllProdutos(){
     this.produtosProvider.getAll().subscribe(
       response => {
         this.produtos = response['produtos'];
@@ -47,7 +50,7 @@ export class RegistarOpertasPage {
     );
   }
 
-   getUnidadesMedidas(){
+  protected getUnidadesMedidas(){
     if(this.unidadesMedida.length == 0){
        this.medidasProvider.getAll().subscribe(
         (response) => {
@@ -62,7 +65,7 @@ export class RegistarOpertasPage {
   //   console.log(produto);
   // }
 
-  openProdutosSelect(){
+  protected openProdutosSelect(){
     let modalControler = this.modalCtr.create(ProdutosListPage, {produtos: this.produtos});
     modalControler.present();
 
@@ -72,15 +75,29 @@ export class RegistarOpertasPage {
   }
 
 
-  publicar(){
+  protected publicar(){
     console.log(this.publicacao);
     this.navCtrl.setRoot(PublicacoesPage);
 
   }
 
-  preview(){
+  protected preview(){
     console.log(this.publicacao);
     this.navCtrl.push(PreviewPublicacaoPage, {publicacao: this.publicacao});
   }
+
+
+  protected initializeValidator(){
+    this.formGroup = new FormGroup({
+      titulo: new FormControl('', [Validators.minLength(5), Validators.maxLength(25)]),
+      preco: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
+      quantidade: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
+      unidade_medida_id: new FormControl('', [Validators.required]),
+      produto_id: new FormControl('', [Validators.required]),
+      descricao: new FormControl('', [Validators.minLength(0), Validators.maxLength(150)]),
+    });
+  }
+
+
 
 }

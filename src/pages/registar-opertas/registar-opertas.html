@@ -10,7 +10,7 @@
 
 <ion-content padding>
 
-  <form>
+  <form [formGroup]="formGroup">
     <ion-item class="imagens-session">
         <div class="img">
             <img alt="img-camera-adicionar" src="../../assets/icon/images.png"/>
@@ -25,7 +25,7 @@
 
       <ion-item col-11>
         <ion-label floating="">Titulo da Publicação</ion-label>
-        <ion-input [(ngModel)]="publicacao.designacao" name="designacao" type="text"></ion-input>
+        <ion-input [(ngModel)]="publicacao.designacao" formControlName="titulo" name="designacao" type="text"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -36,7 +36,7 @@
 
       <ion-item col-11>
         <ion-label floating="">Produto</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" name="produtos_id" (click)="openProdutosSelect()"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" formControlName="produto_id" name="produtos_id" (click)="openProdutosSelect()"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -47,12 +47,12 @@
 
       <ion-item col-6>
         <ion-label floating="">Quantidade</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.quantidade" name="quantidade"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade"></ion-input>
       </ion-item>
 
       <ion-item col-5>
         <ion-label floating="">Unidade</ion-label>
-        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" name="unidades_medidas_id">
+        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id">
           <ion-option *ngFor="let unidade of unidadesMedida">{{unidade['designacao']}}</ion-option>
         </ion-select>
       </ion-item>
@@ -65,7 +65,7 @@
 
       <ion-item col-11>
         <ion-label floating>Preço</ion-label>
-        <ion-input type="number" [(ngModel)]="publicacao.preco" name="preco"></ion-input>
+        <ion-input type="number" [(ngModel)]="publicacao.preco" formControlName="preco" name="preco"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -76,13 +76,13 @@
 
       <ion-item col-11>
         <ion-label floating>Descrição</ion-label>
-        <ion-textarea [(ngModel)]="publicacao.descricao" name="descricao"></ion-textarea>
+        <ion-textarea [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>
       </ion-item>
     </ion-row>
 
     <ion-row>
-      <button ion-button clear color="primary" full fill="outline" (click)="preview()">Pré-Visualizar</button>
-      <button ion-button color="secondary" full (click)="publicar()">Publicar</button>
+      <button ion-button clear color="primary" [disabled]="!formGroup.valid" full fill="outline" (click)="preview()">Pré-Visualizar</button>
+      <button ion-button color="secondary" full [disabled]="!formGroup.valid" (click)="publicar()">Publicar</button>
     </ion-row>
 
 
