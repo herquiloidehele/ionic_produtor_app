@@ -16,11 +16,14 @@ import {EscolherProdutoPage} from "../escolher-produto/escolher-produto";
 })
 export class ShowEscolherProdutosPage {
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
+
   onNext() {
-    this.navCtrl.push(EscolherProdutoPage);
+    this.navCtrl.push(EscolherProdutoPage, {user: this.navParams.get('user')});
   }
 
 }

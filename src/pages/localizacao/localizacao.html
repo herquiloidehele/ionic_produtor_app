@@ -13,7 +13,7 @@
     <form [formGroup]="formGroup">
       <ion-list>
         <ion-item color="secondary">
-          <ion-label floating>Provincia</ion-label>
+          <ion-label floating>Província</ion-label>
           <ion-select name="provincia" (click)="onClickProvincia()" formControlName="provincia">
             <ion-option *ngFor="let provincia of provincias"  (ionSelect)="onSelectProvincias(provincia)">{{provincia['name']}}</ion-option>
           </ion-select>

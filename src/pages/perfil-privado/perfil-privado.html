@@ -2,7 +2,7 @@
 <ion-content no-padding no-margin>
 
 
-  <ion-grid no-margin no-padding style="background-color: #eee">
+  <ion-grid no-margin no-padding style="background-color: #eee" *ngIf="user">
     <ion-row align-items-center class="profile-details" >
       <ion-col col-lg-12 align-self-center text-center="" margin-top="">
         <ion-avatar>
@@ -28,20 +28,20 @@
               <ion-item>
                 <div>
                   <h2 >Telefone</h2>
-                  <p>+258 84 700 55 71</p>
+                  <p>{{user['telefone']}}</p>
                 </div>
                 <ion-icon name='create' item-end color="primary"></ion-icon>
               </ion-item>
 
               <ion-item>
                 <h2>Nome</h2>
-                <p>Herquiloide Hele</p>
+                <p>{{user['user']['nome']}}</p>
                 <ion-icon name='create' item-end color="primary"></ion-icon>
               </ion-item>
 
               <ion-item>
                 <h2 class="bold-text">Localização</h2>
-                <p>Inhamrrime, Inhambane</p>
+                <p>{{user['distrito']['designacao'] + ' - ' + user['distrito']['designacao']['provincia']}}</p>
                 <ion-icon name='create' item-end color="primary"></ion-icon>
               </ion-item>
             </ion-list>
@@ -55,14 +55,11 @@
       <ion-col col-lg-12>
         <ion-card>
           <ion-card-header>
-            <h3 style="font-size: 13pt; color: #61d295">Meus Produtos</h3>
+              <h3 style="font-size: 13pt; color: #61d295">Meus Produtos</h3>
           </ion-card-header>
           <ion-card-content text-center>
-            <button  ion-button round small color="primary">#Arroz</button>
-            <button ion-button round small color="primary">#Mandioca</button>
-            <button ion-button round small color="primary">#Ortaliça</button>
-            <button ion-button round small color="primary">#Laranja</button>
-
+            <button class="btn_produto" col-3  ion-button round small color="primary" *ngFor="let produto of user['produtos_produzidos']">#{{produto['designacao']}}</button>
+            <button col-3 clear  ion-button round small color="secondary"><ion-icon name="add"></ion-icon></button>
           </ion-card-content>
         </ion-card>
 
@@ -81,12 +78,12 @@
             <ion-list no-lines>
               <button ion-item >
                 Minhas Publicacoes
-                <ion-badge item-end>34</ion-badge>
+                <ion-badge item-end>{{user['ofertas'].length}}</ion-badge>
               </button>
 
               <button ion-item >
                 Imagens de Produtos
-                <ion-badge item-end>14</ion-badge>
+                <ion-badge item-end>{{getImagesCount()}}</ion-badge>
               </button>
             </ion-list>
           </ion-card-content>

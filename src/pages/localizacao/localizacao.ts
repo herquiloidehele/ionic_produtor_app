@@ -4,13 +4,6 @@ import {JsonProvider} from "../../providers/json/json";
 import {ShowEscolherProdutosPage} from "../show-escolher-produtos/show-escolher-produtos";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
-/**
- * Generated class for the LocalizacaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-localizacao',
@@ -26,6 +19,8 @@ export class LocalizacaoPage {
     distrito: {}
   };
 
+  protected user = {};
+
   protected  provincias = [];
   protected  distritos = [];
 
@@ -35,7 +30,9 @@ export class LocalizacaoPage {
     this.initializeValidators();
   }
 
-
+  ionViewDidLoad(){
+    this.user = this.navParams.get('user');
+  }
 
   protected getProvincias(){
     this.jsonProvider.getProvincias().subscribe(
@@ -67,9 +64,7 @@ export class LocalizacaoPage {
     );
   }
 
-
-
-  onSelectProvincias(provincia){
+  protected onSelectProvincias(provincia){
     this.localizacao.provincia = provincia;
 
     this.jsonProvider.getDistritos().subscribe(
@@ -91,38 +86,35 @@ export class LocalizacaoPage {
     )
   }
 
-  onSelectDistritos(distrito){
+  protected onSelectDistritos(distrito){
     this.localizacao.distrito = distrito;
-    console.log(this.localizacao);
   }
 
-  onClickProvincia(){
+  protected onClickProvincia(){
     this.start = 0;
   }
 
-  onNext(){
-    if(this.start > 0){
-      this.navCtrl.push(ShowEscolherProdutosPage, {localizacao: this.localizacao});
-    }
-    this.start += 1;
-  }
-
-
-
-  initializeValidators(){
+  protected initializeValidators(){
     this.formGroup = new FormGroup({
       provincia: new FormControl('', Validators.required),
       distrito: new FormControl('', Validators.required)
     });
   }
 
-  validarForm(){
+  protected validarForm(){
     if(this.start == 0)
       return this.formGroup.controls.provincia.valid;
     else
       return this.formGroup.controls.distrito.valid;
   }
 
+  protected onNext(){
+    if(this.start > 0){
+      this.user['distrito_id'] = this.localizacao['distrito']['id'];
+      this.navCtrl.push(ShowEscolherProdutosPage, {user: this.user});
+    }
+    this.start += 1;
+  }
 
 
 }

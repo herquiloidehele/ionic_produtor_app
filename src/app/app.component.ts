@@ -5,7 +5,8 @@ import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsita
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
 import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
-import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
+import {Storage} from "@ionic/storage";
+import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {StartPage} from "../pages/start/start";
 
 @Component({
@@ -13,19 +14,18 @@ import {StartPage} from "../pages/start/start";
 })
 export class MyApp {
 
-  user: any;
+
+  protected rootPage: any;
+  protected user: {};
+  public menu : any[];
 
   @ViewChild('content') ionNav;
 
 
-  public menu : any[];
-
-
-  rootPage: any;
-
   constructor(public platform: Platform,
               public alertController: AlertController,
               app: App,
+              public storageController: Storage
               ){
 
     platform.ready().then(() => {
@@ -37,6 +37,8 @@ export class MyApp {
 
     });
 
+    this.redirectUser();
+
     this.menu = [
       {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
       {icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
@@ -44,15 +46,37 @@ export class MyApp {
       {icon: 'person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
     ];
 
-     this.getPage();
-
-
   }
 
 
-   getPage() {
+  private redirectUser(){
+    this.storageController.get('user').then(
+      (response) => {
+        console.log({storage: response});
+
+        if(response){
+          this.user = response;
+          this.rootPage = PaginaPrincipalPage;
+        }else{
+          this.rootPage = StartPage;
+        }
+      }
+    ).catch((error) => {
+      console.log(error);
       this.rootPage = StartPage;
-   }
+    });
+  }
+
+  private async showErrorAlert(){
+    const alert = this.alertController.create({
+      'title': 'Erro',
+      'message': 'Não foi possivel carregar os dados do utilizador, Feche e volte a abrir a aplicação',
+      buttons: ['ok']
+    });
+
+    await alert.present();
+
+  }
 
 
 

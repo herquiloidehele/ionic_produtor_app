@@ -70,6 +70,8 @@ import {TestePage} from "../pages/teste/teste";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publicacao";
 import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
+import {IonicStorageModule} from "@ionic/storage";
+import { UserProvider } from '../providers/user/user';
 
 
 
@@ -126,6 +128,10 @@ import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
   imports: [
     BrowserModule,
       HttpClientModule,
+    IonicStorageModule.forRoot({
+      name: 'produtor_db',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -207,6 +213,7 @@ import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
     UrlapiProvider,
     InteresseProvider,
     JsonProvider,
+    UserProvider,
   ]
 
 })
