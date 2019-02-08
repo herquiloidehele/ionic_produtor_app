@@ -18,7 +18,7 @@ import {ProdutoresComponent} from "../components/produtores/produtores";
 import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores"
 import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/modulo-cadastrador/cadastros/Cadastros";
 import {RevendedoresComponent} from "../components/revendedores/revendedores";
-import {Camera} from "@ionic-native/camera";
+import {Camera} from "@ionic-native/camera/ngx";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
 import { AutenticacaoProvider } from '../providers/providers';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
@@ -72,7 +72,8 @@ import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publica
 import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
 import {IonicStorageModule} from "@ionic/storage";
 import { UserProvider } from '../providers/user/user';
-
+import {File} from "@ionic-native/file/ngx";
+import {WebView} from "@ionic-native/ionic-webview/ngx";
 
 
 @NgModule({
@@ -197,6 +198,8 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     SplashScreen,
     Camera,
+    File,
+    WebView,
     NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NetworkProvider,
@@ -213,7 +216,7 @@ import { UserProvider } from '../providers/user/user';
     UrlapiProvider,
     InteresseProvider,
     JsonProvider,
-    UserProvider,
+    UserProvider
   ]
 
 })

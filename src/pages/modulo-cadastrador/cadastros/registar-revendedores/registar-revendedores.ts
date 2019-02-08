@@ -17,7 +17,7 @@ import {Camera} from "@ionic-native/camera";
 export class RegistarRevendedoresPage {
   @ViewChild('fileInput') fileInput;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 
@@ -34,19 +34,19 @@ export class RegistarRevendedoresPage {
 
 
   getPicture() {
-    if (Camera['installed']()) {
-      this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth: 96,
-        targetHeight: 96
-      }).then((data) => {
-        // this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
-      }, (err) => {
-        alert('Unable to take photo');
-      })
-    } else {
-      this.fileInput.nativeElement.click();
-    }
+    // if (Camera['installed']()) {
+    //   this.camera.getPicture({
+    //     destinationType: this.camera.DestinationType.DATA_URL,
+    //     targetWidth: 96,
+    //     targetHeight: 96
+    //   }).then((data) => {
+    //     // this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
+    //   }, (err) => {
+    //     alert('Unable to take photo');
+    //   })
+    // } else {
+    //   this.fileInput.nativeElement.click();
+    // }
   }
 
 
