@@ -19,13 +19,13 @@
     <button (click)="goToRegistarOfertas()"  ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-  <div *ngIf="publicacoes.length == 0" class="loader">
+  <div *ngIf="!publicacoes" class="loader">
       <ion-spinner></ion-spinner>
   </div>
 
 
 
-  <div class="publicacoes" *ngIf="publicacoes.length != 0">
+  <div class="publicacoes" *ngIf="!publicacoes">
     <ion-card class="publicacao animated fadeIn" *ngFor="let publicacao of publicacoes" (click)="viewPublicacao(publicacao)">
       <div class="imagem">
         <img src="{{'http://localhost:8000/'+ publicacao['produto']['default_photo']}}"/>

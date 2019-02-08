@@ -40,6 +40,12 @@ export class OfertasProvider {
       });
   }
 
+  getOfertas(produtor_id): Observable<any>{
+    return this.http.get(this.urlProvider.getURL()+ 'ofertas/produtor/'+ produtor_id);
+  }
+
+
+
   getMinhasOfertas(provedores_id: any): Observable<any>{
     return this.http.get(this.urlProvider.getURL() + 'ofertas/minhas-ofertas/'+provedores_id, {headers: this.headers});
   }

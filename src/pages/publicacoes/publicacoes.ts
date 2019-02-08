@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
 import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -11,48 +12,53 @@ import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
 })
 export class PublicacoesPage {
 
- protected publicacoes = [];
+ protected publicacoes;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ofertasProvider: OfertasProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ofertasProvider: OfertasProvider,
+    public storageController: Storage
+    ) {
 
   }
 
   ionViewDidLoad(){
-    this.ofertasProvider.getAll().subscribe(
-      (response) => {
-        this.publicacoes = response['ofertas'];
-      }
-    );
-  }
-
-  onImageLoad(){
-  }
-
-  cutNomeProvincia(proviniva){
-    if(proviniva.length > 8)
-      return proviniva.substr(0, 5) + '...';
-    else
-      return proviniva;
+    this.getMinhasPublicacoes();
   }
 
 
-  onInput(event){
+  protected onInput(event){
     return this.publicacoes;
   }
 
-  onCancel(){
+  protected onCancel(){
     console.log('cancelado');
   }
 
 
-  goToRegistarOfertas(){
+  protected goToRegistarOfertas(){
     this.navCtrl.push(RegistarOpertasPage);
   }
 
-  viewPublicacao(publicacao){
+  protected viewPublicacao(publicacao){
     this.navCtrl.push(ViewPublicacaoPage, {publicacao: publicacao});
   }
+
+
+  protected async getMinhasPublicacoes(){
+    let produtor = await this.storageController.get('user');
+    alert(produtor['id']);
+    this.ofertasProvider.getOfertas(produtor['id']).subscribe((response)=> {
+      console.log(response);
+      this.publicacoes = response['ofertas'];
+    },
+      (error) => {
+      console.log(error);
+      })
+  }
+
 
 }
