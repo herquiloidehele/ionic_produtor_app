@@ -1,21 +1,14 @@
 import { Injectable } from '@angular/core';
+import {environment as ENV} from "../../environments/environment";
 
-/*
-  Generated class for the UrlapiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UrlapiProvider {
 
 
-  private url: String;
-  private urlSimple: String;
+  protected url = ENV.URL_API;
+  private urlSimple = ENV.SIMPLE_URL;
 
   constructor() {
-    this.url = 'http://127.0.0.1:8000/api/';
-    this.urlSimple = 'http://127.0.0.1:8000/';
   }
 
   public getURL(): String{
