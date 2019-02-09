@@ -60,7 +60,7 @@ export class MyApp {
           this.user = response;
           this.rootPage = PaginaPrincipalPage;
         }else{
-          this.rootPage = PaginaPrincipalPage;
+          this.rootPage = StartPage;
         }
       }
     ).catch((error) => {

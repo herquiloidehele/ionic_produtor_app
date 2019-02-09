@@ -117,20 +117,20 @@ export class RegistarOpertasPage{
     });
   }
 
-  protected async showUploadOptions(){
+  protected showUploadOptions(){
     const uploadOpetions = this.actionSheeController.create({
       title: 'Escolha Uma opcao',
       buttons: [
         {
           text: 'Usar a Camera',
-          icon: 'camera',
+          // icon: 'camera',
           handler: () => {
             this.tirarFoto(this.cameraProvider.PictureSourceType.CAMERA);
           }
         },
         {
           text: 'Escolher na Galeria',
-          icon: 'image',
+          // icon: 'image',
           handler: () => {
             this.tirarFoto(this.cameraProvider.PictureSourceType.PHOTOLIBRARY);
           }
@@ -142,7 +142,7 @@ export class RegistarOpertasPage{
       ]
     });
 
-    await uploadOpetions.present();
+    uploadOpetions.present();
   }
 
   protected tirarFoto(photoSource: PictureSourceType){
@@ -152,7 +152,6 @@ export class RegistarOpertasPage{
       sourceType: photoSource,
       saveToPhotoAlbum: false,
       correctOrientation: true,
-      mediaType: this.cameraProvider.MediaType.PICTURE
     };
 
     let loading = this.loadingController.create({content: 'Agurarde...'});
@@ -161,7 +160,7 @@ export class RegistarOpertasPage{
 
     this.cameraProvider.getPicture(OPTIONS).then((imagePath) => {
 
-      console.log({imagePath});
+      console.log({getPicture: imagePath});
       let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
       let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
       this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
