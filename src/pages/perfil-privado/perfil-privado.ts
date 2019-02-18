@@ -61,5 +61,38 @@ export class PerfilPrivadoPage {
     }
   }
 
+  protected mostrarAlert(){
+
+    if(this.user['user']['estado'] == 0){
+      const alert = this.alertController.create({
+        'title': 'Mensagem',
+        'message': 'A sua conta ainda nao está activa. \n Aguarde até que a sua conta seja activada',
+        buttons: ['ok']
+      });
+
+       alert.present();
+    }else{
+      const alert = this.alertController.create({
+        'title': 'Mensagem',
+        'message': 'Tem a certeza que deseja desactivar a conta?',
+        buttons: [{
+          text: 'Não',
+          handler: value => {
+            console.log(value);
+          }
+        },
+          {
+            text: 'SIM',
+            handler: value => {
+              console.log(value);
+            }
+          }
+        ]
+      });
+
+       alert.present();
+    }
+  }
+
 
 }
