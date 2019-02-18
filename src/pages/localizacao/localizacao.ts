@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {JsonProvider} from "../../providers/json/json";
-import {ShowEscolherProdutosPage} from "../show-escolher-produtos/show-escolher-produtos";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {EscolherProdutoPage} from "../escolher-produto/escolher-produto";
 
 @IonicPage()
 @Component({
@@ -111,7 +111,7 @@ export class LocalizacaoPage {
   protected onNext(){
     if(this.start > 0){
       this.user['distrito_id'] = this.localizacao['distrito']['id'];
-      this.navCtrl.push(ShowEscolherProdutosPage, {user: this.user});
+      this.navCtrl.push(EscolherProdutoPage, {user: this.user});
     }
     this.start += 1;
   }

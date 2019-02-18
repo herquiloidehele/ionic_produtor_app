@@ -56,7 +56,6 @@ import {UserInfoPage} from "../pages/user-info/user-info";
 import { JsonProvider } from '../providers/json/json';
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 import {StartPage} from "../pages/start/start";
-import {ShowEscolherProdutosPage} from "../pages/show-escolher-produtos/show-escolher-produtos";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
@@ -80,7 +79,6 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    ShowEscolherProdutosPage,
     EscolherProdutoPage,
     PaginaPrincipalPage,
     PublicacoesPage,
@@ -139,7 +137,6 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    ShowEscolherProdutosPage,
     EscolherProdutoPage,
     PaginaPrincipalPage,
     PublicacoesPage,

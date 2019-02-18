@@ -46,10 +46,10 @@ export class EscolherProdutoPage {
 
   protected getIMG(categoria){
     switch (categoria) {
-      case 'Frutas' : return '../../assets/icon/categorias/fruits1.svg';
-      case 'Legumes' : return '../../assets/icon/categorias/legumes1.svg';
-      case 'Verduras' : return '../../assets/icon/categorias/vegetables1.svg';
-      case 'Grãos e Cereais' : return '../../assets/icon/categorias/cereals1.svg';
+      case 'Frutas' : return '../../assets/icon/categorias/fruits3.svg';
+      case 'Legumes' : return '../../assets/icon/categorias/legumes2.svg';
+      case 'Verduras' : return '../../assets/icon/categorias/vegetables3.svg';
+      case 'Grãos e Cereais' : return '../../assets/icon/categorias/cereals2.svg';
       default: return '';
     }
 
