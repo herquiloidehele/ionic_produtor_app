@@ -18,7 +18,7 @@ import {ProdutoresComponent} from "../components/produtores/produtores";
 import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores"
 import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/modulo-cadastrador/cadastros/Cadastros";
 import {RevendedoresComponent} from "../components/revendedores/revendedores";
-import {Camera} from "@ionic-native/camera/ngx";
+import {Camera} from "@ionic-native/camera";
 import { AutenticacaoProvider } from '../providers/providers';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { CategoriasProvider } from '../providers/categorias/categorias';

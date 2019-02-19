@@ -13,7 +13,7 @@ import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medi
 import {PublicacoesPage} from "../publicacoes/publicacoes";
 import {PreviewPublicacaoPage} from "../preview-publicacao/preview-publicacao";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Camera, CameraOptions, PictureSourceType} from "@ionic-native/camera/ngx";
+import {Camera, CameraOptions, PictureSourceType} from "@ionic-native/camera";
 import {Storage} from "@ionic/storage";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
@@ -152,23 +152,28 @@ export class RegistarOpertasPage{
       sourceType: photoSource,
       saveToPhotoAlbum: false,
       correctOrientation: true,
+      destinationType: this.cameraProvider.DestinationType.FILE_URI,
+      encodingType: this.cameraProvider.EncodingType.JPEG
     };
 
-    let loading = this.loadingController.create({content: 'Agurarde...'});
-
-    loading.present();
+    // let loading = this.loadingController.create({content: 'Agurarde...'});
+    //
+    // loading.present();
 
     this.cameraProvider.getPicture(OPTIONS).then((imagePath) => {
 
       console.log({getPicture: imagePath});
-      let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-      let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-      this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
 
-        loading.dismiss();
+      let image = 'data:image/jpeg;base64,' + imagePath;
+      console.log(image);
+      // let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+      // let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+      // this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
+
+        // loading.dismiss();
     }).catch((error) => {
       console.log({tirarFoto :error});
-      loading.dismiss();
+      // loading.dismiss();
     });
 
 
