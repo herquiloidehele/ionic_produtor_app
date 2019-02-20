@@ -15,7 +15,7 @@
     <ion-item class="session-images-upload" *ngIf="false">
       <ion-grid class="img-uploads">
         <ion-row>
-          <img col-4  *ngFor="let imagem of imagens" alt="imagem-adicionada"  width="60" height="65" [src]="imagem" />
+          <img col-4  *ngFor="let imagem of imagens" alt="imagem-adicionada"  width="60" height="65" [src]="imagem.caminhoFicheiro" />
         </ion-row>
       </ion-grid>
     </ion-item>

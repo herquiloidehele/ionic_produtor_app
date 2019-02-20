@@ -148,32 +148,28 @@ export class RegistarOpertasPage{
   protected tirarFoto(photoSource: PictureSourceType){
 
     const OPTIONS: CameraOptions = {
-      quality: 70,
+      quality: 100,
       sourceType: photoSource,
       saveToPhotoAlbum: false,
       correctOrientation: true,
-      destinationType: this.cameraProvider.DestinationType.FILE_URI,
-      encodingType: this.cameraProvider.EncodingType.JPEG
     };
 
-    // let loading = this.loadingController.create({content: 'Agurarde...'});
-    //
-    // loading.present();
+    let loading = this.loadingController.create({content: 'Agurarde...'});
+
+    loading.present();
 
     this.cameraProvider.getPicture(OPTIONS).then((imagePath) => {
 
       console.log({getPicture: imagePath});
 
-      let image = 'data:image/jpeg;base64,' + imagePath;
-      console.log(image);
-      // let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-      // let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
-      // this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
+      let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+      let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+      this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
 
-        // loading.dismiss();
+        loading.dismiss();
     }).catch((error) => {
-      console.log({tirarFoto :error});
-      // loading.dismiss();
+      console.log({tirarFotoError :error});
+      loading.dismiss();
     });
 
 
