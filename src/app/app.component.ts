@@ -37,9 +37,9 @@ export class MyApp {
 
     });
 
-    this.redirectUser();
+    // this.redirectUser();
 
-    // this.rootPage = RegistarOpertasPage;
+    this.rootPage = RegistarOpertasPage;
 
     this.menu = [
       {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},

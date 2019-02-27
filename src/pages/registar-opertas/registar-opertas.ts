@@ -60,11 +60,11 @@ export class RegistarOpertasPage{
     public file: File,
     public webviewProvider: WebView,
     public toastController: ToastController,
-    public ref: ChangeDetectorRef
-  ) {
+    public ref: ChangeDetectorRef) {
     this.getAllProdutos();
     this.getUnidadesMedidas();
     this.initializeValidator();
+
   }
 
 
@@ -117,22 +117,40 @@ export class RegistarOpertasPage{
     });
   }
 
+  private presentToast(message){
+    const toast = this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  private presentAltert(title, message){
+    const alert = this.alertController.create({
+      title: title,
+      message: message,
+      buttons: ['ok']
+    });
+
+    alert.present();
+  }
+
   protected showUploadOptions(){
     const uploadOpetions = this.actionSheeController.create({
       title: 'Escolha Uma opcao',
       buttons: [
         {
           text: 'Usar a Camera',
-          // icon: 'camera',
+          icon: 'camera',
           handler: () => {
-            this.tirarFoto(this.cameraProvider.PictureSourceType.CAMERA);
+            this.tirarFoto();
           }
         },
         {
           text: 'Escolher na Galeria',
-          // icon: 'image',
+          icon: 'image',
           handler: () => {
-            this.tirarFoto(this.cameraProvider.PictureSourceType.PHOTOLIBRARY);
+            this.selectOnGalery();
           }
         },
         {
@@ -145,28 +163,31 @@ export class RegistarOpertasPage{
     uploadOpetions.present();
   }
 
-  protected tirarFoto(photoSource: PictureSourceType){
+  protected tirarFoto(){
 
     const OPTIONS: CameraOptions = {
       quality: 100,
-      sourceType: photoSource,
+      sourceType: this.cameraProvider.PictureSourceType.CAMERA,
       saveToPhotoAlbum: false,
       correctOrientation: true,
+      destinationType: this.cameraProvider.DestinationType.FILE_URI
     };
 
     let loading = this.loadingController.create({content: 'Agurarde...'});
 
     loading.present();
 
-    this.cameraProvider.getPicture(OPTIONS).then((imagePath) => {
+    this.cameraProvider.getPicture(OPTIONS)
+      .then((imagePath) => {
 
       console.log({getPicture: imagePath});
 
       let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
       let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+      console.log({getPicture: currentPath});
       this.copyFileToLocalDir(currentPath, currentName, this.file.dataDirectory, this.createNameFile());
 
-        loading.dismiss();
+      loading.dismiss();
     }).catch((error) => {
       console.log({tirarFotoError :error});
       loading.dismiss();
@@ -175,16 +196,64 @@ export class RegistarOpertasPage{
 
   }
 
+  /**
+  /** protected selectOnGalery(){
+  //
+  //   this.imagePicker.hasReadPermission().then((response) => {
+  //     console.log({pession: response});
+  //     this.getImagesFromGalery();
+  //   }).catch((error) => {
+  //     this.imagePicker.requestReadPermission().then((response) =>{
+  //       console.log({acceptedPermission: response});
+  //       this.getImagesFromGalery();
+  //     }).catch((error) => {
+  //       console.log(error);
+  //       console.log("Permissao negada");
+  //     })
+  //   });
+  //
+  // }
+  */
+
+  protected selectOnGalery(){
+    const OPTIONS: CameraOptions = {
+      quality: 70,
+      sourceType: this.cameraProvider.PictureSourceType.PHOTOLIBRARY,
+      saveToPhotoAlbum: false,
+      correctOrientation: true,
+      destinationType: this.cameraProvider.DestinationType.DATA_URL
+    };
+
+    let loading = this.loadingController.create({content: 'Agurarde...'});
+
+    loading.present();
+
+    this.cameraProvider.getPicture(OPTIONS)
+      .then((imagePath) => {
+
+        console.log({getPicture: imagePath});
+        const img = 'data:image/jpeg;base64,' + imagePath;
+
+        this.imagens.push(img);
+
+
+        loading.dismiss();
+      }).catch((error) => {
+      console.log({tirarFotoError :error});
+      loading.dismiss();
+    });
+
+  }
+
   private copyFileToLocalDir(namePath, currentName, newFilePah, newFileName){
     this.file.copyFile(namePath, currentName, newFileName, newFilePah).then(
       (response) => {
         console.log("Foto Carregada");
         this.updateStorageImags(newFileName);
-      },
-      (error) => {
-        console.log(error);
       }
-    );
+    ).catch((error) => {
+      console.log(error);
+    });
   }
 
   public updateStorageImags(imagem){
@@ -200,9 +269,8 @@ export class RegistarOpertasPage{
         console.log({imagemAdicionada});
       }
 
-
       let filePath = this.file.dataDirectory + imagem;
-      let resPath = this.getPathForImage(imagem);
+      let resPath = this.pathForImage(imagem);
 
 
       let novaImagemObject = {
@@ -216,6 +284,19 @@ export class RegistarOpertasPage{
 
 
     });
+  }
+
+  protected pathForImage(imagem){
+    if(imagem == null){
+      return '';
+    }else{
+      return this.webviewProvider.convertFileSrc(imagem);
+    }
+  }
+
+  private createNameFile(): String{
+    let d = new Date(),  n = d.getTime();
+    return  (n + '.jpg');
   }
 
   public deleteStorageImages(imagem, posicao){
@@ -238,38 +319,6 @@ export class RegistarOpertasPage{
 
     });
 
-  }
-
-  protected getPathForImage(imagem){
-    if(imagem == null){
-      return '';
-    }else{
-      let convertedImg = this.webviewProvider.convertFileSrc(imagem);
-      return convertedImg;
-    }
-  }
-
-  private presentToast(message){
-    const toast = this.toastController.create({
-      message: message,
-      duration: 2000
-    });
-    toast.present();
-  }
-
-  private presentAltert(title, message){
-    const alert = this.alertController.create({
-      title: title,
-      message: message,
-      buttons: ['ok']
-    });
-
-    alert.present();
-  }
-
-  private createNameFile(): String{
-    var d = new Date(),  n = d.getTime(), newFileName = n + '.jpg';
-    return newFileName;
   }
 
 }

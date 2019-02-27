@@ -12,18 +12,24 @@
 
   <form [formGroup]="formGroup">
 
-    <ion-item class="session-images-upload" *ngIf="false">
+    <ion-item class="session-images-upload" *ngIf="imagens.length > 0">
       <ion-grid class="img-uploads">
         <ion-row>
-          <img col-4  *ngFor="let imagem of imagens" alt="imagem-adicionada"  width="60" height="65" [src]="imagem.caminhoFicheiro" />
+          <div col-4  *ngFor="let imagem of imagens">
+            <img  alt="imagem-adicionada"  width="60" height="65" [src]="imagem" />
+            <button ion-button clear color="danger"><ion-icon name="close"></ion-icon></button>
+          </div>
+
+          <button *ngIf="imagens.length <= 4" style="margin: auto" block small outline col-3 ion-button  color="secondary" (click)="showUploadOptions()"><ion-icon name="add"></ion-icon></button>
         </ion-row>
+
       </ion-grid>
     </ion-item>
 
-    <ion-item class="imagens-session" *ngIf="true" (click)="showUploadOptions()">
+    <ion-item class="imagens-session" *ngIf="imagens.length == 0" (click)="showUploadOptions()">
         <div class="img-icon">
             <img alt="img-camera-adicionar" src="../../assets/icon/images.png"/>
-          <h3 text-center>Adicionar Imagens</h3>
+          <h3 text-center>Adicionar Imagens (Max. 5)</h3>
         </div>
     </ion-item>
 
