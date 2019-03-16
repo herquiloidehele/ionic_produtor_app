@@ -255,7 +255,7 @@ export class RegistarProdutosDisponibilizadosPage {
   salvarOferta(){
 
     let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
-    this.ofertasProvider.salvarOferta(this.oferta, produtor_id).subscribe(
+    this.ofertasProvider.salvarOferta(this.oferta).subscribe(
       (response) => {
         console.log(response);
         this.navCtrl.pop();

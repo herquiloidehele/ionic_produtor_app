@@ -145,7 +145,7 @@ export class MostrarParcementoPage {
 
     let produtor_id = JSON.parse(localStorage.getItem('user'))['id'];
     console.log(this.oferta);
-    this.ofertaProvider.salvarOferta(this.oferta, produtor_id).subscribe(
+    this.ofertaProvider.salvarOferta(this.oferta).subscribe(
       (response) => {
         console.log(response);
         this.salvarOfertaParcelada(response['oferta']['id']);

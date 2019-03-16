@@ -49,14 +49,17 @@ export class PublicacoesPage {
 
 
   protected async getMinhasPublicacoes(){
-    let produtor = await this.storageController.get('user');
-    this.ofertasProvider.getOfertas(produtor['id']).subscribe((response)=> {
-      console.log(response);
-      this.publicacoes = response['ofertas'];
-    },
-      (error) => {
+    this.storageController.get('user').then((user) => {
+      this.ofertasProvider.getOfertas(user['id']).subscribe((response)=> {
+          console.log(response);
+          this.publicacoes = response['ofertas'];
+        },
+        (error) => {
+          console.log(error);
+        });
+    }).catch((error) => {
       console.log(error);
-      })
+    });
   }
 
 

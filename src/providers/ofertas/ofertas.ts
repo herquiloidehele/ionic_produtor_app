@@ -41,9 +41,8 @@ export class OfertasProvider {
   }
 
   getOfertas(produtor_id): Observable<any>{
-    return this.http.get(this.urlProvider.getURL()+ 'ofertas/produtor/'+ produtor_id);
+    return this.http.get(this.urlProvider.getURL()+ 'ofertas/produtores/'+ produtor_id);
   }
-
 
 
   getMinhasOfertas(provedores_id: any): Observable<any>{
@@ -51,8 +50,8 @@ export class OfertasProvider {
   }
 
 
-  salvarOferta(oferta: any, produtor){
-    return this.http.post(this.urlProvider.getURL() +'ofertas', {oferta: oferta, produtor_id: produtor }, {headers: this.headers});
+  salvarOferta(oferta: any){
+    return this.http.post(this.urlProvider.getURL() +'ofertas', {oferta: oferta}, {headers: this.headers});
   }
 
 

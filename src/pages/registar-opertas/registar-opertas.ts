@@ -35,15 +35,15 @@ export class RegistarOpertasPage{
   protected user: any;
 
   protected publicacao = {
-    designacao: null,
-    descricao: null,
-    preco: null,
-    quantidade: null,
-    unidades_medidas_id: null,
+    designacao: 'Sacos de Mangas Frescas',
+    descricao: 'Compre ja',
+    preco: 100,
+    quantidade: 20,
+    unidades_medidas_id: 1,
     produtos_id: '',
     distritos_id: null,
-
-
+    imagens: [],
+    produtores_id: ''
   };
 
   constructor(
@@ -67,7 +67,6 @@ export class RegistarOpertasPage{
     this.getUser();
 
     this.imagens = [
-      // "assets/imgs/logo.png",
       // "assets/imgs/logo.png",
       // "assets/imgs/farmer.jpeg",
     ];
@@ -99,6 +98,8 @@ export class RegistarOpertasPage{
   protected getUser(){
     this.storageCntroller.get('user').then((user) => {
       this.user = user;
+      this.publicacao.distritos_id = this.user.distrito;
+      this.publicacao.produtores_id = this.user.id;
       this.getAllProdutos();
     }).catch((error) => {
       console.log(error);
@@ -272,10 +273,6 @@ export class RegistarOpertasPage{
 
     alert.present();
   }
-
-
-
-
 
   private copyFileToLocalDir(namePath, currentName, newFilePah, newFileName){
     this.file.copyFile(namePath, currentName, newFileName, newFilePah).then(
