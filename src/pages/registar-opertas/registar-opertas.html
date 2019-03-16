@@ -35,28 +35,28 @@
 
     <ion-row>
       <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+        <ion-icon color="{{publicacao.produtos_id ? 'secondary' : ''}}" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
       <ion-item col-11 (click)="openProdutosSelect()">
         <ion-label floating="">Produto</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" formControlName="produto_id" name="produtos_id"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" formControlName="produto_id" name="produtos_id" #produtos_id></ion-input>
       </ion-item>
     </ion-row>
 
     <ion-row>
       <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+        <ion-icon color="{{(formGroup.get('quantidade').valid && formGroup.get('unidade_medida_id').valid) ? 'secondary' : ''}}" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
       <ion-item col-6>
         <ion-label floating="">Quantidade</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade" #quantidade></ion-input>
       </ion-item>
 
       <ion-item col-5>
         <ion-label floating="">Unidade</ion-label>
-        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id">
+        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id" #unidadeMedida>
           <ion-option *ngFor="let unidade of unidadesMedida">{{unidade['designacao']}}</ion-option>
         </ion-select>
       </ion-item>
@@ -64,7 +64,7 @@
 
     <ion-row>
       <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+        <ion-icon [color]="formGroup.get('preco').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
       <ion-item col-11>
@@ -75,7 +75,7 @@
 
     <ion-row>
       <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+        <ion-icon [color]="formGroup.get('descricao').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
       <ion-item col-11>
@@ -86,7 +86,7 @@
 
     <ion-row>
       <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+        <ion-icon [color]="formGroup.get('titulo').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
       <ion-item col-11>

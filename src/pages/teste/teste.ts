@@ -25,11 +25,11 @@ export class TestePage {
   }
 
   getAllProdutos(){
-    this.produtosProvider.getAll().subscribe(
-      response => {
-        this.produtos = response['produtos'];
-      }
-    );
+    // this.produtosProvider.getAll().subscribe(
+    //   response => {
+    //     this.produtos = response['produtos'];
+    //   }
+    // );
   }
 
   getProdutoSelecionado(produto){

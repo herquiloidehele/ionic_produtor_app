@@ -57,19 +57,19 @@ export class MeusProdutosPage {
 
 
   getAllProdutos(){
-    this.produtosProvider.getAll().subscribe(
-      (response) => {
-        console.log(response['produtos']);
-        this.produtos =  response['produtos'];
-      },
-      (erros) => {
-        console.log(erros);
-      },
-      () => {
-        this.getMeusProdutos();
-      }
-
-    );
+    // this.produtosProvider.getAll().subscribe(
+    //   (response) => {
+    //     console.log(response['produtos']);
+    //     this.produtos =  response['produtos'];
+    //   },
+    //   (erros) => {
+    //     console.log(erros);
+    //   },
+    //   () => {
+    //     this.getMeusProdutos();
+    //   }
+    //
+    // );
   }
 
 

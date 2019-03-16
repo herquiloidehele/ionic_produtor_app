@@ -137,16 +137,16 @@ export class RegistarOpertasPage{
 
   protected initializeValidator(){
     this.formGroup = new FormGroup({
-      titulo: new FormControl('', [Validators.minLength(5), Validators.maxLength(25)]),
+      titulo: new FormControl('', [Validators.minLength(0), Validators.maxLength(25)]),
       preco: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       quantidade: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       unidade_medida_id: new FormControl('', [Validators.required]),
       produto_id: new FormControl('', [Validators.required]),
-      descricao: new FormControl('', [Validators.minLength(0), Validators.maxLength(150)]),
+      descricao: new FormControl('', [Validators.minLength(5), Validators.maxLength(150), Validators.required]),
     });
   }
 
-  private presentToast(message){
+  protected presentToast(message){
     const toast = this.toastController.create({
       message: message,
       duration: 2000
@@ -154,7 +154,7 @@ export class RegistarOpertasPage{
     toast.present();
   }
 
-  private presentAltert(title, message){
+  protected presentAltert(title, message){
     const alert = this.alertController.create({
       title: title,
       message: message,

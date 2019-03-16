@@ -69,18 +69,18 @@ export class RegistarProdutosDisponibilizadosPage {
 
   getProdutos() {
     alert("busca");
-    this.storage.get('user').then((user) => {
-      this.produtodProvider.getAll(user.produtos_produzidos).subscribe(
-        (response) => {
-          this.produtos = response['produtos'];
-        },
-        (erros) => {
-          console.log(erros);
-        }
-      );
-    }).catch((error) => {
-      console.log("Falha ao pegar os dados");
-    });
+    // this.storage.get('user').then((user) => {
+    //   this.produtodProvider.getAll(user.produtos_produzidos).subscribe(
+    //     (response) => {
+    //       this.produtos = response['produtos'];
+    //     },
+    //     (erros) => {
+    //       console.log(erros);
+    //     }
+    //   );
+    // }).catch((error) => {
+    //   console.log("Falha ao pegar os dados");
+    // });
   }
 
 
