@@ -6,19 +6,51 @@
 
 </ion-header>
 
-<ion-content padding>
-  <ion-list no-lines padding>
-    <ion-grid>
-      <ion-row *ngFor="let produto of produtos" (click)="selecionarProduto(produto)">
-        <ion-item col-4>
-          <img alt="img_produto" src="{{urlProvider.getSimpleURL()+produto['default_photo']}}"/>
-        </ion-item>
+<ion-content style="background: #d5d5d5">
 
-        <div col-8>
-          <p>{{produto['designacao']}}</p>
-        </div>
 
-      </ion-row>
-    </ion-grid>
+  <ion-list  padding style="padding-bottom: 0">
+    <ion-item-divider color="secondary">
+      Meus Produtos
+    </ion-item-divider>
+
+    <div *ngFor="let produto of produtos;  let indice = index" (click)="selecionarProduto(produto)">
+      <ion-item *ngIf="indice < produtosProduzidos">
+        <ion-row>
+          <div col-4>
+            <img  alt="img_produto" width="70" height="70" src="{{urlProvider.getSimpleURL()+produto['default_photo']}}"/>
+          </div>
+
+          <div col-8>
+            <span>{{produto['designacao']}}</span>
+            <p>{{produto['categoria']['designacao']}}</p>
+          </div>
+
+        </ion-row>
+
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-list  padding style="padding-top: 0">
+    <ion-item-divider color="secondary">
+      Outros Produtos
+    </ion-item-divider>
+    <div *ngFor="let produto of produtos;  let indice = index" (click)="selecionarProduto(produto)">
+      <ion-item *ngIf="indice >= produtosProduzidos">
+        <ion-row>
+          <div col-4>
+            <img  alt="img_produto" width="70" height="70" src="{{urlProvider.getSimpleURL()+produto['default_photo']}}"/>
+          </div>
+
+          <div col-8>
+            <span>{{produto['designacao']}}</span>
+            <p>{{produto['categoria']['designacao']}}</p>
+          </div>
+
+        </ion-row>
+
+      </ion-item>
+    </div>
   </ion-list>
 </ion-content>

@@ -13,7 +13,7 @@ import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medi
 import {PublicacoesPage} from "../publicacoes/publicacoes";
 import {PreviewPublicacaoPage} from "../preview-publicacao/preview-publicacao";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Camera, CameraOptions, PictureSourceType} from "@ionic-native/camera";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Storage} from "@ionic/storage";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
@@ -32,6 +32,7 @@ export class RegistarOpertasPage{
   protected unidadesMedida = [];
   protected formGroup: FormGroup;
   protected imagens = [];
+  protected user: any;
 
   protected publicacao = {
     designacao: null,
@@ -61,19 +62,47 @@ export class RegistarOpertasPage{
     public webviewProvider: WebView,
     public toastController: ToastController,
     public ref: ChangeDetectorRef) {
-    this.getAllProdutos();
     this.getUnidadesMedidas();
     this.initializeValidator();
+    this.getUser();
 
+    this.imagens = [
+      // "assets/imgs/logo.png",
+      // "assets/imgs/logo.png",
+      // "assets/imgs/farmer.jpeg",
+    ];
+  }
+
+  ionViewDidLoad(){
+    this.getAllProdutos();
   }
 
 
+
   protected getAllProdutos(){
-    this.produtosProvider.getAll().subscribe(
-      response => {
-        this.produtos = response['produtos'];
-      }
-    );
+
+    this.storageCntroller.get('user').then((user) => {
+      this.produtosProvider.getAllProdutos(user.produtos_produzidos).subscribe(
+        (response) => {
+          this.produtos = response['produtos'];
+          // console.log((this.produtos));
+        },
+        (erros) => {
+          console.log(erros);
+        }
+      );
+    }).catch((error) => {
+      console.log("Falha ao pegar os dados");
+    });
+  }
+
+  protected getUser(){
+    this.storageCntroller.get('user').then((user) => {
+      this.user = user;
+      this.getAllProdutos();
+    }).catch((error) => {
+      console.log(error);
+    })
   }
 
   protected getUnidadesMedidas(){
@@ -87,7 +116,7 @@ export class RegistarOpertasPage{
   }
 
   protected openProdutosSelect(){
-    let modalControler = this.modalCtr.create(ProdutosListPage, {produtos: this.produtos});
+    let modalControler = this.modalCtr.create(ProdutosListPage, {produtos: this.produtos, produtos_produzidos: this.user.produtos_produzidos.length});
     modalControler.present();
 
     modalControler.onDidDismiss((produto) => {
@@ -196,25 +225,6 @@ export class RegistarOpertasPage{
 
   }
 
-  /**
-  /** protected selectOnGalery(){
-  //
-  //   this.imagePicker.hasReadPermission().then((response) => {
-  //     console.log({pession: response});
-  //     this.getImagesFromGalery();
-  //   }).catch((error) => {
-  //     this.imagePicker.requestReadPermission().then((response) =>{
-  //       console.log({acceptedPermission: response});
-  //       this.getImagesFromGalery();
-  //     }).catch((error) => {
-  //       console.log(error);
-  //       console.log("Permissao negada");
-  //     })
-  //   });
-  //
-  // }
-  */
-
   protected selectOnGalery(){
     const OPTIONS: CameraOptions = {
       quality: 70,
@@ -228,8 +238,7 @@ export class RegistarOpertasPage{
 
     loading.present();
 
-    this.cameraProvider.getPicture(OPTIONS)
-      .then((imagePath) => {
+    this.cameraProvider.getPicture(OPTIONS).then((imagePath) => {
 
         console.log({getPicture: imagePath});
         const img = 'data:image/jpeg;base64,' + imagePath;
@@ -244,6 +253,29 @@ export class RegistarOpertasPage{
     });
 
   }
+
+  protected deleteImage(imagem){
+    const alert = this.alertController.create({
+      title: "Remover Imagem",
+      buttons: [
+        {
+          text: "NÃo",
+        },
+        {
+          text: "SIM",
+          handler: () => {
+            this.imagens.splice(this.imagens.indexOf(imagem), 1);
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
+
+
+
 
   private copyFileToLocalDir(namePath, currentName, newFilePah, newFileName){
     this.file.copyFile(namePath, currentName, newFileName, newFilePah).then(

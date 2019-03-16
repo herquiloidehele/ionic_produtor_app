@@ -18,10 +18,14 @@ export class ProdutosListPage {
 
 
   protected produtos = [];
+  protected produtosProduzidos;
 
   constructor(public viewCtr: ViewController, public navParams: NavParams, public urlProvider: UrlapiProvider) {
     this.produtos = this.navParams.get('produtos');
+    this.produtosProduzidos = this.navParams.get('produtos_produzidos');
   }
+
+
 
 
 

@@ -14,10 +14,9 @@
 
     <ion-item class="session-images-upload" *ngIf="imagens.length > 0">
       <ion-grid class="img-uploads">
-        <ion-row>
-          <div col-4  *ngFor="let imagem of imagens">
-            <img  alt="imagem-adicionada"  width="60" height="65" [src]="imagem" />
-            <button ion-button clear color="danger"><ion-icon name="close"></ion-icon></button>
+        <ion-row class="image-row">
+          <div col-4  *ngFor="let imagem of imagens" class="imagem">
+            <img  alt="imagem-adicionada"  width="65" height="65" [src]="imagem" (click)="deleteImage(imagem)" />
           </div>
 
           <button *ngIf="imagens.length <= 4" style="margin: auto" block small outline col-3 ion-button  color="secondary" (click)="showUploadOptions()"><ion-icon name="add"></ion-icon></button>
@@ -33,25 +32,15 @@
         </div>
     </ion-item>
 
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
-      </ion-col>
-
-      <ion-item col-11>
-        <ion-label floating="">Titulo da Publicação</ion-label>
-        <ion-input [(ngModel)]="publicacao.designacao" formControlName="titulo" name="designacao" type="text"></ion-input>
-      </ion-item>
-    </ion-row>
 
     <ion-row>
       <ion-col col-1>
         <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
-      <ion-item col-11>
+      <ion-item col-11 (click)="openProdutosSelect()">
         <ion-label floating="">Produto</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" formControlName="produto_id" name="produtos_id" (click)="openProdutosSelect()"></ion-input>
+        <ion-input type="text" [(ngModel)]="publicacao.produtos_id['designacao']" formControlName="produto_id" name="produtos_id"></ion-input>
       </ion-item>
     </ion-row>
 
@@ -90,10 +79,22 @@
       </ion-col>
 
       <ion-item col-11>
-        <ion-label floating>Descrição</ion-label>
+        <ion-label floating>Descrição </ion-label>
         <ion-textarea [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>
       </ion-item>
     </ion-row>
+
+    <ion-row>
+      <ion-col col-1>
+        <ion-icon class="icon-input" name="checkmark-circle"></ion-icon>
+      </ion-col>
+
+      <ion-item col-11>
+        <ion-label floating="">Titulo da Publicação (Opcional)</ion-label>
+        <ion-input [(ngModel)]="publicacao.designacao" formControlName="titulo" name="designacao" type="text"></ion-input>
+      </ion-item>
+    </ion-row>
+
 
     <ion-row>
       <button ion-button clear color="primary" [disabled]="!formGroup.valid" full fill="outline" (click)="preview()">Pré-Visualizar</button>

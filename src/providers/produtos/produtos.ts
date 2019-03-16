@@ -1,4 +1,4 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {UrlapiProvider} from "../urlapi/urlapi";
 import 'rxjs/add/operator/retry'
@@ -20,8 +20,12 @@ export class ProdutosProvider {
   }
 
 
+  getAllProdutos(meus_produtos){
+    return this.http.get(this.urlProvider.getURL() +'produtos?', {params: (new HttpParams()).set('produtos', JSON.stringify(meus_produtos))});
+  }
+
   getAll(){
-    return this.http.get(this.urlProvider.getURL() +'produtos', {headers: this.header});
+    return this.http.get(this.urlProvider.getURL() +'produtos');
   }
 
   salvar(produto){

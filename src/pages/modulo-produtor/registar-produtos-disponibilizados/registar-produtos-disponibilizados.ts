@@ -4,6 +4,7 @@ import {ProdutosProvider} from "../../../providers/produtos/produtos";
 import {UnidadeMedidaProvider} from "../../../providers/unidade-medida/unidade-medida";
 import {OfertasProvider} from "../../../providers/ofertas/ofertas";
 import {MostrarParcementoPage} from "../mostrar-parcemento/mostrar-parcemento";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the RegistarProdutosDisponibilizadosPage page.
@@ -51,27 +52,35 @@ export class RegistarProdutosDisponibilizadosPage {
 
   public constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public storage: Storage,
               public alertController: AlertController,
               public produtodProvider: ProdutosProvider,
               public uniadesMedidasProvider: UnidadeMedidaProvider,
               public ofertasProvider: OfertasProvider) {
 
     this.escolher_preco = 'total';
-    this.getProdutos();
     this.getUnidadesMedidas();
   }
 
+  ionViewDidLoad(){
+    this.getProdutos();
+  }
 
 
   getProdutos() {
-    this.produtodProvider.getAll().subscribe(
-      (response) => {
-        this.produtos = response['produtos'];
-      },
-      (erros) => {
-        console.log(erros);
-      }
-    );
+    alert("busca");
+    this.storage.get('user').then((user) => {
+      this.produtodProvider.getAll(user.produtos_produzidos).subscribe(
+        (response) => {
+          this.produtos = response['produtos'];
+        },
+        (erros) => {
+          console.log(erros);
+        }
+      );
+    }).catch((error) => {
+      console.log("Falha ao pegar os dados");
+    });
   }
 
 
