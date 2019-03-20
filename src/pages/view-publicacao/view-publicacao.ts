@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ViewPublicacaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-view-publicacao',
@@ -15,11 +8,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ViewPublicacaoPage {
 
+
+  protected publicacao;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewPublicacaoPage');
+    this.publicacao = this.navParams.get('publicacao');
   }
 
 }

@@ -177,7 +177,7 @@ var RegistarMercadosPage = /** @class */ (function () {
             console.log(erros);
         }, function () {
             _this.inicializarMapa();
-            console.log('Busaca de mercados end.');
+            console.log('Busaca de mercado end.');
         });
     };
     RegistarMercadosPage.prototype.rendenrizarMercados = function () {
@@ -197,7 +197,7 @@ var RegistarMercadosPage = /** @class */ (function () {
     RegistarMercadosPage = __decorate([
         IonicPage(),
         Component({
-            selector: 'page-registar-mercados',
+            selector: 'page-registar-mercado',
             templateUrl: 'registar-mercados.html',
         }),
         __metadata("design:paramtypes", [NavController,
@@ -208,4 +208,4 @@ var RegistarMercadosPage = /** @class */ (function () {
     return RegistarMercadosPage;
 }());
 export { RegistarMercadosPage };
-//# sourceMappingURL=registar-mercados.js.map
+//# sourceMappingURL=registar-mercado.js.map

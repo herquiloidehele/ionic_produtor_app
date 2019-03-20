@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PerfilPrivadoPage} from "../perfil-privado/perfil-privado";
 import {PublicacoesPage} from "../publicacoes/publicacoes";
+import {MercadoPage} from "../mercado/mercado";
 
 /**
  * Generated class for the PaginaPrincipalPage page.
@@ -18,8 +19,8 @@ import {PublicacoesPage} from "../publicacoes/publicacoes";
 export class PaginaPrincipalPage {
 
   protected tab1 = PerfilPrivadoPage;
-  protected tab2 = PerfilPrivadoPage;
-  protected tab3 = PublicacoesPage;
+  protected tab2 = PublicacoesPage;
+  protected tab3 = MercadoPage;
   protected tab4 = PerfilPrivadoPage;
   protected tabIndex = 1;
   // protected hideTabs = false;

@@ -47,7 +47,7 @@ var MercadosPage = /** @class */ (function () {
     MercadosPage = __decorate([
         IonicPage(),
         Component({
-            selector: 'page-mercados',
+            selector: 'page-mercado',
             templateUrl: 'mercados.html',
             entryComponents: [RegistarMercadosPage]
         }),
@@ -56,4 +56,4 @@ var MercadosPage = /** @class */ (function () {
     return MercadosPage;
 }());
 export { MercadosPage };
-//# sourceMappingURL=mercados.js.map
+//# sourceMappingURL=mercado.js.map

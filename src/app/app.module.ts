@@ -70,6 +70,7 @@ import {IonicStorageModule} from "@ionic/storage";
 import { UserProvider } from '../providers/user/user';
 import {File} from "@ionic-native/file/ngx";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
+import {MercadoPageModule} from "../pages/mercado/mercado.module";
 
 
 @NgModule({
@@ -131,6 +132,8 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: true,
     }),
+
+    MercadoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -23,4 +23,4 @@ var RegistarMercadosPageModule = /** @class */ (function () {
     return RegistarMercadosPageModule;
 }());
 export { RegistarMercadosPageModule };
-//# sourceMappingURL=registar-mercados.module.js.map
+//# sourceMappingURL=registar-mercado.module.js.map

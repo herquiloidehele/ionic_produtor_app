@@ -23,4 +23,4 @@ var MercadosPageModule = /** @class */ (function () {
     return MercadosPageModule;
 }());
 export { MercadosPageModule };
-//# sourceMappingURL=mercados.module.js.map
+//# sourceMappingURL=mercado.module.js.map

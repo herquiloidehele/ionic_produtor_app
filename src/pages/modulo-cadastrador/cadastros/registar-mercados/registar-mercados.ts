@@ -238,7 +238,7 @@ export class RegistarMercadosPage{
       },
       () =>{
         this.inicializarMapa();
-        console.log('Busaca de mercados end.');
+        console.log('Busaca de mercado end.');
       }
     );
   }
