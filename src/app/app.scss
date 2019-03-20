@@ -44,6 +44,9 @@ i[class^="fa-"], ion-icon[class^="fa-"] {
   color: #61d295 !important;
 }
 
+ion-tabs.hidden div.tabbar {
+  display: none
+}
 
 //
 //.fab {

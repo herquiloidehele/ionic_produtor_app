@@ -51,13 +51,13 @@
 
       <ion-item col-6>
         <ion-label floating="">Quantidade</ion-label>
-        <ion-input type="text" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade" #quantidade></ion-input>
+        <ion-input type="number" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade"></ion-input>
       </ion-item>
 
       <ion-item col-5>
         <ion-label floating="">Unidade</ion-label>
-        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id" #unidadeMedida>
-          <ion-option *ngFor="let unidade of unidadesMedida">{{unidade['designacao']}}</ion-option>
+        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id">
+          <ion-option *ngFor="let unidade of unidadesMedida" [value]="unidade['id']">{{unidade['designacao']}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>
@@ -80,7 +80,7 @@
 
       <ion-item col-11>
         <ion-label floating>Descrição </ion-label>
-        <ion-textarea [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>
+        <ion-textarea type="text" [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>
       </ion-item>
     </ion-row>
 
@@ -103,7 +103,5 @@
 
 
   </form>
-
-
 
 </ion-content>

@@ -128,7 +128,9 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
       name: 'produtor_db',
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true,
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

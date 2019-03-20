@@ -13,6 +13,7 @@ import {Storage} from "@ionic/storage";
 export class PublicacoesPage {
 
  protected publicacoes;
+  protected hideTabs = true;
 
 
 

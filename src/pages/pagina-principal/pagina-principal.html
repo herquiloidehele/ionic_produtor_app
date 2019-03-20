@@ -1,5 +1,5 @@
 
-<ion-tabs>
+<ion-tabs [selectedIndex]="tabIndex" [ngClass]="{'hidden': hideTabs}">
   <!--<ion-tab [root]="tab1" tabIcon="home" tabTitle="Home"></ion-tab>-->
   <ion-tab [root]="tab2" tabIcon="person" tabTitle="Perfil"></ion-tab>
   <ion-tab [root]="tab3" tabIcon="basket" tabTitle="Publicações"></ion-tab>

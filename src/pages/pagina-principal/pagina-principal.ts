@@ -21,10 +21,16 @@ export class PaginaPrincipalPage {
   protected tab2 = PerfilPrivadoPage;
   protected tab3 = PublicacoesPage;
   protected tab4 = PerfilPrivadoPage;
+  protected tabIndex = 1;
+  // protected hideTabs = false;
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewWillEnter(){
+    this.tabIndex = this.navParams.get('tabIndex') ? this.navParams.get('tabIndex') : 1;
   }
 
 

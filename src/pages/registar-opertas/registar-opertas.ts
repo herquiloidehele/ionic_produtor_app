@@ -35,17 +35,16 @@ export class RegistarOpertasPage{
   protected user: any;
 
   protected publicacao = {
-    designacao: 'Sacos de Mangas Frescas',
-    descricao: 'Compre ja',
-    preco: 100,
-    quantidade: 20,
-    unidades_medidas_id: 1,
+    designacao: '',
+    descricao: null,
+    preco: null,
+    quantidade: null,
+    unidades_medidas_id: '',
     produtos_id: '',
     distritos_id: null,
     imagens: [],
     produtores_id: ''
   };
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -143,7 +142,7 @@ export class RegistarOpertasPage{
       quantidade: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       unidade_medida_id: new FormControl('', [Validators.required]),
       produto_id: new FormControl('', [Validators.required]),
-      descricao: new FormControl('', [Validators.minLength(5), Validators.maxLength(150), Validators.required]),
+      descricao: new FormControl('', [Validators.minLength(5), Validators.required]),
     });
   }
 

@@ -30,13 +30,8 @@ page-preview-publicacao {
       }
     }
 
-
     .adicional-info{
       margin: 10px;
-
-      .titulo{
-        font-size: 12pt;
-      }
 
       .local{
         color: rgba(0, 0, 0, 0.56);
@@ -46,7 +41,11 @@ page-preview-publicacao {
         text-decoration: underline;
       }
 
+      .titulo{
+        font-size: 12pt;
+      }
     }
+
 
   }
 
