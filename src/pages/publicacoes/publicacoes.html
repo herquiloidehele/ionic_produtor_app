@@ -39,7 +39,7 @@
 
       <div class="adicional-info">
         <p class="titulo">{{publicacao['designacao'] == '' || publicacao['designacao'] == null? 'Vende-se ' +publicacao['produto']['designacao'] : publicacao['designacao']  }}</p>
-        <p class="local">{{(publicacao['distrito']['provincia']['designacao'])}} - {{publicacao['created_at']}}</p>
+        <p class="local">{{(publicacao['distrito']['designacao'])}} - {{publicacao['created_at']}}</p>
       </div>
 
     </ion-card>

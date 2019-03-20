@@ -49,15 +49,27 @@ export class PublicacoesPage {
   }
 
 
-  protected async getMinhasPublicacoes(){
+  protected getMinhasPublicacoes(){
     this.storageController.get('user').then((user) => {
       this.ofertasProvider.getOfertas(user['id']).subscribe((response)=> {
           console.log(response);
           this.publicacoes = response['ofertas'];
+          this.storageController.set('publicacoes', this.publicacoes);
         },
         (error) => {
           console.log(error);
+          this.getOfertasLocais();
         });
+    }).catch((error) => {
+      console.log({erro: error});
+    });
+  }
+
+
+  protected getOfertasLocais(){
+    this.storageController.get('publicacoes').then((publicacoes) => {
+      alert("ddd");
+      this.publicacoes = publicacoes;
     }).catch((error) => {
       console.log(error);
     });

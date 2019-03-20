@@ -17,6 +17,8 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Storage} from "@ionic/storage";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
+import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
+import {OfertasProvider} from "../../providers/ofertas/ofertas";
 
 
 const IMAGE_STORAGE_KEY = 'imagens_produtos';
@@ -60,7 +62,8 @@ export class RegistarOpertasPage{
     public file: File,
     public webviewProvider: WebView,
     public toastController: ToastController,
-    public ref: ChangeDetectorRef) {
+    public ref: ChangeDetectorRef,
+    public ofertasProvider: OfertasProvider) {
     this.getUnidadesMedidas();
     this.initializeValidator();
     this.getUser();
@@ -125,10 +128,70 @@ export class RegistarOpertasPage{
   }
 
   protected publicar(){
-    console.log(this.publicacao);
-    this.navCtrl.setRoot(PublicacoesPage);
+    let novaPublicacao = this.transformPublicacao(this.publicacao);
+    console.log({novaPublicacao: novaPublicacao});
+
+    const loading = this.loadingController.create({content: 'Publicando'});
+    loading.present();
+
+    this.ofertasProvider.salvarOferta(novaPublicacao).subscribe((response) => {
+        console.log(response);
+        this.actualizarProdutos(this.publicacao.produtos_id);
+        loading.dismiss();
+        this.navCtrl.setRoot(PaginaPrincipalPage);
+      },
+      (error) => {
+        loading.dismiss();
+        this.showAlert("Erro ao Publicar", "Ocorreu algum erro ao Submeter \n Verifique a sua Internet")
+        console.log(error);
+      }
+    );
 
   }
+
+
+  private actualizarProdutos(produto){
+
+    console.log(produto);
+    this.storageCntroller.get('user').then((user) => {
+
+      const produtoFilter = user.produtos_produzidos.filter((produzidos) => {
+        return produzidos['id'] == produto['id'];
+      });
+
+      if(produtoFilter.length == 0){
+        user.produtos_produzidos.push(produto);
+        this.storageCntroller.set('user', user).then((response)=>{
+          console.log("Produto adicionado");
+        });
+      }else{
+        console.log("o produto ja faz parte")
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
+
+  private transformPublicacao(publicacao){
+    return {
+      designacao: publicacao.designacao,
+      descricao: publicacao.descricao,
+      preco: publicacao.preco,
+      quantidade: publicacao.quantidade,
+      unidades_medidas_id: publicacao.unidades_medidas_id['id'],
+      produtos_id: publicacao.produtos_id['id'],
+      distritos_id: publicacao.distritos_id['id'],
+      produtores_id: publicacao.produtores_id
+    };
+  }
+  private showAlert(titulo, mensagem){
+    this.alertController.create({message: mensagem, title: titulo, buttons:['ok']}).present();
+  }
+
+
 
   protected preview(){
     console.log(this.publicacao);
@@ -141,7 +204,7 @@ export class RegistarOpertasPage{
       preco: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       quantidade: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       unidade_medida_id: new FormControl('', [Validators.required]),
-      produto_id: new FormControl('', [Validators.required]),
+      produto_id: new FormControl('', [Validators.minLength(3)]),
       descricao: new FormControl('', [Validators.minLength(5), Validators.required]),
     });
   }

@@ -57,7 +57,7 @@
       <ion-item col-5>
         <ion-label floating="">Unidade</ion-label>
         <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id">
-          <ion-option *ngFor="let unidade of unidadesMedida" [value]="unidade['id']">{{unidade['designacao']}}</ion-option>
+          <ion-option *ngFor="let unidade of unidadesMedida" [value]="unidade">{{unidade['designacao']}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>

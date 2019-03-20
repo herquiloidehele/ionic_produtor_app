@@ -15,6 +15,12 @@
     <ion-card class="publicacao" *ngIf="publicacao">
       <div class="imagem">
 
+        <div class="opacidade">
+          <h1 class="preco">{{publicacao['preco'] +'.00 ' }} MT </h1>
+          <h2 class="quantidade">{{publicacao['quantidade'] +' ' + publicacao['unidades_medidas_id']['designacao'] + 's'}} </h2>
+        </div>
+
+
         <div *ngIf="publicacao['imagens'].length == 0">
           <img alt="preview-publicacao" src="{{'http://localhost:8000/'+ publicacao['produtos_id']['default_photo']}}"/>
         </div>
@@ -22,13 +28,12 @@
         <div *ngIf="publicacao['imagens'].length > 0">
           <img alt="preview-publicacao" src=../../assets/imgs/logo/logo3.png""/>
         </div>
-        <h1 class="preco">{{publicacao['preco'] +' '}} MZN</h1>
       </div>
 
       <div class="adicional-info">
         <p class="titulo" *ngIf="publicacao['designacao']">{{publicacao['designacao']}}</p>
         <p class="titulo" *ngIf="!publicacao['designacao']">{{'Vende-se ' + publicacao['produtos_id']['designacao']}}</p>
-        <p class="local">{{publicacao['distritos_id']['provincia']['designacao']}} - {{publicacao['distritos_id']['designacao']}} - {{'Agora'}}</p>
+        <p class="local">{{publicacao['distritos_id']['designacao']}} - {{publicacao['distritos_id']['designacao']}} - {{'Agora'}}</p>
       </div>
     </ion-card>
   </div>
