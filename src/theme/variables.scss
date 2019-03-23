@@ -17,12 +17,9 @@ $app-direction: ltr;
 
 // Shared Variables
 // --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
+$tabs-border-color: #61d295 !default;
+$text-input-placeholder-color: #fff;
+$spinner-md-ios-color: #61d295;
 
 
 // Named Color Variables
@@ -46,25 +43,34 @@ $colors: (
   white: #fff,
 );
 
-$text-input-placeholder-color: #fff;
-$segment-button-md-text-color: #fff;
-$tabs-border-color: #61d295 !default
+
+
+
+
+
 
 
 
 // App iOS Variables
 // --------------------------------------------------
-// iOS only Sass variables can go here
-$segment-button-ios-text-color: #fff;
 $spinner-ios-ios-color: #61d295;
-$segment-button-ios-background-color: #fff;
-$segment-button-ios-background-color-activated: #000;
+$segment-button-ios-opacity-disabled: 1;
+$segment-button-ios-border-width: 0;
+$segment-button-ios-height:55px;
+
+//$segment-button-ios-text-color: #fff;
+//$segment-button-ios-background-color: #fff;
+//$segment-button-ios-background-color-activated: #000;
 
 // App Material Design Variables
 // --------------------------------------------------
-// Material Design only Sass variables can go here
-$spinner-md-ios-color: #61d295;
+
 $spinner-md-circles-color: #61d295;
+$segment-button-md-opacity: 1;
+$segment-button-md-text-color-activated: #000;
+$segment-button-md-height:55px;
+$segment-button-md-text-color: #fff;
+
 
 
 

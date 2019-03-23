@@ -1,0 +1,91 @@
+page-mercado-details {
+
+  ion-spinner * {
+    width: 50px;
+    height: 50px;
+    stroke: #61d295;
+    fill: #fff;
+  }
+
+  .loader{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  div.produto-view {
+    padding-top: 25px;
+    background-color: #11db94;
+
+
+    div.ion-icon-content {
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0.06);
+      color: #fff;
+      font-size: 20pt;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    p.nome-produto {
+      margin-top: 15px;
+      color: white;
+    }
+    p.data {
+      margin-top: 5px;
+      color: white;
+    }
+  }
+
+
+
+
+  div#produtos{
+    margin-bottom: 100px;
+    ion-card:first-of-type{
+      background-image: url("../../assets/imgs/produtos_procurados.jpg");
+    }
+
+    ion-card:last-of-type{
+      background-image: url("../../assets/imgs/todos_produtos.jpg");
+    }
+
+    ion-card{
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 200px;
+      border-radius: 5%;
+      color: white;
+      position: relative;
+
+      div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0,0,0, .4);
+        width: 100%;
+        height: 100%;
+      }
+
+
+    }
+
+    ion-card-title{
+      color: white;
+    }
+  }
+
+
+
+}

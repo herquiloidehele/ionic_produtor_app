@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {MercadoProvider} from "../../providers/mercado/mercado";
 import {RegistarMercadosPage} from "../modulo-cadastrador/cadastros/registar-mercados/registar-mercados";
+import {MercadoDetailsPage} from "../mercado-details/mercado-details";
 
 
 
@@ -36,6 +37,11 @@ export class MercadoPage {
         console.log('Busca de Mercados Terminada');
       }
     )
+  }
+
+
+  showMercado(mercado){
+    this.navCtrl.push(MercadoDetailsPage, {mercado: mercado});
   }
 
 }

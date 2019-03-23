@@ -19,20 +19,21 @@
     <ion-spinner color="secondary"></ion-spinner>
   </div>
 
-  <ion-card  *ngFor="let mercado of mercados">
+  <ion-card  *ngFor="let mercado of mercados" (click)="showMercado(mercado)">
 
     <ion-item>
       <ion-icon color="secondary" large item-start name='cart'></ion-icon>
       <div>
-        <h2 style="margin-bottom: 5px; font-weight: 500">Mercado {{mercado.designacao}}</h2>
-        <div style="margin-bottom: 5px">
-          <ion-icon icon-start color="secondary" name="pin"></ion-icon>
-          <span style="color: rgba(0,0,0,0.6)">{{mercado.distrito.designacao }} - {{mercado.distrito.provincia.designacao}}</span>
-        </div>
-        <div>
-          <ion-icon icon-start color="secondary" name="person"></ion-icon>
-          <span style="color: rgba(0,0,0,0.6)" ion-text  class="item-bold"> {{mercado.revendedores.length}} revendedores</span>
-        </div>
+        <h2 ion-text style="margin-bottom: 5px">Mercado {{mercado.designacao}}</h2>
+          <p>
+            <ion-icon icon-start name="pin"></ion-icon>
+            <span>{{mercado.distrito.designacao }}, {{mercado.distrito.provincia.designacao}}</span>
+          </p>
+
+        <p style="margin-bottom: 5px">
+          <ion-icon icon-start name="person"></ion-icon>
+          <span ion-text  class="item-bold"> {{mercado.revendedores.length}} revendedores</span>
+        </p>
       </div>
     </ion-item>
 

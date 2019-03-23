@@ -1,0 +1,147 @@
+
+
+
+
+<ion-content scrol (ionScroll)="onScroll($event)" (ionScrollStart)="onScrollStart()" (ionScrollEnd)="onScrollEnd()">
+
+  <div *ngIf="!mercado" class="loader">
+    <ion-spinner color="secondary"></ion-spinner>
+  </div>
+
+  <div *ngIf="mercado" id="header" color="primary" class="produto-view" text-center>
+
+    <div class="ion-icon-content">
+      <ion-icon name="cart"></ion-icon>
+    </div>
+    <p style="font-weight: 600; size: 18pt" class="nome-produto">Mercado {{mercado.designacao}}</p>
+    <div icon-start>
+      <ion-icon name="pin" small color="white"></ion-icon>
+      <span style="color: white; size: 15pt" class="nome-produto">  {{mercado.distrito.provincia.designacao}}</span>
+    </div>
+
+    <div icon-start>
+      <ion-icon name="person" small color="white"></ion-icon>
+      <span style="color: white; size: 15pt" class="nome-produto">  {{mercado.revendedores.length}} revendedores</span>
+    </div>
+
+
+
+    <div #divElementTabs>
+      <ion-segment margin-top #ion_segment [(ngModel)]="titulos" (click)="segmentChanged()" color="white">
+        <ion-segment-button icon-left value="Revendedores">
+          <ion-icon name="person"></ion-icon>
+          <div style="margin-top: -20px !important; ">
+            Revendedores
+          </div>
+        </ion-segment-button>
+
+        <ion-segment-button value="Produtos">
+          <ion-icon name="leaf"></ion-icon>
+          <div style="margin-top: -20px !important; ">
+            Produtos
+          </div>
+
+        </ion-segment-button>
+        <ion-segment-button value="Preços">
+          <ion-icon name="cash"></ion-icon>
+          <div style="margin-top: -20px !important; ">
+            Preços
+          </div>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+  </div>
+
+  <div *ngIf="mercado" style="background-color: #eee">
+
+    <div [ngSwitch]="titulos" #divElmentOptions>
+
+      <div *ngSwitchCase="'Revendedores'">
+
+        <ion-card *ngFor="let revendedor of mercado['revendedores']">
+
+          <ion-item>
+            <ion-avatar item-start>
+              <img width="50px" height="50px" alt="imgp-profile" src="../../assets/imgs/farmer.jpeg"/>
+              <!--<img width="50px" height="50px" alt="imgp-profile" src="{{revendedor['user']['foto']}}"/>-->
+            </ion-avatar>
+
+            <h2>{{revendedor['user']['nome']}}</h2>
+            <p><ion-icon name="pin"></ion-icon>  {{mercado.distrito.designacao}}, {{mercado.distrito.provincia.designacao}}</p>
+            <p><ion-icon name="call"></ion-icon>  {{revendedor['user']['username']}}</p>
+            <p ion-text color="secondary">
+              <span *ngFor="let produto of revendedor['interesses']">#{{produto['designacao']}} </span>
+
+            </p>
+          </ion-item>
+
+
+          <button ion-button  icon-start round small float-right margin >
+            <ion-icon icon-start size="large" name="call"></ion-icon> <span>ligar</span>
+          </button>
+
+        </ion-card>
+      </div>
+
+      <div *ngSwitchCase="'Produtos'" id="produtos">
+
+
+        <ion-card>
+
+          <div>
+            <ion-card-title>
+              Produtos Mais Procurados
+            </ion-card-title>
+
+            <span>(10)</span>
+          </div>
+
+
+        </ion-card>
+
+        <ion-card>
+
+
+         <div>
+           <ion-card-title>
+             Todos Produtos
+           </ion-card-title>
+
+           <span>(100)</span>
+         </div>
+
+        </ion-card>
+
+
+      </div>
+
+      <div *ngSwitchCase="'Preços'">
+        <h1>Preços</h1>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <ion-footer ion-fixed>
+    <ion-toolbar>
+
+      <!--<ion-buttons icon-right>-->
+        <!--<ion-icon name="arrow-back" color="danger"></ion-icon>-->
+        <button clear ion-button (click)="voltar()">
+          <ion-icon name="arrow-back" icon-start></ion-icon>
+             Voltar
+        </button>
+      <!--</ion-buttons>-->
+
+    </ion-toolbar>
+  </ion-footer>
+
+
+
+</ion-content>
+

@@ -22,7 +22,7 @@ export class PaginaPrincipalPage {
   protected tab2 = PublicacoesPage;
   protected tab3 = MercadoPage;
   protected tab4 = PerfilPrivadoPage;
-  protected tabIndex = 1;
+  protected tabIndex = 2;
   // protected hideTabs = false;
 
 
