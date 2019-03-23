@@ -10,7 +10,7 @@ export class MercadoDetailsPage {
 
 
   protected mercado ;
-  protected titulos = "Produtos";
+  protected titulos = "Preços";
 
 
   @ViewChild(Content) protected content: Content;
