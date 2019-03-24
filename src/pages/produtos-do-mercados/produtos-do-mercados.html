@@ -1,0 +1,31 @@
+
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Produtos do mercado Zimpeto</ion-title>
+  </ion-navbar>
+
+  <ion-searchbar>
+  </ion-searchbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #eee">
+
+  <ion-card *ngFor="let produto of [1,2,3,4,5,6,6]">
+    <ion-item>
+      <ion-avatar item-start>
+        <img alt="produto" src="../../assets/imgs/farmer.jpeg"/>
+      </ion-avatar>
+
+      <h2>Nome do Produto</h2>
+      <p ion-text>10 requisicoes por dia</p>
+
+      <button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

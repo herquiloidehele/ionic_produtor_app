@@ -1,6 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {Content, IonicPage, NavController, NavParams, Segment} from 'ionic-angular';
 import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
+import {ProdutoMaisProduradosPage} from "../produto-mais-produrados/produto-mais-produrados";
+import {ProdutosDoMercadosPage} from "../produtos-do-mercados/produtos-do-mercados";
 
 @IonicPage()
 @Component({
@@ -57,6 +59,14 @@ export class MercadoDetailsPage {
 
   goToRevendedor(revendedor, distrito){
     this.navCtrl.push(RevendedorProfilePage, {revendedor: revendedor, distrito: distrito});
+  }
+
+  goToProdutosMaisProcurados(mercado_id){
+    this.navCtrl.push(ProdutoMaisProduradosPage, {mercado_id: mercado_id});
+  }
+
+  goToProdutosDoMercado(mercado_id){
+    this.navCtrl.push(ProdutosDoMercadosPage, {mercado_id: mercado_id});
   }
 
 

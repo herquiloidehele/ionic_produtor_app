@@ -73,6 +73,8 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
 import {MercadoPageModule} from "../pages/mercado/mercado.module";
 import {MercadoDetailsPageModule} from "../pages/mercado-details/mercado-details.module";
 import {RevendedorProfilePageModule} from "../pages/revendedor-profile/revendedor-profile.module";
+import {ProdutoMaisProduradosPageModule} from "../pages/produto-mais-produrados/produto-mais-produrados.module";
+import {ProdutosDoMercadosPageModule} from "../pages/produtos-do-mercados/produtos-do-mercados.module";
 
 
 @NgModule({
@@ -137,7 +139,9 @@ import {RevendedorProfilePageModule} from "../pages/revendedor-profile/revendedo
 
     MercadoPageModule,
     MercadoDetailsPageModule,
-    RevendedorProfilePageModule
+    RevendedorProfilePageModule,
+    ProdutoMaisProduradosPageModule,
+    ProdutosDoMercadosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
