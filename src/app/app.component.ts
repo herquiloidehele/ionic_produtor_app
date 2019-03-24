@@ -8,7 +8,7 @@ import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {Storage} from "@ionic/storage";
 import {StartPage} from "../pages/start/start";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
-import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
+import {RevendedorProfilePage} from "../pages/revendedor-profile/revendedor-profile";
 
 @Component({
   templateUrl: 'app.html'
@@ -38,7 +38,7 @@ export class MyApp {
 
     this.redirectUser();
 
-    // this.rootPage = RegistarOpertasPage;
+    // this.rootPage = RevendedorProfilePage;
 
     this.menu = [
       {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},

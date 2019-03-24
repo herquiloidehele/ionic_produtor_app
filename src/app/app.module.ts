@@ -72,6 +72,7 @@ import {File} from "@ionic-native/file/ngx";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
 import {MercadoPageModule} from "../pages/mercado/mercado.module";
 import {MercadoDetailsPageModule} from "../pages/mercado-details/mercado-details.module";
+import {RevendedorProfilePageModule} from "../pages/revendedor-profile/revendedor-profile.module";
 
 
 @NgModule({
@@ -135,7 +136,8 @@ import {MercadoDetailsPageModule} from "../pages/mercado-details/mercado-details
     }),
 
     MercadoPageModule,
-    MercadoDetailsPageModule
+    MercadoDetailsPageModule,
+    RevendedorProfilePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Content, IonicPage, NavController, NavParams, Segment} from 'ionic-angular';
+import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ export class MercadoDetailsPage {
 
 
   protected mercado ;
-  protected titulos = "Preços";
+  protected titulos = "Revendedores";
 
 
   @ViewChild(Content) protected content: Content;
@@ -52,6 +53,12 @@ export class MercadoDetailsPage {
   onScrollEnd(){
     console.log("Scroll Terminou");
   }
+
+
+  goToRevendedor(revendedor, distrito){
+    this.navCtrl.push(RevendedorProfilePage, {revendedor: revendedor, distrito: distrito});
+  }
+
 
   voltar(){
     this.navCtrl.pop();

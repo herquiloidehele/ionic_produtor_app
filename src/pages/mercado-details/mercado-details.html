@@ -2,7 +2,7 @@
 
 
 
-<ion-content scrol (ionScroll)="onScroll($event)" (ionScrollStart)="onScrollStart()" (ionScrollEnd)="onScrollEnd()">
+<ion-content (ionScroll)="onScroll($event)" (ionScrollStart)="onScrollStart()" (ionScrollEnd)="onScrollEnd()">
 
   <div *ngIf="!mercado" class="loader">
     <ion-spinner color="secondary"></ion-spinner>
@@ -23,8 +23,6 @@
       <ion-icon name="person" small color="white"></ion-icon>
       <span style="color: white; size: 15pt" class="nome-produto">  {{mercado.revendedores.length}} revendedores</span>
     </div>
-
-
 
     <div #divElementTabs>
       <ion-segment margin-top #ion_segment [(ngModel)]="titulos" (click)="segmentChanged()" color="white">
@@ -59,7 +57,7 @@
 
       <div *ngSwitchCase="'Revendedores'">
 
-        <ion-card *ngFor="let revendedor of mercado['revendedores']">
+        <ion-card *ngFor="let revendedor of mercado['revendedores']" (click)="goToRevendedor(revendedor, mercado.distrito)">
 
           <ion-item>
             <ion-avatar item-start>
@@ -133,10 +131,6 @@
       </div>
     </div>
   </div>
-
-
-
-
 
 
   <ion-footer ion-fixed>
