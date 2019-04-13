@@ -75,6 +75,7 @@ import {MercadoDetailsPageModule} from "../pages/mercado-details/mercado-details
 import {RevendedorProfilePageModule} from "../pages/revendedor-profile/revendedor-profile.module";
 import {ProdutoMaisProduradosPageModule} from "../pages/produto-mais-produrados/produto-mais-produrados.module";
 import {ProdutosDoMercadosPageModule} from "../pages/produtos-do-mercados/produtos-do-mercados.module";
+import {ProcurasPageModule} from "../pages/procuras/procuras.module";
 
 
 @NgModule({
@@ -141,7 +142,8 @@ import {ProdutosDoMercadosPageModule} from "../pages/produtos-do-mercados/produt
     MercadoDetailsPageModule,
     RevendedorProfilePageModule,
     ProdutoMaisProduradosPageModule,
-    ProdutosDoMercadosPageModule
+    ProdutosDoMercadosPageModule,
+    ProcurasPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

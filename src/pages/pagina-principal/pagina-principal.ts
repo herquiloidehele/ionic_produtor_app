@@ -3,13 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PerfilPrivadoPage} from "../perfil-privado/perfil-privado";
 import {PublicacoesPage} from "../publicacoes/publicacoes";
 import {MercadoPage} from "../mercado/mercado";
+import {ProcurasPage} from "../procuras/procuras";
 
-/**
- * Generated class for the PaginaPrincipalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,9 +16,8 @@ export class PaginaPrincipalPage {
   protected tab1 = PerfilPrivadoPage;
   protected tab2 = PublicacoesPage;
   protected tab3 = MercadoPage;
-  protected tab4 = PerfilPrivadoPage;
+  protected tab4 = ProcurasPage;
   protected tabIndex = 2;
-  // protected hideTabs = false;
 
 
 
