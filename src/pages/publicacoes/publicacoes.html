@@ -1,5 +1,5 @@
 
-<ion-header>
+<ion-header #headerPublicacao>
 
   <ion-navbar>
       <ion-searchbar
@@ -12,7 +12,7 @@
 </ion-header>
 
 
-<ion-content no-margin no-padding padding-top style="background-color: #eee">
+<ion-content no-margin no-padding padding-top style="background-color: #eee" hide-header [header]="headerPublicacao">
 
 
   <ion-fab bottom right color="secondary">
