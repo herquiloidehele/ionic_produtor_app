@@ -3,8 +3,6 @@ page-detalhes-procura {
 
 
   ion-card-content#content{
-    //background-color: color($colors, secondary);
-
 
     h1{
       color: color($colors, secondary);
@@ -13,6 +11,37 @@ page-detalhes-procura {
      h2{
       color: #000;
       margin-top: 5px;
+    }
+  }
+
+  ion-grid#procuras{
+
+    img{
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div#procura-texto {
+
+      background-color: color($colors, secondary);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 0;
+      margin-top: 0;
+
+      h2{
+        color: white;
+        text-align: center;
+        font-size: 12pt;
+      }
+
+      h3 {
+        color: white;
+        text-align: center;
+      }
     }
   }
 

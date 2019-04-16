@@ -25,6 +25,12 @@ export class ProcurasProvider {
     return this.http.get(this.urlProvider.getURL() + 'procuras',);
   }
 
+
+  public getProcurasSemelhantes(idProcura): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'procuras-semelhantes/'+idProcura);
+  }
+
+
   public getProdutores(procura_id): Observable<any> {
    return this.http.get(this.urlProvider.getURL() +'disponibilidade-produto/produtores/'+procura_id);
   }

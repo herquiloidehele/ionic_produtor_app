@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>DetalhesProcura</ion-title>
+    <ion-title>Detalhes da Procura</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,7 +27,7 @@
       <ion-item>
         <ion-icon color="secondary" name="pint" item-start large></ion-icon>
         <h2>Quantidade</h2>
-        <p>{{procura['quantidade']}} {{procura['unidades_medida']['designacao']}}</p>
+        <p>{{procura['quantidade']}} {{procura['unidades_medida']['designacao']}}s</p>
       </ion-item>
 
       <ion-item>
@@ -36,7 +36,7 @@
         <p>{{procura['distrito']['designacao']}} -  {{procura['distrito']['provincia']['designacao']}}</p>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="goPerfilRevendedor(procura['revendedore'], procura['distrito'])">
         <ion-icon color="secondary" name="person" item-start large></ion-icon>
         <h2>Revendedor</h2>
         <p>{{procura['revendedore']['user']['nome']}}</p>
@@ -51,14 +51,36 @@
       </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Proutos Semelhantes</ion-card-title>
-    </ion-card-header>
+  <!--<ion-card>-->
+    <!--<ion-card-header>-->
+      <!--<ion-card-title>Proutos Semelhantes</ion-card-title>-->
+    <!--</ion-card-header>-->
 
-    <ion-card-content>
+    <!--<ion-card-content>-->
 
-    </ion-card-content>
-  </ion-card>
+    <!--</ion-card-content>-->
+  <!--</ion-card>-->
+
+
+  <ion-grid id="procuras" >
+    <ion-row>
+      <ion-col col-4 col-sm-4 col-md-4 col-lg-3 col-xl-3 *ngFor="let procura of procurasSemelhantes; index as i">
+        <ion-card *ngIf="i < 3" margin-top id="procura" (click)="goDetalhesProcura(procura)">
+
+          <ion-card-header style="margin-bottom: 0">
+            <img alt="procura" src="{{urlApi.getSimpleURL() + procura['produto']['default_photo']}}">
+          </ion-card-header>
+
+          <div id="procura-texto">
+            <h2 text-center>{{procura['produto']['designacao']}}</h2>
+            <h3 text-center>{{procura['quantidade']}} {{procura['unidades_medida']['abreviatura']}}</h3>
+          </div>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 
 </ion-content>
