@@ -79,6 +79,7 @@ import {HideHeaderDirective} from "../directives/hide-header/hide-header";
 import {DirectivesModule} from "../directives/directives.module";
 import {MercadoPage} from "../pages/mercado/mercado";
 import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
+import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-procura.module";
 
 
 @NgModule({
@@ -147,6 +148,7 @@ import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
     ProdutoMaisProduradosPageModule,
     ProdutosDoMercadosPageModule,
     ProcurasPageModule,
+    DetalhesProcuraPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

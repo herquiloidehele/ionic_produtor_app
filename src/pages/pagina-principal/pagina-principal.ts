@@ -17,7 +17,7 @@ export class PaginaPrincipalPage {
   protected tab2 = PublicacoesPage;
   protected tab3 = MercadoPage;
   protected tab4 = ProcurasPage;
-  protected tabIndex = 2;
+  protected tabIndex = 3;
 
 
 

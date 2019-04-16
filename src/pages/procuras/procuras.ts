@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import {ProcurasProvider} from "../../providers/procuras/procuras";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
+import {DetalhesProcuraPage} from "../detalhes-procura/detalhes-procura";
 
-/**
- * Generated class for the ProcurasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +12,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProcurasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  protected procuras = [];
+
+
+  constructor(public navCtrl: NavController, public urlApi: UrlapiProvider, public procurasProvider: ProcurasProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProcurasPage');
+    this.getProcuras();
   }
+
+
+  private getProcuras(){
+    this.procurasProvider.getAll().subscribe((response) => {
+      this.procuras = response['procuras'];
+    },
+      (error) => {
+      console.log(error);
+      }
+    );
+  }
+
+
+  private goDetalhesProcura(procura){
+    this.navCtrl.push(DetalhesProcuraPage, {procura: procura})
+  }
+
+
 
 }

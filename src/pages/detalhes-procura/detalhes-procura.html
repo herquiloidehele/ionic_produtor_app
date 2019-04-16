@@ -1,0 +1,64 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>DetalhesProcura</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #eee" no-padding no-margin>
+
+  <ion-card *ngIf="procura">
+      <img src="{{urlApi.getSimpleURL() + procura['produto']['default_photo']}}" alt="imagemProduto"/>
+
+
+    <ion-fab right top>
+      <button ion-fab color="secondary">
+        <ion-icon name="call"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-card-content id="content">
+
+      <h1 text-uppercase text-center class="produto">{{procura['produto']['designacao']}}</h1>
+
+      <ion-item>
+        <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+        <h2>Quantidade</h2>
+        <p>{{procura['quantidade']}} {{procura['unidades_medida']['designacao']}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="secondary" name="pin" item-start large></ion-icon>
+        <h2>Localização</h2>
+        <p>{{procura['distrito']['designacao']}} -  {{procura['distrito']['provincia']['designacao']}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="secondary" name="person" item-start large></ion-icon>
+        <h2>Revendedor</h2>
+        <p>{{procura['revendedore']['user']['nome']}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="secondary" name="calendar" item-start large></ion-icon>
+        <h2>Data da Requisição</h2>
+        <p>{{procura['created_at'] | date: 'dd/MM/yyyy'}}</p>
+      </ion-item>
+
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Proutos Semelhantes</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

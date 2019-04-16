@@ -22,8 +22,7 @@ export class ProcurasProvider {
 
 
   public getAll() : Observable<any> {
-    let token = localStorage.getItem('token');
-    return this.http.post(this.urlProvider.getURL() + 'procuras/produtos-produtor', {token: token},{headers: this.headers});
+    return this.http.get(this.urlProvider.getURL() + 'procuras',);
   }
 
   public getProdutores(procura_id): Observable<any> {
