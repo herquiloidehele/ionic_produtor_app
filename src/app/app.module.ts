@@ -61,7 +61,6 @@ import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 import {TestePage} from "../pages/teste/teste";
-import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {PreviewPublicacaoPage} from "../pages/preview-publicacao/preview-publicacao";
 import {ViewPublicacaoPage} from "../pages/view-publicacao/view-publicacao";
 import {IonicStorageModule} from "@ionic/storage";
@@ -80,6 +79,9 @@ import {DirectivesModule} from "../directives/directives.module";
 import {MercadoPage} from "../pages/mercado/mercado";
 import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
 import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-procura.module";
+import {RevendedoresListPageModule} from "../pages/revendedores-list/revendedores-list.module";
+import {ProdutoresListPageModule} from "../pages/produtores-list/produtores-list.module";
+import {ProdutosListPageModule} from "../pages/produtos-list/produtos-list.module";
 
 
 @NgModule({
@@ -95,7 +97,6 @@ import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-proc
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,
-    ProdutosListPage,
     MercadosPage,
     ProdutosPage,
     TabsPage,
@@ -148,7 +149,10 @@ import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-proc
     ProdutoMaisProduradosPageModule,
     ProdutosDoMercadosPageModule,
     ProcurasPageModule,
-    DetalhesProcuraPageModule
+    DetalhesProcuraPageModule,
+    RevendedoresListPageModule,
+    ProdutoresListPageModule,
+    ProdutosListPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -160,7 +164,6 @@ import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-proc
     EscolherProdutoPage,
     PaginaPrincipalPage,
     RegistarOpertasPage,
-    ProdutosListPage,
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,

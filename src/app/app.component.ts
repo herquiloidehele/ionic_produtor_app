@@ -1,14 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
 import {AlertController, Platform} from 'ionic-angular';
 import {App} from 'ionic-angular/components/app/app'
-import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
-import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {Storage} from "@ionic/storage";
 import {StartPage} from "../pages/start/start";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
-import {ProcurasPage} from "../pages/procuras/procuras";
+import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
+import {RevendedoresListPage} from "../pages/revendedores-list/revendedores-list";
+import {ProdutoresListPage} from "../pages/produtores-list/produtores-list";
 
 @Component({
   templateUrl: 'app.html'
@@ -43,10 +42,9 @@ export class MyApp {
     // this.rootPage = ProdutosDoMercadosPage;
 
     this.menu = [
-      {icon: 'ios-contacts', pageName: 'Produtores', page: ProcurasPage},
-      {icon: 'ios-people', pageName: 'Revendedores', page: DisponibilizarProdutosPage},
-      {icon: 'ios-leaf', pageName: 'Produtos', page: ProdutosDisponibilizadosPage},
-      // {icon: 'help', pageName: 'Ajuda', page: ProdutosDisponibilizadosPage},
+      {icon: 'ios-contacts', pageName: 'Produtores', page: ProdutoresListPage},
+      {icon: 'ios-people', pageName: 'Revendedores', page: RevendedoresListPage},
+      {icon: 'ios-leaf', pageName: 'Produtos', page: ProdutosListPage},
       {icon: 'ios-person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
     ];
 

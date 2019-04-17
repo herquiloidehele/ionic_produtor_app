@@ -14,6 +14,7 @@ import {MercadoDetailsPage} from "../mercado-details/mercado-details";
 export class MercadoPage {
 
   protected mercados: any[];
+  protected showSearch: boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mercadoProvider: MercadoProvider) {
@@ -43,5 +44,25 @@ export class MercadoPage {
   showMercado(mercado){
     this.navCtrl.push(MercadoDetailsPage, {mercado: mercado});
   }
+
+
+  protected onInput(event){
+    return this.mercados;
+  }
+
+  protected onBlur(){
+    this.changeShowSearch();
+  }
+
+  protected onCancel(){
+    console.log('cancelado');
+    this.changeShowSearch();
+  }
+
+  protected changeShowSearch(){
+    this.showSearch = !this.showSearch;
+  }
+
+
 
 }

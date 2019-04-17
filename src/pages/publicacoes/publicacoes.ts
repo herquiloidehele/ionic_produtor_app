@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Searchbar} from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
 import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
@@ -12,10 +12,9 @@ import {Storage} from "@ionic/storage";
 })
 export class PublicacoesPage {
 
- protected publicacoes;
+  protected publicacoes;
   protected hideTabs = true;
-
-
+  protected showSearch = false;
 
   constructor(
     public navCtrl: NavController,
@@ -35,8 +34,13 @@ export class PublicacoesPage {
     return this.publicacoes;
   }
 
+  protected onBlur(){
+    this.changeShowSearch();
+  }
+
   protected onCancel(){
     console.log('cancelado');
+    this.changeShowSearch();
   }
 
 
@@ -73,6 +77,11 @@ export class PublicacoesPage {
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+
+  protected changeShowSearch(){
+    this.showSearch = !this.showSearch;
   }
 
 

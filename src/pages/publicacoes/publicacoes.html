@@ -1,12 +1,33 @@
 
 <ion-header #headerPublicacao>
 
-  <ion-navbar color="secondary">
-      <ion-searchbar
-        [showCancelButton]="true"
-        (ionInput)="onInput($event)"
-        (ionCancel)="onCancel($event)">
-      </ion-searchbar>
+  <ion-navbar color="secondary" *ngIf="!showSearch">
+
+    <!--<ion-buttons >-->
+      <button ion-button icon-only menuToggle start >
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <!--</ion-buttons>-->
+
+    <ion-title>Minhas Publicações</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only end *ngIf="!showSearch" (click)="changeShowSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="showSearch" color="secondary">
+    <ion-searchbar
+      [showCancelButton]="true"
+      [animated]="true"
+      [placeholder]="'Pesquise seus produtos'"
+      (ionBlur)="onBlur()"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
   </ion-navbar>
 
 </ion-header>
