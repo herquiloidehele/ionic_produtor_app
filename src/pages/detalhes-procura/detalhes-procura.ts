@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 import {ProcurasProvider} from "../../providers/procuras/procuras";
@@ -22,7 +22,13 @@ export class DetalhesProcuraPage {
   protected procura;
   protected procurasSemelhantes;
 
-  constructor(public urlApi: UrlapiProvider, public procuraProvicer: ProcurasProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public urlApi: UrlapiProvider,
+    public procuraProvicer: ProcurasProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetController: ActionSheetController
+    ) {
   }
 
   ionViewDidLoad() {
@@ -38,7 +44,6 @@ export class DetalhesProcuraPage {
 
   getProcurasSemelhantes(){
     this.procuraProvicer.getProcurasSemelhantes(this.procura['id']).subscribe((response) => {
-      console.table(response);
       this.procurasSemelhantes = response['procuras'];
     },
       (error) => {
@@ -48,8 +53,34 @@ export class DetalhesProcuraPage {
   }
 
 
-  private goDetalhesProcura(procura){
+  protected goDetalhesProcura(procura){
     this.navCtrl.push(DetalhesProcuraPage, {procura: procura})
+  }
+
+
+  public async showAlert(){
+    const actionSheet = await this.actionSheetController.create({
+      title: 'Pretende contactar Via?',
+      buttons: [
+        {
+          text: "CHAMADA",
+          icon: 'call',
+          handler: () => {
+            console.log("Contacto via chamada");
+          }
+        },
+        {
+          text: "SMS",
+          icon: 'ios-mail',
+          handler: () => {
+            console.log('contacto via SMS');
+          },
+        }
+      ]
+    });
+
+    actionSheet.present();
+
   }
 
 

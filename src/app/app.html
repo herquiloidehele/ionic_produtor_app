@@ -4,7 +4,9 @@
   <ion-header class="bar-assertive side-header" text-center>
 
     <div class="foto-content-circle">
-      <ion-icon class="profile-foto" name="person"  md="md-person"></ion-icon>
+      <!--<ion-avatar item-center >-->
+        <img alt="profile-image" class="avatar" src="../../assets/imgs/farmer.jpeg" style="width: 100px; height: 100px">
+      <!--</ion-avatar>-->
     </div>
 
     <div class="profile-info">
@@ -15,14 +17,14 @@
   </ion-header>
 
   <ion-content class="side-content">
-    <ion-list no-lines>
+    <ion-list no-lines id="items">
 
-      <div>
+      <!--<div>-->
         <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menu">
-          <ion-icon item-start name="{{pagina.icon}}" color="primary"></ion-icon>
-          <span color="primary">{{pagina.pageName}}</span>
+          <ion-icon item-start name="{{pagina.icon}}"></ion-icon>
+          <span>{{pagina.pageName}}</span>
         </button>
-      </div>
+      <!--</div>-->
 
       <button menuClose="left" ion-item (click)="logout()" style="color:red;">
         <ion-icon item-start name="power" style="color: red"></ion-icon>

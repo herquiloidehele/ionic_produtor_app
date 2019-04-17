@@ -10,12 +10,14 @@
 
 <ion-content style="background-color: #eee" no-padding no-margin>
 
+
+
+
   <ion-card *ngIf="procura">
       <img src="{{urlApi.getSimpleURL() + procura['produto']['default_photo']}}" alt="imagemProduto"/>
 
-
-    <ion-fab right top>
-      <button ion-fab color="secondary">
+    <ion-fab right bottom>
+      <button ion-fab color="secondary" (click)="showAlert()">
         <ion-icon name="call"></ion-icon>
       </button>
     </ion-fab>
@@ -51,15 +53,7 @@
       </ion-card-content>
   </ion-card>
 
-  <!--<ion-card>-->
-    <!--<ion-card-header>-->
-      <!--<ion-card-title>Proutos Semelhantes</ion-card-title>-->
-    <!--</ion-card-header>-->
-
-    <!--<ion-card-content>-->
-
-    <!--</ion-card-content>-->
-  <!--</ion-card>-->
+  <h3 ion-text text-center>Produtos Semelhantes</h3>
 
 
   <ion-grid id="procuras" >
