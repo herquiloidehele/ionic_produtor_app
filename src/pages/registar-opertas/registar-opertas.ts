@@ -8,9 +8,7 @@ import {
   LoadingController, AlertController, Platform, ToastController
 } from 'ionic-angular';
 import {ProdutosProvider} from "../../providers/produtos/produtos";
-import {ProdutosListPage} from "../produtos-list/produtos-list";
 import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
-import {PublicacoesPage} from "../publicacoes/publicacoes";
 import {PreviewPublicacaoPage} from "../preview-publicacao/preview-publicacao";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Camera, CameraOptions} from "@ionic-native/camera";
@@ -19,6 +17,7 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
 import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
+import {ProdutoSelectPage} from "../produto-select/produto-select";
 
 
 const IMAGE_STORAGE_KEY = 'imagens_produtos';
@@ -119,7 +118,7 @@ export class RegistarOpertasPage{
   }
 
   protected openProdutosSelect(){
-    let modalControler = this.modalCtr.create(ProdutosListPage, {produtos: this.produtos, produtos_produzidos: this.user.produtos_produzidos.length});
+    let modalControler = this.modalCtr.create(ProdutoSelectPage, {produtos: this.produtos, produtos_produzidos: this.user.produtos_produzidos.length});
     modalControler.present();
 
     modalControler.onDidDismiss((produto) => {

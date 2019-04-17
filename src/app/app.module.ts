@@ -82,6 +82,7 @@ import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-proc
 import {RevendedoresListPageModule} from "../pages/revendedores-list/revendedores-list.module";
 import {ProdutoresListPageModule} from "../pages/produtores-list/produtores-list.module";
 import {ProdutosListPageModule} from "../pages/produtos-list/produtos-list.module";
+import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.module";
 
 
 @NgModule({
@@ -152,7 +153,8 @@ import {ProdutosListPageModule} from "../pages/produtos-list/produtos-list.modul
     DetalhesProcuraPageModule,
     RevendedoresListPageModule,
     ProdutoresListPageModule,
-    ProdutosListPageModule
+    ProdutosListPageModule,
+    ProdutoSelectPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
