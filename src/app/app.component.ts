@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Platform} from 'ionic-angular';
+import {AlertController, Platform} from 'ionic-angular';
 import {App} from 'ionic-angular/components/app/app'
 import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
 import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
@@ -8,6 +8,7 @@ import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {Storage} from "@ionic/storage";
 import {StartPage} from "../pages/start/start";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
+import {ProcurasPage} from "../pages/procuras/procuras";
 
 @Component({
   templateUrl: 'app.html'
@@ -22,9 +23,11 @@ export class MyApp {
   @ViewChild('content') ionNav;
 
 
-  constructor(public platform: Platform,
+  constructor(
+              public platform: Platform,
               app: App,
-              public storageController: Storage
+              public storageController: Storage,
+              public alertController: AlertController
               ){
 
     platform.ready().then(() => {
@@ -40,9 +43,10 @@ export class MyApp {
     // this.rootPage = ProdutosDoMercadosPage;
 
     this.menu = [
-      {icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage},
-      {icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage},
+      {icon: 'home', pageName: 'Produtos Requisitados', page: ProcurasPage},
+      {icon: 'send', pageName: 'Revendedores', page: DisponibilizarProdutosPage},
       {icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage},
+      {icon: 'help', pageName: 'Ajuda', page: ProdutosDisponibilizadosPage},
       {icon: 'person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
     ];
 
@@ -70,10 +74,31 @@ export class MyApp {
 
 
     showPageProdutor(page){
-      this.ionNav.setRoot(page);
+      this.ionNav.push(page);
     }
 
 
+  logout(){
+    this.alertController.create(
+      {
+        title: "Sair da Aplicação",
+        message: "Tem a certeza que quer sair da aplicação?",
+        buttons: [
+          {
+            text: 'SIM',
+            handler: ()=>{
+              console.log("Saindo");
+              this.storageController.clear();
+              this.ionNav.setRoot(StartPage);
+            }
+          },
+          {
+            text: "NãO",
+          }
+        ]
+      }
+    ).present();
+  }
 
 
 

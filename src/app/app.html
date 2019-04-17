@@ -19,12 +19,10 @@
   <ion-content class="side-content">
     <ion-list no-lines id="items">
 
-      <!--<div>-->
         <button ion-item menuClose="left" (click)="showPageProdutor(pagina.page)" *ngFor="let pagina of menu">
           <ion-icon item-start name="{{pagina.icon}}"></ion-icon>
           <span>{{pagina.pageName}}</span>
         </button>
-      <!--</div>-->
 
       <button menuClose="left" ion-item (click)="logout()" style="color:red;">
         <ion-icon item-start name="power" style="color: red"></ion-icon>
