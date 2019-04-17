@@ -13,6 +13,7 @@ import {Storage} from "@ionic/storage";
 export class PublicacoesPage {
 
   protected publicacoes;
+  protected publicacoesCopy;
   protected hideTabs = true;
   protected showSearch = false;
 
@@ -31,7 +32,11 @@ export class PublicacoesPage {
 
 
   protected onInput(event){
-    return this.publicacoes;
+    this.publicacoes = this.publicacoesCopy;
+
+    this.publicacoes = this.publicacoes.filter((publicacao) => {
+      return (publicacao.produto.designacao.toUpperCase().indexOf(event.target.value.trim().toUpperCase()));
+    });
   }
 
   protected onBlur(){
@@ -52,12 +57,12 @@ export class PublicacoesPage {
     this.navCtrl.push(ViewPublicacaoPage, {publicacao: publicacao});
   }
 
-
   protected getMinhasPublicacoes(){
     this.storageController.get('user').then((user) => {
       this.ofertasProvider.getOfertas(user['id']).subscribe((response)=> {
           console.log(response);
           this.publicacoes = response['ofertas'];
+          this.publicacoesCopy = response['ofertas'];
           this.storageController.set('publicacoes', this.publicacoes);
         },
         (error) => {
@@ -72,7 +77,6 @@ export class PublicacoesPage {
 
   protected getOfertasLocais(){
     this.storageController.get('publicacoes').then((publicacoes) => {
-      alert("ddd");
       this.publicacoes = publicacoes;
     }).catch((error) => {
       console.log(error);

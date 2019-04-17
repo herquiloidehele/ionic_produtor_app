@@ -14,6 +14,7 @@ import {MercadoDetailsPage} from "../mercado-details/mercado-details";
 export class MercadoPage {
 
   protected mercados: any[];
+  protected mercadosCopy: any[];
   protected showSearch: boolean = false;
 
 
@@ -29,6 +30,7 @@ export class MercadoPage {
     this.mercadoProvider.getAll().subscribe(
       (resultado) => {
         this.mercados = resultado['mercados'];
+        this.mercadosCopy = resultado['mercados'];
         console.log(resultado);
       },
       (erros) => {
@@ -47,7 +49,11 @@ export class MercadoPage {
 
 
   protected onInput(event){
-    return this.mercados;
+    this.mercados = this.mercadosCopy;
+
+    this.mercados = this.mercados.filter((mercado, indice) => {
+      return (mercado.designacao.toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1);
+    });
   }
 
   protected onBlur(){
