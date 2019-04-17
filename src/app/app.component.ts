@@ -43,11 +43,11 @@ export class MyApp {
     // this.rootPage = ProdutosDoMercadosPage;
 
     this.menu = [
-      {icon: 'home', pageName: 'Produtos Requisitados', page: ProcurasPage},
-      {icon: 'send', pageName: 'Revendedores', page: DisponibilizarProdutosPage},
-      {icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage},
-      {icon: 'help', pageName: 'Ajuda', page: ProdutosDisponibilizadosPage},
-      {icon: 'person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
+      {icon: 'ios-contacts', pageName: 'Produtores', page: ProcurasPage},
+      {icon: 'ios-people', pageName: 'Revendedores', page: DisponibilizarProdutosPage},
+      {icon: 'ios-leaf', pageName: 'Produtos', page: ProdutosDisponibilizadosPage},
+      // {icon: 'help', pageName: 'Ajuda', page: ProdutosDisponibilizadosPage},
+      {icon: 'ios-person', pageName: 'Meu Perfil', page: PerfilPrivadoPage}
     ];
 
   }
