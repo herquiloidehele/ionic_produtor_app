@@ -10,7 +10,7 @@
   <div id="principal">
 
     <div id="titulo" text-center="">
-      <img src="../../assets/imgs/user-icon.png">
+      <img src="../../assets/imgs/user-icon.png"/>
       <h3>Informação Pessoal</h3>
     </div>
 
@@ -23,11 +23,15 @@
           <ion-label floating="">Nome Completo</ion-label>
           <ion-input [(ngModel)]="user.nome" formControlName="nome" (click)="onKeyUp()" type="text"></ion-input>
         </ion-item>
+        <p *ngIf="user.nome.length > 0 && !formGroup.get('nome').valid" padding-left ion-text style="color: red;">Nome Invalido</p>
+
 
         <ion-item *ngIf="start > 0"  color="secondary">
           <ion-label floating>No. Telefone</ion-label>
           <ion-input [(ngModel)]="user.username" formControlName="username"   type="tel"></ion-input>
         </ion-item>
+
+        <p *ngIf="user.username.length > 0 && !formGroup.get('username').valid" padding-left ion-text style="color: red;">Número Invalido</p>
 
         <ion-row>
           <ion-col text-center class="butao-entrar">

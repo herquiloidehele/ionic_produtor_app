@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {LocalizacaoPage} from "../localizacao/localizacao";
 import {AutenticacaoProvider} from "../../providers/autenticacao/autenticacao";
-import {FormGroup, Validators, FormControl} from "@angular/forms";
+import {FormGroup, Validators, FormControl, AbstractControl} from "@angular/forms";
 
 @IonicPage()
 @Component({
@@ -70,6 +70,14 @@ export class UserInfoPage {
   }
 
 
+  public validacaoNome(control: AbstractControl): {[key: string] : boolean} | null{
+
+    let nomes = control.value.trim().split(" ");
+    if(!(nomes.length > 1))
+      return {"nome" : true};
+    return null;
+  }
+
 
   private async showMessage(title: string, message: string){
     const aletrer = await this.alertController.create({
@@ -89,7 +97,7 @@ export class UserInfoPage {
   vadacaoForm(){
 
     this.formGroup = new FormGroup({
-      nome: new FormControl('', [Validators.maxLength(30), Validators.minLength(3), Validators.required]),
+      nome: new FormControl('', [this.validacaoNome, Validators.maxLength(40), Validators.minLength(5), Validators.required]),
       username: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)])
     });
 
