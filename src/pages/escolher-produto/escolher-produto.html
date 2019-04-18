@@ -9,7 +9,7 @@
         <ion-card text-center (click)="check('ck_'+produto['id'])">
           <ion-checkbox *ngIf="isChecked('ck_'+produto['id'])" (click)="check('ck_'+produto['id'])" id="ck_{{produto['id']}}" [checked]="isChecked('ck_'+produto['id'])" class="marcador"></ion-checkbox>
           <div>
-            <img alt="imagem-{{produto['designacao']}}" src="{{urlApi.getSimpleURL() + (produto['default_photo'])}}"/>
+            <img alt="imagem-{{produto['designacao']}}" src="{{urlApi?.getSimpleURL() + produto['default_photo']}}"/>
             <h3 class="produto">{{produto['designacao']}}</h3>
             <h5 class="categoria">{{produto['categoria']['designacao']}}</h5>
           </div>

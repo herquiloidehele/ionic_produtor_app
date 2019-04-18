@@ -8,7 +8,6 @@ import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {RevendedoresListPage} from "../pages/revendedores-list/revendedores-list";
 import {ProdutoresListPage} from "../pages/produtores-list/produtores-list";
-import {TermosCondicoesPage} from "../pages/termos-condicoes/termos-condicoes";
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 
 @Component({

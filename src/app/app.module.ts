@@ -8,7 +8,6 @@ import { TabsPage } from '../pages/modulo-cadastrador/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LoginPage} from "../pages/login/login";
 import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores";
 import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
 import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
@@ -54,7 +53,6 @@ import {CategoriaPage} from "../pages/categoria/categoria";
 import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import { JsonProvider } from '../providers/json/json';
-import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
 import {StartPage} from "../pages/start/start";
 import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
 import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
@@ -67,15 +65,12 @@ import {IonicStorageModule} from "@ionic/storage";
 import { UserProvider } from '../providers/user/user';
 import {File} from "@ionic-native/file/ngx";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
-import {MercadoPageModule} from "../pages/mercado/mercado.module";
 import {MercadoDetailsPageModule} from "../pages/mercado-details/mercado-details.module";
 import {RevendedorProfilePageModule} from "../pages/revendedor-profile/revendedor-profile.module";
 import {ProdutoMaisProduradosPageModule} from "../pages/produto-mais-produrados/produto-mais-produrados.module";
 import {ProdutosDoMercadosPageModule} from "../pages/produtos-do-mercados/produtos-do-mercados.module";
 import {ProcurasPageModule} from "../pages/procuras/procuras.module";
-import {PublicacoesPageModule} from "../pages/publicacoes/publicacoes.module";
 import {HideHeaderDirective} from "../directives/hide-header/hide-header";
-import {DirectivesModule} from "../directives/directives.module";
 import {MercadoPage} from "../pages/mercado/mercado";
 import {PublicacoesPage} from "../pages/publicacoes/publicacoes";
 import {DetalhesProcuraPageModule} from "../pages/detalhes-procura/detalhes-procura.module";
@@ -85,6 +80,7 @@ import {ProdutosListPageModule} from "../pages/produtos-list/produtos-list.modul
 import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.module";
 import {TermosCondicoesPageModule} from "../pages/termos-condicoes/termos-condicoes.module";
 import {LoginPageModule} from "../pages/login/login.module";
+import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-produto.module";
 
 
 @NgModule({
@@ -94,7 +90,6 @@ import {LoginPageModule} from "../pages/login/login.module";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    EscolherProdutoPage,
     PaginaPrincipalPage,
     RegistarOpertasPage,
     PreviewPublicacaoPage,
@@ -158,6 +153,7 @@ import {LoginPageModule} from "../pages/login/login.module";
     ProdutoSelectPageModule,
     TermosCondicoesPageModule,
     LoginPageModule,
+    EscolherProdutoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -166,7 +162,6 @@ import {LoginPageModule} from "../pages/login/login.module";
     ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
-    EscolherProdutoPage,
     PaginaPrincipalPage,
     RegistarOpertasPage,
     PreviewPublicacaoPage,

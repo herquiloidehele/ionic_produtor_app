@@ -28,10 +28,10 @@ export class EscolherProdutoPage {
       public storageController: Storage,
       public urlApi: UrlapiProvider
   ) {
-    this.getProdutos();
   }
 
   ionViewDidLoad(){
+    this.getProdutos();
     this.user = this.navParams.get('user');
   }
 
