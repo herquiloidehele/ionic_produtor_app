@@ -4,6 +4,7 @@ import {JsonProvider} from "../../providers/json/json";
 import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {UserProvider} from "../../providers/user/user";
 import {Storage} from "@ionic/storage";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 @IonicPage()
 @Component({
@@ -24,7 +25,8 @@ export class EscolherProdutoPage {
       public userProvider: UserProvider,
       public loadingController: LoadingController,
       public alertController: AlertController,
-      public storageController: Storage
+      public storageController: Storage,
+      public urlApi: UrlapiProvider
   ) {
     this.getProdutos();
   }

@@ -1,1 +1,815 @@
-{"produtos":[{"id":45,"designacao":"Trigo","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":44,"designacao":"Pera Ma\u00e7\u00e3","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":43,"designacao":"Batata Doce","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":42,"designacao":"Maracuj\u00e1","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":41,"designacao":"Castanha","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":40,"designacao":"Feijao","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":39,"designacao":"Manga Mac\u00e3","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":38,"designacao":"Manga","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":37,"designacao":"Banana","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":36,"designacao":"Coco","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":35,"designacao":"Quiabo","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":34,"designacao":"Abacate","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":33,"designacao":"Batata","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":32,"designacao":"Goiaba","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":31,"designacao":"Mandioca","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":30,"designacao":"Tomate","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":29,"designacao":"Lim\u00e3o","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":28,"designacao":"Soja","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":27,"designacao":"Cenoura","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":26,"designacao":"Salsa","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":25,"designacao":"Pessego","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":24,"designacao":"Beterraba","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":23,"designacao":"Cevada","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":22,"designacao":"Arroz","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":21,"designacao":"Morango","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":20,"designacao":"Espinafre","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":19,"designacao":"Milho","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":18,"designacao":"Amanedoim","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":17,"designacao":"Repolho","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":16,"designacao":"Cebola","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":15,"designacao":"Pipino","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":14,"designacao":"Pimenta","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":13,"designacao":"Br\u00f3colos","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":12,"designacao":"Laranja","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":11,"designacao":"Tangerina","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":10,"designacao":"Alface","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":9,"designacao":"Ma\u00e7\u00e3","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":8,"designacao":"Berinjela","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":7,"designacao":"Ervilha","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":6,"designacao":"Figo","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":5,"designacao":"Abobora Seca","categorias_id":2,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":2,"designacao":"Legumes","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":4,"designacao":"Alho","categorias_id":4,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":4,"designacao":"Gr\u00e3os e Cereais","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":3,"designacao":"Uva","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":2,"designacao":"Couve","categorias_id":3,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":3,"designacao":"Verduras","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}},{"id":1,"designacao":"Anan\u00e1s","categorias_id":1,"estado":"ACTIVO","created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null,"categoria":{"id":1,"designacao":"Frutas","foto":null,"created_at":"2019-01-21 23:03:44","updated_at":"2019-01-21 23:03:44","deleted_at":null}}],"status":200}
+{
+  "produtos": [
+    {
+      "id": 45,
+      "designacao": "Batata Reno",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Batata Reno.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 44,
+      "designacao": "Berinjela",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Berinjela.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 43,
+      "designacao": "Pipino",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Pipino.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 42,
+      "designacao": "Morango",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Morango.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 41,
+      "designacao": "Trigo",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Trigo.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 40,
+      "designacao": "Brócolos",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Brócolos.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 39,
+      "designacao": "Mandioca",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Mandioca.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 38,
+      "designacao": "Cevada",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Cevada.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 37,
+      "designacao": "Beterraba",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Beterraba.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 36,
+      "designacao": "Repolho",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Repolho.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 35,
+      "designacao": "Tomate",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Tomate.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 34,
+      "designacao": "Feijao",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Feijao.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 33,
+      "designacao": "Abacate",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Abacate.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 32,
+      "designacao": "Alho",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Alho.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 31,
+      "designacao": "Milho",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Milho.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 30,
+      "designacao": "Espinafre",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Espinafre.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 29,
+      "designacao": "Coco",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Coco.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 28,
+      "designacao": "Limão",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Limão.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 27,
+      "designacao": "Maçã",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Maçã.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 26,
+      "designacao": "Castanha",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Castanha.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 25,
+      "designacao": "Soja",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Soja.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 24,
+      "designacao": "Manga",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Manga.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 23,
+      "designacao": "Banana",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Banana.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 22,
+      "designacao": "Maracujá",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Maracujá.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 21,
+      "designacao": "Pera Maçã",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Pera Maçã.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 20,
+      "designacao": "Batata Doce",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Batata Doce.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 19,
+      "designacao": "Laranja",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Laranja.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 18,
+      "designacao": "Ananás",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Ananás.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 17,
+      "designacao": "Tangerina",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Tangerina.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 16,
+      "designacao": "Ervilha",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Ervilha.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 15,
+      "designacao": "Couve",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Couve.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 14,
+      "designacao": "Uva",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Uva.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 13,
+      "designacao": "Cebola",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Cebola.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 12,
+      "designacao": "Quiabo",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Quiabo.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 11,
+      "designacao": "Amanedoim",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Amanedoim.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 10,
+      "designacao": "Arroz",
+      "categorias_id": 4,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Arroz.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 4,
+        "designacao": "Grãos e Cereais",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 9,
+      "designacao": "Pimenta",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Pimenta.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 8,
+      "designacao": "Cenoura",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Cenoura.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 7,
+      "designacao": "Goiaba",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Goiaba.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 6,
+      "designacao": "Figo",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Figo.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 5,
+      "designacao": "Batata",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Batata Reno.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 4,
+      "designacao": "Pessego",
+      "categorias_id": 1,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Pessego.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 1,
+        "designacao": "Frutas",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 3,
+      "designacao": "Alface",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Alface.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 2,
+      "designacao": "Abobora",
+      "categorias_id": 2,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Abobora.jpg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 2,
+        "designacao": "Legumes",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 1,
+      "designacao": "Salsa",
+      "categorias_id": 3,
+      "estado": "ACTIVO",
+      "default_photo": "img/produtos/Salsa.jpeg",
+      "created_at": "2019-01-25 20:55:40",
+      "updated_at": "2019-01-25 20:55:40",
+      "deleted_at": null,
+      "categoria": {
+        "id": 3,
+        "designacao": "Verduras",
+        "foto": null,
+        "created_at": "2019-01-25 20:55:40",
+        "updated_at": "2019-01-25 20:55:40",
+        "deleted_at": null
+      }
+    }
+  ],
+  "status": 200
+}
