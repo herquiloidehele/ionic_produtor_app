@@ -83,6 +83,8 @@ import {RevendedoresListPageModule} from "../pages/revendedores-list/revendedore
 import {ProdutoresListPageModule} from "../pages/produtores-list/produtores-list.module";
 import {ProdutosListPageModule} from "../pages/produtos-list/produtos-list.module";
 import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.module";
+import {TermosCondicoesPageModule} from "../pages/termos-condicoes/termos-condicoes.module";
+import {LoginPageModule} from "../pages/login/login.module";
 
 
 @NgModule({
@@ -101,7 +103,6 @@ import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.mo
     MercadosPage,
     ProdutosPage,
     TabsPage,
-    LoginPage,
     RegistarMercadosPage,
     RegistarProdutoresPage,
     RegistarProdutosPage,
@@ -154,7 +155,9 @@ import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.mo
     RevendedoresListPageModule,
     ProdutoresListPageModule,
     ProdutosListPageModule,
-    ProdutoSelectPageModule
+    ProdutoSelectPageModule,
+    TermosCondicoesPageModule,
+    LoginPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -172,7 +175,6 @@ import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.mo
     MercadosPage,
     ProdutosPage,
     TabsPage,
-    LoginPage,
     RegistarMercadosPage,
     RegistarProdutoresPage,
     RegistarProdutosPage,

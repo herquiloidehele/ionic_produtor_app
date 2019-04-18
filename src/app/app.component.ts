@@ -8,6 +8,7 @@ import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {RevendedoresListPage} from "../pages/revendedores-list/revendedores-list";
 import {ProdutoresListPage} from "../pages/produtores-list/produtores-list";
+import {TermosCondicoesPage} from "../pages/termos-condicoes/termos-condicoes";
 
 @Component({
   templateUrl: 'app.html'
@@ -39,7 +40,7 @@ export class MyApp {
 
     this.redirectUser();
 
-    // this.rootPage = EscolherProdutoPage;
+    // this.rootPage = TermosCondicoesPage;
 
     this.menu = [
       {icon: 'ios-contacts', pageName: 'Produtores', page: ProdutoresListPage},

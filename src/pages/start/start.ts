@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {UserInfoPage} from "../user-info/user-info";
-
-/**
- * Generated class for the StartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {LoginPage} from "../login/login";
+import {TermosCondicoesPage} from "../termos-condicoes/termos-condicoes";
 
 @IonicPage()
 @Component({
@@ -21,6 +16,14 @@ export class StartPage {
 
   start(){
     this.navCtrl.push(UserInfoPage);
+  }
+
+  goToLogin(){
+    this.navCtrl.push(LoginPage);
+  }
+
+  goToTermosCondicoes(){
+    this.navCtrl.push(TermosCondicoesPage);
   }
 
 }
