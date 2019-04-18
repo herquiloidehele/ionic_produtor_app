@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {MercadoProvider} from "../../providers/mercado/mercado";
-import {RegistarMercadosPage} from "../modulo-cadastrador/cadastros/registar-mercados/registar-mercados";
 import {MercadoDetailsPage} from "../mercado-details/mercado-details";
 
 

@@ -4,18 +4,12 @@ import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
-import { TabsPage } from '../pages/modulo-cadastrador/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {ProdutoresPage} from "../pages/modulo-cadastrador/produtores/produtores";
-import {MercadosPage} from "../pages/modulo-cadastrador/mercados/mercados";
-import {ProdutosPage} from "../pages/modulo-cadastrador/produtos/produtos";
 import {CategoriaProdutosComponent} from "../components/categoria-produtos/categoria-produtos";
 import {MercadosComponent} from "../components/mercados/mercados";
 import {ProdutoresComponent} from "../components/produtores/produtores";
-import {RevendedoresPage} from "../pages/modulo-cadastrador/revendedores/revendedores"
-import {RegistarRevendedoresPage, RegistarUnidadesMedidasPage, RegistarCategoriasPage, RegistarProdutosPage, RegistarProdutoresPage, RegistarMercadosPage} from "../pages/modulo-cadastrador/cadastros/Cadastros";
 import {RevendedoresComponent} from "../components/revendedores/revendedores";
 import {Camera} from "@ionic-native/camera";
 import { AutenticacaoProvider } from '../providers/providers';
@@ -81,13 +75,13 @@ import {ProdutoSelectPageModule} from "../pages/produto-select/produto-select.mo
 import {TermosCondicoesPageModule} from "../pages/termos-condicoes/termos-condicoes.module";
 import {LoginPageModule} from "../pages/login/login.module";
 import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-produto.module";
+import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar-produtos.module";
 
 
 @NgModule({
   declarations: [
     MyApp,
     StartPage,
-    ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
     PaginaPrincipalPage,
@@ -95,20 +89,10 @@ import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-prod
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,
-    MercadosPage,
-    ProdutosPage,
-    TabsPage,
-    RegistarMercadosPage,
-    RegistarProdutoresPage,
-    RegistarProdutosPage,
     CategoriaProdutosComponent,
     MercadosComponent,
     ProdutoresComponent,
     RevendedoresComponent,
-    RegistarCategoriasPage,
-    RegistarUnidadesMedidasPage,
-    RegistarRevendedoresPage,
-    RevendedoresPage,
     DisponibilizarProdutosPage,
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,
@@ -153,13 +137,13 @@ import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-prod
     ProdutoSelectPageModule,
     TermosCondicoesPageModule,
     LoginPageModule,
-    EscolherProdutoPageModule
+    EscolherProdutoPageModule,
+    AdicionarProdutosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     StartPage,
-    ProdutoresPage,
     UserInfoPage,
     LocalizacaoPage,
     PaginaPrincipalPage,
@@ -167,16 +151,6 @@ import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-prod
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,
-    MercadosPage,
-    ProdutosPage,
-    TabsPage,
-    RegistarMercadosPage,
-    RegistarProdutoresPage,
-    RegistarProdutosPage,
-    RegistarCategoriasPage,
-    RegistarUnidadesMedidasPage,
-    RegistarRevendedoresPage,
-    RevendedoresPage,
     DisponibilizarProdutosPage,
     ProdutosrequsitadosPage,
     ProdutosDisponibilizadosPage,

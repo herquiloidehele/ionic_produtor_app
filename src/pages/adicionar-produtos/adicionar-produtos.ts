@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the RegistarProdutoresPage page.
+ * Generated class for the AdicionarProdutosPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-registar-produtores',
-  templateUrl: 'registar-produtores.html',
+  selector: 'page-adicionar-produtos',
+  templateUrl: 'adicionar-produtos.html',
 })
-export class RegistarProdutoresPage {
+export class AdicionarProdutosPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistarProdutoresPage');
+    console.log('ionViewDidLoad AdicionarProdutosPage');
   }
 
 }
