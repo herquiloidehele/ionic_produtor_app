@@ -9,6 +9,7 @@ import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {RevendedoresListPage} from "../pages/revendedores-list/revendedores-list";
 import {ProdutoresListPage} from "../pages/produtores-list/produtores-list";
 import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
+import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 
 @Component({
   templateUrl: 'app.html'
@@ -38,9 +39,9 @@ export class MyApp {
 
     });
 
-    // this.redirectUser();
+    this.redirectUser();
 
-    this.rootPage = EscolherProdutoPage;
+    // this.rootPage = LocalizacaoPage;
 
     this.menu = [
       {icon: 'ios-contacts', pageName: 'Produtores', page: ProdutoresListPage},

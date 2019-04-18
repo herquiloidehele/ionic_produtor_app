@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {UrlapiProvider} from "../urlapi/urlapi";
 
 /*
   Generated class for the JsonProvider provider.
@@ -11,13 +12,13 @@ import { Injectable } from '@angular/core';
 export class JsonProvider {
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public urlApi: UrlapiProvider) {
 
   }
 
 
   public getProvincias(){
-    return this.http.get('../../assets/data/provinces.json');
+    return this.http.get(this.urlApi.getURL() + 'provincias');
   }
 
   public getDistritos(){

@@ -37,7 +37,7 @@ export class LocalizacaoPage {
   protected getProvincias(){
     this.jsonProvider.getProvincias().subscribe(
       (response) => {
-        this.provincias = response['places'];
+        this.provincias = response['provincias'];
         console.log(this.provincias);
       },
       (error) => {
@@ -67,23 +67,7 @@ export class LocalizacaoPage {
   protected onSelectProvincias(provincia){
     this.localizacao.provincia = provincia;
 
-    this.jsonProvider.getDistritos().subscribe(
-      (response) => {
-        let distritos = response['places'];
-
-        this.distritos = distritos.filter((distrito) => {
-          return distrito['in_place']['id'] === this.localizacao.provincia['id'];
-        });
-
-        },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        console.log('Complete Distritos');
-        this.start += 1;
-      }
-    )
+    this.distritos = provincia['distritos'];
   }
 
   protected onSelectDistritos(distrito){
@@ -110,6 +94,7 @@ export class LocalizacaoPage {
 
   protected onNext(){
     if(this.start > 0){
+      console.log(this.localizacao.distrito);
       this.user['distrito_id'] = this.localizacao['distrito']['id'];
       this.navCtrl.push(EscolherProdutoPage, {user: this.user});
     }

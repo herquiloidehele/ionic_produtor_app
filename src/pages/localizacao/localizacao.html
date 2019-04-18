@@ -15,14 +15,14 @@
         <ion-item color="secondary">
           <ion-label floating>Província</ion-label>
           <ion-select name="provincia" (click)="onClickProvincia()" formControlName="provincia">
-            <ion-option *ngFor="let provincia of provincias"  (ionSelect)="onSelectProvincias(provincia)">{{provincia['name']}}</ion-option>
+            <ion-option *ngFor="let provincia of provincias"  (ionSelect)="onSelectProvincias(provincia)">{{provincia['designacao']}}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item color="secondary" *ngIf="start > 0">
           <ion-label floating>Distrito</ion-label>
           <ion-select name="distrito" formControlName="distrito">
-            <ion-option *ngFor="let distrito of distritos" (ionSelect)="onSelectDistritos(distrito)">{{distrito['name']}}</ion-option>
+            <ion-option *ngFor="let distrito of distritos" (ionSelect)="onSelectDistritos(distrito)">{{distrito['designacao']}}</ion-option>
           </ion-select>
         </ion-item>
 
