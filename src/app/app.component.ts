@@ -39,7 +39,7 @@ export class MyApp {
 
     this.redirectUser();
 
-    // this.rootPage = ProdutosDoMercadosPage;
+    // this.rootPage = EscolherProdutoPage;
 
     this.menu = [
       {icon: 'ios-contacts', pageName: 'Produtores', page: ProdutoresListPage},

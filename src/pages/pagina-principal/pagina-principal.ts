@@ -17,15 +17,15 @@ export class PaginaPrincipalPage {
   protected tab2 = PublicacoesPage;
   protected tab3 = MercadoPage;
   protected tab4 = ProcurasPage;
-  protected tabIndex = 1;
-
+  protected tabIndex;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.tabIndex = this.navParams.get('tabIndex');
   }
 
-  ionViewWillEnter(){
-    this.tabIndex = this.navParams.get('tabIndex') ? this.navParams.get('tabIndex') : 1;
+  ionViewDidLoad(){
+
   }
 
 
