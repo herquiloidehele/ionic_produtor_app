@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavParams, ViewController} from 'ionic-angular';
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
-/**
- * Generated class for the AdicionarProdutosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,11 +11,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdicionarProdutosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  protected produtos;
+  protected produtosProduzidos;
+
+  constructor(public viewCtr: ViewController, public navParams: NavParams, public urlApi: UrlapiProvider) {
+    this.produtos = this.navParams.get('produtos');
+    this.produtosProduzidos = this.navParams.get('produtos_produzidos');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdicionarProdutosPage');
+
   }
+
+
+  protected selecionarProduto(produto){
+    this.viewCtr.dismiss(produto);
+  }
+
 
 }

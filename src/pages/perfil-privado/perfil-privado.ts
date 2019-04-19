@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 
 @IonicPage()
@@ -9,14 +9,14 @@ import {Storage} from "@ionic/storage";
 })
 export class PerfilPrivadoPage {
 
-
   protected user: {};
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public storageController: Storage,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public modalCtr: ModalController
     ) {
 
     this.getuserFromStorage();
@@ -60,6 +60,22 @@ export class PerfilPrivadoPage {
       return countImagens;
     }
   }
+
+
+  //
+  // protected gotToAdicionar(){
+  //   let modalControler = this.modalCtr.create(ProdutoSelectPage, {produtos: this.user.produtos, produtos_produzidos: this.user.produtos_produzidos.length});
+  //   modalControler.present();
+  //
+  //   modalControler.onDidDismiss((produto) => {
+  //     // this.storageController
+  //     this.publicacao.produtos_id = produto;
+  //   });
+  // }
+
+
+
+
 
   protected mostrarAlert(){
 

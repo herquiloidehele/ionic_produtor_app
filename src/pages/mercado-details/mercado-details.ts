@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, IonicPage, NavController, NavParams, Segment} from 'ionic-angular';
+import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 import {ProdutoMaisProduradosPage} from "../produto-mais-produrados/produto-mais-produrados";
 import {ProdutosDoMercadosPage} from "../produtos-do-mercados/produtos-do-mercados";

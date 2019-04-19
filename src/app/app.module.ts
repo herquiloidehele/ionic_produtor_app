@@ -18,20 +18,13 @@ import { CategoriasProvider } from '../providers/categorias/categorias';
 import {ProdutoresProvider} from "../providers/produtores/produtores";
 import { RevendedorProvider } from '../providers/revendedor/revendedor';
 import { MercadoProvider } from '../providers/mercado/mercado';
-import {DisponibilizarProdutosPage} from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
-import {ProdutosrequsitadosPage} from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
-import {ProdutosDisponibilizadosPage} from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
 import { ProcurasProvider } from '../providers/procuras/procuras';
 import { ProduzProvider } from '../providers/produz/produz';
 import { ProdutosProvider } from '../providers/produtos/produtos';
-import {RegistarMeusProdutosPage} from "../pages/modulo-produtor/registar-meus-produtos/registar-meus-produtos";
 import { UnidadeMedidaProvider } from '../providers/unidade-medida/unidade-medida';
 import { OfertasProvider } from '../providers/ofertas/ofertas';
 import { GerarCoresProvider } from '../providers/gerar-cores/gerar-cores';
-import {RegistarProdutosDisponibilizadosPage} from "../pages/modulo-produtor/registar-produtos-disponibilizados/registar-produtos-disponibilizados";
 import { UrlapiProvider } from '../providers/urlapi/urlapi';
-import {DisponibilidadePage} from "../pages/modulo-produtor/disponibilidade/disponibilidade";
-import {MostrarParcementoPage} from "../pages/modulo-produtor/mostrar-parcemento/mostrar-parcemento";
 import { ConversorProvider } from '../providers/conversor/conversor';
 import {InicioPage} from "../pages/modulo-revendedor/inicio/inicio";
 import {PerfilRevendedorPage} from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
@@ -93,13 +86,6 @@ import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar
     MercadosComponent,
     ProdutoresComponent,
     RevendedoresComponent,
-    DisponibilizarProdutosPage,
-    ProdutosrequsitadosPage,
-    ProdutosDisponibilizadosPage,
-    RegistarMeusProdutosPage,
-    RegistarProdutosDisponibilizadosPage,
-    DisponibilidadePage,
-    MostrarParcementoPage,
     PerfilPrivadoPage,
     PerfilPublicoPage,
     InicioPage,
@@ -151,13 +137,6 @@ import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,
-    DisponibilizarProdutosPage,
-    ProdutosrequsitadosPage,
-    ProdutosDisponibilizadosPage,
-    RegistarMeusProdutosPage,
-    RegistarProdutosDisponibilizadosPage,
-    DisponibilidadePage,
-    MostrarParcementoPage,
     PerfilPrivadoPage,
     PerfilPublicoPage,
     InicioPage,

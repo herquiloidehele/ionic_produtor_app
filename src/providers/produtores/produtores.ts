@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {UrlapiProvider} from "../urlapi/urlapi";
+import {Observable} from "rxjs";
 
 /*
   Generated class for the ProdutoresProvider provider.
@@ -21,5 +22,10 @@ export class ProdutoresProvider {
   getAll(){
     return this.http.get(this.urlProvider.getURL() + 'produtores', {headers: this.header});
   }
+
+  public getProdutor(id: number): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'produtores/'+id);
+  }
+
 
 }

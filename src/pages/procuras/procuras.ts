@@ -34,7 +34,7 @@ export class ProcurasPage {
   }
 
 
-  private goDetalhesProcura(procura){
+  public goDetalhesProcura(procura){
     this.navCtrl.push(DetalhesProcuraPage, {procura: procura})
   }
 

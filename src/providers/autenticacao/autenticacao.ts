@@ -37,6 +37,9 @@ export class AutenticacaoProvider {
   }
 
 
+  public getUser(id: number): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'users/id');
+  }
 
 
 

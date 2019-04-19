@@ -8,8 +8,7 @@ import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {ProdutosListPage} from "../pages/produtos-list/produtos-list";
 import {RevendedoresListPage} from "../pages/revendedores-list/revendedores-list";
 import {ProdutoresListPage} from "../pages/produtores-list/produtores-list";
-import {EscolherProdutoPage} from "../pages/escolher-produto/escolher-produto";
-import {LocalizacaoPage} from "../pages/localizacao/localizacao";
+import {ProdutoresProvider} from "../providers/produtores/produtores";
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +27,8 @@ export class MyApp {
               public platform: Platform,
               app: App,
               public storageController: Storage,
-              public alertController: AlertController
+              public alertController: AlertController,
+              public produtorProvider: ProdutoresProvider
               ){
 
     platform.ready().then(() => {
@@ -60,6 +60,7 @@ export class MyApp {
 
         if(response){
           this.user = response;
+          this.updateUserData(this.user['id']);
           this.rootPage = PaginaPrincipalPage;
         }else{
           this.rootPage = StartPage;
@@ -76,6 +77,20 @@ export class MyApp {
     showPageProdutor(page){
       this.ionNav.push(page);
     }
+
+
+    public updateUserData(id){
+      this.produtorProvider.getProdutor(id).subscribe((response) => {
+        this.storageController.set('user', response['produtor']);
+      },
+        (error) => {
+          console.log(error);
+        })
+    }
+
+
+
+
 
 
   logout(){

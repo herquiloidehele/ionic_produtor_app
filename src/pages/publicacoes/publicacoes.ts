@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Searchbar} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
 import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
