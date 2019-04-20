@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
+import {AdicionarProdutosPage} from "../adicionar-produtos/adicionar-produtos";
+import {ProdutosProvider} from "../../providers/produtos/produtos";
 
 @IonicPage()
 @Component({
@@ -9,14 +11,16 @@ import {Storage} from "@ionic/storage";
 })
 export class PerfilPrivadoPage {
 
-  protected user: {};
+  protected user;
+  protected produtos;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public storageController: Storage,
     public alertController: AlertController,
-    public modalCtr: ModalController
+    public modalCtr: ModalController,
+    public produtosController: ProdutosProvider
     ) {
 
     this.getuserFromStorage();
@@ -29,6 +33,7 @@ export class PerfilPrivadoPage {
       (response) => {
         console.log({storage: response});
         this.user = response;
+        this.getProdutos();
       }
     ).catch((error) => {
       console.log(error);
@@ -62,16 +67,35 @@ export class PerfilPrivadoPage {
   }
 
 
-  //
-  // protected gotToAdicionar(){
-  //   let modalControler = this.modalCtr.create(ProdutoSelectPage, {produtos: this.user.produtos, produtos_produzidos: this.user.produtos_produzidos.length});
-  //   modalControler.present();
-  //
-  //   modalControler.onDidDismiss((produto) => {
-  //     // this.storageController
-  //     this.publicacao.produtos_id = produto;
-  //   });
-  // }
+
+  protected gotToAdicionar(){
+    let modalControler = this.modalCtr.create(AdicionarProdutosPage, {produtos: this.produtos, produtos_produzidos: this.user['produtos_produzidos']});
+    modalControler.present();
+
+    modalControler.onDidDismiss((produto) => {
+
+      this.produtosController.adicionarProdutosProduzidos(this.user.id, produto.id).subscribe((response) => {
+        this.user['produtos_produzidos'].push(produto);
+        this.storageController.set('user', this.user);
+      },
+        (error) => {
+          console.log(error);
+        });
+    });
+  }
+
+
+  protected getProdutos(){
+    this.produtosController.getAllProdutos(this.user['produtos_produzidos']).subscribe(
+      (response) => {
+        this.produtos = response['produtos'];
+        console.log((this.produtos));
+      },
+      (erros) => {
+        console.log(erros);
+      }
+    );
+  }
 
 
 

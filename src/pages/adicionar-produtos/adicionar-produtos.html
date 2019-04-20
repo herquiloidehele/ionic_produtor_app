@@ -1,8 +1,8 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Selecionar Produto</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Selecione um Produto</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,27 +10,27 @@
 
 <ion-content style="background: #eee" >
 
-  <!--<ion-list  padding style="padding-top: 0">-->
+  <ion-list  padding>
     <!--<ion-item-divider color="secondary">-->
       <!--Outros Produtos-->
     <!--</ion-item-divider>-->
-    <!--<div *ngFor="let produto of produtos;  let indice = index" (click)="selecionarProduto(produto)">-->
-      <!--<ion-item *ngIf="indice >= produtosProduzidos">-->
-        <!--<ion-row>-->
-          <!--<div col-4>-->
-            <!--<img  alt="img_produto" width="70" height="70" src="{{urlProvider.getSimpleURL()+produto['default_photo']}}"/>-->
-          <!--</div>-->
+    <div *ngFor="let produto of produtos;  let indice = index" (click)="selecionarProduto(produto)">
+      <ion-item *ngIf="isIncluded(produto)">
+        <ion-row>
+          <div col-4>
+            <img  alt="img_produto" width="70" height="70" src="{{urlApi.getSimpleURL()+produto['default_photo']}}"/>
+          </div>
 
-          <!--<div col-8>-->
-            <!--<span>{{produto['designacao']}}</span>-->
-            <!--<p>{{produto['categoria']['designacao']}}</p>-->
-          <!--</div>-->
+          <div col-8>
+            <span>{{produto['designacao']}}</span>
+            <p>{{produto['categoria']['designacao']}}</p>
+          </div>
 
-        <!--</ion-row>-->
+        </ion-row>
 
-      <!--</ion-item>-->
-    <!--</div>-->
-  <!--</ion-list>-->
+      </ion-item>
+    </div>
+  </ion-list>
 
 
 </ion-content>

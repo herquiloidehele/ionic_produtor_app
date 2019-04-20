@@ -2,6 +2,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {UrlapiProvider} from "../urlapi/urlapi";
 import 'rxjs/add/operator/retry'
+import {Observable} from "rxjs";
 
 
 /*
@@ -31,5 +32,11 @@ export class ProdutosProvider {
   salvar(produto){
     return this.http.post(this.urlProvider.getURL()+ 'produtos',produto, {headers: this.header});
   }
+
+
+  public adicionarProdutosProduzidos(idProdutor: number, idProduto: number): Observable<any>{
+    return this.http.post(this.urlProvider.getURL() + 'produz', {idProdutor: idProdutor, idProduto: idProduto}, {headers: this.header})
+  }
+
 
 }

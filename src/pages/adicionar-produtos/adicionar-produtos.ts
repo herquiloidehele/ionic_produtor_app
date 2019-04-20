@@ -16,8 +16,9 @@ export class AdicionarProdutosPage {
   protected produtosProduzidos;
 
   constructor(public viewCtr: ViewController, public navParams: NavParams, public urlApi: UrlapiProvider) {
-    this.produtos = this.navParams.get('produtos');
-    this.produtosProduzidos = this.navParams.get('produtos_produzidos');
+     this.produtosProduzidos = this.navParams.get('produtos_produzidos');
+     this.produtos = this.navParams.get('produtos');
+     console.log(this.produtosProduzidos);
   }
 
   ionViewDidLoad() {
@@ -27,6 +28,17 @@ export class AdicionarProdutosPage {
 
   protected selecionarProduto(produto){
     this.viewCtr.dismiss(produto);
+  }
+
+
+  protected isIncluded(produto){
+
+      for(let produtoProduzido of this.produtosProduzidos) {
+         if(produto.id == produtoProduzido.id){
+           return false;
+         }
+       }
+        return true;
   }
 
 
