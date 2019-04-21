@@ -69,6 +69,7 @@ import {TermosCondicoesPageModule} from "../pages/termos-condicoes/termos-condic
 import {LoginPageModule} from "../pages/login/login.module";
 import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-produto.module";
 import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar-produtos.module";
+import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
 
 
 @NgModule({
@@ -124,7 +125,8 @@ import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar
     TermosCondicoesPageModule,
     LoginPageModule,
     EscolherProdutoPageModule,
-    AdicionarProdutosPageModule
+    AdicionarProdutosPageModule,
+    ProdutoEditPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -58,7 +58,7 @@
               <h3 style="font-size: 13pt; color: #61d295">Meus Produtos</h3>
           </ion-card-header>
           <ion-card-content text-center>
-            <button class="btn_produto" col-3  ion-button round small color="primary" *ngFor="let produto of user['produtos_produzidos']">#{{produto['designacao']}}</button>
+            <button class="btn_produto" col-3  ion-button round small color="primary"  *ngFor="let produto of user['produtos_produzidos']" (click)="goToProditoEdit(produto)">#{{produto['designacao']}}</button>
             <button col-3   ion-button round small color="secondary" (click)="gotToAdicionar()"><ion-icon name="add"></ion-icon></button>
           </ion-card-content>
         </ion-card>

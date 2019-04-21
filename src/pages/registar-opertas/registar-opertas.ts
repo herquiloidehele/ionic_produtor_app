@@ -35,6 +35,8 @@ export class RegistarOpertasPage{
   protected imagens = [];
   protected user: any;
 
+  protected unidadeMedidas = {};
+
   protected publicacao = {
     designacao: '',
     descricao: null,
@@ -44,7 +46,8 @@ export class RegistarOpertasPage{
     produtos_id: '',
     distritos_id: null,
     imagens: [],
-    produtores_id: ''
+    produtores_id: '',
+    is_preco_unidade: false
   };
   constructor(
     public navCtrl: NavController,
@@ -78,6 +81,10 @@ export class RegistarOpertasPage{
   }
 
 
+  change(unidade){
+    this.unidadeMedidas = unidade;
+    console.log(unidade);
+  }
 
   protected getAllProdutos(){
 
@@ -183,7 +190,8 @@ export class RegistarOpertasPage{
       unidades_medidas_id: publicacao.unidades_medidas_id['id'],
       produtos_id: publicacao.produtos_id['id'],
       distritos_id: publicacao.distritos_id['id'],
-      produtores_id: publicacao.produtores_id
+      produtores_id: publicacao.produtores_id,
+      is_preco_unidade: publicacao.is_preco_unidade
     };
   }
   private showAlert(titulo, mensagem){
@@ -205,6 +213,7 @@ export class RegistarOpertasPage{
       unidade_medida_id: new FormControl('', [Validators.required]),
       produto_id: new FormControl('', [Validators.minLength(3)]),
       descricao: new FormControl('', [Validators.minLength(5), Validators.required]),
+      is_preco_unidade: new FormControl('', []),
     });
   }
 

@@ -1,0 +1,84 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Informações do Produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid no-margin no-padding>
+    <ion-row align-items-center class="profile-details" >
+      <ion-col col-lg-12 align-self-center text-center margin-top>
+        <ion-avatar>
+
+          <ion-avatar item-center text-center>
+            <img class="avatar" src="{{urlProvider.getSimpleURL() + produto?.default_photo}}" width="150px" height="150px">
+          </ion-avatar>
+          <h5 ion-text color="light" text-center>{{produto?.designacao}}</h5>
+          <p ion-text  text-center color="light"> {{ produto?.categoria.designacao}} </p>
+        </ion-avatar>
+
+      </ion-col>
+
+
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-lg-12>
+        <ion-card>
+          <ion-card-header color="">
+            <h3 style="font-size: 13pt; color: #61d295">Descrição</h3>
+          </ion-card-header>
+          <ion-card-content color="light" text-center>
+            <ion-item (click)="adicionarQuantidade()">
+              <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+              <p>Adicione uma descrição sobre o produto que produz</p>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-lg-12>
+        <ion-card>
+          <ion-card-header color="">
+            <h3 style="font-size: 13pt; color: #61d295">Quantidade</h3>
+          </ion-card-header>
+          <ion-card-content color="light" text-justify>
+            <ion-item>
+              <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+              <p>Qual é a quantidade que costuma produzir</p>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-lg-12>
+        <ion-card>
+          <ion-card-header color="">
+            <h3 style="font-size: 13pt; color: #61d295">Épocas</h3>
+          </ion-card-header>
+          <ion-card-content color="light" text-justify>
+
+            <ion-item>
+              <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+              <p>Indique as épocas de produção da sua cultura</p>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+</ion-content>

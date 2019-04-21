@@ -49,15 +49,15 @@
         <ion-icon color="{{(formGroup.get('quantidade').valid && formGroup.get('unidade_medida_id').valid) ? 'secondary' : ''}}" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
-      <ion-item col-6>
+      <ion-item col-5>
         <ion-label floating="">Quantidade</ion-label>
         <ion-input type="number" [(ngModel)]="publicacao.quantidade" formControlName="quantidade" name="quantidade"></ion-input>
       </ion-item>
 
-      <ion-item col-5>
+      <ion-item col-6>
         <ion-label floating="">Unidade</ion-label>
-        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" formControlName="unidade_medida_id" name="unidades_medidas_id">
-          <ion-option *ngFor="let unidade of unidadesMedida" [value]="unidade">{{unidade['designacao']}}</ion-option>
+        <ion-select [(ngModel)]="publicacao.unidades_medidas_id" #select (ionChange)="change(select.value)" formControlName="unidade_medida_id" name="unidades_medidas_id">
+          <ion-option *ngFor="let unidade of unidadesMedida" [value]="unidade" (select)="change($event)">{{unidade['designacao']}} ({{unidade['abreviatura']}})</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>
@@ -67,10 +67,20 @@
         <ion-icon [color]="formGroup.get('preco').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
 
-      <ion-item col-11>
+      <ion-item col-5>
         <ion-label floating>Preço</ion-label>
         <ion-input type="number" [(ngModel)]="publicacao.preco" formControlName="preco" name="preco"></ion-input>
       </ion-item>
+
+      <ion-item col-6 id="preco-unidade">
+
+        <ion-label floating>Tipo de Preço</ion-label>
+        <ion-select [(ngModel)]="publicacao.is_preco_unidade" formControlName="is_preco_unidade" name="is_preco_unidade">
+          <ion-option  [value]="false">Preço Total</ion-option>
+          <ion-option  [value]="true">Preço por {{unidadeMedidas.abreviatura}}</ion-option>
+        </ion-select>
+      </ion-item>
+
     </ion-row>
 
     <ion-row>

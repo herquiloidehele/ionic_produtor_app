@@ -92,7 +92,8 @@ export class PreviewPublicacaoPage {
       unidades_medidas_id: publicacao.unidades_medidas_id['id'],
       produtos_id: publicacao.produtos_id['id'],
       distritos_id: publicacao.distritos_id['id'],
-      produtores_id: publicacao.produtores_id
+      produtores_id: publicacao.produtores_id,
+      is_preco_unidade: publicacao.is_preco_unidade
     };
   }
   private showAlert(titulo, mensagem){

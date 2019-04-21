@@ -32,5 +32,10 @@ page-registar-opertas {
   }
 
 
+  ion-item#preco-unidade{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 }

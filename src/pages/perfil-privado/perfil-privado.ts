@@ -3,6 +3,7 @@ import {AlertController, IonicPage, ModalController, NavController, NavParams} f
 import {Storage} from "@ionic/storage";
 import {AdicionarProdutosPage} from "../adicionar-produtos/adicionar-produtos";
 import {ProdutosProvider} from "../../providers/produtos/produtos";
+import {ProdutoEditPage} from "../produto-edit/produto-edit";
 
 @IonicPage()
 @Component({
@@ -84,6 +85,10 @@ export class PerfilPrivadoPage {
     });
   }
 
+  protected goToProditoEdit(produto){
+    console.log(produto);
+    this.navCtrl.push(ProdutoEditPage, {produto: produto});
+  }
 
   protected getProdutos(){
     this.produtosController.getAllProdutos(this.user['produtos_produzidos']).subscribe(
