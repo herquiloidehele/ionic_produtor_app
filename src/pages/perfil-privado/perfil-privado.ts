@@ -54,16 +54,18 @@ export class PerfilPrivadoPage {
   }
 
   protected getImagesCount(){
+    let quantidade = 0;
     if(this.user['ofertas'].length == 0)
       return 0;
     else{
-      let countImagens = this.user['ofertas'].reduce((accumulateOferta, oferta) => {
-          return accumulateOferta + oferta['imagens'].reduce((accumulateImagem, imagem) => {
-            return accumulateImagem + 1;
-          });
+
+      this.user['ofertas'].forEach((oferta) => {
+        oferta['imagens'].forEach((imagem) => {
+          quantidade++;
+        })
       });
 
-      return countImagens;
+      return quantidade;
     }
   }
 
