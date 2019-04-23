@@ -35,7 +35,8 @@
           <ion-card-content *ngIf="!showDescription">
 
             <ion-item (click)="togleDescription()">
-                <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+              <ion-icon color="secondary" name="list"  item-start large></ion-icon>
+
                 <pre *ngIf="produtoInfo.descricao != null">{{produtoInfo.descricao}}</pre>
               </ion-item>
 
@@ -118,8 +119,8 @@
           <ion-card-content color="light" text-justify>
 
             <ion-item *ngIf="!showEpoca">
-              <ion-icon color="secondary" name="pint" item-start large></ion-icon>
-
+              <ion-icon color="secondary" name="stopwatch" item-start large></ion-icon>
+              <!--<ion-icon name="stopwatch"></ion-icon>-->
               <div *ngIf="produtoInfo.epocas.length > 0">
                 <h3 *ngFor="let epoca of produtoInfo?.epocas">{{epoca['inicio']}} - {{epoca['fim']}}</h3>
               </div>

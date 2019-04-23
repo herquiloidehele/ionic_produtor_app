@@ -27,4 +27,10 @@ export class MercadoProvider {
     return this.http.post(this.urlProvider.getURL() + 'mercados',{mercado: mercado}, {headers: this.headers});
   }
 
+
+  getProdutosMercado(mercadoId: number){
+
+  }
+
+
 }
