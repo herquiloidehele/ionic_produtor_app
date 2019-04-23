@@ -1,3 +1,71 @@
 page-view-publicacao {
+    button#back-button{
+      position: absolute;
+      top: 2%;
+      left: 5%;
+    }
+
+
+  ion-grid {
+
+    .imagens-produto {
+      height: 45%;
+      background-image: url('../../assets/imgs/start/start3.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+
+    div.div-card{
+      background-color: white;
+      padding: 2%;
+    }
+
+    p.descricao-title{
+      color: color($colors, secondary);
+      font-size: 12pt;
+      font-weight: 500;
+    }
+
+    p.descricao{
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+
+
+
+    p.produtor-nome{
+      color: #0a0a0a;
+      font-size: 13pt;
+      font-weight: 500;
+    }
+
+    p.titulo{
+      font-size: 12pt;
+      font-weight: bold;
+      color: #444444;
+    }
+
+    p.data{
+      color: #888888;
+    }
+
+  h6.quantidade{
+    color: #888888;
+    font-size: 12pt;
+  }
+
+
+
+
+
+
+
+
+
+
+  }
+
 
 }

@@ -48,7 +48,7 @@ export class PreviewPublicacaoPage {
       console.log(response);
       this.actualizarProdutos(this.publicacao.produtos_id);
       loading.dismiss();
-      this.navCtrl.setRoot(PaginaPrincipalPage);
+      this.navCtrl.popToRoot();
     },
       (error) => {
         loading.dismiss();

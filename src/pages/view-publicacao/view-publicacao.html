@@ -1,18 +1,74 @@
 
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>publicacao</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
-<ion-content>
+<ion-content no-padding no-margin>
 
 
 
 
+  <ion-grid no-margin no-padding style="background-color: #eee; height: 100%" *ngIf="publicacao">
+    <ion-row class="imagens-produto"></ion-row>
+
+
+    <div class="div-card" id="content-header" style="margin-top: 0">
+      <h6 class="quantidade" float-right item-end style="margin-bottom: 0; margin-top: 0">{{ publicacao['quantidade']}}  {{ publicacao['unidades_medida']['designacao']}}s</h6>
+      <h1 class="preco" style="margin-bottom: 0">{{ publicacao['preco']}} MZN</h1>
+
+      <ion-badge style="margin-top: 0" color="secondary" *ngIf="publicacao['is_preco_unidade']">Preço por {{publicacao['unidades_medida']['abreviatura']}} </ion-badge>
+      <ion-badge style="margin-top: 0" color="secondary" *ngIf="!publicacao['is_preco_unidade']">Preço Total </ion-badge>
+
+
+      <div margin-top>
+        <p class="titulo">{{publicacao['designacao']}}</p>
+        <p  class="data">{{publicacao['created_at']}}</p>
+      </div>
+    </div>
+
+
+    <div margin-top class="div-card" style="padding-top: 0">
+      <p class="descricao-title">Descrição</p>
+      <p ion-text text-justify class="descricao">{{publicacao['descricao']}}</p>
+    </div>
+
+
+    <div margin-top class="div-card">
+      <ion-item no-lines>
+        <ion-avatar item-start>
+          <img class="produtor-img" alt="profile-image" class="avatar" src="../../assets/imgs/farmer.jpeg" style="width: 60px; height: 60px; border-radius: 50%">
+        </ion-avatar>
+
+        <div>
+          <p class="produtor-nome">{{publicacao['produtore']['user']['nome']}}</p>
+          <p class="produtor-distrito">{{publicacao['distrito']['designacao']}}</p>
+          <ion-badge style="margin-top: 0" color="secondary" >Eu</ion-badge>
+
+        </div>
+      </ion-item>
+    </div>
+
+
+
+    <div class="div-card" margin-top>
+      <ion-item no-lines text-center>
+        <ion-icon name="iye" color="secondary"></ion-icon>
+        <p class="visualizacoes">{{publicacao['visualizacoes'] ? publicacao['visualizacoes'] : 0}} Visualizações</p>
+      </ion-item>
+    </div>
+
+
+  </ion-grid>
+
+
+
+
+  <button id="back-button" color="white" clear ion-button icon-only (click)="voltar()">
+    <ion-icon name="arrow-back" icon-start></ion-icon>
+  </button>
 
 
 </ion-content>
+
+
+
+
+

@@ -19,4 +19,9 @@ export class ViewPublicacaoPage {
     this.publicacao = this.navParams.get('publicacao');
   }
 
+
+
+  voltar(){
+    this.navCtrl.pop();
+  }
 }
