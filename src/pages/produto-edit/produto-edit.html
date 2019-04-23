@@ -24,8 +24,6 @@
 
       </ion-col>
 
-
-
     </ion-row>
 
     <ion-row>
@@ -34,12 +32,30 @@
           <ion-card-header color="">
             <h3 style="font-size: 13pt; color: #61d295">Descrição</h3>
           </ion-card-header>
-          <ion-card-content color="light" text-center>
-            <ion-item (click)="adicionarQuantidade()">
-              <ion-icon color="secondary" name="pint" item-start large></ion-icon>
-              <p>Adicione uma descrição sobre o produto que produz</p>
+          <ion-card-content *ngIf="!showDescription">
+
+            <ion-item (click)="togleDescription()">
+                <ion-icon color="secondary" name="pint" item-start large></ion-icon>
+                <pre *ngIf="produtoInfo.descricao != null">{{produtoInfo.descricao}}</pre>
+              </ion-item>
+
+            <ion-item *ngIf="produtoInfo.descricao == null">
+              <button ion-button full (click)="togleDescription()" color="primary">Adicionar uma descrição</button>
             </ion-item>
           </ion-card-content>
+
+
+          <div *ngIf="showDescription">
+            <ion-item>
+              <ion-textarea [(ngModel)]="descricao" required placeholder="Adicione uma descrição sobre o produto que produz" *ngIf="showDescription" rows="4"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+              <button ion-button color="primary" float-right right (click)="salvarDescricao()">Salvar</button>
+              <button ion-button color="danger" float-right right (click)="togleDescription()" clear>cancelar</button>
+            </ion-item>
+          </div>
+
         </ion-card>
 
       </ion-col>
@@ -51,15 +67,47 @@
           <ion-card-header color="">
             <h3 style="font-size: 13pt; color: #61d295">Quantidade</h3>
           </ion-card-header>
-          <ion-card-content color="light" text-justify>
-            <ion-item>
+          <ion-card-content *ngIf="!showQuantidade">
+
+            <ion-item (click)="togleQuantidade()">
               <ion-icon color="secondary" name="pint" item-start large></ion-icon>
-              <p>Qual é a quantidade que costuma produzir</p>
+              <h2 *ngIf="produtoInfo.quantidade != null">{{produtoInfo.quantidade}} {{produtoInfo.unidadeMedida?.designacao}}s</h2>
             </ion-item>
+
+            <ion-item *ngIf="produtoInfo.quantidade == null">
+              <button ion-button full (click)="togleQuantidade()" color="primary">Adicionar quantidade da produção</button>
+            </ion-item>
+
           </ion-card-content>
+
+          <ion-grid *ngIf="showQuantidade">
+            <ion-row>
+              <ion-item col-6>
+                <ion-label floating>Quantidade</ion-label>
+                <ion-input [(ngModel)]="quantidade.quantidade" placeholder="quantidade" type="number" required></ion-input>
+              </ion-item>
+
+              <ion-item col-6>
+                <ion-label floating>Unidade</ion-label>
+                <ion-select required #select (ionChange)="setUnidadeMedida(select.value)">
+                  <ion-option *ngFor="let unidade of unidadesMedidas" [value]="unidade">{{unidade['designacao']}}s ({{unidade['abreviatura']}})</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-row>
+
+            <ion-row>
+              <ion-item col-12>
+                <button ion-button color="primary" float-right right (click)="salvarQuantidade()">Salvar</button>
+                <button ion-button color="danger" float-right right (click)="togleQuantidade()" clear>cancelar</button>
+              </ion-item>
+            </ion-row>
+
+          </ion-grid>
+
         </ion-card>
       </ion-col>
     </ion-row>
+
 
     <ion-row>
       <ion-col col-lg-12>
@@ -69,11 +117,45 @@
           </ion-card-header>
           <ion-card-content color="light" text-justify>
 
-            <ion-item>
+            <ion-item *ngIf="!showEpoca">
               <ion-icon color="secondary" name="pint" item-start large></ion-icon>
-              <p>Indique as épocas de produção da sua cultura</p>
+
+              <div *ngIf="produtoInfo.epocas.length > 0">
+                <h3 *ngFor="let epoca of produtoInfo?.epocas">{{epoca['inicio']}} - {{epoca['fim']}}</h3>
+              </div>
             </ion-item>
+
+            <ion-item *ngIf="!showEpoca">
+                <button ion-button full (click)="togleEpoca()" color="primary">Adicionar época de produção</button>
+            </ion-item>
+
           </ion-card-content>
+
+          <ion-grid *ngIf="showEpoca">
+            <ion-row>
+              <ion-item col-6>
+                <ion-label floating>Início</ion-label>
+                <ion-select required #selectEpocaInicio (ionChange)="setEpocaInicio(selectEpocaInicio.value)">
+                  <ion-option *ngFor="let mes of meses" [value]="mes">{{mes}}</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item col-6>
+                <ion-label floating>Fim</ion-label>
+                <ion-select required #selectEpocaFim (ionChange)="setEpocaFim(selectEpocaFim.value)">
+                  <ion-option *ngFor="let mes of meses" [value]="mes">{{mes}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-row>
+
+            <ion-row>
+              <ion-item col-12>
+                <button ion-button color="primary" float-right right (click)="salvarEpocas()">Salvar</button>
+                <button ion-button color="danger" float-right right (click)="togleEpoca()" clear>cancelar</button>
+              </ion-item>
+            </ion-row>
+
+          </ion-grid>
         </ion-card>
       </ion-col>
     </ion-row>
