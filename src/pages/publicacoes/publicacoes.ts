@@ -26,7 +26,7 @@ export class PublicacoesPage {
 
   }
 
-  ionViewDidLoad(){
+  ionViewWillEnter(){
     this.getMinhasPublicacoes();
   }
 

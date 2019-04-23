@@ -21,13 +21,14 @@ export class MercadoPage {
   }
 
 
-  ionViewDidLoad(){
+  ionViewWillEnter(){
     this.getAll();
   }
 
   getAll(){
     this.mercadoProvider.getAll().subscribe(
       (resultado) => {
+        console.log(resultado);
         this.mercados = resultado['mercados'];
         this.mercadosCopy = resultado['mercados'];
         console.log(resultado);

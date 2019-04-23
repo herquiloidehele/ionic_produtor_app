@@ -24,9 +24,12 @@ export class PerfilPrivadoPage {
     public produtosController: ProdutosProvider
     ) {
 
-    this.getuserFromStorage();
-
   }
+
+  ionViewWillEnter(){
+    this.getuserFromStorage();
+  }
+
 
 
   protected getuserFromStorage(){
