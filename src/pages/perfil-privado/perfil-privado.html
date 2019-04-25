@@ -112,4 +112,8 @@
     </ion-row>
   </ion-grid>
 
+  <button id="back-button" *ngIf="showBackButton" color="white" clear ion-button icon-only (click)="voltar()">
+    <ion-icon name="arrow-back" icon-start></ion-icon>
+  </button>
+
 </ion-content>

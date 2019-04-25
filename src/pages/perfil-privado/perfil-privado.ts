@@ -14,6 +14,7 @@ export class PerfilPrivadoPage {
 
   protected user;
   protected produtos;
+  protected showBackButton = false;
 
   constructor(
     public navCtrl: NavController,
@@ -24,6 +25,7 @@ export class PerfilPrivadoPage {
     public produtosController: ProdutosProvider
     ) {
 
+    this.showBackButton = this.navParams.get('showBackButton');
   }
 
   ionViewWillEnter(){
@@ -142,6 +144,10 @@ export class PerfilPrivadoPage {
 
        alert.present();
     }
+  }
+
+  voltar(){
+    this.navCtrl.pop();
   }
 
 

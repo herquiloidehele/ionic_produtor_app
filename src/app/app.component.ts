@@ -75,7 +75,7 @@ export class MyApp {
 
 
     showPageProdutor(page){
-      this.ionNav.push(page);
+      this.ionNav.push(page, {showBackButton: true});
     }
 
 
