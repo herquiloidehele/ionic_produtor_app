@@ -25,4 +25,10 @@ export class ViewPublicacaoPage {
   voltar(){
     this.navCtrl.pop();
   }
+
+  showOptions(){
+
+  }
+
+
 }
