@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ProdutoresProvider} from "../../providers/produtores/produtores";
 
-/**
- * Generated class for the PerfilPublicoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,50 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilPublicoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  protected user;
+  protected loader = true;
+
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public produtoresProvider: ProdutoresProvider
+    ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilPublicoPage');
+    this.produtoresProvider.get(this.navParams.get('produtor_id')).subscribe(
+      (response) => {
+        this.user = response['produtor'];
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        this.loader = false;
+      }
+    )
+  }
+
+
+  protected getImagesCount(){
+    let quantidade = 0;
+    if(this.user['ofertas'].length == 0)
+      return 0;
+    else{
+
+      this.user['ofertas'].forEach((oferta) => {
+        oferta['imagens'].forEach((imagem) => {
+          quantidade++;
+        })
+      });
+
+      return quantidade;
+    }
+  }
+
+  voltar(){
+    this.navCtrl.pop();
   }
 
 }

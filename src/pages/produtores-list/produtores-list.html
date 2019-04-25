@@ -24,16 +24,16 @@
 
 
   <div *ngIf="!loader">
-    <ion-card *ngFor="let produtores of produtores">
+    <ion-card *ngFor="let produtor of produtores" (click)="goToProfile(produtor.id)">
       <ion-item>
         <ion-avatar item-start>
           <img alt="produto" src="../../assets/imgs/farmer.jpeg"/>
         </ion-avatar>
 
-        <h2>{{ produtores['user']['nome']}}</h2>
-        <p ion-text>{{produtores['distrito']['designacao']}}, {{ produtores['distrito']['provincia']['designacao']}}</p>
+        <h2>{{ produtor['user']['nome']}}</h2>
+        <p ion-text>{{produtor['distrito']['designacao']}}, {{ produtor['distrito']['provincia']['designacao']}}</p>
 
-        <button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>
+        <button ion-button item-right color="secondary" (click)="goToProfile(produtor.id)"><ion-icon item-start name="eye"></ion-icon>ver</button>
       </ion-item>
 
     </ion-card>

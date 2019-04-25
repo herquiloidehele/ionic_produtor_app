@@ -41,8 +41,6 @@ import {LocalizacaoPage} from "../pages/localizacao/localizacao";
 import {UserInfoPage} from "../pages/user-info/user-info";
 import { JsonProvider } from '../providers/json/json';
 import {StartPage} from "../pages/start/start";
-import {PerfilPrivadoPage} from "../pages/perfil-privado/perfil-privado";
-import {PerfilPublicoPage} from "../pages/perfil-publico/perfil-publico";
 import {PaginaPrincipalPage} from "../pages/pagina-principal/pagina-principal";
 import {RegistarOpertasPage} from "../pages/registar-opertas/registar-opertas";
 import {TestePage} from "../pages/teste/teste";
@@ -70,6 +68,8 @@ import {LoginPageModule} from "../pages/login/login.module";
 import {EscolherProdutoPageModule} from "../pages/escolher-produto/escolher-produto.module";
 import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar-produtos.module";
 import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
+import {PerfilPrivadoPageModule} from "../pages/perfil-privado/perfil-privado.module";
+import {PerfilPublicoPageModule} from "../pages/perfil-publico/perfil-publico.module";
 
 
 @NgModule({
@@ -87,8 +87,6 @@ import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
     MercadosComponent,
     ProdutoresComponent,
     RevendedoresComponent,
-    PerfilPrivadoPage,
-    PerfilPublicoPage,
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,
@@ -126,7 +124,9 @@ import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
     LoginPageModule,
     EscolherProdutoPageModule,
     AdicionarProdutosPageModule,
-    ProdutoEditPageModule
+    ProdutoEditPageModule,
+    PerfilPrivadoPageModule,
+    PerfilPublicoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -139,8 +139,6 @@ import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
     PreviewPublicacaoPage,
     ViewPublicacaoPage,
     TestePage,
-    PerfilPrivadoPage,
-    PerfilPublicoPage,
     InicioPage,
     PerfilRevendedorPage,
     RequisitarProdutosPage,

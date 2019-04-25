@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {ProdutoresProvider} from "../../providers/produtores/produtores";
+import {PerfilPublicoPage} from "../perfil-publico/perfil-publico";
 
 /**
  * Generated class for the ProdutoresListPage page.
@@ -43,6 +44,11 @@ export class ProdutoresListPage {
         this.loader = false;
       }
     );
+  }
+
+
+  public goToProfile(produtor_id){
+    this.navCtrl.push(PerfilPublicoPage, {produtor_id: produtor_id});
   }
 
 

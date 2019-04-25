@@ -1,3 +1,53 @@
 page-perfil-publico {
 
+  .avatar{
+    margin: auto;
+    border-radius: 50%;
+
+  }
+
+  ion-grid {
+
+
+    .profile-details{
+      height: 50%;
+      background-image: url('../../assets/imgs/start/start3.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .btn_produto{
+      padding: 10px;
+    }
+
+
+  }
+
+
+  button#back-button{
+    position: absolute;
+    left: 5%;
+    top: 2%;
+  }
+
+
+
+  ion-spinner * {
+    width: 50px;
+    height: 50px;
+    stroke: #61d295;
+    fill: #fff;
+  }
+
+  .loader{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
 }

@@ -19,7 +19,7 @@ export class ProdutoresProvider {
   }
 
 
-  getAll(){
+  public getAll(){
     return this.http.get(this.urlProvider.getURL() + 'produtores', {headers: this.header});
   }
 
@@ -27,5 +27,8 @@ export class ProdutoresProvider {
     return this.http.get(this.urlProvider.getURL() + 'produtores/'+id);
   }
 
+  public get(produtor_id): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'produtores/'+produtor_id);
+  }
 
 }
