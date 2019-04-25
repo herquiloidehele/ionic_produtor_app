@@ -4,12 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {UrlapiProvider} from "../urlapi/urlapi";
 import {forkJoin} from "rxjs/observable/forkJoin";
 
-/*
-  Generated class for the MercadoProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class MercadoProvider {
 

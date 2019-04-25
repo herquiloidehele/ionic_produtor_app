@@ -31,8 +31,8 @@ export class MercadoDetailsPage {
     this.mercado = this.navParams.get('mercado');
   }
 
-  ionViewDidLoad() {
-
+  ionViewWillEnter() {
+    this.getProdutosMercado();
   }
 
 
