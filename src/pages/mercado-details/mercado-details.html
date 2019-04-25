@@ -51,7 +51,7 @@
 
       <div *ngSwitchCase="'Revendedores'">
 
-        <ion-card *ngFor="let revendedor of mercado['revendedores']" (click)="goToRevendedor(revendedor, mercado.distrito)">
+        <ion-card *ngFor="let revendedor of mercado['revendedores']" (click)="goToRevendedor(revendedor)">
 
           <ion-item>
             <ion-avatar item-start>

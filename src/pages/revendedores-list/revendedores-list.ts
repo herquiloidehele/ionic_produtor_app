@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PerfilRevendedorPage} from "../modulo-revendedor/perfil-revendedor/perfil-revendedor";
 import {RevendedorProvider} from "../../providers/revendedor/revendedor";
+import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 
 /**
  * Generated class for the RevendedoresListPage page.
@@ -49,16 +50,16 @@ export class RevendedoresListPage {
     this.revendedores = this.revendedoresCopy;
 
     if(event.target.value.trim() != '' || event.target.value.trim() != null)
-      this.revendedores = this.revendedores.filter((produtor) => {
-        return (produtor['user']['nome'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1) ||
-          (produtor['mercado']['distrito']['designacao'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1) ||
-          (produtor['mercado']['distrito']['provincia']['designacao'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1)
+      this.revendedores = this.revendedores.filter((revendedor) => {
+        return (revendedor['user']['nome'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1) ||
+          (revendedor['mercado']['distrito']['designacao'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1) ||
+          (revendedor['mercado']['distrito']['provincia']['designacao'].trim().toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1)
       });
 
   }
 
   viewProfile(revendedor){
-    this.navCtrl.push(PerfilRevendedorPage, {revendedor: revendedor});
+    this.navCtrl.push(RevendedorProfilePage, {revendedor_id: revendedor.id});
   }
 
 }

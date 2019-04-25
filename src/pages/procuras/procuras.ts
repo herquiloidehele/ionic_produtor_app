@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import {ProcurasProvider} from "../../providers/procuras/procuras";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {DetalhesProcuraPage} from "../detalhes-procura/detalhes-procura";
+import {Observable} from "rxjs";
 
 
 @IonicPage()
@@ -13,6 +14,7 @@ import {DetalhesProcuraPage} from "../detalhes-procura/detalhes-procura";
 export class ProcurasPage {
 
   protected procuras = [];
+  protected loader = true;
 
 
   constructor(public navCtrl: NavController, public urlApi: UrlapiProvider, public procurasProvider: ProcurasProvider) {
@@ -29,13 +31,17 @@ export class ProcurasPage {
     },
       (error) => {
       console.log(error);
+      },
+      () => {
+        this.loader = false;
       }
     );
   }
 
 
   public goDetalhesProcura(procura){
-    this.navCtrl.push(DetalhesProcuraPage, {procura: procura})
+    console.log(procura);
+    this.navCtrl.push(DetalhesProcuraPage, {procura_id: procura.id})
   }
 
 

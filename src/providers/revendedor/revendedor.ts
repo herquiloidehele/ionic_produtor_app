@@ -24,5 +24,9 @@ export class RevendedorProvider {
     return this.http.get(this.urlProvider.getURL() + 'revendedores', {headers: this.headers});
   }
 
+  public get(revendedor_id): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'revendedores/'+revendedor_id);
+  }
+
 
 }

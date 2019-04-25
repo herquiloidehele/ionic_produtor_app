@@ -11,9 +11,12 @@
 <ion-content style="background-color: #eee" no-padding no-margin>
 
 
+  <div class="loader" *ngIf="loader">
+    <ion-spinner color="secondary"></ion-spinner>
+  </div>
 
 
-  <ion-card *ngIf="procura">
+  <ion-card *ngIf="procura && !loader">
       <img src="{{urlApi.getSimpleURL() + procura['produto']['default_photo']}}" alt="imagemProduto"/>
 
     <ion-fab right bottom>
@@ -38,7 +41,7 @@
         <p>{{procura['distrito']['designacao']}} -  {{procura['distrito']['provincia']['designacao']}}</p>
       </ion-item>
 
-      <ion-item (click)="goPerfilRevendedor(procura['revendedore'], procura['distrito'])">
+      <ion-item (click)="goPerfilRevendedor(procura['revendedore'])">
         <ion-icon color="secondary" name="person" item-start large></ion-icon>
         <h2>Revendedor</h2>
         <p>{{procura['revendedore']['user']['nome']}}</p>

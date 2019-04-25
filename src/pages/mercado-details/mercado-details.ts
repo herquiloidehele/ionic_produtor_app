@@ -67,8 +67,8 @@ export class MercadoDetailsPage {
   }
 
 
-  goToRevendedor(revendedor, distrito){
-    this.navCtrl.push(RevendedorProfilePage, {revendedor: revendedor, distrito: distrito});
+  goToRevendedor(revendedor){
+    this.navCtrl.push(RevendedorProfilePage, {revendedor_id: revendedor.id});
   }
 
   goToProdutosMaisProcurados(){

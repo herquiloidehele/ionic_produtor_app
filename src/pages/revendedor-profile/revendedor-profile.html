@@ -10,16 +10,21 @@
 
 <ion-content>
 
-  <ion-grid no-margin no-padding *ngIf="revendedor && distrito">
+
+  <div class="loader" *ngIf="loader">
+    <ion-spinner color="secondary"></ion-spinner>
+  </div>
+
+  <ion-grid no-margin no-padding *ngIf="revendedor && !loader">
     <ion-row align-items-center class="profile-details" >
       <ion-col col-lg-12 align-self-center text-center="" margin-top="">
         <ion-avatar>
 
           <ion-avatar item-center>
-            <img class="avatar" src="../../assets/imgs/farmer.jpeg" width="150px" height="150px">
+            <img class="avatar" src="../../assets/imgs/revendedor1.jpg" width="150px" height="150px">
           </ion-avatar>
           <h5 ion-text color="light" text-center>@{{revendedor.user.nome}}</h5>
-          <p ion-text  text-center color="light"> <ion-icon name="pin"></ion-icon> {{distrito.designacao}}, {{distrito.provincia.designacao}}</p>
+          <p ion-text  text-center color="light"> <ion-icon name="pin"></ion-icon> {{revendedor.mercado.distrito.designacao}}, {{revendedor.mercado.distrito.provincia.designacao}}</p>
           <p ion-text  text-center  color="light">{{revendedor.procuras.length}} Requisições</p>
         </ion-avatar>
 
@@ -49,7 +54,7 @@
           </ion-card-header>
           <ion-card-content color="light" text-justify>
             <ion-list>
-              <button ion-item *ngFor="let procura of revendedor.procuras">
+              <button ion-item *ngFor="let procura of revendedor.procuras" (click)="goToProcura(procura)">
                 <ion-avatar item-start>
                   <img alt="produto" src="{{ urlProvider.getSimpleURL() + procura.produto.default_photo}}"/>
                 </ion-avatar>

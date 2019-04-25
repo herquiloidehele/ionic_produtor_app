@@ -21,6 +21,7 @@ export class DetalhesProcuraPage {
 
   protected procura;
   protected procurasSemelhantes;
+  protected loader = true;
 
   constructor(
     public urlApi: UrlapiProvider,
@@ -32,18 +33,33 @@ export class DetalhesProcuraPage {
   }
 
   ionViewDidLoad() {
-    this.procura = this.navParams.get('procura');
-    this.getProcurasSemelhantes();
+    this.getProcura();
   }
 
 
-  goPerfilRevendedor(revendedor, distrito){
-    this.navCtrl.push(RevendedorProfilePage, {revendedor: revendedor, distrito: distrito});
+  getProcura(){
+    this.procuraProvicer.get(this.navParams.get('procura_id')).subscribe(
+      (response) => {
+        this.procura = response['procura'];
+        this.getProcurasSemelhantes(this.procura);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        this.loader = false;
+      }
+    );
   }
 
 
-  getProcurasSemelhantes(){
-    this.procuraProvicer.getProcurasSemelhantes(this.procura['id']).subscribe((response) => {
+  goPerfilRevendedor(revendedor){
+    this.navCtrl.push(RevendedorProfilePage, {revendedor_id: revendedor.id});
+  }
+
+
+  getProcurasSemelhantes(procura){
+    this.procuraProvicer.getProcurasSemelhantes(procura['id']).subscribe((response) => {
       this.procurasSemelhantes = response['procuras'];
     },
       (error) => {
@@ -54,7 +70,7 @@ export class DetalhesProcuraPage {
 
 
   protected goDetalhesProcura(procura){
-    this.navCtrl.push(DetalhesProcuraPage, {procura: procura})
+    this.navCtrl.push(DetalhesProcuraPage, {procura_id: procura.id})
   }
 
 

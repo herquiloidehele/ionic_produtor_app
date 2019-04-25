@@ -26,16 +26,16 @@
   </div>
 
   <div *ngIf="!loader">
-    <ion-card *ngFor="let revendedor of revendedores">
+    <ion-card *ngFor="let revendedor of revendedores" (click)="viewProfile(revendedor)">
       <ion-item>
         <ion-avatar item-start>
-          <img alt="produto" src="{{ revendedor['user']['foto'] }}"/>
+          <img alt="produto" src="../../assets/imgs/revendedor1.jpg"/>
         </ion-avatar>
 
         <h2>{{ revendedor['user']['nome']}}</h2>
         <p ion-text>{{revendedor['mercado']['distrito']['designacao']}}, {{ revendedor['mercado']['distrito']['provincia']['designacao']}}</p>
 
-        <button ion-button item-right color="secondary" (click)="viewProfile()"><ion-icon item-start name="eye"></ion-icon>ver</button>
+        <button ion-button item-right color="secondary" (click)="viewProfile(revendedor)"><ion-icon item-start name="eye"></ion-icon>ver</button>
       </ion-item>
 
     </ion-card>

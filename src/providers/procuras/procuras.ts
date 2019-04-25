@@ -43,4 +43,7 @@ export class ProcurasProvider {
     return this.http.put(this.urlProvider.getURL() + 'disponibilidade-produto/'+disponibilidade_id, disponibilidade, {headers: this.headers});
   }
 
+  public get(procura_id): Observable<any>{
+    return this.http.get(this.urlProvider.getURL() + 'procuras/'+ procura_id);
+  }
 }
