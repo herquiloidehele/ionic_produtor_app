@@ -2,26 +2,32 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>Mais Procurados do Zimpeto</ion-title>
+    <ion-title>Produtos Mais Procurados</ion-title>
   </ion-navbar>
+
+  <ion-searchbar
+    [showCancelButton]="true"
+    [animated]="true"
+    (ionInput)="onInput($event)">
+  </ion-searchbar>
 
 </ion-header>
 
 
 <ion-content style="background-color: #eee">
 
-    <ion-card *ngFor="let produto of [1,2,3,4,5,6,6]">
-      <ion-item>
-        <ion-avatar item-start>
-          <img alt="produto" src="../../assets/imgs/farmer.jpeg"/>
-        </ion-avatar>
+  <ion-card *ngFor="let produto of produtos">
+    <ion-item>
+      <ion-avatar item-start>
+        <img alt="produto" src="{{ urlApi.getSimpleURL() + produto['produto']['default_photo'] }}"/>
+      </ion-avatar>
 
-        <h2>Nome do Produto</h2>
-        <p ion-text>10 requisicoes por dia</p>
+      <h2>{{ produto['produto']['designacao']}}</h2>
+      <p ion-text>{{produto['requisicoes']}} requisiçoes</p>
 
-        <button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>
-      </ion-item>
+      <!--<button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>-->
+    </ion-item>
 
-    </ion-card>
+  </ion-card>
 
 </ion-content>

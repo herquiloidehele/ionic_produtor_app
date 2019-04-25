@@ -3,6 +3,7 @@ import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 import {ProdutoMaisProduradosPage} from "../produto-mais-produrados/produto-mais-produrados";
 import {ProdutosDoMercadosPage} from "../produtos-do-mercados/produtos-do-mercados";
+import {MercadoProvider} from "../../providers/mercado/mercado";
 
 @IonicPage()
 @Component({
@@ -14,17 +15,24 @@ export class MercadoDetailsPage {
 
   protected mercado ;
   protected titulos = "Revendedores";
+  protected produtosMercado = [];
+  protected produtosMaisProcurados = [];
 
 
   @ViewChild(Content) protected content: Content;
   @ViewChild('ion_segment') protected divElementTabs: HTMLDivElement;
   @ViewChild('divElment') protected divElementOptions: HTMLDivElement;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public mercadosProvider: MercadoProvider
+  ) {
+    this.mercado = this.navParams.get('mercado');
   }
 
   ionViewDidLoad() {
-    this.mercado = this.navParams.get('mercado');
+
   }
 
 
@@ -35,17 +43,6 @@ export class MercadoDetailsPage {
 
   onScroll(event){
     console.log(event);
-
-    // if(this.content.scrollTop > 150){
-    //   this.divElementTabs.style.position =  'fixed';
-    //   this.divElementTabs.style.top = '0';
-    // }else{
-    //   this.divElementTabs.style.position = 'absolute';
-    //   this.divElementOptions.style.top = '150';
-    // }
-
-
-
   }
 
   onScrollStart(){
@@ -56,17 +53,30 @@ export class MercadoDetailsPage {
     console.log("Scroll Terminou");
   }
 
+  public getProdutosMercado(){
+    this.mercadosProvider.getProdutosMercado(this.mercado['id']).subscribe(
+      (responseList) => {
+        console.log(responseList);
+        this.produtosMercado = responseList[0]['produtos'];
+        this.produtosMaisProcurados = responseList[1]['produtos'];
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
 
   goToRevendedor(revendedor, distrito){
     this.navCtrl.push(RevendedorProfilePage, {revendedor: revendedor, distrito: distrito});
   }
 
-  goToProdutosMaisProcurados(mercado_id){
-    this.navCtrl.push(ProdutoMaisProduradosPage, {mercado_id: mercado_id});
+  goToProdutosMaisProcurados(){
+    this.navCtrl.push(ProdutoMaisProduradosPage, {produtos: this.produtosMaisProcurados, mercado: this.mercado});
   }
 
-  goToProdutosDoMercado(mercado_id){
-    this.navCtrl.push(ProdutosDoMercadosPage, {mercado_id: mercado_id});
+  goToProdutosDoMercado(){
+    this.navCtrl.push(ProdutosDoMercadosPage, {produtos: this.produtosMercado, mercado: this.mercado});
   }
 
 

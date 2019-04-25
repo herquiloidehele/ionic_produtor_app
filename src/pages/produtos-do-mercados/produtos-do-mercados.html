@@ -3,10 +3,13 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>Produtos do mercado Zimpeto</ion-title>
+    <ion-title>Todos produtos</ion-title>
   </ion-navbar>
 
-  <ion-searchbar>
+  <ion-searchbar
+    [showCancelButton]="true"
+    [animated]="true"
+    (ionInput)="onInput($event)">
   </ion-searchbar>
 
 </ion-header>
@@ -14,16 +17,16 @@
 
 <ion-content style="background-color: #eee">
 
-  <ion-card *ngFor="let produto of [1,2,3,4,5,6,6]">
+  <ion-card *ngFor="let produto of produtos">
     <ion-item>
       <ion-avatar item-start>
-        <img alt="produto" src="../../assets/imgs/farmer.jpeg"/>
+        <img alt="produto" src="{{ urlApi.getSimpleURL() + produto['produto']['default_photo'] }}"/>
       </ion-avatar>
 
-      <h2>Nome do Produto</h2>
-      <p ion-text>10 requisicoes por dia</p>
+      <h2>{{ produto['produto']['designacao']}}</h2>
+      <p ion-text>{{produto['revendedores']}} revendedores</p>
 
-      <button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>
+      <!--<button ion-button item-right color="secondary"><ion-icon item-start name="eye"></ion-icon>ver</button>-->
     </ion-item>
 
   </ion-card>

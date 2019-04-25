@@ -5,34 +5,41 @@ page-view-publicacao {
       left: 5%;
     }
 
+  button#edit-button{
+    position: absolute;
+    top: 2%;
+    right: 5%;
+  }
+
+  img.img-prduto{
+    height: 100%;
+    width: 100%;
+  }
+
 
   ion-grid {
-
-    .imagens-produto {
-      height: 45%;
-      background-image: url('../../assets/imgs/start/start3.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
 
     div.div-card{
       background-color: white;
       padding: 2%;
     }
 
+    div#content-header{
+      padding-left: 4%;
+    }
+
     p.descricao-title{
       color: color($colors, secondary);
       font-size: 12pt;
+      margin-left: 3%;
       font-weight: 500;
     }
+
 
     p.descricao{
       margin-left: 2%;
       margin-right: 2%;
     }
-
 
 
     p.produtor-nome{
@@ -51,10 +58,16 @@ page-view-publicacao {
       color: #888888;
     }
 
-  h6.quantidade{
-    color: #888888;
-    font-size: 12pt;
-  }
+
+    p.quantidade {
+      color: #343434;
+      margin-top: 0;
+      font-size: 12pt;
+    }
+
+    p.quantidade{
+      margin-top: 0;
+    }
 
 
 

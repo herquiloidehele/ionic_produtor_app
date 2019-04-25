@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ export class ViewPublicacaoPage {
   protected publicacao;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public urlProvider: UrlapiProvider) {
   }
 
   ionViewDidLoad() {

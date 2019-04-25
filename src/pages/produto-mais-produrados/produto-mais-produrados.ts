@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 
 @IonicPage()
@@ -9,11 +10,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProdutoMaisProduradosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  protected produtos = [];
+  protected produtosCopy = [];
+  protected mercado;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public urlApi: UrlapiProvider) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProdutoMaisProduradosPage');
+    this.produtos = this.navParams.get('produtos');
+    this.mercado = this.navParams.get('mercado');
+    this.produtosCopy = this.produtos;
   }
 
+
+
+  protected onInput(event){
+    this.produtos = this.produtosCopy;
+
+    this.produtos = this.produtos.filter((produto) => {
+      return (produto['produto'].designacao.toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1);
+    });
+  }
 }

@@ -58,7 +58,7 @@ ion-menu .side-content {
 
 ion-menu {
 
-  ion-header.side-header{
+  ion-header.side-header {
     height: 30%;
     background-color: color($colors, secondary);
     display: flex;
@@ -67,7 +67,7 @@ ion-menu {
     align-items: center;
   }
 
-  ion-header.side-header div.foto-content-circle{
+  ion-header.side-header div.foto-content-circle {
     width: 100px;
     height: 100px;
     display: flex;
@@ -75,7 +75,7 @@ ion-menu {
     justify-content: center;
     align-items: center;
 
-    .avatar{
+    .avatar {
       margin: auto;
       border-radius: 50%;
 
@@ -83,67 +83,40 @@ ion-menu {
 
   }
 
-  div.profile-info{
-    margin-top:20px;
+  div.profile-info {
+    margin-top: 20px;
   }
 
 
-  p{
+  p {
     margin: 0px;
     color: #fff;
     font-size: 12pt;
   }
 
 
-  ion-content.side-content{
+  ion-content.side-content {
     height: 100%;
-    ion-icon{
+
+    ion-icon {
       color: color($colors, light);
     }
 
-    button{
+    button {
       color: white;
-      background-color: rgba(0,0,0,.0);
+      background-color: rgba(0, 0, 0, .0);
     }
 
 
-    ion-list{
+    ion-list {
       margin-top: 20px;
-      button{
-        margin-top:10px;
+
+      button {
+        margin-top: 10px;
       }
     }
 
-}
-
-
-//
-//.fab {
-//  contain: initial;
-//}
-//
-//ion-fab {
-//  ion-fab-list button[ion-fab] {
-//    overflow: visible;
-//
-//    div.label {
-//      position: absolute;
-//      right: 48px;
-//      background: rgba(0,0,0,0.7);
-//      height: 24px;
-//      line-height: 16px;
-//      padding-left: 8px;
-//      padding-right: 8px;
-//      padding-top: 5px;
-//      padding-bottom: 5px;
-//      border-radius: 3px;
-//      color: #fff;
-//      box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
-//    }
-//  }
-//}
-
-
+  }
 
 
 }

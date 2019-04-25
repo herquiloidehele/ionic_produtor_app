@@ -2,6 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {UrlapiProvider} from "../urlapi/urlapi";
+import {forkJoin} from "rxjs/observable/forkJoin";
 
 /*
   Generated class for the MercadoProvider provider.
@@ -28,8 +29,11 @@ export class MercadoProvider {
   }
 
 
-  getProdutosMercado(mercadoId: number){
+  getProdutosMercado(mercadoId: number): Observable<any>{
+    let requisicao1 = this.http.get(this.urlProvider.getURL() + 'mercados/'+mercadoId+'/todos-produtos');
+    let requisicao2 = this.http.get(this.urlProvider.getURL() + 'mercados/'+mercadoId+'/produtos-procurados');
 
+    return forkJoin([requisicao1, requisicao2]);
   }
 
 
