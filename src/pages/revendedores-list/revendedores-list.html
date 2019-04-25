@@ -6,13 +6,39 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>RevendedoresList</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Revendedores {{revendedores?.length}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content style="background-color: #eee">
 
-<ion-content padding>
+  <ion-searchbar
+    [showCancelButton]="true"
+    [animated]="true"
+    (ionInput)="onInput($event)">
+  </ion-searchbar>
+
+
+  <div class="loader" *ngIf="loader">
+    <ion-spinner color="secondary"></ion-spinner>
+  </div>
+
+  <div *ngIf="!loader">
+    <ion-card *ngFor="let revendedor of revendedores">
+      <ion-item>
+        <ion-avatar item-start>
+          <img alt="produto" src="{{ revendedor['user']['foto'] }}"/>
+        </ion-avatar>
+
+        <h2>{{ revendedor['user']['nome']}}</h2>
+        <p ion-text>{{revendedor['mercado']['distrito']['designacao']}}, {{ revendedor['mercado']['distrito']['provincia']['designacao']}}</p>
+
+        <button ion-button item-right color="secondary" (click)="viewProfile()"><ion-icon item-start name="eye"></ion-icon>ver</button>
+      </ion-item>
+
+    </ion-card>
+  </div>
 
 </ion-content>
