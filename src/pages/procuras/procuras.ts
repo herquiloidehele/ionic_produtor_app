@@ -3,7 +3,6 @@ import { IonicPage, NavController } from 'ionic-angular';
 import {ProcurasProvider} from "../../providers/procuras/procuras";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {DetalhesProcuraPage} from "../detalhes-procura/detalhes-procura";
-import {Observable} from "rxjs";
 
 
 @IonicPage()

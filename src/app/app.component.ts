@@ -81,7 +81,11 @@ export class MyApp {
 
     public updateUserData(id){
       this.produtorProvider.getProdutor(id).subscribe((response) => {
-        this.storageController.set('user', response['produtor']);
+          console.log(response['produtor']);
+        if(response['produtor'] && response['produtor'] && null || response['produtor'] != 'undefined' && response['produtor'] != undefined){
+          console.log("dentro");
+          this.storageController.set('user', response['produtor']);
+        }
       },
         (error) => {
           console.log(error);

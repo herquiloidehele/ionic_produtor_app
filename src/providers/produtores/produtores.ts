@@ -24,11 +24,11 @@ export class ProdutoresProvider {
   }
 
   public getProdutor(id: number): Observable<any>{
-    return this.http.get(this.urlProvider.getURL() + 'produtores/'+id);
+    return this.http.get(this.urlProvider.getURL() + 'produtores/'+id, {headers: this.header});
   }
 
   public get(produtor_id): Observable<any>{
-    return this.http.get(this.urlProvider.getURL() + 'produtores/'+produtor_id);
+    return this.http.get(this.urlProvider.getURL() + 'produtores/'+produtor_id, {headers: this.header});
   }
 
 }

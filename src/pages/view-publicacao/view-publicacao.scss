@@ -1,18 +1,27 @@
 page-view-publicacao {
-    button#back-button{
-      position: absolute;
-      top: 2%;
-      left: 5%;
-    }
+  position: relative;
+  button#back-button{
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    z-index: 1;
+  }
 
   button#edit-button{
     position: absolute;
     top: 2%;
     right: 5%;
+    z-index: 1
   }
 
-  img.img-prduto{
+  ion-slides{
     height: 100%;
+    width: 100%;
+  }
+
+
+  img.img-prduto{
+    height: 350px;
     width: 100%;
   }
 
@@ -70,13 +79,10 @@ page-view-publicacao {
     }
 
 
-
-
-
-
-
-
-
+    ion-slide{
+      width: 350px;
+      height: 100%;
+    }
 
   }
 

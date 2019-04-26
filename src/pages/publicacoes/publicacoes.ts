@@ -4,6 +4,7 @@ import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
 import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
 import {Storage} from "@ionic/storage";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 @IonicPage()
 @Component({
@@ -17,11 +18,21 @@ export class PublicacoesPage {
   protected hideTabs = true;
   protected showSearch = false;
 
+  protected sliderOpts = {
+    zoom: false,
+    slidesPerView: 1.5,
+    spaceBetween: 0,
+    centeredSlides: true
+  };
+
+
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public ofertasProvider: OfertasProvider,
-    public storageController: Storage
+    public storageController: Storage,
+    public urlApiProvider: UrlapiProvider
     ) {
 
   }

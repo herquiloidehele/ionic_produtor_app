@@ -4,67 +4,67 @@
 <ion-content no-padding no-margin style="background-color: #eee">
 
 
-    <div *ngIf="publicacao" style="height: 350px">
-      <img alt="produto-img"  class ="img-prduto" src="{{urlProvider.getSimpleURL() + publicacao['produto']['default_photo']}}"/>
+  <div *ngIf="publicacao" style="height: 350px">
+    <ion-slides loop="false" autoplay="true" pager="true" paginationType="bullets" centeredSlides="true" effect="fade">
+      <ion-slide *ngFor="let img of [1, 2,3] ">
+        <img alt="produto-img"  class="img-prduto" src="{{urlProvider.getSimpleURL() + publicacao['produto']['default_photo']}}"/>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <ion-grid no-margin no-padding *ngIf="publicacao">
+
+    <div class="div-card" id="content-header" style="margin-top: 0">
+      <h1 class="preco" style="margin-bottom: 0">{{ publicacao['preco']}} MZN</h1>
+      <p style="margin-top: 0; margin-bottom: 0" class="titulo">{{publicacao['designacao']}}</p>
+
+      <ion-badge style="margin-top: 0; margin-bottom: 0; clear-after: both" color="secondary" *ngIf="publicacao['is_preco_unidade']">Preço por {{publicacao['unidades_medida']['abreviatura']}} </ion-badge>
+      <ion-badge style="margin-top: 0; margin-bottom: 0; clear-side: both" color="secondary" *ngIf="!publicacao['is_preco_unidade']">Preço Total </ion-badge>
+
+      <div style="margin-top: 0">
+        <p float-left class="quantidade">{{ publicacao['quantidade']}}  {{ publicacao['unidades_medida']['designacao']}}s</p>
+        <p float-right class="data">{{publicacao['created_at']}}</p>
+      </div>
+
+
     </div>
 
 
-    <ion-grid no-margin no-padding *ngIf="publicacao">
+    <div margin-top class="div-card" style="padding-top: 0">
+      <p class="descricao-title">Descrição</p>
+      <p ion-text text-justify class="descricao">{{publicacao['descricao']}}</p>
+    </div>
 
-      <div class="div-card" id="content-header" style="margin-top: 0">
-        <h1 class="preco" style="margin-bottom: 0">{{ publicacao['preco']}} MZN</h1>
-        <p style="margin-top: 0; margin-bottom: 0" class="titulo">{{publicacao['designacao']}}</p>
 
-        <ion-badge style="margin-top: 0; margin-bottom: 0; clear-after: both" color="secondary" *ngIf="publicacao['is_preco_unidade']">Preço por {{publicacao['unidades_medida']['abreviatura']}} </ion-badge>
-        <ion-badge style="margin-top: 0; margin-bottom: 0; clear-side: both" color="secondary" *ngIf="!publicacao['is_preco_unidade']">Preço Total </ion-badge>
+    <div class="div-card" margin-top>
+      <p class="descricao-title">Visualizaçoes</p>
+      <!--<ion-item no-lines text-center>-->
+      <p class="visualizacoes" text-center>
+        <ion-icon name="eye" item-start color="secondary"></ion-icon>
+        {{publicacao['visualizacoes'] ? publicacao['visualizacoes'] : 0}} Visualizações</p>
+      <!--</ion-item>-->
+    </div>
 
-        <div style="margin-top: 0">
-          <p float-left class="quantidade">{{ publicacao['quantidade']}}  {{ publicacao['unidades_medida']['designacao']}}s</p>
-          <p float-right class="data">{{publicacao['created_at']}}</p>
+    <div margin-top class="div-card" margin-bottom>
+      <p class="descricao-title">Produtor</p>
+      <ion-item no-lines>
+        <ion-avatar item-start>
+          <img class="produtor-img" alt="profile-image" class="avatar" src="../../assets/imgs/farmer.jpeg" style="width: 60px; height: 60px; border-radius: 50%">
+        </ion-avatar>
+
+        <div>
+          <p class="produtor-nome">{{publicacao['produtore']['user']['nome']}}</p>
+          <p class="produtor-distrito">{{publicacao['distrito']['designacao']}}</p>
+          <ion-badge style="margin-top: 0" color="secondary" >Eu</ion-badge>
+
         </div>
-
-
-      </div>
-
-
-      <div margin-top class="div-card" style="padding-top: 0">
-        <p class="descricao-title">Descrição</p>
-        <p ion-text text-justify class="descricao">{{publicacao['descricao']}}</p>
-      </div>
-
-
-      <div class="div-card" margin-top>
-        <p class="descricao-title">Visualizaçoes</p>
-        <!--<ion-item no-lines text-center>-->
-          <p class="visualizacoes" text-center>
-            <ion-icon name="eye" item-start color="secondary"></ion-icon>
-            {{publicacao['visualizacoes'] ? publicacao['visualizacoes'] : 0}} Visualizações</p>
-        <!--</ion-item>-->
-      </div>
-
-      <div margin-top class="div-card" margin-bottom>
-        <p class="descricao-title">Produtor</p>
-        <ion-item no-lines>
-          <ion-avatar item-start>
-            <img class="produtor-img" alt="profile-image" class="avatar" src="../../assets/imgs/farmer.jpeg" style="width: 60px; height: 60px; border-radius: 50%">
-          </ion-avatar>
-
-          <div>
-            <p class="produtor-nome">{{publicacao['produtore']['user']['nome']}}</p>
-            <p class="produtor-distrito">{{publicacao['distrito']['designacao']}}</p>
-            <ion-badge style="margin-top: 0" color="secondary" >Eu</ion-badge>
-
-          </div>
-        </ion-item>
-      </div>
+      </ion-item>
+    </div>
 
 
 
-    </ion-grid>
-
-
-
-
+  </ion-grid>
 
 
   <button id="back-button" color="white" clear ion-button icon-only (click)="voltar()">

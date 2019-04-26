@@ -15,7 +15,6 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
 import {Storage} from "@ionic/storage";
 import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
-import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {ProdutoSelectPage} from "../produto-select/produto-select";
 

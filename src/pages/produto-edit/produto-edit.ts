@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {UnidadeMedidaProvider} from "../../providers/unidade-medida/unidade-medida";
-import {InteresseProvider} from "../../providers/interesse/interesse";
 import {ProduzProvider} from "../../providers/produz/produz";
 
 

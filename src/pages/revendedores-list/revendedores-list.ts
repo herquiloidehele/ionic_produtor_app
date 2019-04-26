@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {PerfilRevendedorPage} from "../modulo-revendedor/perfil-revendedor/perfil-revendedor";
 import {RevendedorProvider} from "../../providers/revendedor/revendedor";
 import {RevendedorProfilePage} from "../revendedor-profile/revendedor-profile";
 

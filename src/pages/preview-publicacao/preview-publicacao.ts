@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
-import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {Storage} from "@ionic/storage";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 
 @IonicPage()
@@ -22,6 +22,7 @@ export class PreviewPublicacaoPage {
     public ofertasProvider: OfertasProvider,
     public alertController: AlertController,
     public loadingController: LoadingController,
+    public urlApiProvider: UrlapiProvider,
     public storage: Storage
     ) {
 
