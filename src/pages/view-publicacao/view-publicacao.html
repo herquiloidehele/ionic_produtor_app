@@ -6,9 +6,16 @@
 
   <div *ngIf="publicacao" style="height: 350px">
     <ion-slides loop="false" autoplay="true" pager="true" paginationType="bullets" centeredSlides="true" effect="fade">
-      <ion-slide *ngFor="let img of [1, 2,3] ">
-        <img alt="produto-img"  class="img-prduto" src="{{urlProvider.getSimpleURL() + publicacao['produto']['default_photo']}}"/>
+
+      <ion-slide *ngIf="publicacao['imagens'].length == 0">
+        <img alt="produto-img"  class="img-prduto" src="{{urlProvider.getSimpleURL() + publicacao['produto']['default_photo']}}" imageViewer/>
       </ion-slide>
+
+      <div *ngIf="publicacao['imagens'].length > 0">
+        <ion-slide *ngFor="let imagem of publicacao['imagens'] ">
+          <img alt="produto-img"  class="img-prduto" src="{{ imagem }}" imageViewer/>
+        </ion-slide>
+      </div>
     </ion-slides>
   </div>
 

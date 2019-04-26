@@ -70,6 +70,7 @@ import {AdicionarProdutosPageModule} from "../pages/adicionar-produtos/adicionar
 import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
 import {PerfilPrivadoPageModule} from "../pages/perfil-privado/perfil-privado.module";
 import {PerfilPublicoPageModule} from "../pages/perfil-publico/perfil-publico.module";
+import {IonicImageViewerModule} from "ionic-img-viewer";
 
 
 @NgModule({
@@ -126,7 +127,8 @@ import {PerfilPublicoPageModule} from "../pages/perfil-publico/perfil-publico.mo
     AdicionarProdutosPageModule,
     ProdutoEditPageModule,
     PerfilPrivadoPageModule,
-    PerfilPublicoPageModule
+    PerfilPublicoPageModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
