@@ -280,6 +280,7 @@ export class RegistarOpertasPage{
       .then((imagePath) => {
 
       console.log({getPicture: imagePath});
+      this.publicacao.imagens.push(imagePath);
 
       let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
       let currentPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);

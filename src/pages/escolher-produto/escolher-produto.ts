@@ -5,6 +5,8 @@ import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {UserProvider} from "../../providers/user/user";
 import {Storage} from "@ionic/storage";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
+import {ProdutoresProvider} from "../../providers/produtores/produtores";
+import {ProdutosProvider} from "../../providers/produtos/produtos";
 
 @IonicPage()
 @Component({
@@ -21,8 +23,8 @@ export class EscolherProdutoPage {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      public jsonProvider: JsonProvider,
       public userProvider: UserProvider,
+      public produtosProvider: ProdutosProvider,
       public loadingController: LoadingController,
       public alertController: AlertController,
       public storageController: Storage,
@@ -36,7 +38,7 @@ export class EscolherProdutoPage {
   }
 
   protected getProdutos(){
-    this.jsonProvider.getProdutos().subscribe(
+    this.produtosProvider.getAll().subscribe(
       (response) => {
         this.produtos = response['produtos'];
         console.log(this.produtos);
