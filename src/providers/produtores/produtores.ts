@@ -31,4 +31,8 @@ export class ProdutoresProvider {
     return this.http.get(this.urlProvider.getURL() + 'produtores/'+produtor_id, {headers: this.header});
   }
 
+  public update(userData, id){
+    return this.http.put(this.urlProvider.getURL() + 'produtores/'+ id, userData, {headers: this.header});
+  }
+
 }

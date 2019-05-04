@@ -16,8 +16,14 @@ export class UserProvider{
 
 
   public createAccount(user): Observable<any> {
-    return this.http.post(this.urlAPi.getURL() + 'user/produtor', {user: user}, {headers: this.headers});
+    return this.http.post(this.urlAPi.getURL() + 'users/produtor', {user: user}, {headers: this.headers});
   }
+
+
+  public updateUser(userData, id){
+    return this.http.put(this.urlAPi.getURL() + 'users/'+ id, userData, {headers: this.headers});
+  }
+
 
 
   public user

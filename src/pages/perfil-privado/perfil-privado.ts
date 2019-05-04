@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {AdicionarProdutosPage} from "../adicionar-produtos/adicionar-produtos";
 import {ProdutosProvider} from "../../providers/produtos/produtos";
 import {ProdutoEditPage} from "../produto-edit/produto-edit";
+import {UserProvider} from "../../providers/user/user";
+import {ProdutoresProvider} from "../../providers/produtores/produtores";
+import {JsonProvider} from "../../providers/json/json";
 
 @IonicPage()
 @Component({
@@ -15,6 +18,8 @@ export class PerfilPrivadoPage {
   protected user;
   protected produtos;
   protected showBackButton = false;
+  protected provincias = [];
+  protected distritos = [];
 
   constructor(
     public navCtrl: NavController,
@@ -22,7 +27,11 @@ export class PerfilPrivadoPage {
     public storageController: Storage,
     public alertController: AlertController,
     public modalCtr: ModalController,
-    public produtosController: ProdutosProvider
+    public userProvider: UserProvider,
+    public produtorProvider: ProdutoresProvider,
+    public loadingController: LoadingController,
+    public produtosController: ProdutosProvider,
+    public jsonProvider: JsonProvider
     ) {
 
     this.showBackButton = this.navParams.get('showBackButton');
@@ -30,6 +39,167 @@ export class PerfilPrivadoPage {
 
   ionViewWillEnter(){
     this.getuserFromStorage();
+  }
+
+  protected getProvincias(){
+    this.jsonProvider.getProvincias().subscribe(
+      (response) => {
+        this.provincias = response['provincias'];
+        console.log(this.provincias);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('Complete Provinces');
+      }
+    );
+  }
+
+
+  protected openAlertProvincias(){
+    let alert = this.alertController.create({
+      subTitle: "Selecione a Província",
+      buttons: [
+        {
+          text: "CANCEL"
+        },
+        {
+          text: "OK",
+          handler: (provincia) => {
+            console.log(provincia);
+            this.openAlertDistritos(provincia.distritos);
+          }
+        }
+      ]
+    });
+
+
+    for(let provincia of this.provincias){
+      alert.addInput({name: "provincia", type: "radio", label: provincia.designacao, value: provincia});
+    }
+
+    alert.present();
+
+
+
+  }
+
+  protected openAlertDistritos(distritos){
+    let alert = this.alertController.create({
+      subTitle: "Selecione o Distrito",
+      buttons: [
+        {
+          text: "CANCEL"
+        },
+        {
+          text: "OK",
+          handler: (distrito) => {
+            console.log(distrito);
+            this.updateUserDistritos({distritos_id: distrito.id}, this.user.user.id, distrito);
+          }
+        }
+      ]
+    });
+
+
+    for(let distrito of distritos){
+      alert.addInput({name: "distrito", type: "radio", label: distrito.designacao, value: distrito});
+    }
+
+    alert.present();
+  }
+
+  protected openAlert(name, title, placeholder){
+    this.alertController.create({
+      subTitle: title,
+      inputs: [{
+        name: name,
+        placeholder: placeholder
+      }
+      ],
+      buttons: [
+        {
+          text: "CANCEL",
+        },
+        {
+          text: "SALVAR",
+          handler: (dados) => {
+            console.log(dados);
+            if(name == 'nome')
+              this.updateUserName(dados, this.user.user.id);
+            if(name == 'username')
+              this.updateUserPhone(dados, this.user.user.id);
+          }
+        }
+      ]
+    }).present();
+
+  }
+
+
+  protected updateUserDistritos(produtorData, id, distrito){
+    console.log(produtorData);
+
+    const loading = this.loadingController.create({content: 'Aguarde'});
+    loading.present();
+
+
+    this.produtorProvider.update(produtorData, id).subscribe(
+      (response) => {
+        console.log(response);
+        this.user.distrito = distrito;
+        loading.dismiss()
+      },
+      (error) => {
+        console.log(error);
+        loading.dismiss()
+      },
+      () => { }
+    );
+  }
+
+
+  protected updateUserName(userData, id){
+
+    const loading = this.loadingController.create({content: 'Aguarde'});
+    loading.present();
+
+
+    this.userProvider.updateUser(userData, id).subscribe(
+      (response) => {
+        console.log(response);
+        this.user.user.nome = userData.nome;
+        loading.dismiss()
+      },
+      (error) => {
+        console.log(error);
+        loading.dismiss()
+      },
+      () => { }
+    );
+  }
+
+
+  protected updateUserPhone(userData, id){
+
+    const loading = this.loadingController.create({content: 'Aguarde'});
+    loading.present();
+
+
+    this.userProvider.updateUser(userData, id).subscribe(
+      (response) => {
+        console.log(response);
+        this.user.telefone = userData.username;
+        this.user.user.username = userData.username;
+        loading.dismiss()
+      },
+      (error) => {
+        console.log(error);
+        loading.dismiss()
+      },
+      () => { }
+    );
   }
 
 
@@ -105,6 +275,9 @@ export class PerfilPrivadoPage {
       },
       (erros) => {
         console.log(erros);
+      },
+      () => {
+        this.getProvincias();
       }
     );
   }
