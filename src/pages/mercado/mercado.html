@@ -38,9 +38,9 @@
 
 
 
-  <!--<div *ngIf="!mercados" class="loader">-->
-    <!--<ion-spinner color="secondary"></ion-spinner>-->
-  <!--</div>-->
+  <div *ngIf="!mercados?.length > 0" class="loader">
+    <ion-spinner color="secondary"></ion-spinner>
+  </div>
 
   <ion-card  *ngFor="let mercado of mercados" (click)="showMercado(mercado)">
 

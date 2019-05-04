@@ -1,6 +1,23 @@
 page-escolher-produto {
 
-    ion-card{
+  ion-spinner * {
+    width: 50px;
+    height: 50px;
+    stroke: #61d295;
+    fill: #fff;
+  }
+
+  .loader{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  ion-card{
       height: 100px;
       text-align: center;
       position: relative;

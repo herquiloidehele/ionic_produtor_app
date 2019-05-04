@@ -18,6 +18,7 @@ export class EscolherProdutoPage {
   protected produtos = [];
   protected chekboxIds = [];
   protected user = {};
+  protected loader = true;
 
 
   constructor(
@@ -44,7 +45,9 @@ export class EscolherProdutoPage {
         console.log(this.produtos);
       },
       (error) => {console.log(error)},
-      () => {console.log('Complete Produtos')}
+      () => {
+        this.loader = false;
+      }
     );
   }
 
