@@ -36,8 +36,6 @@
 
 <ion-content style="background-color: #eee" hide-header [header]="headerMercado" >
 
-
-
   <div *ngIf="!mercados?.length > 0" class="loader">
     <ion-spinner color="secondary"></ion-spinner>
   </div>
@@ -45,16 +43,18 @@
   <ion-card  *ngFor="let mercado of mercados" (click)="showMercado(mercado)">
 
     <ion-item>
-      <ion-icon color="secondary" large item-start name='cart'></ion-icon>
+      <ion-avatar item-start>
+        <img color="secondary" src="../../assets/imgs/commerce.svg" width="50px"/>
+      </ion-avatar>
       <div>
         <h2 ion-text style="margin-bottom: 5px">Mercado {{mercado.designacao}}</h2>
           <p>
-            <ion-icon icon-start name="pin"></ion-icon>
+            <ion-icon color="secondary" icon-start name="pin"></ion-icon>
             <span>{{mercado.distrito.designacao }}, {{mercado.distrito.provincia.designacao}}</span>
           </p>
 
         <p style="margin-bottom: 5px">
-          <ion-icon icon-start name="person"></ion-icon>
+          <ion-icon color="secondary" icon-start name="person"></ion-icon>
           <span ion-text  class="item-bold"> {{mercado.revendedores.length}} revendedores</span>
         </p>
       </div>
