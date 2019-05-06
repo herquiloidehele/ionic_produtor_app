@@ -29,4 +29,9 @@ export class ProdutoSelectPage {
     this.viewCtr.dismiss(produto);
   }
 
+
+  dismiss(){
+    this.viewCtr.dismiss(null);
+  }
+
 }

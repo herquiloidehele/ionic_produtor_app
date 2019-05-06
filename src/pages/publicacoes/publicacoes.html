@@ -41,6 +41,14 @@
       <ion-spinner color="secondary"></ion-spinner>
   </div>
 
+  <div class="empty-content" *ngIf="!publicacoes && !loader">
+
+      <ion-icon color="secondary" name="ios-basket"></ion-icon>
+
+    <p ion-text>Nenhuma Publicação</p>
+
+  </div>
+
 
 
   <div class="publicacoes" *ngIf="publicacoes">

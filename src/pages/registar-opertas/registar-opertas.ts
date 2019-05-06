@@ -128,7 +128,8 @@ export class RegistarOpertasPage{
     modalControler.present();
 
     modalControler.onDidDismiss((produto) => {
-      this.publicacao.produtos_id = produto;
+      if(produto != null)
+        this.publicacao.produtos_id = produto;
     });
   }
 
