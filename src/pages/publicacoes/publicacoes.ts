@@ -17,6 +17,7 @@ export class PublicacoesPage {
   protected publicacoesCopy;
   protected hideTabs = true;
   protected showSearch = false;
+  protected loader = true;
 
   protected sliderOpts = {
     zoom: false,
@@ -83,6 +84,8 @@ export class PublicacoesPage {
     }).catch((error) => {
       console.log({erro: error});
     });
+
+    this.loader = false;
   }
 
 

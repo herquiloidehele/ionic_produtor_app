@@ -71,7 +71,7 @@ import {ProdutoEditPageModule} from "../pages/produto-edit/produto-edit.module";
 import {PerfilPrivadoPageModule} from "../pages/perfil-privado/perfil-privado.module";
 import {PerfilPublicoPageModule} from "../pages/perfil-publico/perfil-publico.module";
 import {IonicImageViewerModule} from "ionic-img-viewer";
-
+import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer/ngx';
 
 @NgModule({
   declarations: [
@@ -184,7 +184,8 @@ import {IonicImageViewerModule} from "ionic-img-viewer";
     UrlapiProvider,
     InteresseProvider,
     JsonProvider,
-    UserProvider
+    UserProvider,
+    FileTransfer, FileTransferObject
   ]
 
 })

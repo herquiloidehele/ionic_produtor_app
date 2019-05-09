@@ -41,7 +41,7 @@
       <ion-spinner color="secondary"></ion-spinner>
   </div>
 
-  <div class="empty-content" *ngIf="!publicacoes && !loader">
+  <div class="empty-content" *ngIf="publicacoes?.length == 0 && !loader">
 
       <ion-icon color="secondary" name="ios-basket"></ion-icon>
 

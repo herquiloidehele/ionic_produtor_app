@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, ViewChild} from '@angular/core';
 import {
   ModalController,
   IonicPage,
@@ -17,6 +17,9 @@ import {WebView} from "@ionic-native/ionic-webview/ngx";
 import { File } from "@ionic-native/file/ngx";
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {ProdutoSelectPage} from "../produto-select/produto-select";
+import {FileTransferObject} from "@ionic-native/file-transfer/ngx";
+import {FileTransfer, FileUploadOptions} from "@ionic-native/file-transfer/ngx";
+import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 
 
 const IMAGE_STORAGE_KEY = 'imagens_produtos';
@@ -33,6 +36,9 @@ export class RegistarOpertasPage{
   protected formGroup: FormGroup;
   protected imagens = [];
   protected user: any;
+  protected isNativo: boolean;
+
+  @ViewChild('fileInput') fileInput: ElementRef;
 
   protected unidadeMedidas = {};
 
@@ -61,6 +67,8 @@ export class RegistarOpertasPage{
     public storageCntroller: Storage,
     public platform: Platform,
     public file: File,
+    public transfer: FileTransfer,
+    public urlApi: UrlapiProvider,
     public webviewProvider: WebView,
     public toastController: ToastController,
     public ref: ChangeDetectorRef,
@@ -69,10 +77,15 @@ export class RegistarOpertasPage{
     this.initializeValidator();
     this.getUser();
 
-    this.imagens = [
-      // "assets/imgs/logo.png",
-      // "assets/imgs/farmer.jpeg",
-    ];
+
+    if(this.platform.is('cordova')){
+      this.isNativo = true;
+    }else{
+      this.isNativo = false;
+    }
+
+
+
   }
 
   ionViewDidLoad(){
@@ -140,9 +153,10 @@ export class RegistarOpertasPage{
     const loading = this.loadingController.create({content: 'Publicando'});
     loading.present();
 
-    this.ofertasProvider.salvarOferta(novaPublicacao).subscribe((response) => {
+    this.ofertasProvider.salvarOferta(novaPublicacao).subscribe(async (response) => {
         console.log(response);
         this.actualizarProdutos(this.publicacao.produtos_id);
+        // await this.uploadFiles(this.publicacao.produtos_id);
         loading.dismiss();
         this.navCtrl.popToRoot();
       },
@@ -191,7 +205,8 @@ export class RegistarOpertasPage{
       produtos_id: publicacao.produtos_id['id'],
       distritos_id: publicacao.distritos_id['id'],
       produtores_id: publicacao.produtores_id,
-      is_preco_unidade: publicacao.is_preco_unidade
+      is_preco_unidade: publicacao.is_preco_unidade,
+      imagens: this.imagens
     };
   }
   private showAlert(titulo, mensagem){
@@ -202,6 +217,7 @@ export class RegistarOpertasPage{
 
   protected preview(){
     console.log(this.publicacao);
+    this.publicacao.imagens = this.imagens;
     this.navCtrl.push(PreviewPublicacaoPage, {publicacao: this.publicacao});
   }
 
@@ -214,6 +230,7 @@ export class RegistarOpertasPage{
       produto_id: new FormControl('', [Validators.minLength(3)]),
       descricao: new FormControl('', [Validators.minLength(5), Validators.required]),
       is_preco_unidade: new FormControl('', []),
+      profilePic: new FormControl('',[]),
     });
   }
 
@@ -420,5 +437,61 @@ export class RegistarOpertasPage{
     });
 
   }
+
+  /**
+   * Carregamento de Imagens na web
+   */
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
+
+      let imageData = (readerEvent.target as any).result;
+      this.formGroup.patchValue({ 'profilePic': imageData });
+      console.log(imageData);
+      this.imagens.push(imageData);
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+
+  protected triggerFileInputClick(){
+    let file: HTMLElement = this.fileInput.nativeElement as HTMLElement;
+    console.log(file);
+    file.click();
+  }
+
+
+
+  uploadFiles(publicao_id){
+    let loader = this.loadingController.create({
+      content: "Uploading..."
+    });
+    loader.present();
+
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    let options: FileUploadOptions = {
+      fileKey: 'img_produto',
+      fileName: 'produto_name',
+      chunkedMode: false,
+      mimeType: "image/jpeg",
+      headers: {},
+      params: [{publicacoes_id: publicao_id}]
+    };
+
+    return fileTransfer.upload(this.imagens[0], this.urlApi.getURL() + 'upload-imagens', options)
+      .then((data) => {
+        console.log(data+" Uploaded Successfully");
+        // this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
+        loader.dismiss();
+        this.presentToast("Image uploaded successfully");
+      }, (err) => {
+        console.log(err);
+        loader.dismiss();
+        this.presentToast(err);
+      });
+  }
+
+
 
 }

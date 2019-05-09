@@ -15,21 +15,30 @@
     <ion-item class="session-images-upload" *ngIf="imagens.length > 0">
       <ion-grid class="img-uploads">
         <ion-row class="image-row">
+          nativo
           <div col-4  *ngFor="let imagem of imagens" class="imagem">
             <img  alt="imagem-adicionada"  width="65" height="65" [src]="imagem" (click)="deleteImage(imagem)" />
           </div>
 
-          <button *ngIf="imagens.length <= 4" style="margin: auto" block small outline col-3 ion-button  color="secondary" (click)="showUploadOptions()"><ion-icon name="add"></ion-icon></button>
+          <button *ngIf="imagens.length <= 4 && isNativo" style="margin: auto" block small outline col-3 ion-button  color="secondary" (click)="showUploadOptions()"><ion-icon name="add"></ion-icon></button>
+          <button *ngIf="imagens.length <= 4 && !isNativo" style="margin: auto" block small outline col-3 ion-button  color="secondary" (click)="triggerFileInputClick()"><ion-icon name="add"></ion-icon></button>
         </ion-row>
-
       </ion-grid>
     </ion-item>
 
-    <ion-item class="imagens-session" *ngIf="imagens.length == 0" (click)="showUploadOptions()">
+    <ion-item class="imagens-session" *ngIf="imagens.length == 0 && isNativo" (click)="showUploadOptions()">
         <div class="img-icon">
             <img alt="img-camera-adicionar" src="../../assets/icon/images.png"/>
           <h3 text-center>Adicionar Imagens (Max. 5)</h3>
         </div>
+    </ion-item>
+
+    <ion-item class="imagens-session" *ngIf="imagens.length == 0 && !isNativo" (click)="triggerFileInputClick()">
+      <div class="img-icon">
+        <img alt="img-camera-adicionar" src="../../assets/icon/images.png"/>
+        <input type="file"  #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
+        <h3 text-center>Adicionar Imagens (Max. 5)</h3>
+      </div>
     </ion-item>
 
 
