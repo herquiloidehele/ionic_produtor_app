@@ -22,14 +22,20 @@ var AutenticacaoProvider = /** @class */ (function () {
         this.urlProvider = urlProvider;
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
+    AutenticacaoProvider.prototype.verifyNumber = function (numero) {
+        return this.http.get(this.urlProvider.getURL() + 'user/verify-numbem/' + numero);
+    };
     AutenticacaoProvider.prototype.login = function (user) {
-        return this.http.post(this.urlProvider.getUrl() + 'login', user, { headers: this.headers });
+        return this.http.post(this.urlProvider.getURL() + 'login', user, { headers: this.headers });
     };
     AutenticacaoProvider.prototype.getUserFromToken = function (token) {
-        return this.http.post(this.urlProvider.getUrl() + 'get-user-token/' + token, { token: token }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getURL() + 'get-user-token/' + token, { token: token }, { headers: this.headers });
     };
     AutenticacaoProvider.prototype.logout = function (token) {
-        return this.http.post(this.urlProvider.getUrl() + 'logout', { token: token }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getURL() + 'logout', { token: token }, { headers: this.headers });
+    };
+    AutenticacaoProvider.prototype.getUser = function (id) {
+        return this.http.get(this.urlProvider.getURL() + 'users/id');
     };
     AutenticacaoProvider = __decorate([
         Injectable(),

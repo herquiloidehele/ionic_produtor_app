@@ -28,7 +28,7 @@ var CategoriaPage = /** @class */ (function () {
         var val = event.target.value;
         if (val && val.trim() != '') {
             this.produtos = this.produtos.filter(function (produto) {
-                return (produto.designacao.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                return (produto.designacao.toLowerCase().indexOf(val.trim().toLowerCase()) > -1);
             });
         }
     };

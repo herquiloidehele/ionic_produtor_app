@@ -10,12 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrlapiProvider } from "../urlapi/urlapi";
-/*
-  Generated class for the MercadoProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+import { forkJoin } from "rxjs/observable/forkJoin";
 var MercadoProvider = /** @class */ (function () {
     function MercadoProvider(http, urlProvider) {
         this.http = http;
@@ -23,10 +18,15 @@ var MercadoProvider = /** @class */ (function () {
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     MercadoProvider.prototype.getAll = function () {
-        return this.http.get(this.urlProvider.getUrl() + 'mercados', { headers: this.headers });
+        return this.http.get(this.urlProvider.getURL() + 'mercados', { headers: this.headers });
     };
     MercadoProvider.prototype.salvar = function (mercado) {
-        return this.http.post(this.urlProvider.getUrl() + 'mercados', { mercado: mercado }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getURL() + 'mercados', { mercado: mercado }, { headers: this.headers });
+    };
+    MercadoProvider.prototype.getProdutosMercado = function (mercadoId) {
+        var requisicao1 = this.http.get(this.urlProvider.getURL() + 'mercados/' + mercadoId + '/todos-produtos');
+        var requisicao2 = this.http.get(this.urlProvider.getURL() + 'mercados/' + mercadoId + '/produtos-procurados');
+        return forkJoin([requisicao1, requisicao2]);
     };
     MercadoProvider = __decorate([
         Injectable(),

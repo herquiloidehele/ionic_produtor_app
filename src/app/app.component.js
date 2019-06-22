@@ -8,160 +8,87 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component, ViewChild } from '@angular/core';
-import { AlertController, Events, Platform } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 import { App } from 'ionic-angular/components/app/app';
-import { LoginPage } from "../pages/login/login";
-import { AutenticacaoProvider } from "../providers/autenticacao/autenticacao";
-import { TabsPage } from "../pages/modulo-cadastrador/tabs/tabs";
-import { ProdutosrequsitadosPage } from "../pages/modulo-produtor/produtosrequsitados/produtosrequsitados";
-import { DisponibilizarProdutosPage } from "../pages/modulo-produtor/disponibilizar-produtos/disponibilizar-produtos";
-import { ProdutosDisponibilizadosPage } from "../pages/modulo-produtor/produtos-disponibilizados/produtos-disponibilizados";
-import { PerfilPage } from "../pages/perfil/perfil";
-import { MenuProvider } from "../providers/menu/menu";
-import { InicioPage } from "../pages/modulo-revendedor/inicio/inicio";
-import { RequisitarProdutosPage } from "../pages/modulo-revendedor/requisitar-produtos/requisitar-produtos";
-import { MeusProdutosPage } from "../pages/modulo-revendedor/meus-produtos/meus-produtos";
-import { PerfilRevendedorPage } from "../pages/modulo-revendedor/perfil-revendedor/perfil-revendedor";
-import { ProdutoresPage } from "../pages/modulo-cadastrador/produtores/produtores";
-import { ProdutosPage } from "../pages/modulo-cadastrador/produtos/produtos";
-import { RevendedoresPage } from "../pages/modulo-cadastrador/revendedores/revendedores";
-import { MercadosPage } from "../pages/modulo-cadastrador/mercados/mercados";
-import { Network } from "@ionic-native/network";
-import { UrlapiProvider } from "../providers/urlapi/urlapi";
-import { Pro } from "@ionic/pro";
+import { PerfilPrivadoPage } from "../pages/perfil-privado/perfil-privado";
+import { Storage } from "@ionic/storage";
+import { StartPage } from "../pages/start/start";
+import { PaginaPrincipalPage } from "../pages/pagina-principal/pagina-principal";
+import { ProdutosListPage } from "../pages/produtos-list/produtos-list";
+import { RevendedoresListPage } from "../pages/revendedores-list/revendedores-list";
+import { ProdutoresListPage } from "../pages/produtores-list/produtores-list";
+import { ProdutoresProvider } from "../providers/produtores/produtores";
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, autenticacaoProvider, alertController, menuProvider, network, eventsProvider, urlprovider, app) {
+    function MyApp(platform, app, storageController, alertController, produtorProvider) {
         this.platform = platform;
-        this.autenticacaoProvider = autenticacaoProvider;
+        this.storageController = storageController;
         this.alertController = alertController;
-        this.menuProvider = menuProvider;
-        this.network = network;
-        this.eventsProvider = eventsProvider;
-        this.urlprovider = urlprovider;
-        if (!localStorage.getItem('server'))
-            this.urlprovider.selectUrl('http://54.218.58.191/api/');
+        this.produtorProvider = produtorProvider;
         platform.ready().then(function () {
-            Pro.init('F2C642A4', {
-                appVersion: '0.0.1'
-            });
-            // this.networkProvider.initializeNetworkEvents();
-            //
-            // //  Offline event
-            // this.eventsProvider.subscribe('network:offiline', () => {
-            //   alert('offline');
-            // });
-            //
-            // //  Online event
-            // this.eventsProvider.subscribe('network:online', ()=> {
-            //   alert('online');
-            // });
             platform.registerBackButtonAction(function () {
                 app.navPop();
             });
         });
-        this.menuPaginasProdutor = [
-            { icon: 'home', pageName: 'Produtos Requisitados', page: ProdutosrequsitadosPage },
-            { icon: 'send', pageName: 'Disponibilizar Produtos', page: DisponibilizarProdutosPage },
-            { icon: 'leaf', pageName: 'Meus Produtos', page: ProdutosDisponibilizadosPage },
-            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
+        this.redirectUser();
+        // this.rootPage = LocalizacaoPage;
+        this.menu = [
+            { icon: 'ios-contacts', pageName: 'Produtores', page: ProdutoresListPage },
+            { icon: 'ios-people', pageName: 'Revendedores', page: RevendedoresListPage },
+            { icon: 'ios-leaf', pageName: 'Produtos', page: ProdutosListPage },
+            { icon: 'ios-person', pageName: 'Meu Perfil', page: PerfilPrivadoPage }
         ];
-        this.menuPaginasCadastrador = [
-            { icon: 'leaf', pageName: 'Produtos', page: ProdutosPage },
-            { icon: 'ios-people', pageName: 'Produtores', page: ProdutoresPage },
-            { icon: 'person', pageName: 'Revendedores', page: RevendedoresPage },
-            { icon: 'ios-basket', pageName: 'Mercados', page: MercadosPage },
-            { icon: 'person', pageName: 'Meu Perfil', page: PerfilPage }
-        ];
-        this.menuPaginasRevendedor = [
-            { icon: 'home', pageName: 'Inicio', page: InicioPage },
-            { icon: 'send', pageName: 'Requisitar Produtos', page: RequisitarProdutosPage },
-            { icon: 'leaf', pageName: 'Meus Produtos', page: MeusProdutosPage },
-            { icon: 'person', pageName: 'Meu Perfil', page: PerfilRevendedorPage }
-        ];
-        this.getUserData();
-        this.getPage();
     }
-    MyApp.prototype.getPage = function () {
+    MyApp.prototype.redirectUser = function () {
         var _this = this;
-        var token = localStorage.getItem('token');
-        if (token) {
-            this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
-                console.log(response);
-                _this.user = response.user;
-                if (response.tipo_user == 'Cadastrador')
-                    _this.rootPage = TabsPage;
-                if (response.tipo_user == 'Produtor')
-                    _this.rootPage = ProdutosrequsitadosPage;
-                if (response.tipo_user == 'Revendedor')
-                    _this.rootPage = InicioPage;
-            }, function (erros) {
-                localStorage.removeItem('token');
-                _this.rootPage = LoginPage;
-            });
-        }
-        else {
-            console.log('Nao existe Token Ainda');
-            this.rootPage = LoginPage;
-        }
+        this.storageController.get('user').then(function (response) {
+            console.log({ storage: response });
+            if (response) {
+                _this.user = response;
+                _this.updateUserData(_this.user['id']);
+                _this.rootPage = PaginaPrincipalPage;
+            }
+            else {
+                _this.rootPage = StartPage;
+            }
+        }).catch(function (error) {
+            console.log(error);
+            _this.rootPage = StartPage;
+        });
     };
     MyApp.prototype.showPageProdutor = function (page) {
-        this.ionNav.setRoot(page);
+        this.ionNav.push(page, { showBackButton: true });
     };
-    MyApp.prototype.getUserData = function () {
+    MyApp.prototype.updateUserData = function (id) {
         var _this = this;
-        var token = localStorage.getItem('token');
-        if (token) {
-            this.autenticacaoProvider.getUserFromToken(token).subscribe(function (response) {
-                _this.user = response['user'];
-                _this.menuProvider.setTipoUser(response['tipo_user']);
-                _this.menuProvider.setShowMenu(true);
-            }, function (erros) {
-                console.log(erros);
-            }, function () {
-                console.log('getUserData completed');
-            });
-        }
-        else {
-            console.log('Nao existe Token Ainda');
-        }
+        this.produtorProvider.getProdutor(id).subscribe(function (response) {
+            console.log(response['produtor']);
+            if (response['produtor'] && response['produtor'] && null || response['produtor'] != 'undefined' && response['produtor'] != undefined) {
+                console.log("dentro");
+                _this.storageController.set('user', response['produtor']);
+            }
+        }, function (error) {
+            console.log(error);
+        });
     };
     MyApp.prototype.logout = function () {
         var _this = this;
-        var token = localStorage.getItem('token');
-        var prompt = this.alertController.create({
-            title: 'Sair',
-            message: 'Deseja Sair da Aplicacao?',
+        this.alertController.create({
+            title: "Sair da Aplicação",
+            message: "Tem a certeza que quer sair da aplicação?",
             buttons: [
                 {
-                    text: 'NÃO',
-                    handler: function (dados) {
-                        console.log('Canecelado');
+                    text: 'SIM',
+                    handler: function () {
+                        console.log("Saindo");
+                        _this.storageController.clear();
+                        _this.ionNav.setRoot(StartPage);
                     }
                 },
                 {
-                    text: 'SIM',
-                    handler: function (dados) {
-                        _this.sair(token);
-                    }
+                    text: "NãO",
                 }
-            ],
-        });
-        prompt.present();
-    };
-    MyApp.prototype.sair = function (token) {
-        var _this = this;
-        this.autenticacaoProvider.logout(token).subscribe(function (resultado) {
-            if (resultado['logout'] == true) {
-                _this.ionNav.setRoot(LoginPage);
-                localStorage.removeItem('token');
-                _this.menuProvider.setShowMenu(false);
-                _this.menuProvider.setTipoUser('');
-            }
-            else
-                alert('Ocorreu algum erro no logout');
-        }, function (erros) {
-            console.log(erros);
-        });
+            ]
+        }).present();
     };
     __decorate([
         ViewChild('content'),
@@ -172,13 +99,10 @@ var MyApp = /** @class */ (function () {
             templateUrl: 'app.html'
         }),
         __metadata("design:paramtypes", [Platform,
-            AutenticacaoProvider,
+            App,
+            Storage,
             AlertController,
-            MenuProvider,
-            Network,
-            Events,
-            UrlapiProvider,
-            App])
+            ProdutoresProvider])
     ], MyApp);
     return MyApp;
 }());

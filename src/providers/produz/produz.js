@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrlapiProvider } from "../urlapi/urlapi";
+import { forkJoin } from "rxjs/observable/forkJoin";
 /*
   Generated class for the ProduzProvider provider.
 
@@ -23,10 +24,24 @@ var ProduzProvider = /** @class */ (function () {
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     ProduzProvider.prototype.getMeusProdutos = function (produtor_id) {
-        return this.http.get(this.urlProvider.getUrl() + 'produz/produtor-producao/' + produtor_id, { headers: this.headers });
+        return this.http.get(this.urlProvider.getURL() + 'produz/produtor-producao/' + produtor_id, { headers: this.headers });
     };
     ProduzProvider.prototype.salvarProduz = function (produz) {
-        return this.http.post(this.urlProvider.getUrl() + 'produz', { produz: produz }, { headers: this.headers });
+        return this.http.post(this.urlProvider.getURL() + 'produz', { produz: produz }, { headers: this.headers });
+    };
+    ProduzProvider.prototype.updateProduz = function (id_produz, dados) {
+        return this.http.put(this.urlProvider.getURL() + 'produz/' + id_produz, dados, { headers: this.headers });
+    };
+    ProduzProvider.prototype.getProduz = function (idProduz) {
+        var response1 = this.http.get(this.urlProvider.getURL() + 'produz/' + idProduz);
+        var response2 = this.http.get(this.urlProvider.getURL() + 'produz/' + idProduz + '/epocas');
+        return forkJoin([response1, response2]);
+    };
+    ProduzProvider.prototype.salvarEpocas = function (idProduz, epocas) {
+        return this.http.post(this.urlProvider.getURL() + 'epocas', { produz_id: idProduz, epocas: epocas });
+    };
+    ProduzProvider.prototype.getEpoca = function (idProduz) {
+        return this.http.get(this.urlProvider.getURL() + 'epocas/' + idProduz);
     };
     ProduzProvider = __decorate([
         Injectable(),

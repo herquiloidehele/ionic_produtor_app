@@ -23,7 +23,7 @@ var UnidadeMedidaProvider = /** @class */ (function () {
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     UnidadeMedidaProvider.prototype.getAll = function () {
-        return this.http.get(this.urlProvider.getUrl() + 'unidades-medidas', { headers: this.header });
+        return this.http.get(this.urlProvider.getURL() + 'unidades-medidas', { headers: this.header });
     };
     UnidadeMedidaProvider = __decorate([
         Injectable(),

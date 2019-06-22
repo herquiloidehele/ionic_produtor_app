@@ -23,7 +23,7 @@ var CategoriasProvider = /** @class */ (function () {
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     CategoriasProvider.prototype.getAll = function () {
-        return this.http.get(this.urlProvider.getUrl() + 'categorias', { headers: this.header });
+        return this.http.get(this.urlProvider.getURL() + 'categorias', { headers: this.header });
     };
     CategoriasProvider = __decorate([
         Injectable(),

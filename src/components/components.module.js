@@ -10,6 +10,7 @@ import { ProdutosComponent } from './produtos/produtos';
 import { MercadosComponent } from './mercados/mercados';
 import { ProdutoresComponent } from './produtores/produtores';
 import { RevendedoresComponent } from './revendedores/revendedores';
+import { DialogPrecoComponent } from './dialog-preco/dialog-preco';
 var ComponentsModule = /** @class */ (function () {
     function ComponentsModule() {
     }
@@ -20,14 +21,18 @@ var ComponentsModule = /** @class */ (function () {
                 MercadosComponent,
                 MercadosComponent,
                 ProdutoresComponent,
-                RevendedoresComponent],
+                RevendedoresComponent,
+                DialogPrecoComponent,
+            ],
             imports: [],
             exports: [CategoriaProdutosComponent,
                 ProdutosComponent,
                 MercadosComponent,
                 MercadosComponent,
                 ProdutoresComponent,
-                RevendedoresComponent]
+                RevendedoresComponent,
+                DialogPrecoComponent,
+            ]
         })
     ], ComponentsModule);
     return ComponentsModule;

@@ -45,15 +45,19 @@ var MeusProdutosPage = /** @class */ (function () {
         });
     };
     MeusProdutosPage.prototype.getAllProdutos = function () {
-        var _this = this;
-        this.produtosProvider.getAll().subscribe(function (response) {
-            console.log(response['produtos']);
-            _this.produtos = response['produtos'];
-        }, function (erros) {
-            console.log(erros);
-        }, function () {
-            _this.getMeusProdutos();
-        });
+        // this.produtosProvider.getAll().subscribe(
+        //   (response) => {
+        //     console.log(response['produtos']);
+        //     this.produtos =  response['produtos'];
+        //   },
+        //   (erros) => {
+        //     console.log(erros);
+        //   },
+        //   () => {
+        //     this.getMeusProdutos();
+        //   }
+        //
+        // );
     };
     MeusProdutosPage.prototype.adicionarProdutos = function () {
         this.navController.push(RegistarInteressesPage, { produtos: this.produtos });

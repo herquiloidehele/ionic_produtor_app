@@ -31,4 +31,4 @@ var MercadosComponent = /** @class */ (function () {
     return MercadosComponent;
 }());
 export { MercadosComponent };
-//# sourceMappingURL=mercado.js.map
+//# sourceMappingURL=mercados.js.map

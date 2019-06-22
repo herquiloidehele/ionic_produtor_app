@@ -23,7 +23,10 @@ var RevendedorProvider = /** @class */ (function () {
         this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     RevendedorProvider.prototype.getAll = function () {
-        return this.http.get(this.urlProvider.getUrl() + 'revendedores', { headers: this.headers });
+        return this.http.get(this.urlProvider.getURL() + 'revendedores', { headers: this.headers });
+    };
+    RevendedorProvider.prototype.get = function (revendedor_id) {
+        return this.http.get(this.urlProvider.getURL() + 'revendedores/' + revendedor_id);
     };
     RevendedorProvider = __decorate([
         Injectable(),

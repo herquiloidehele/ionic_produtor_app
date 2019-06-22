@@ -23,7 +23,16 @@ var ProdutoresProvider = /** @class */ (function () {
         this.header = new HttpHeaders({ 'Content-Type': 'application/json' });
     }
     ProdutoresProvider.prototype.getAll = function () {
-        return this.http.get(this.urlProvider.getUrl() + 'produtores', { headers: this.header });
+        return this.http.get(this.urlProvider.getURL() + 'produtores', { headers: this.header });
+    };
+    ProdutoresProvider.prototype.getProdutor = function (id) {
+        return this.http.get(this.urlProvider.getURL() + 'produtores/' + id, { headers: this.header });
+    };
+    ProdutoresProvider.prototype.get = function (produtor_id) {
+        return this.http.get(this.urlProvider.getURL() + 'produtores/' + produtor_id, { headers: this.header });
+    };
+    ProdutoresProvider.prototype.update = function (userData, id) {
+        return this.http.put(this.urlProvider.getURL() + 'produtores/' + id, userData, { headers: this.header });
     };
     ProdutoresProvider = __decorate([
         Injectable(),
