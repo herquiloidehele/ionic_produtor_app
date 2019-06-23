@@ -16,9 +16,11 @@ import {ProdutosProvider} from "../../providers/produtos/produtos";
 export class EscolherProdutoPage {
 
   protected produtos = [];
+  protected produtosCopy = [];
   protected chekboxIds = [];
   protected user = {};
   protected loader = true;
+  protected showSearch = false;
 
 
   constructor(
@@ -42,6 +44,7 @@ export class EscolherProdutoPage {
     this.produtosProvider.getAll().subscribe(
       (response) => {
         this.produtos = response['produtos'];
+        this.produtosCopy = response['produtos'];
         console.log(this.produtos);
       },
       (error) => {console.log(error)},
@@ -124,6 +127,28 @@ export class EscolherProdutoPage {
 
     await alert.present();
 
+  }
+
+
+  protected onInput(event){
+    this.produtos = this.produtosCopy;
+
+    this.produtos = this.produtos.filter((mercado, indice) => {
+      return (mercado.designacao.toUpperCase().indexOf(event.target.value.trim().toUpperCase()) > -1);
+    });
+  }
+
+  protected onBlur(){
+    this.changeShowSearch();
+  }
+
+  protected onCancel(){
+    console.log('cancelado');
+    this.changeShowSearch();
+  }
+
+  protected changeShowSearch(){
+    this.showSearch = !this.showSearch;
   }
 
 

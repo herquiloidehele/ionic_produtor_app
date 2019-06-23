@@ -1,3 +1,32 @@
+<ion-header>
+  <ion-navbar color="secondary" *ngIf="!showSearch">
+    <ion-title>
+      Produtos Produzidos
+
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only end *ngIf="!showSearch" (click)="changeShowSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+
+  <ion-navbar *ngIf="showSearch" color="secondary">
+    <ion-searchbar
+      [showCancelButton]="true"
+      [animated]="true"
+      [placeholder]="'Produtos (' + (produtos ? produtos.length : 0) + ')'"
+      (ionBlur)="onBlur()"
+      (keyup)="onInput($event)">
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
 
 <ion-content style="background: #eee;">
 
