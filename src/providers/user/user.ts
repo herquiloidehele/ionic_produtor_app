@@ -26,7 +26,7 @@ export class UserProvider{
 
 
 
-  public user
+
 
 
 
