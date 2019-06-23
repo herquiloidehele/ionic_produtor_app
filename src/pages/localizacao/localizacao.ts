@@ -66,12 +66,13 @@ export class LocalizacaoPage {
 
   protected onSelectProvincias(provincia){
     this.localizacao.provincia = provincia;
-
     this.distritos = provincia['distritos'];
+    this.start = 1;
   }
 
   protected onSelectDistritos(distrito){
     this.localizacao.distrito = distrito;
+    this.start = 2;
   }
 
   protected onClickProvincia(){
@@ -98,7 +99,6 @@ export class LocalizacaoPage {
       this.user['distrito_id'] = this.localizacao['distrito']['id'];
       this.navCtrl.push(EscolherProdutoPage, {user: this.user});
     }
-    this.start += 1;
   }
 
 

@@ -22,7 +22,7 @@
           <ion-col col-12>
             <ion-item color="secondary">
               <ion-label floating="">Nome Completo</ion-label>
-              <ion-input [(ngModel)]="user.nome" formControlName="nome" (click)="onKeyUp()" type="text"></ion-input>
+              <ion-input [(ngModel)]="user.nome" formControlName="nome" (click)="onKeyUp()" (keyup)="onNameKeyUp($event)" type="text"></ion-input>
             </ion-item>
             <p *ngIf="user.nome.length > 0 && !formGroup.get('nome').valid" padding-left ion-text style="color: red;">Nome Invalido</p>
           </ion-col>
@@ -32,7 +32,7 @@
           <ion-col col-12>
             <ion-item *ngIf="start > 0"  color="secondary">
               <ion-label floating>No. Telefone</ion-label>
-              <ion-input [(ngModel)]="user.username" formControlName="username"   type="tel"></ion-input>
+              <ion-input [(ngModel)]="user.username" formControlName="username" type="tel" (keyup)="onContactoKeyUp($event)"></ion-input>
             </ion-item>
 
             <p *ngIf="user.username.length > 0 && !formGroup.get('username').valid" padding-left ion-text style="color: red;">Número Invalido</p>
@@ -40,7 +40,7 @@
         </ion-row>
 
         <ion-row>
-          <ion-col col-12 text-center class="butao-entrar">
+          <ion-col col-12 text-center class="butao-entrar" *ngIf="start > 1">
             <button ion-button color="blue" (click)="onNext()" [disabled]="!validarForm(formGroup)">Próximo</button>
           </ion-col>
         </ion-row>

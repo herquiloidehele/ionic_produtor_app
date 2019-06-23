@@ -35,12 +35,9 @@ export class UserInfoPage {
 
 
   onNext(){
-
-    if(this.start > 0)
+    if(this.start == 2)
       this.goToLocalizacaoPage();
-    else{
-      this.start += 1;
-    }
+
     console.log(this.start);
   }
 
@@ -90,9 +87,25 @@ export class UserInfoPage {
   }
 
 
-  onKeyUp(){
+  protected onNameKeyUp(event){
+    if(this.formGroup.controls['nome'].valid)
+      this.start = 1;
+    else
+      this.start = 0;
+  }
+
+  protected onContactoKeyUp(event){
+    if(this.formGroup.controls['nome'].valid && this.formGroup.controls['username'].valid){
+      this.start = 2;
+    }else{
+      this.start = 1;
+    }
+  }
+
+  protected onKeyUp() {
     this.start = 0;
   }
+
 
   vadacaoForm(){
 

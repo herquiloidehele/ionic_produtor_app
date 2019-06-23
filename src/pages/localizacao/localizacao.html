@@ -27,7 +27,7 @@
         </ion-item>
 
         <ion-row margin-top>
-          <ion-col text-center class="butao-entrar">
+          <ion-col text-center class="butao-entrar" *ngIf="start > 1">
             <button ion-button  color="blue" (click)="onNext()" [disabled]="!validarForm()">Proximo</button>
           </ion-col>
         </ion-row>
