@@ -44,9 +44,9 @@ export class UserInfoPage {
    goToLocalizacaoPage(){
     const loading = this.loadingController.create({content: 'Aguarde'});
     loading.present();
+    console.log(this.user);
     this.authProvider.verifyNumber(this.user.username).subscribe(
       (response) => {
-          loading.dismiss();
 
           console.log(response);
           if(response['result'] == true) {
@@ -61,7 +61,7 @@ export class UserInfoPage {
         console.log(error);
         this.showMessage('Erro','Verifique a sua internet, Tente Novamente');
       }, () => {
-
+        loading.dismiss();
      }
     );
   }

@@ -20,7 +20,7 @@ export class AutenticacaoProvider {
 
 
   public verifyNumber(numero){
-    return this.http.get(this.urlProvider.getURL() + 'user/verify-numbem/'+numero);
+    return this.http.get(this.urlProvider.getURL() + 'user/verify-numbem/'+numero, {headers: this.headers});
   }
 
 

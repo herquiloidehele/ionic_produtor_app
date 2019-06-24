@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
-import {JsonProvider} from "../../providers/json/json";
 import {PaginaPrincipalPage} from "../pagina-principal/pagina-principal";
 import {UserProvider} from "../../providers/user/user";
 import {Storage} from "@ionic/storage";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
-import {ProdutoresProvider} from "../../providers/produtores/produtores";
 import {ProdutosProvider} from "../../providers/produtos/produtos";
 
 @IonicPage()
