@@ -1,6 +1,6 @@
 
 export var environment = {
-  production: false,
-  URL_API: 'http://localhost:8000/api/',
-  SIMPLE_URL: 'http://localhost:8000/'
+  production: true,
+  URL_API: 'http://apiagri.siko.tk/api/',
+  SIMPLE_URL: 'http://apiagri.siko.tk/'
 };
