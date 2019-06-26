@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Produtor App",
+  "short_name": "Produtor",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
