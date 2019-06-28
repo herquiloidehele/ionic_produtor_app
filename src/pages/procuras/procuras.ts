@@ -3,7 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import {ProcurasProvider} from "../../providers/procuras/procuras";
 import {UrlapiProvider} from "../../providers/urlapi/urlapi";
 import {DetalhesProcuraPage} from "../detalhes-procura/detalhes-procura";
-
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -16,16 +16,23 @@ export class ProcurasPage {
   protected loader = true;
 
 
-  constructor(public navCtrl: NavController, public urlApi: UrlapiProvider, public procurasProvider: ProcurasProvider) {
+  constructor(public navCtrl: NavController, public storage: Storage, public urlApi: UrlapiProvider, public procurasProvider: ProcurasProvider) {
   }
 
   ionViewDidLoad() {
-    this.getProcuras();
+    this.getUser();
   }
 
 
-  private getProcuras(){
-    this.procurasProvider.getAll().subscribe((response) => {
+  private getUser(){
+    this.storage.get('user').then((response) => {
+      const user = response;
+      this.getProcuras(user.id);
+    })
+  }
+
+  private getProcuras(id){
+    this.procurasProvider.getAll(id).subscribe((response) => {
       this.procuras = response['procuras'];
     },
       (error) => {

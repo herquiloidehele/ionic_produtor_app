@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {OfertasProvider} from "../../providers/ofertas/ofertas";
 import {RegistarOpertasPage} from "../registar-opertas/registar-opertas";
 import {ViewPublicacaoPage} from "../view-publicacao/view-publicacao";
@@ -36,12 +36,12 @@ export class PublicacoesPage {
     public urlApiProvider: UrlapiProvider
     ) {
 
+
   }
 
   ionViewWillEnter(){
     this.getMinhasPublicacoes();
   }
-
 
   protected onInput(event){
     this.publicacoes = this.publicacoesCopy;

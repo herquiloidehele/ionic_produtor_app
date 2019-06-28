@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, LoadingController, ModalController, NavController, NavParams} from 'ionic-angular';
+import {
+  AlertController,
+  IonicPage,
+  LoadingController,
+  ModalController,
+  NavController,
+  NavParams,
+  ToastController
+} from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {AdicionarProdutosPage} from "../adicionar-produtos/adicionar-produtos";
 import {ProdutosProvider} from "../../providers/produtos/produtos";
@@ -31,11 +39,19 @@ export class PerfilPrivadoPage {
     public produtorProvider: ProdutoresProvider,
     public loadingController: LoadingController,
     public produtosController: ProdutosProvider,
-    public jsonProvider: JsonProvider
+    public jsonProvider: JsonProvider,
+    public toastController: ToastController
     ) {
 
     this.showBackButton = this.navParams.get('showBackButton');
+    if(this.navParams.get('isFirstTime') == true)
+      this.showToast();
   }
+
+  protected showToast(){
+    this.toastController.create({duration: 3000, message: "Bem Vindo ao Produtor APP", position:'Top',  showCloseButton: true}).present();
+  }
+
 
   ionViewWillEnter(){
     this.getuserFromStorage();

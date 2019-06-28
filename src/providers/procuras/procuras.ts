@@ -21,8 +21,8 @@ export class ProcurasProvider {
   }
 
 
-  public getAll() : Observable<any> {
-    return this.http.get(this.urlProvider.getURL() + 'procuras',);
+  public getAll(id) : Observable<any> {
+    return this.http.get(this.urlProvider.getURL() + 'procuras/produtores/'+id);
   }
 
 

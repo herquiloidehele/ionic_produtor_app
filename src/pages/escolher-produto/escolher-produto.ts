@@ -107,7 +107,7 @@ export class EscolherProdutoPage {
     this.storageController.set('user', user).then(
       (response) => {
         loading.dismiss();
-        this.navCtrl.push(PaginaPrincipalPage, {user: user, tabIndex: 0});
+        this.navCtrl.push(PaginaPrincipalPage, {user: user, tabIndex: 0, isFirstTime: true});
       }
     ).catch((error)=>{
       console.log(error);
