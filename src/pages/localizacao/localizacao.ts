@@ -33,6 +33,9 @@ export class LocalizacaoPage {
   ionViewDidLoad(){
     this.user = this.navParams.get('user');
   }
+  
+  
+  
 
   protected getProvincias(){
     this.jsonProvider.getProvincias().subscribe(

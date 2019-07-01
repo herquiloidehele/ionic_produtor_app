@@ -24,7 +24,7 @@
               <ion-label floating="">Nome Completo</ion-label>
               <ion-input [(ngModel)]="user.nome" formControlName="nome" (click)="onKeyUp()" (keyup)="onNameKeyUp($event)" type="text"></ion-input>
             </ion-item>
-            <p *ngIf="user.nome.length > 0 && !formGroup.get('nome').valid" padding-left ion-text style="color: red;">Nome Invalido</p>
+            <p *ngIf="user.nome.length > 0 && !formGroup.get('nome').valid" padding-left ion-text style="color: red;">Nome Incompleto</p>
           </ion-col>
         </ion-row>
 
