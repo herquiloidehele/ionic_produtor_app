@@ -44,7 +44,7 @@ export class RegistarOpertasPage{
 
   protected publicacao = {
     designacao: '',
-    descricao: null,
+    descricao: '',
     preco: null,
     quantidade: null,
     unidades_medidas_id: '',
@@ -228,7 +228,7 @@ export class RegistarOpertasPage{
       quantidade: new FormControl('', [Validators.pattern('\\d+'), Validators.required]),
       unidade_medida_id: new FormControl('', [Validators.required]),
       produto_id: new FormControl('', [Validators.minLength(3)]),
-      descricao: new FormControl('', [Validators.minLength(5), Validators.required]),
+      descricao: new FormControl('', []),
       is_preco_unidade: new FormControl('', []),
       profilePic: new FormControl('',[]),
     });

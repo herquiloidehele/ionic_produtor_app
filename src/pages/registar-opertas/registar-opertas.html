@@ -53,7 +53,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row>
+    <ion-row style="margin-top: 10px">
       <ion-col col-1>
         <ion-icon color="{{(formGroup.get('quantidade').valid && formGroup.get('unidade_medida_id').valid) ? 'secondary' : ''}}" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
@@ -71,7 +71,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row>
+    <ion-row style="margin-top: 10px">
       <ion-col col-1>
         <ion-icon [color]="formGroup.get('preco').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
       </ion-col>
@@ -92,35 +92,38 @@
 
     </ion-row>
 
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon [color]="formGroup.get('descricao').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
-      </ion-col>
+    <!--<ion-row *ngIf="false">-->
+      <!--<ion-col col-1>-->
+        <!--<ion-icon [color]="formGroup.get('descricao').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>-->
+      <!--</ion-col>-->
 
-      <ion-item col-11>
-        <ion-label floating>Descrição </ion-label>
-        <ion-textarea type="text" [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>
-      </ion-item>
-    </ion-row>
+      <!--<ion-item col-11>-->
+        <!--<ion-label floating>Descrição </ion-label>-->
+        <!--<ion-textarea type="text" [(ngModel)]="publicacao.descricao" formControlName="descricao" name="descricao"></ion-textarea>-->
+      <!--</ion-item>-->
+    <!--</ion-row>-->
 
-    <ion-row>
-      <ion-col col-1>
-        <ion-icon [color]="formGroup.get('titulo').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>
-      </ion-col>
+    <!--<ion-row *ngIf="false">-->
+      <!--<ion-col col-1>-->
+        <!--<ion-icon [color]="formGroup.get('titulo').valid ? 'secondary' : ''" class="icon-input" name="checkmark-circle"></ion-icon>-->
+      <!--</ion-col>-->
 
-      <ion-item col-11>
-        <ion-label floating="">Titulo da Publicação (Opcional)</ion-label>
-        <ion-input [(ngModel)]="publicacao.designacao" formControlName="titulo" name="designacao" type="text"></ion-input>
-      </ion-item>
-    </ion-row>
-
-
-    <ion-row>
-      <button ion-button color="primary" [disabled]="!formGroup.valid" block outline (click)="preview()">Pré-Visualizar</button>
-      <button ion-button color="secondary" full [disabled]="!formGroup.valid" (click)="publicar()">Publicar</button>
-    </ion-row>
-
+      <!--<ion-item col-11>-->
+        <!--<ion-label floating="">Titulo da Publicação (Opcional)</ion-label>-->
+        <!--<ion-input [(ngModel)]="publicacao.designacao" formControlName="titulo" name="designacao" type="text"></ion-input>-->
+      <!--</ion-item>-->
+    <!--</ion-row>-->
 
   </form>
 
 </ion-content>
+
+
+<ion-footer style="background-color: #fff">
+  <ion-toolbar style="background-color: #fff">
+    <ion-row>
+      <button ion-button color="primary" [disabled]="!formGroup.valid" block outline (click)="preview()">Pré-Visualizar</button>
+      <button ion-button color="secondary" full [disabled]="!formGroup.valid" (click)="publicar()">Publicar</button>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
